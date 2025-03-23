@@ -231,9 +231,9 @@
                                     Kontaktformular
                                 </div>
                                 <div>
-                                    <button type="button" class="btn btn-primary">
-                                        Kontaktformular
-                                    </button>
+                                    <div class="d-flex justify-content-center align-items-center mb-5">
+                                        <a href="{{ route('contact') }}" class="btn btn-primary">Kontaktformular</a>
+                                    </div>
                                 </div>
                             </div>
                             <!--end::Wrapper-->

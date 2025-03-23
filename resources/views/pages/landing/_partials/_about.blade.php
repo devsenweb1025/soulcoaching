@@ -43,9 +43,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center align-items-center mb-5">
-                                            <button type="button" class="btn btn-primary">
-                                                Mehr Über mich
-                                            </button>
+                                            <a href="{{ route('about') }}" class="btn btn-primary">Mehr Über mich</a>
                                         </div>
                                     </div>
                                     <!--end::Wrapper-->
