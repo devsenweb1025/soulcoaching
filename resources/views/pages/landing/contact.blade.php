@@ -36,7 +36,7 @@
                 <div class="row">
                     <!-- Sticky Sidebar -->
                     <div class="col-md-6" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                    data-aos-delay="500">
+                        data-aos-delay="500">
                         <div class="sticky-sidebar p-3 border rounded"
                             style="position: sticky; top: 150px; height: fit-content;">
                             <div class="card shadow mb-15 p-10">
@@ -78,8 +78,8 @@
                     </div>
 
                     <!-- Long Scrolling Content -->
-                    <div class="col-md-6 p-3 border rounded" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
-                    data-aos-delay="500">
+                    <div class="col-md-6 p-3 border rounded" data-aos="zoom-in" data-aos-easing="linear"
+                        data-aos-duration="500" data-aos-delay="500">
                         <div class="card shadow mb-15 p-10">
                             <div class="card-body">
                                 <div
@@ -93,35 +93,34 @@
                                 <div class="text-gray-800 fs-2 mb-5">
                                     <form>
                                         <div class="mb-10">
-                                            <label for="exampleFormControlInput1" class="required form-label">Symbol in
-                                                label</label>
-                                            <input type="email" class="form-control form-control-solid"
-                                                placeholder="Example input">
+                                            <label for="name_input" class="required form-label">Vor- und
+                                                Nachname</label>
+                                            <input type="text" class="form-control form-control-solid"
+                                                placeholder="Ikta Sollork" id="name_input">
                                         </div>
                                         <div class="mb-10">
-                                            <label for="exampleFormControlInput1" class="required form-label">Symbol in
-                                                label</label>
+                                            <label for="email_input" class="required form-label">Mail Adresse</label>
                                             <input type="email" class="form-control form-control-solid"
-                                                placeholder="Example input">
+                                                placeholder="alter@support.com" id="email_input">
                                         </div>
                                         <div class="mb-10">
-                                            <label for="exampleFormControlInput1" class="required form-label">Symbol in
-                                                label</label>
-                                            <input type="email" class="form-control form-control-solid"
-                                                placeholder="Example input">
+                                            <label for="phone_input" class="required form-label">Telefonnummer</label>
+                                            <input type="text" class="form-control form-control-solid"
+                                                placeholder="+41" id="phone_input">
                                         </div>
                                         <div class="mb-10">
-                                            <label for="exampleFormControlInput1" class="required form-label">Symbol in
-                                                label</label>
+                                            <label for="reason_input" class="required form-label">Um welche Dienstleistung handelt es sich?</label>
                                             <input type="email" class="form-control form-control-solid"
-                                                placeholder="Example input">
+                                                placeholder="Regarding Product" id="reason_input">
                                         </div>
                                         <div class="mb-10">
-                                            <label for="floatingTextarea2" class="required form-label">Comments</label>
-                                            <textarea class="form-control form-control-solid" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                            <label for="description_input" class="required form-label">Beschreiben Sie ihr Anliegen</label>
+                                            <textarea class="form-control form-control-solid" placeholder="Give us more info..." id="description_input"
+                                                style="height: 100px"></textarea>
                                         </div>
                                         <div>
-                                            <button type="submit" class="form-control btn btn-primary">Nachricht senden</button>
+                                            <button type="submit" class="form-control btn btn-primary">Nachricht
+                                                senden</button>
                                         </div>
                                     </form>
                                 </div>
@@ -155,7 +154,8 @@
 
                             <!--begin::Accordion-->
                             <div class="accordion accordion-solid accordion-icon-collapse" id="kt_accordion_3"
-                                data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="0">
+                                data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                                data-aos-delay="0">
                                 <!--begin::Item-->
                                 <div class="mb-5 bg-white rounded px-10 py-5 shadow">
                                     <!--begin::Header-->
