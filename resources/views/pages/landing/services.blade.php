@@ -153,8 +153,8 @@
                 <div class="row h-100 z-index-2">
                     <div class="col-6 col-md-6 col-lg-4 d-flex flex-column">
                         <!--begin::Image input-->
-                        <div class="image-input image-input-empty image-input-empty w-100 h-100" data-kt-image-input="true"
-                            style="background-position:center;">
+                        <div class="image-input image-input-empty image-input-empty w-100 h-100"
+                            data-kt-image-input="true" style="background-position:center;">
 
                             <!--begin::Image preview wrapper-->
                             <div class="image-input-wrapper w-100 h-100 object-fit-cover"
@@ -198,7 +198,8 @@
 
                         <div class="text-center d-flex justify-content-center align-items-center mt-10">
                             {!! theme()->getIcon('faceid', 'fs-2hx text-gray-700') !!}
-                            <span class="ms-2 fs-xs-2 fs-sm-2 fs-md-2x text-gray-700">Hier könnte dein Bild sein.</span>
+                            <span class="ms-2 fs-xs-2 fs-sm-2 fs-md-2x text-gray-700">Hier könnte dein Bild
+                                sein.</span>
                         </div>
                         <!--end::Image input-->
                     </div>

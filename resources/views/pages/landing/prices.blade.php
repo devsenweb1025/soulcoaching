@@ -52,7 +52,8 @@
                         <!--begin::Row-->
                         <div class="row g-10">
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6">
+                            <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -122,7 +123,8 @@
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6">
+                            <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/coaching.webp') }})">
                                 </div>
@@ -164,14 +166,16 @@
                         <!--begin::Row-->
                         <div class="row g-10">
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6">
+                            <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses-2.webp') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6">
+                            <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -277,7 +281,8 @@
                         <!--begin::Row-->
                         <div class="row g-10">
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6">
+                            <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -347,7 +352,8 @@
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6">
+                            <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/tier.webp') }})">
                                 </div>
@@ -390,14 +396,16 @@
                         <!--begin::Row-->
                         <div class="row g-10">
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6">
+                            <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/medial.webp') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6">
+                            <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
