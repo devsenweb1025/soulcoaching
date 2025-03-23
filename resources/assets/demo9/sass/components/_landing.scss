@@ -1,0 +1,316 @@
+//
+// Landing elements
+//
+
+// Variables
+$landing-dark-color: darken($primary, 50%);
+$landing-light-color: #ffffff33;
+$landing-header-height: 100px;
+$landing-header-height-tablet-and-mobile: 70px;
+$landing-header-sticky-height: 100px;
+$landing-header-sticky-height-tablet-and-mobile: 70px;
+
+$font-family-archivo: "archivo" !default;
+$font-family-cinzel: "cinzel" !default;
+
+.font-cinzel {
+    font-family: "cinzel" !important;
+}
+
+.font-archivo {
+    font-family: "archivo" !important;
+}
+
+html,
+body {
+    font-family: $font-family-archivo !important;
+}
+
+// Utility classes
+.landing-dark-bg {
+    background-color: $landing-dark-color;
+}
+
+.landing-dark-color {
+    color: $landing-dark-color;
+}
+
+.landing-dark-border {
+    border: 1px dashed #2c3f5b;
+}
+
+.landing-dark-separator {
+    border-top: 1px dashed #2c3f5b;
+}
+
+// Utility classes
+.landing-light-bg {
+    background-color: $landing-light-color;
+}
+
+.landing-light-color {
+    color: $landing-light-color;
+}
+
+.landing-light-border {
+    border: 1px dashed #d3c0a433;
+}
+
+.landing-light-separator {
+    border-top: 1px dashed #d3c0a433;
+}
+
+.landing-curve {
+    position: relative;
+
+    svg {
+        position: relative;
+        top: 0;
+        display: block;
+    }
+}
+
+// Landing header
+.landing-header {
+    display: flex;
+    align-items: center;
+    height: $landing-header-height;
+    background-color: transparent;
+    box-shadow: none;
+    font-family: $font-family-archivo;
+
+    // Logos
+    .logo-default {
+        display: block;
+    }
+
+    .logo-sticky {
+        display: none;
+    }
+
+    // Sticky header modes
+    [data-kt-sticky-landing-header="on"] & {
+        padding: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 100;
+        background-color: $white;
+        box-shadow: rgba(76, 80, 133, 0.2) 0px 10px 17px -5px;
+        height: $landing-header-sticky-height;
+
+        // Logos
+        .logo-sticky {
+            display: block;
+        }
+
+        .logo-default {
+            display: none;
+        }
+    }
+}
+
+// Fix body padding top when Landing sticky header is on
+body[data-kt-sticky-landing-header="on"] {
+    padding-top: $landing-header-height;
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+    // Landing header
+    .landing-header {
+        height: $landing-header-height-tablet-and-mobile;
+
+        // Menu wrapper
+        .landing-menu-wrapper {
+            position: relative;
+            overflow: auto;
+        }
+
+        // Sticky header modes
+        [data-kt-sticky-landing-header="on"] & {
+            height: $landing-header-sticky-height-tablet-and-mobile;
+        }
+    }
+
+    // Fix body padding top when Landing sticky header is on
+    body[data-kt-sticky-landing-header="on"] {
+        padding-top: $landing-header-height-tablet-and-mobile;
+    }
+
+    .bg-rays {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// Custom page scss
+.btn-gradient-dark {
+    background: linear-gradient(
+        127deg,
+        rgb(14, 28, 41) -68%,
+        rgb(50, 61, 104) 100%
+    );
+    border-radius: 10px;
+    box-shadow: rgb(184, 193, 230) 0px 1px 2px 0px inset,
+        rgba(46, 64, 128, 0.345) 0px 0.706592px 0.706592px -0.583333px,
+        rgba(46, 64, 128, 0.337) 0px 1.80656px 1.80656px -1.16667px,
+        rgba(46, 64, 128, 0.325) 0px 3.62176px 3.62176px -1.75px,
+        rgba(46, 64, 128, 0.306) 0px 6.8656px 6.8656px -2.33333px,
+        rgba(46, 64, 128, 0.26) 0px 13.6468px 13.6468px -2.91667px,
+        rgba(46, 64, 128, 0.15) 0px 30px 30px -3.5px !important;
+    color: white;
+
+    &:hover {
+        color: #f1faff;
+        background: linear-gradient(
+            127deg,
+            lighten(rgb(14, 28, 41), 20%) -68%,
+            lighten(rgb(50, 61, 104), 20%) 100%
+        );
+    }
+}
+
+audio {
+    width: 100%;
+    -webkit-appearance: none;
+
+    &::-webkit-media-controls-play-button {
+        background-color: $primary;
+        border-radius: 50%;
+    }
+
+    &::-webkit-media-controls-play-button:hover {
+        background-color: darken($primary, 10%);
+    }
+
+    &::-webkit-media-controls-timeline-container {
+        background-color: #e0e0e0;
+    }
+
+    &::-webkit-media-controls-progress-bar {
+        background-color: $primary;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: left top;
+    background-repeat: repeat;
+    background-size: 128px auto;
+    background-image: url(https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png);
+    width: 100%;
+    height: 100%;
+}
+
+.bg {
+    background-color: rgba(240, 248, 255, 0.9);
+    flex: none;
+    inset: 0;
+    mix-blend-mode: screen;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+}
+
+.rays {
+    -webkit-mask: radial-gradient(
+            125% 100% at 0% 0%,
+            #000000 0%,
+            rgba(0, 0, 0, 0.22449) 88.28828828828829%,
+            rgba(0, 0, 0, 0) 100%
+        )
+        add;
+    background: radial-gradient(
+        100% 100% at 0% 0%,
+        #d1d1d1 0%,
+        var(--token-37699ec8-6f41-4363-9a8a-9e76d6ead784, rgb(246, 251, 255))
+            100%
+    );
+    flex: none;
+    height: 200vh;
+    left: 0;
+    mask: radial-gradient(
+            125% 100% at 0% 0%,
+            #000000 0%,
+            rgba(0, 0, 0, 0.22449) 88.28828828828829%,
+            rgba(0, 0, 0, 0) 100%
+        )
+        add;
+    opacity: 0.75;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    will-change: var(--framer-will-change-effect-override, transform);
+    z-index: 1;
+}
+
+.ray {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgb(255, 255, 255) 83.93442622950819%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    flex: none;
+    height: 1269px;
+    max-width: 960px;
+    overflow: hidden;
+    position: absolute;
+    top: -209px;
+}
+
+.cloud {
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    left: 50%;
+    mix-blend-mode: screen;
+    transform: translate(-50%);
+    aspect-ratio: 1.5425 / 1;
+    animation: move 4s steps(10, start) infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-55%);
+    }
+    100% {
+        transform: translate(-45%);
+    }
+}
+
+// Cloud vars
+$clouds: ("../media/clouds/clouds_1.png" 1579px 17s),
+    ("../media/clouds/clouds_2.png" 1579px 17s),
+    ("../media/clouds/clouds_3.png" 1579px 17s),
+    ("../media/clouds/clouds_4.png" 1579px 17s);
+
+// Animation & keyframes
+// Refactor by @HugoGiraudel
+// https://codepen.io/HugoGiraudel
+@for $i from 1 through length($clouds) {
+    $item: nth($clouds, $i);
+    $path: nth($item, 1);
+
+    .clouds-#{$i} {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        background: url($path) center center repeat;
+        mix-blend-mode: screen;
+        background-size: 100% 100%;
+        z-index: 1;
+        overflow: hidden;
+    }
+}
