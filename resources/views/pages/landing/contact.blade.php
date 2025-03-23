@@ -35,7 +35,8 @@
             <div class="container mt-4">
                 <div class="row">
                     <!-- Sticky Sidebar -->
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                    data-aos-delay="500">
                         <div class="sticky-sidebar p-3 border rounded"
                             style="position: sticky; top: 150px; height: fit-content;">
                             <div class="card shadow mb-15 p-10">
@@ -77,7 +78,8 @@
                     </div>
 
                     <!-- Long Scrolling Content -->
-                    <div class="col-md-6 p-3 border rounded">
+                    <div class="col-md-6 p-3 border rounded" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
+                    data-aos-delay="500">
                         <div class="card shadow mb-15 p-10">
                             <div class="card-body">
                                 <div

@@ -51,7 +51,8 @@
                         <!--begin::Row-->
                         <div class="row g-10">
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6">
+                            <div class="col-xl-4 col-md-6" data-aos="flip-left" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -144,7 +145,8 @@
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6">
+                            <div class="col-xl-8 col-md-6" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses-1.webp') }})">
                                 </div>
@@ -183,7 +185,8 @@
                         <!--begin::Row-->
                         <div class="row g-10">
                             <!--begin::Col-->
-                            <div class="col-12">
+                            <div class="col-12" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -248,7 +251,8 @@
                         <!--begin::Row-->
                         <div class="row g-10">
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6">
+                            <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -328,7 +332,8 @@
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6">
+                            <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses-3.webp') }})">
                                 </div>
@@ -367,14 +372,16 @@
                         <!--begin::Row-->
                         <div class="row g-10">
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6">
+                            <div class="col-xl-8 col-md-6" data-aos="zoom-in-right" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses-4.webp') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6">
+                            <div class="col-xl-4 col-md-6" data-aos="zoom-in-left" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
