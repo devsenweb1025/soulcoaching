@@ -47562,7 +47562,7 @@ audio::-webkit-media-controls-progress-bar {
   height: 100%;
   background: url("../media/clouds/clouds_1.png") center center repeat;
   mix-blend-mode: screen;
-  background-size: 100% 100%;
+  background-size: auto;
   z-index: 1;
   overflow: hidden;
 }
@@ -47578,7 +47578,7 @@ audio::-webkit-media-controls-progress-bar {
   height: 100%;
   background: url("../media/clouds/clouds_2.png") center center repeat;
   mix-blend-mode: screen;
-  background-size: 100% 100%;
+  background-size: auto;
   z-index: 1;
   overflow: hidden;
 }
@@ -47594,7 +47594,7 @@ audio::-webkit-media-controls-progress-bar {
   height: 100%;
   background: url("../media/clouds/clouds_3.png") center center repeat;
   mix-blend-mode: screen;
-  background-size: 100% 100%;
+  background-size: auto;
   z-index: 1;
   overflow: hidden;
 }
@@ -47610,7 +47610,7 @@ audio::-webkit-media-controls-progress-bar {
   height: 100%;
   background: url("../media/clouds/clouds_4.png") center center repeat;
   mix-blend-mode: screen;
-  background-size: 100% 100%;
+  background-size: auto;
   z-index: 1;
   overflow: hidden;
 }

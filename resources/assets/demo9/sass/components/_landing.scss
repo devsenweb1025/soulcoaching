@@ -309,7 +309,7 @@ $clouds: ("../media/clouds/clouds_1.png" 1579px 17s),
         height: 100%;
         background: url($path) center center repeat;
         mix-blend-mode: screen;
-        background-size: 100% 100%;
+        background-size: auto;
         z-index: 1;
         overflow: hidden;
     }

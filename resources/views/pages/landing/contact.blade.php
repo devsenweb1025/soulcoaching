@@ -28,7 +28,7 @@
     </div>
     <!--end::Landing hero-->
     <div class="position-relative">
-        <div class="clouds-2" style="background-size: contain"></div>
+        <div class="clouds-2"></div>
         <!--begin::Testimonials Section-->
         <div class="mt-20 mb-20 position-relative z-index-2">
             <!--begin::Container-->
