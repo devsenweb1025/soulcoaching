@@ -151,7 +151,8 @@
             <!--begin::Container-->
             <div class="container z-index-2 mt-10">
                 <div class="row h-100 z-index-2">
-                    <div class="col-6 col-md-6 col-lg-4 d-flex flex-column">
+                    <div class="col-6 col-md-6 col-lg-4 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
+                    data-aos-delay="500">
                         <!--begin::Image input-->
                         <div class="image-input image-input-empty image-input-empty w-100 h-100"
                             data-kt-image-input="true" style="background-position:center;">
@@ -203,7 +204,8 @@
                         </div>
                         <!--end::Image input-->
                     </div>
-                    <div class="col-6 col-md-6 col-lg-8 h-100">
+                    <div class="col-6 col-md-6 col-lg-8 h-100" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                    data-aos-delay="500">
                         <!--begin::Testimonial-->
                         <div class="p-lg-10 p-md-5">
                             <!--begin::Wrapper-->
