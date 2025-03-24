@@ -15,12 +15,18 @@ License: {{ theme()->getOption('product', 'license') }}
 <head>
     <meta charset="utf-8"/>
     <title>{{ ucfirst(theme()->getOption('meta', 'title')) }}</title>
-    <meta name="description" content="{{ ucfirst(theme()->getOption('meta', 'description')) }}"/>
+    <meta name="description" property="org:description" content="{{ ucfirst(theme()->getOption('meta', 'description')) }}"/>
     <meta name="keywords" content="{{ theme()->getOption('meta', 'keywords') }}"/>
     <link rel="canonical" href="{{ ucfirst(theme()->getOption('meta', 'canonical')) }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="shortcut icon" href="{{ getAsset(theme()->getOption('assets', 'favicon')) }}"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="{{ theme()->getOption('meta', 'google-site-verification') }}"/>
+    <meta property="org:title" content="{{ ucfirst(theme()->getOption('meta', 'title')) }}" />
+    <meta property="org:url" content="https://soulcoaching.solipos.ch"/>
+    <base href="https://soulcoaching.solipos.ch">
+    <link rel="alternate" hreflang="de-AT" href="https://www.seelenfluesterin.net/">
+
 
     {{-- begin::Fonts --}}
     {{ theme()->includeFonts() }}
