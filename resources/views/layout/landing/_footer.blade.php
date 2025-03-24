@@ -20,7 +20,7 @@
                 <!--begin::Col-->
                 <div class="col-lg-6 ps-lg-16">
                     <!--begin::Navs-->
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-between p-10">
                         <!--begin::Links-->
                         <div class="d-flex fw-semibold flex-column me-20">
                             <!--begin::Subtitle-->
@@ -96,7 +96,7 @@
                 </div>
                 <!--end::Col-->
                 <!--begin::Col-->
-                <div class="col-lg-4 pe-lg-16 mb-10 mb-lg-0 p-11 p-md-0">
+                <div class="col-lg-4 pe-lg-16 mb-10 mb-lg-0 p-10">
                     <!--begin::Block-->
                     <div class="d-flex flex-column justify-content-center">
                         <!--begin::Title-->
