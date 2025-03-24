@@ -39,7 +39,7 @@
                         data-aos-duration="500" data-aos-delay="500">
                         <div class="card-body h-100">
                             <div class="row h-100">
-                                <div class="col-6 col-md-12 col-lg-6 h-md-50 h-lg-100 h-100">
+                                <div class="col-12 col-md-12 col-lg-6 h-md-50 h-lg-100 mb-5">
                                     <!--begin::Testimonial-->
                                     <div class="mb-2 w-100 h-100">
                                         <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-right.jpg') }}"
@@ -47,7 +47,7 @@
                                     </div>
                                     <!--end::Testimonial-->
                                 </div>
-                                <div class="col-6 col-md-12 col-lg-6 h-100">
+                                <div class="col-12 col-md-12 col-lg-6">
                                     <!--begin::Testimonial-->
                                     <div class="p-lg-10 p-md-5">
                                         <!--begin::Wrapper-->
@@ -79,7 +79,7 @@
                         data-aos-duration="500" data-aos-delay="500">
                         <div class="card-body h-100">
                             <div class="row h-100">
-                                <div class="col-6 col-md-12 col-lg-6 h-md-50 h-lg-100 h-100">
+                                <div class="col-12 col-md-12 col-lg-6 h-md-50 h-lg-100 mb-5">
                                     <!--begin::Testimonial-->
                                     <div class="mb-2 w-100 h-100">
                                         <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sulana-high.webp') }}"
@@ -87,7 +87,7 @@
                                     </div>
                                     <!--end::Testimonial-->
                                 </div>
-                                <div class="col-6 col-md-12 col-lg-6 h-100">
+                                <div class="col-12 col-md-12 col-lg-6 h-100">
                                     <!--begin::Testimonial-->
                                     <div class="p-lg-10 p-md-5">
                                         <!--begin::Wrapper-->
