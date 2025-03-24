@@ -7,7 +7,7 @@
             <!--begin::Row-->
             <div class="row py-10 py-lg-20">
                 <div class="col-lg-2 pe-lg-16 mb-10 mb-lg-0">
-                    <div class="d-flex align-items-center order-2 order-md-1">
+                    <div class="d-flex align-items-center justify-content-center order-2 order-md-1">
                         <!--begin::Logo-->
                         <a href="landing.html">
                             <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/landing-dark.png') }}"
@@ -96,28 +96,16 @@
                 </div>
                 <!--end::Col-->
                 <!--begin::Col-->
-                <div class="col-lg-4 pe-lg-16 mb-10 mb-lg-0">
+                <div class="col-lg-4 pe-lg-16 mb-10 mb-lg-0 p-11 p-md-0">
                     <!--begin::Block-->
-                    <div class="rounded landing-dark-border p-9 mb-10">
+                    <div class="d-flex flex-column justify-content-center">
                         <!--begin::Title-->
-                        <h2 class="text-white">Kontakt</h2>
+                        <h2 class="fw-bold text-gray-500 mb-6">Rechtliche Informationen</h2>
                         <!--end::Title-->
                         <!--begin::Text-->
-                        <span class="fw-normal fs-4 text-gray-700">
-                            <a href="mailto:info@seelen-fluesterin.ch"
-                                class="text-white opacity-50 text-hover-primary">info@seelen-fluesterin.ch</a></span>
-                        <!--end::Text-->
-                    </div>
-                    <!--end::Block-->
-                    <!--begin::Block-->
-                    <div class="rounded landing-dark-border p-9">
-                        <!--begin::Title-->
-                        <h2 class="text-white">Rechtliche Informationen</h2>
-                        <!--end::Title-->
-                        <!--begin::Text-->
-                        <div class="fw-normal fs-4 text-gray-700">Impressum</div>
-                        <div class="fw-normal fs-4 text-gray-700">Datenschutzerklärung</div>
-                        <div class="fw-normal fs-4 text-gray-700">Allgemeine Geschäftsbedingungen</div>
+                        <div class="text-white opacity-50 fs-5 mb-6">Impressum</div>
+                        <div class="text-white opacity-50 fs-5 mb-6">Datenschutzerklärung</div>
+                        <div class="text-white opacity-50 fs-5 mb-6">Allgemeine Geschäftsbedingungen</div>
                         <!--end::Text-->
                     </div>
                     <!--end::Block-->
