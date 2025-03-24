@@ -65,7 +65,7 @@
                                             <!--begin::Price-->
                                             <div class="text-start">
                                                 {{-- <span class="mb-2 text-primary">CHF</span> --}}
-                                                <span class="fs-3x fw-bold text-primary">CHF 180</span>
+                                                <span class="fs-3x fw-bold text-primary">CHF 1800</span>
                                             </div>
                                             <!--end::Price-->
                                         </div>
@@ -187,7 +187,7 @@
                                             <!--begin::Price-->
                                             <div class="text-start">
                                                 {{-- <span class="mb-2 text-primary">CHF</span> --}}
-                                                <span class="fs-3x fw-bold text-primary">CHF 180</span>
+                                                <span class="fs-3x fw-bold text-primary">CHF 1800</span>
                                             </div>
                                             <!--end::Price-->
                                         </div>
@@ -294,7 +294,7 @@
                                             <!--begin::Price-->
                                             <div class="text-start">
                                                 {{-- <span class="mb-2 text-primary">CHF</span> --}}
-                                                <span class="fs-3x fw-bold text-primary">CHF 180</span>
+                                                <span class="fs-3x fw-bold text-primary">CHF 1800</span>
                                             </div>
                                             <!--end::Price-->
                                         </div>
@@ -417,7 +417,7 @@
                                             <!--begin::Price-->
                                             <div class="text-start">
                                                 {{-- <span class="mb-2 text-primary">CHF</span> --}}
-                                                <span class="fs-3x fw-bold text-primary">CHF 180</span>
+                                                <span class="fs-3x fw-bold text-primary">CHF 1800</span>
                                             </div>
                                             <!--end::Price-->
                                         </div>
