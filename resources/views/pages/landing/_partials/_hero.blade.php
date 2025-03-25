@@ -15,14 +15,21 @@
     <!--begin::Heading-->
     <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2">
         <!--begin::Title-->
-        <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Wir erkennen, wissen und
-            <br />transformieren mit Magie
+        <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Transformation auf 5
+            <br />Bewusstseinsebenen
             <span
                 style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                 {{-- <span id="kt_landing_hero_text"></span> --}}
             </span>
         </h1>
-        <p class="fs-1 fs-md-1x fs-lg-2x mb-15 font-archivo">Seelenflüsterin Sarah</p>
+        <h1 class="text-dark lh-base fs-2 fs-md-2x fs-lg-3x font-cinzel">Erkennen | Wissen | Transformieren
+            <br />mit Magie
+            <span
+                style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
+                {{-- <span id="kt_landing_hero_text"></span> --}}
+            </span>
+        </h1>
+        <p class="fs-1 fs-md-1x fs-lg-2x mb-15 font-archivo">Herzlich Willkommen - Seelenflüsterin Sarahg</p>
         <!--end::Title-->
         <!--begin::Action-->
         <div class="d-flex justify-content-center">
