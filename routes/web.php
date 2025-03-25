@@ -81,5 +81,8 @@ Route::get('online-course', [LandingController::class,'course'])->name('course')
 Route::get('online-shope', [LandingController::class,'shop'])->name('shop');
 Route::get('contact', [LandingController::class,'contact'])->name('contact');
 
+// Booking
+
+
 
 require __DIR__ . '/auth.php';

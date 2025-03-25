@@ -23,8 +23,8 @@ License: {{ theme()->getOption('product', 'license') }}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="{{ theme()->getOption('meta', 'google-site-verification') }}"/>
     <meta property="org:title" content="{{ ucfirst(theme()->getOption('meta', 'title')) }}" />
-    <meta property="org:url" content="https://soulcoaching.solipos.ch"/>
-    <base href="https://soulcoaching.solipos.ch">
+    {{-- <meta property="org:url" content="https://soulcoaching.solipos.ch"/> --}}
+    {{-- <base href="https://soulcoaching.solipos.ch"> --}}
     <link rel="alternate" hreflang="de-AT" href="https://www.seelenfluesterin.net/">
 
 
