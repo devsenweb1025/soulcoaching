@@ -1,5 +1,9 @@
 <!--begin::Landing hero-->
-<div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
+<div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-800px px-9 z-index-1"
+    style="    background-image: url(/media/landing/hero.jpg);
+    background-repeat: no-repeat;
+    mix-blend-mode: normal;
+    background-size: cover;">
     <div class="cloud">
         <div style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0"
             data-framer-background-image-wrapper="true">
