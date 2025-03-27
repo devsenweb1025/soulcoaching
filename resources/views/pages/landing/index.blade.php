@@ -1,8 +1,8 @@
 <x-landing-layout>
     @include('pages.landing._partials._background')
     @include('pages.landing._partials._hero')
-    @include('pages.landing._partials._services')
     @include('pages.landing._partials._welcome')
+    @include('pages.landing._partials._services')
     @include('pages.landing._partials._about')
     @include('pages.landing._partials._whyme')
     @include('pages.landing._partials._reviews')

@@ -6,12 +6,12 @@
         <div class="container">
             <!--begin::Row-->
             <div class="row py-10 py-lg-20">
-                <div class="col-lg-2 pe-lg-16 mb-10 mb-lg-0">
+                <div class="col-lg-2 pe-lg-16 mb-10 mb-lg-0 p-10">
                     <div class="d-flex align-items-center justify-content-center order-2 order-md-1">
                         <!--begin::Logo-->
                         <a href="landing.html">
                             <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/landing-dark.png') }}"
-                                class="h-300px h-md-200px" />
+                                class="h-150px h-md-100px" />
                         </a>
                         <!--end::Logo image-->
                     </div>
