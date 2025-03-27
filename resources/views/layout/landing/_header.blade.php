@@ -23,6 +23,17 @@
                         class="logo-sticky h-70px h-lg-100px" />
                 </a>
                 <!--end::Logo image-->
+
+                <!--begin::Toolbar-->
+                <div class="me-3 d-flex d-lg-none">
+                    <a href="{{ route('login') }}" class="btn btn-gradient-dark">
+                        {{-- <span>Termin buchen</span> --}}
+                        <span class="display-none">
+                            {!! theme()->getIcon('calendar', 'fs-1 text-white') !!}
+                        </span>
+                    </a>
+                </div>
+                <!--end::Toolbar-->
             </div>
             <!--end::Logo-->
             <!--begin::Menu wrapper-->
@@ -107,9 +118,12 @@
                 </div>
             </div>
             <!--end::Menu wrapper-->
+
             <!--begin::Toolbar-->
-            <div class="flex-equal text-end ms-1">
-                <a href="{{ route('login') }}" class="btn btn-gradient-dark">Termin buchen</a>
+            <div class="flex-equal text-end ms-1 me-3 d-none d-lg-flex">
+                <a href="{{ route('login') }}" class="btn btn-gradient-dark">
+                    <span>Termin buchen</span>
+                </a>
             </div>
             <!--end::Toolbar-->
         </div>
