@@ -1,5 +1,201 @@
 <div class="position-relative z-index-2">
     <div class="clouds-3"></div>
+    <!--begin::Google Reviews Section-->
+    <div class="mt-20 z-index-1 container z-index-2">
+        <!--begin::Curve top-->
+        <div class="landing-curve landing-light-color">
+            <svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z"
+                    fill="currentColor"></path>
+            </svg>
+        </div>
+        <!--end::Curve top-->
+        <!--begin::Wrapper-->
+        <div class="py-20 landing-light-bg rounded position-relative z-index-2">
+            <!--begin::Container-->
+            <div class="container">
+                <!--begin::Plans-->
+                <div class="d-flex flex-column container">
+                    <!--begin::Heading-->
+                    <div class="mb-13 text-center">
+                        <div class="mb-7">
+                            <img src="{{ asset(theme()->getMediaUrlPath() . 'misc/google-logo.png') }}" alt="Google"
+                                height="50">
+                        </div>
+                        <div class="d-flex flex-center mb-5">
+                            <div class="fs-2hx fw-bold">4.8</div>
+                            <div class="d-flex align-items-center ms-2">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <i class="fas fa-star fs-2 {{ $i <= 4 ? 'text-warning' : 'text-gray-300' }}"></i>
+                                @endfor
+                            </div>
+                        </div>
+                        <div class="text-gray-600 fw-semibold fs-5">
+                            Basierend auf 48 Google Bewertungen
+                        </div>
+                    </div>
+                    <!--end::Heading-->
+
+                    <div class="tns tns-default" style="direction: ltr" data-aos="fade-up" data-aos-easing="linear"
+                        data-aos-duration="500" data-aos-delay="0">
+                        <!--begin::Slider-->
+                        <div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="1000"
+                            data-tns-autoplay="true" data-tns-autoplay-timeout="10000" data-tns-controls="true"
+                            data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false"
+                            data-tns-slide-by="1" data-tns-responsive="{768:{items:1},992:{items: 2},1200:{items: 3}}"
+                            data-tns-prev-button="#kt_team_slider_prev_google"
+                            data-tns-next-button="#kt_team_slider_next_google">
+
+                            <!--begin::Item-->
+                            <div class="px-5 py-5">
+                                <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300 h-100">
+                                    <div class="card-body d-flex flex-column justify-content-between">
+                                        <div class="card-toolbar">
+                                            <div class="d-flex align-items-center">
+                                                <!-- Avatar -->
+                                                <div class="symbol symbol-50px me-3">
+                                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/300-1.jpg') }}"
+                                                        class="" alt="" />
+                                                </div>
+                                                <!-- Name and Date -->
+                                                <div
+                                                    class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2">
+                                                    <div class="fs-3">Maria S.</div>
+                                                    <div class="fs-6 text-gray-600">vor 2 Wochen</div>
+                                                </div>
+                                            </div>
+                                            <!-- Rating -->
+                                            <div class="d-flex align-items-center mt-3">
+                                                <div class="rating">
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        <i class="fas fa-star text-warning"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="fs-3">
+                                            "Sehr professionelle und einfühlsame Beratung. Ich fühle mich verstanden und
+                                            gut aufgehoben."
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Item-->
+
+                            <!--begin::Item-->
+                            <div class="px-5 py-5">
+                                <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300 h-100">
+                                    <div class="card-body d-flex flex-column justify-content-between">
+                                        <div class="card-toolbar">
+                                            <div class="d-flex align-items-center">
+                                                <!-- Avatar -->
+                                                <div class="symbol symbol-50px me-3">
+                                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/300-1.jpg') }}"
+                                                        class="" alt="" />
+                                                </div>
+                                                <!-- Name and Date -->
+                                                <div
+                                                    class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2">
+                                                    <div class="fs-3">Maria S.</div>
+                                                    <div class="fs-6 text-gray-600">vor 2 Wochen</div>
+                                                </div>
+                                            </div>
+                                            <!-- Rating -->
+                                            <div class="d-flex align-items-center mt-3">
+                                                <div class="rating">
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        <i class="fas fa-star text-warning"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="fs-3">
+                                            "Sehr professionelle und einfühlsame Beratung. Ich fühle mich verstanden und
+                                            gut aufgehoben."
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Item-->
+
+                            <!--begin::Item-->
+                            <div class="px-5 py-5">
+                                <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300 h-100">
+                                    <div class="card-body d-flex flex-column justify-content-between">
+                                        <div class="card-toolbar">
+                                            <div class="d-flex align-items-center">
+                                                <!-- Avatar -->
+                                                <div class="symbol symbol-50px me-3">
+                                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/300-1.jpg') }}"
+                                                        class="" alt="" />
+                                                </div>
+                                                <!-- Name and Date -->
+                                                <div
+                                                    class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2">
+                                                    <div class="fs-3">Maria S.</div>
+                                                    <div class="fs-6 text-gray-600">vor 2 Wochen</div>
+                                                </div>
+                                            </div>
+                                            <!-- Rating -->
+                                            <div class="d-flex align-items-center mt-3">
+                                                <div class="rating">
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        <i class="fas fa-star text-warning"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="fs-3">
+                                            "Sehr professionelle und einfühlsame Beratung. Ich fühle mich verstanden und
+                                            gut aufgehoben."
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Item-->
+                            <!-- Add more Google review items here -->
+                        </div>
+                        <!--end::Slider-->
+
+                        <!--begin::Slider button-->
+                        <button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev_google">
+                            <span class="svg-icon fs-3x">
+                                {!! theme()->getIcon('arrow-left', 'fs-1 text-gray-800') !!}
+                            </span>
+                        </button>
+                        <!--end::Slider button-->
+
+                        <!--begin::Slider button-->
+                        <button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next_google">
+                            <span class="svg-icon fs-3qx">
+                                {!! theme()->getIcon('arrow-right', 'fs-1 text-gray-800') !!}
+                            </span>
+                        </button>
+                        <!--end::Slider button-->
+                    </div>
+
+                </div>
+                <!--end::Plans-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Wrapper-->
+        <!--begin::Curve bottom-->
+        <div class="landing-curve landing-light-color">
+            <svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z"
+                    fill="currentColor"></path>
+            </svg>
+        </div>
+        <!--end::Curve bottom-->
+    </div>
+    <!--end::Google Reviews Section-->
+
     <!--begin::Services Section-->
     <div class="mt-20 z-index-1 container z-index-2">
         <!--begin::Curve top-->
@@ -30,10 +226,11 @@
                     <div class="tns tns-default" style="direction: ltr" data-aos="fade-up" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="0">
                         <!--begin::Slider-->
-                        <div data-tns="true" data-tns-loop="false" data-tns-swipe-angle="false" data-tns-speed="1000"
-                            data-tns-autoplay="true" data-tns-autoplay-timeout="10000" data-tns-controls="true"
-                            data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false"
-                            data-tns-slide-by="1" data-tns-responsive="{768:{items:1},992:{items: 2},1200:{items: 3}}"
+                        <div data-tns="true" data-tns-loop="false" data-tns-swipe-angle="false"
+                            data-tns-speed="1000" data-tns-autoplay="true" data-tns-autoplay-timeout="10000"
+                            data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false"
+                            data-tns-dots="false" data-tns-slide-by="1"
+                            data-tns-responsive="{768:{items:1},992:{items: 2},1200:{items: 3}}"
                             data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
 
                             <!--begin::Item-->
