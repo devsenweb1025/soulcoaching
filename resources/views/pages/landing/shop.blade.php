@@ -28,7 +28,7 @@
     <!--end::Landing hero-->
 
     <!--begin::Pricing Section-->
-    <div class="mt-sm-n20 position-relative mt-20 mb-20">
+    <div class="position-relative mt-20 mb-20">
         <div class="clouds-4"></div>
         <!--begin::Wrapper-->
         <div class="landing-light-bg position-relative z-index-2">
