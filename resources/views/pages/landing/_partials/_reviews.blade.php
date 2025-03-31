@@ -32,9 +32,17 @@
                                     @endfor
                                 </div>
                             </div>
-                            <div class="text-gray-600 fw-semibold fs-5">
+                            <div class="text-gray-600 fw-semibold fs-5 mb-7">
                                 Basierend auf {{ $googleReviews['total_reviews'] }} Google Bewertungen
                             </div>
+                            <!-- Add Review Button -->
+                            <a href="https://g.co/kgs/7qrDf5L"
+                               class="btn btn-primary px-6 py-3"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-pencil-alt me-2"></i>
+                                Bewerte Seelenfluesterin auf Google
+                            </a>
                         </div>
                         <!--end::Heading-->
 
