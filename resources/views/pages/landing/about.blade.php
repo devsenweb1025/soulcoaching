@@ -453,7 +453,9 @@
             <!--begin::Curve top-->
             <div class="landing-curve landing-light-color">
                 <svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
+                    <path
+                        d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z"
+                        fill="currentColor"></path>
                 </svg>
             </div>
             <!--end::Curve top-->
@@ -465,25 +467,36 @@
                     <div class="d-flex flex-column container">
                         <!--begin::Heading-->
                         <div class="mb-13 text-center">
-                            <h1 class="fs-2hx fw-bold mb-5 font-cinzel">Unsere Partner</h1>
+                            <h1 class="fs-2hx fw-bold mb-5 font-cinzel">Medien & Zusammenarbeiten</h1>
                             <div class="text-gray-600 fw-semibold fs-5">
-                                Gemeinsam mit unseren Partnern bieten wir Ihnen ein umfassendes Angebot an spirituellen und energetischen Dienstleistungen
+                                Ich war schon in diversen Medien dabei und hatte schon diverse zusammenarbeiten.<br />
+                                Vielleicht hast du schonmal von mir gehört?
                             </div>
                         </div>
                         <!--end::Heading-->
 
                         <!--begin::Partner Carousel-->
-                        <div class="tns tns-default" style="direction: ltr" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="0">
+                        <div class="tns tns-default" style="direction: ltr" data-aos="fade-up"
+                            data-aos-easing="linear" data-aos-duration="500" data-aos-delay="0">
                             <!--begin::Slider-->
-                            <div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="1000" data-tns-autoplay="true" data-tns-autoplay-timeout="5000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-slide-by="1" data-tns-responsive="{768:{items:2},992:{items:3},1200:{items:4}}" data-tns-prev-button="#kt_partner_slider_prev" data-tns-next-button="#kt_partner_slider_next">
+                            <div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false"
+                                data-tns-speed="1000" data-tns-autoplay="true" data-tns-autoplay-timeout="5000"
+                                data-tns-controls="true" data-tns-nav="false" data-tns-items="1"
+                                data-tns-center="false" data-tns-dots="false" data-tns-slide-by="1"
+                                data-tns-responsive="{768:{items:2},992:{items:3},1200:{items:4}}"
+                                data-tns-prev-button="#kt_partner_slider_prev"
+                                data-tns-next-button="#kt_partner_slider_next">
                                 @for ($i = 1; $i <= 5; $i++)
-                                <!--begin::Item-->
-                                <div class="px-5 py-5">
-                                    <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
-                                        <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/partner' . $i . '.png') }}" alt="Partner {{ $i }}" class="img-fluid" style="max-height: 100px; width: auto;">
+                                    <!--begin::Item-->
+                                    <div class="px-5 py-5">
+                                        <div class="d-flex align-items-center justify-content-center"
+                                            style="height: 100px;">
+                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/partner' . $i . '.png') }}"
+                                                alt="Partner {{ $i }}" class="img-fluid"
+                                                style="max-height: 100px; width: auto;">
+                                        </div>
                                     </div>
-                                </div>
-                                <!--end::Item-->
+                                    <!--end::Item-->
                                 @endfor
                             </div>
                             <!--end::Slider-->
@@ -511,43 +524,64 @@
                             @php
                                 $partners = [
                                     1 => [
-                                        'name' => 'Partner 1',
-                                        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                                        'domain' => 'https://partner1.com'
+                                        'name' => 'Bericht',
+                                        'description' =>
+                                            'FTMedien ist ein regionaler Medienpartner mit Fokus auf lokale Sichtbarkeit und wirkungsvolle Werbung. Durch die Verbindung von Print und digitalen Kanälen bietet FTMedien vielfältige Möglichkeiten, um Zielgruppen gezielt und professionell anzusprechen.',
+                                        'domain' => 'https://www.ftmedien.ch/',
                                     ],
                                     2 => [
-                                        'name' => 'Partner 2',
-                                        'description' => 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                                        'domain' => 'https://partner2.com'
+                                        'name' => 'Bericht',
+                                        'description' =>
+                                            'Auf gesund.ch findest du alles rund um einen bewussten Lebensstil. Die Plattform bringt Themen wie Gesundheit, Achtsamkeit und ganzheitliches Wohlbefinden auf den Punkt – verständlich, inspirierend und lebensnah. Für uns ist gesund.ch ein wertvoller Ort, um Menschen genau dort zu erreichen, wo Interesse für Gesundheit auf echtes Wissen trifft.',
+                                        'domain' => 'https://www.gesund.ch/',
                                     ],
                                     3 => [
-                                        'name' => 'Partner 3',
-                                        'description' => 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-                                        'domain' => 'https://partner3.com'
-                                    ]
+                                        'name' => 'Bericht',
+                                        'description' =>
+                                            'Mit Berk verbindet uns eine echte Partnerschaft. Ihre Produkte – von Räucherwaren bis hin zu spirituellen Begleitern – schaffen Raum für Achtsamkeit, innere Ruhe und bewusstes Leben. Wir schätzen die Zusammenarbeit mit Berk sehr, denn hier geht es nicht nur um Produkte, sondern um Haltung, Qualität und eine gemeinsame Vision.',
+                                        'domain' => 'https://partner3.com',
+                                    ],
+                                    4 => [
+                                        'name' => 'Bericht',
+                                        'description' =>
+                                            'AuraSomaShop bringt Farbe ins Leben – im wahrsten Sinne des Wortes. Die Philosophie hinter Aura-Soma passt perfekt zu unserem Verständnis von Balance und Selbstfürsorge. Als Partner unterstützt uns AuraSomaShop mit hochwertigen Produkten, die helfen, die eigene Mitte zu stärken und sich selbst besser kennenzulernen.',
+                                        'domain' => 'https://www.aurasomashop.ch/',
+                                    ],
+                                    5 => [
+                                        'name' => 'Bericht',
+                                        'description' =>
+                                            'Aqua Schweiz ist ein Unternehmen mit Sitz in Würenlos, das sich auf die Aufbereitung und den Vertrieb von levitiertem Wasser spezialisiert hat. Ihr levitiertes Wasser wird an einem besonderen Kraftort abgefüllt, der Energiewerte von über 100’000 Boviseinheiten aufweist. Diese hohe Energie soll sich positiv auf die Qualität des Wassers auswirken. Zusätzlich bietet Aqua Schweiz Himalaya-Kristallsalzprodukte an, die das Wohlbefinden fördern. Die Zusammenarbeit mit Aqua Schweiz ermöglicht es uns, unseren Kunden hochwertige Produkte für Gesundheit und Wohlbefinden anzubieten.',
+                                        'domain' => 'https://aquaschweiz.ch/',
+                                    ],
                                 ];
                             @endphp
 
-                            @foreach($partners as $id => $partner)
-                            <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
-                                <div class="card shadow h-100">
-                                    <div class="card-body">
-                                        <div class="text-center mb-10">
-                                            <div class="d-flex align-items-center justify-content-center" style="height: 80px;">
-                                                <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/partner' . $id . '.png') }}" alt="{{ $partner['name'] }}" class="img-fluid" style="max-height: 80px; width: auto;">
+                            @foreach ($partners as $id => $partner)
+                                <div class="col-lg-12 mt-10" data-aos="fade-up" data-aos-easing="linear"
+                                    data-aos-duration="500" data-aos-delay="500">
+                                    <div class="card shadow h-100">
+                                        <div class="card-body">
+                                            <div class="text-center mb-10">
+                                                <div class="d-flex align-items-center justify-content-center"
+                                                    style="height: 80px;">
+                                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/partner' . $id . '.png') }}"
+                                                        alt="{{ $partner['name'] }}" class="img-fluid"
+                                                        style="max-height: 80px; width: auto;">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="text-gray-600 fs-4 mb-10">
-                                            {{ $partner['description'] }}
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="{{ $partner['domain'] }}" class="text-primary text-hover-primary fs-5 fw-bold" target="_blank">
-                                                {{ $partner['domain'] }}
-                                            </a>
+                                            <div class="text-gray-600 fs-4 mb-10">
+                                                {{ $partner['description'] }}
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="{{ $partner['domain'] }}"
+                                                    class="text-primary text-hover-primary fs-5 fw-bold"
+                                                    target="_blank">
+                                                    {{ $partner['domain'] }}
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                         <!--end::Partner Cards-->
@@ -560,7 +594,9 @@
             <!--begin::Curve bottom-->
             <div class="landing-curve landing-light-color">
                 <svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z" fill="currentColor"></path>
+                    <path
+                        d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z"
+                        fill="currentColor"></path>
                 </svg>
             </div>
             <!--end::Curve bottom-->
