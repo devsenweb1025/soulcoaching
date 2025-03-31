@@ -528,30 +528,35 @@
                                         'description' =>
                                             'FTMedien ist ein regionaler Medienpartner mit Fokus auf lokale Sichtbarkeit und wirkungsvolle Werbung. Durch die Verbindung von Print und digitalen Kanälen bietet FTMedien vielfältige Möglichkeiten, um Zielgruppen gezielt und professionell anzusprechen.',
                                         'domain' => 'https://www.ftmedien.ch/',
+                                        'image' => 'partner4.png',
                                     ],
                                     2 => [
                                         'name' => 'Bericht',
                                         'description' =>
                                             'Auf gesund.ch findest du alles rund um einen bewussten Lebensstil. Die Plattform bringt Themen wie Gesundheit, Achtsamkeit und ganzheitliches Wohlbefinden auf den Punkt – verständlich, inspirierend und lebensnah. Für uns ist gesund.ch ein wertvoller Ort, um Menschen genau dort zu erreichen, wo Interesse für Gesundheit auf echtes Wissen trifft.',
                                         'domain' => 'https://www.gesund.ch/',
+                                        'image' => 'partner3.png',
                                     ],
                                     3 => [
                                         'name' => 'Partner',
                                         'description' =>
                                             'Mit Berk verbindet uns eine echte Partnerschaft. Ihre Produkte – von Räucherwaren bis hin zu spirituellen Begleitern – schaffen Raum für Achtsamkeit, innere Ruhe und bewusstes Leben. Wir schätzen die Zusammenarbeit mit Berk sehr, denn hier geht es nicht nur um Produkte, sondern um Haltung, Qualität und eine gemeinsame Vision.',
                                         'domain' => 'https://www.berk.de/',
+                                        'image' => 'partner2.png',
                                     ],
                                     4 => [
                                         'name' => 'Partner',
                                         'description' =>
                                             'AuraSomaShop bringt Farbe ins Leben – im wahrsten Sinne des Wortes. Die Philosophie hinter Aura-Soma passt perfekt zu unserem Verständnis von Balance und Selbstfürsorge. Als Partner unterstützt uns AuraSomaShop mit hochwertigen Produkten, die helfen, die eigene Mitte zu stärken und sich selbst besser kennenzulernen.',
                                         'domain' => 'https://www.aurasomashop.ch/',
+                                        'image' => 'partner1.png',
                                     ],
                                     5 => [
                                         'name' => 'Partner',
                                         'description' =>
                                             'Aqua Schweiz ist ein Unternehmen mit Sitz in Würenlos, das sich auf die Aufbereitung und den Vertrieb von levitiertem Wasser spezialisiert hat. Ihr levitiertes Wasser wird an einem besonderen Kraftort abgefüllt, der Energiewerte von über 100’000 Boviseinheiten aufweist. Diese hohe Energie soll sich positiv auf die Qualität des Wassers auswirken. Zusätzlich bietet Aqua Schweiz Himalaya-Kristallsalzprodukte an, die das Wohlbefinden fördern. Die Zusammenarbeit mit Aqua Schweiz ermöglicht es uns, unseren Kunden hochwertige Produkte für Gesundheit und Wohlbefinden anzubieten.',
                                         'domain' => 'https://aquaschweiz.ch/',
+                                        'image' => 'partner5.png',
                                     ],
                                 ];
                             @endphp
@@ -567,7 +572,7 @@
                                             <div class="text-center mb-10">
                                                 <div class="d-flex align-items-center justify-content-center"
                                                     style="height: 80px;">
-                                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/partner' . $id . '.png') }}"
+                                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/' . $partner['image']) }}"
                                                         alt="{{ $partner['name'] }}" class="img-fluid"
                                                         style="max-height: 80px; width: auto;">
                                                 </div>
