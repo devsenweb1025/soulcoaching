@@ -35,7 +35,7 @@
                 'description' =>
                     'Du hast schon viele Lebensaufgaben bewältigt. Doch gerade stehst du an? Dein Geistiges Team weiss, was zu tun ist. Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.',
                 'price' => 'CHF 2222 / Monat Vorteile:',
-                'image' => 'coaching.webp',
+                'image' => 'Trans.jpg',
                 'features' => [
                     'Booklet mit 100 Seiten',
                     'Schneller ans Ziel durch die Arbeit auf allen 5 Bewusstseinebenen',
@@ -50,7 +50,7 @@
                 'description' =>
                     'Du hast körperliche Schmerzen die sich niemand erklären kann oder aber du möchtest deine Energiezentren (Chakren) reinigen und stärken, dann ist die Energetische Heilung das korrekte für dich. Das gilt auch für dein Haustier.',
                 'price' => 'CHF 111.- / Stunde Vorteile:',
-                'image' => 'courses-2.webp',
+                'image' => 'Energetische.png',
                 'features' => ['sofortige Wirkung', 'sofortige Steigerung des Körperlichen und mentalen Wohlbefinden'],
                 'button' => 'Jetzt Buchen!',
                 'button_link' => route('booking'),
@@ -60,7 +60,7 @@
                 'description' =>
                     'Möchtest du wissen, was dein Tier dir mitteilen möchte – oder warum es sich gerade verändert verhält? Mit Hilfe von telepathischer Tierkommunikation nehme ich Kontakt zu deinem Tier auf, um Antworten, Wünsche und Gefühle sichtbar zu machen. Ob bei Verhaltensauffälligkeiten, gesundheitlichen Fragen oder zur Begleitung im Sterbeprozess: Ich helfe dir, die Verbindung zu deinem Tier zu stärken – liebevoll und intuitiv.',
                 'price' => 'CHF 77.- / pro Gespräch Vorteile:',
-                'image' => 'tier.webp',
+                'image' => 'Tier.png',
                 'features' => [
                     'Du erhälst eine 1:1 Sprachaufnahme, wo ich 1:1 das was dein Tier sagt weitergebe',
                     'Ich bin auch noch nach der Sitzung 1-2 Tage für Fragen erreichbar.',
@@ -73,7 +73,7 @@
                 'description' =>
                     'Du brauchst jetzt sofort eine Antwort vom Universum? Mit meiner spirituellen Hotline für Kartenlegen bekommst du intuitiv und direkt eine Legung am Telefon – ohne Wartezeit, liebevoll und klar geführt. Ob Liebe, Beruf oder Lebensweg: Die Lenormand-Kartenlegung gibt dir neue Einsichten genau dann, wenn du sie brauchst.',
                 'price' => 'CHF 2.50.- / min Vorteile:',
-                'image' => 'medial.webp',
+                'image' => 'Frag.jpg',
                 'features' => ['Sofortige Klarheit', 'Direkter Kontakt', 'Antwort auf konkrete Lebensfragen'],
                 'button' => 'Jetzt Anrufen',
                 'button_link' => route('services'),
@@ -158,7 +158,7 @@
                                     <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="500">
                                         <div class="w-100 h-100 object-fit-cover"
-                                            style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/' . $service['image']) }})">
+                                            style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/prices/' . $service['image']) }})">
                                         </div>
                                     </div>
                                     <!--end::Col-->
@@ -167,7 +167,7 @@
                                     <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="500">
                                         <div class="w-100 h-100 object-fit-cover"
-                                            style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/' . $service['image']) }})">
+                                            style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/prices/' . $service['image']) }})">
                                         </div>
                                     </div>
                                     <!--end::Col-->

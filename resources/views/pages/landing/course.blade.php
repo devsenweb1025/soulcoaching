@@ -148,7 +148,7 @@
                             <div class="col-xl-8 col-md-6" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses-1.webp') }})">
+                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/chakra.jpg') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
@@ -335,7 +335,7 @@
                             <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses-3.webp') }})">
+                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/theorie.jpg') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
@@ -375,7 +375,7 @@
                             <div class="col-xl-8 col-md-6" data-aos="zoom-in-right" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="500">
                                 <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses-4.webp') }})">
+                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/praxis.jpg') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
