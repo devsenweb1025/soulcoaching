@@ -96,12 +96,12 @@
                                             <label for="name_input" class="required form-label">Vor- und
                                                 Nachname</label>
                                             <input type="text" class="form-control form-control-solid"
-                                                placeholder="Ikta Sollork" id="name_input">
+                                                placeholder="Max Muster" id="name_input">
                                         </div>
                                         <div class="mb-10">
                                             <label for="email_input" class="required form-label">Mail Adresse</label>
                                             <input type="email" class="form-control form-control-solid"
-                                                placeholder="alter@support.com" id="email_input">
+                                                placeholder="maxmuster@hotmail.com" id="email_input">
                                         </div>
                                         <div class="mb-10">
                                             <label for="phone_input" class="required form-label">Telefonnummer</label>
@@ -111,11 +111,11 @@
                                         <div class="mb-10">
                                             <label for="reason_input" class="required form-label">Um welche Dienstleistung handelt es sich?</label>
                                             <input type="email" class="form-control form-control-solid"
-                                                placeholder="Regarding Product" id="reason_input">
+                                                placeholder="Dienstleistung und Produkt angeben" id="reason_input">
                                         </div>
                                         <div class="mb-10">
                                             <label for="description_input" class="required form-label">Beschreiben Sie ihr Anliegen</label>
-                                            <textarea class="form-control form-control-solid" placeholder="Give us more info..." id="description_input"
+                                            <textarea class="form-control form-control-solid" placeholder="Ihre Nachricht" id="description_input"
                                                 style="height: 100px"></textarea>
                                         </div>
                                         <div>
