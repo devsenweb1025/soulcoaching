@@ -49,7 +49,7 @@
                     <!--begin::Pricing-->
                     <div class="text-start" id="kt_pricing">
                         <!--begin::Row-->
-                        <div class="row g-10">
+                        <div class="row g-10 flex-column-reverse flex-md-row">
                             <!--begin::Col-->
                             <div class="col-xl-4 col-md-6" data-aos="flip-left" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="500">
@@ -147,8 +147,8 @@
                             <!--begin::Col-->
                             <div class="col-xl-8 col-md-6" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="500">
-                                <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/chakra.jpg') }})">
+                                <div class="w-100 h-300px h-md-100 object-fit-cover"
+                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/chakra.jpg') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
@@ -249,7 +249,7 @@
                     <!--begin::Pricing-->
                     <div class="text-start" id="kt_pricing">
                         <!--begin::Row-->
-                        <div class="row g-10">
+                        <div class="row g-10 flex-column-reverse flex-md-row">
                             <!--begin::Col-->
                             <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="500">
@@ -334,8 +334,8 @@
                             <!--begin::Col-->
                             <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="500">
-                                <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/theorie.jpg') }})">
+                                <div class="w-100 h-300px h-md-100 object-fit-cover"
+                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/theorie.jpg') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
@@ -370,12 +370,12 @@
                     <!--begin::Pricing-->
                     <div class="text-start" id="kt_pricing">
                         <!--begin::Row-->
-                        <div class="row g-10">
+                        <div class="row g-10 flex-column flex-md-row">
                             <!--begin::Col-->
                             <div class="col-xl-8 col-md-6" data-aos="zoom-in-right" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="500">
-                                <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/praxis.jpg') }})">
+                                <div class="w-100 h-300px h-md-100 object-fit-cover"
+                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/praxis.jpg') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
