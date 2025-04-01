@@ -40,4 +40,14 @@ class LandingController extends Controller
     {
         return view("pages.landing.contact");
     }
+
+    public function booking()
+    {
+        return view("pages.landing.booking");
+    }
+
+    public function payment()
+    {
+        return view("pages.landing.payment");
+    }
 }

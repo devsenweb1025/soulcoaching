@@ -82,7 +82,7 @@ Route::get('online-shope', [LandingController::class,'shop'])->name('shop');
 Route::get('contact', [LandingController::class,'contact'])->name('contact');
 
 // Booking
-
-
+Route::get('booking', [LandingController::class,'booking'])->name('booking');
+Route::get('payment', [LandingController::class,'payment'])->name('payment');
 
 require __DIR__ . '/auth.php';
