@@ -29,98 +29,62 @@
                     <!--end::Heading-->
                     <!--begin::Pricing-->
                     <div class="row g-5">
-                        <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                            <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300">
-                                <div class="card-header">
-                                    <h2 class="card-title">
-                                        Transformationscoaching
-                                    </h2>
-                                </div>
-                                <div class="card-body">
-                                    Du hast schon viele Lebensaufgaben bewältigt.
-                                    Doch gerade stehst du an?
-                                    Dein Geistiges Team weiss, was zu tun ist.
-                                    Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.
-                                </div>
-                                <div class="card-footer">
-                                    <div class="card-toolbar text-center">
-                                        <button type="button" class="btn btn-primary">
-                                            zu den Preisen
-                                        </button>
+                        @php
+                            $services = [
+                                [
+                                    'title' => 'Transformationscoaching',
+                                    'description' =>
+                                        'Du hast schon viele Lebensaufgaben bewältigt. Doch gerade stehst du an? Dein Geistiges Team weiss, was zu tun ist. Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.',
+                                ],
+                                [
+                                    'title' => 'Energetische Heilung für Mensch und Tier',
+                                    'description' =>
+                                        'Du hast körperliche Schmerzen die sich niemand erklären kann oder aber du möchtest deine Energiezentren (Chakren) reinigen und stärken, dann ist die Energetische Heilung das korrekte für dich. Das gilt auch für dein Haustier.',
+                                ],
+                                [
+                                    'title' => 'Tierkommunikation',
+                                    'description' =>
+                                        'Möchtest du wissen, was dein Tier dir mitteilen möchte – oder warum es sich gerade verändert verhält? Mit Hilfe von telepathischer Tierkommunikation nehme ich Kontakt zu deinem Tier auf, um Antworten, Wünsche und Gefühle sichtbar zu machen. Ob bei Verhaltensauffälligkeiten, gesundheitlichen Fragen oder zur Begleitung im Sterbeprozess: Ich helfe dir, die Verbindung zu deinem Tier zu stärken – liebevoll und intuitiv.',
+                                ],
+                                [
+                                    'title' => 'Frag das Universum',
+                                    'description' =>
+                                        'Du brauchst jetzt sofort eine Antwort vom Universum? Mit meiner spirituellen Hotline für Kartenlegen bekommst du intuitiv und direkt eine Legung am Telefon – ohne Wartezeit, liebevoll und klar geführt. Ob Liebe, Beruf oder Lebensweg: Die Lenormand-Kartenlegung gibt dir neue Einsichten genau dann, wenn du sie brauchst.',
+                                ],
+                            ];
+                        @endphp
+
+                        @foreach ($services as $service)
+                            <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                                data-aos-delay="500">
+                                <div class="card card-shadow card-borderless mb-5 bg-gray-300">
+                                    <div class="card-header">
+                                        <h2 class="card-title fs-2 fw-bold">
+                                            {{ $service['title'] }}
+                                        </h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="text-gray-600 fw-semibold fs-5 description-text">
+                                            @php
+                                                $text = $service['description'];
+                                                $shortText =
+                                                    strlen($text) > 135 ? substr($text, 0, 135) . '...' : $text;
+                                            @endphp
+                                            <span class="short-text">{{ $shortText }}</span>
+                                            <span class="full-text" style="display: none;">{{ $text }}</span>
+                                        </div>
+                                        <a href="#" class="text-primary show-more-link">Mehr anzeigen</a>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-toolbar text-center">
+                                            <button type="button" class="btn btn-primary">
+                                                zu den Preisen
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                            <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300">
-                                <div class="card-header">
-                                    <h2 class="card-title">
-                                        Sensitive mediale Beratung
-                                    </h2>
-                                </div>
-                                <div class="card-body">
-                                    Du hast schon viele Lebensaufgaben bewältigt.
-                                    Doch gerade stehst du an?
-                                    Dein Geistiges Team weiss, was zu tun ist.
-                                    Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.
-                                </div>
-                                <div class="card-footer">
-                                    <div class="card-toolbar text-center">
-                                        <button type="button" class="btn btn-primary">
-                                            zu den Preisen
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                            <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300">
-                                <div class="card-header">
-                                    <h2 class="card-title">
-                                        Tierkommunikation
-                                    </h2>
-                                </div>
-                                <div class="card-body">
-                                    Du hast schon viele Lebensaufgaben bewältigt.
-                                    Doch gerade stehst du an?
-                                    Dein Geistiges Team weiss, was zu tun ist.
-                                    Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.
-                                </div>
-                                <div class="card-footer">
-                                    <div class="card-toolbar text-center">
-                                        <button type="button" class="btn btn-primary">
-                                            zu den Preisen
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                            <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300">
-                                <div class="card-header">
-                                    <h2 class="card-title">
-                                        Gruppenseminare
-                                    </h2>
-                                </div>
-                                <div class="card-body">
-                                    Du hast schon viele Lebensaufgaben bewältigt.
-                                    Doch gerade stehst du an?
-                                    Dein Geistiges Team weiss, was zu tun ist.
-                                    Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.
-                                </div>
-                                <div class="card-footer">
-                                    <div class="card-toolbar text-center">
-                                        <button type="button" class="btn btn-primary">
-                                            zu den Preisen
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!--end::Pricing-->
                 </div>
@@ -141,3 +105,28 @@
     </div>
     <!--end::Services Section-->
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const showMoreLinks = document.querySelectorAll('.show-more-link');
+
+        showMoreLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const descriptionText = this.previousElementSibling;
+                const shortText = descriptionText.querySelector('.short-text');
+                const fullText = descriptionText.querySelector('.full-text');
+                const isExpanded = fullText.style.display !== 'none';
+
+                if (isExpanded) {
+                    fullText.style.display = 'none';
+                    shortText.style.display = 'inline';
+                    this.textContent = 'Mehr anzeigen';
+                } else {
+                    fullText.style.display = 'inline';
+                    shortText.style.display = 'none';
+                    this.textContent = 'Weniger anzeigen';
+                }
+            });
+        });
+    });
+</script>

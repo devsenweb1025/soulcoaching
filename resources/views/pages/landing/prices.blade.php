@@ -28,463 +28,251 @@
     </div>
     <!--end::Landing hero-->
 
-    <!--begin::Pricing Section-->
-    <div class="position-relative mt-20 mb-20">
-        <div class="clouds-1"></div>
-        <!--begin::Wrapper-->
-        <div class="landing-light-bg position-relative z-index-2">
-            <!--begin::Container-->
-            <div class="container">
-                <!--begin::Plans-->
-                <div class="d-flex flex-column pt-lg-20">
-                    <!--begin::Heading-->
-                    <div class="mb-13 text-start">
-                        <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
-                            data-kt-scroll-offset="{default: 100, lg: 150}">Transformationscoaching</h1>
-                        <div class="text-gray-600 fw-semibold fs-5">erhalte ein Coaching nach meinem
-                            eigenen Konzept auf allen 5 Bewusstseins ebenen und profitiere von
-                            folgenden Inhalten
-                        </div>
-                    </div>
-                    <!--end::Heading-->
-                    <!--begin::Pricing-->
-                    <div class="text-start" id="kt_pricing">
-                        <!--begin::Row-->
-                        <div class="row g-10">
-                            <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                                <div class="d-flex h-100 align-items-center">
-                                    <!--begin::Option-->
-                                    <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
-                                        <!--begin::Heading-->
-                                        <div class="mb-7 text-start">
-                                            <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest">Transformationscoaching</h1>
-                                            <!--end::Title-->
-                                            <!--begin::Price-->
-                                            <div class="text-start">
-                                                {{-- <span class="mb-2 text-primary">CHF</span> --}}
-                                                <span class="fs-3x fw-bold text-primary">CHF 1800</span>
-                                            </div>
-                                            <!--end::Price-->
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Features-->
-                                        <div class="w-100 mb-10">
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span
-                                                    class="fw-semibold fs-6 text-gray-800 text-start pe-3">Booklet</span>
-                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">1x Zoom
-                                                    Meetings</span>
-                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800">
-                                                    Fairer Preis</span>
-                                                <i class="ki-duotone ki-check-circle text-success fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800">
-                                                    Mein eigenes Konzept</span>
-                                                <i class="ki-duotone ki-check-circle text-success fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                        </div>
-                                        <!--end::Features-->
-                                        <!--begin::Select-->
-                                        <a href="#" class="btn btn-primary">Jetzt Buchen!</a>
-                                        <!--end::Select-->
-                                    </div>
-                                    <!--end::Option-->
-                                </div>
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                                <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/coaching.webp') }})">
-                                </div>
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <!--end::Row-->
-                    </div>
-                    <!--end::Pricing-->
-                </div>
-                <!--end::Plans-->
-            </div>
-            <!--end::Container-->
-        </div>
-        <!--end::Wrapper-->
-    </div>
-    <!--end::Pricing Section-->
+    @php
+        $services = [
+            [
+                'title' => 'Transformationscoaching',
+                'description' =>
+                    'Du hast schon viele Lebensaufgaben bewältigt. Doch gerade stehst du an? Dein Geistiges Team weiss, was zu tun ist. Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.',
+                'price' => 'CHF 2222 / Month Benefits:',
+                'image' => 'coaching.webp',
+                'features' => [
+                    'Booklet mit 100 Seiten',
+                    'Schneller ans Ziel durch die Arbeit auf allen 5 Bewusstseinebenen',
+                    'Fairer Preis',
+                    'Wöchentlich 1x Zoom Call von einer Stunde mit mir',
+                ],
+            ],
+            [
+                'title' => 'Energetische Heilung für Mensch und Tier',
+                'description' =>
+                    'Du hast körperliche Schmerzen die sich niemand erklären kann oder aber du möchtest deine Energiezentren (Chakren) reinigen und stärken, dann ist die Energetische Heilung das korrekte für dich. Das gilt auch für dein Haustier.',
+                'price' => 'CHF 111.- / Stunde Beneftis:',
+                'image' => 'courses-2.webp',
+                'features' => ['sofortige Wirkung', 'sofortige Steigerung des Körperlichen und mentalen Wohlbefinden'],
+            ],
+            [
+                'title' => 'Tierkommunikation',
+                'description' =>
+                    'Möchtest du wissen, was dein Tier dir mitteilen möchte – oder warum es sich gerade verändert verhält? Mit Hilfe von telepathischer Tierkommunikation nehme ich Kontakt zu deinem Tier auf, um Antworten, Wünsche und Gefühle sichtbar zu machen. Ob bei Verhaltensauffälligkeiten, gesundheitlichen Fragen oder zur Begleitung im Sterbeprozess: Ich helfe dir, die Verbindung zu deinem Tier zu stärken – liebevoll und intuitiv.',
+                'price' => 'CHF 77.- / pro Gespräch Benefits:',
+                'image' => 'tier.webp',
+                'features' => [
+                    'Du erhälst eine 1:1 Sprachaufnahme, wo ich 1:1 das was dein Tier sagt weitergebe',
+                    'Ich bin auch noch nach der Sitzung 1-2 Tage für Fragen erreichbar.',
+                ],
+            ],
+            [
+                'title' => 'Frag das Universum',
+                'description' =>
+                    'Du brauchst jetzt sofort eine Antwort vom Universum? Mit meiner spirituellen Hotline für Kartenlegen bekommst du intuitiv und direkt eine Legung am Telefon – ohne Wartezeit, liebevoll und klar geführt. Ob Liebe, Beruf oder Lebensweg: Die Lenormand-Kartenlegung gibt dir neue Einsichten genau dann, wenn du sie brauchst.',
+                'price' => 'CHF 2.50/.-min benefits:',
+                'image' => 'medial.webp',
+                'features' => ['Sofortige Klarheit', 'Direkter Kontakt', 'Antwort auf konkrete Lebensfragen'],
+            ],
+        ];
+    @endphp
 
-    <!--begin::Pricing Section-->
-    <div class="mt-sm-n20 position-relative mt-20 mb-20">
-        <div class="clouds-2"></div>
-        <!--begin::Wrapper-->
-        <div class="landing-light-bg position-relative z-index-2">
-            <!--begin::Container-->
-            <div class="container">
-                <!--begin::Plans-->
-                <div class="d-flex flex-column pt-lg-20">
-                    <!--begin::Heading-->
-                    <div class="mb-13 text-end">
-                        <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
-                            data-kt-scroll-offset="{default: 100, lg: 150}">Sensitive mediale Beratung</h1>
-                        <div class="text-gray-600 fw-semibold fs-5">erhalte ein Coaching nach meinem eigenen Konzept auf
-                            allen 5 Bewusstseins ebenen und profitiere von folgenden Inhalten
+    @foreach ($services as $index => $service)
+        <!--begin::Pricing Section-->
+        <div class="mt-sm-n20 position-relative mt-20 mb-20">
+            <div class="clouds-{{ ($index % 4) + 1 }}"></div>
+            <!--begin::Wrapper-->
+            <div class="landing-light-bg position-relative z-index-2">
+                <!--begin::Container-->
+                <div class="container">
+                    <!--begin::Plans-->
+                    <div class="d-flex flex-column pt-lg-20">
+                        <!--begin::Heading-->
+                        <div class="mb-13 {{ $index % 2 == 0 ? 'text-start' : 'text-end' }}">
+                            <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
+                                data-kt-scroll-offset="{default: 100, lg: 150}">{{ $service['title'] }}</h1>
+                            <div class="text-gray-600 fw-semibold fs-5">{{ $service['description'] }}</div>
                         </div>
-                    </div>
-                    <!--end::Heading-->
-                    <!--begin::Pricing-->
-                    <div class="text-start" id="kt_pricing">
-                        <!--begin::Row-->
-                        <div class="row g-10">
-                            <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                                <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses-2.webp') }})">
-                                </div>
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                                <div class="d-flex h-100 align-items-center">
-                                    <!--begin::Option-->
-                                    <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
-                                        <!--begin::Heading-->
-                                        <div class="mb-7 text-start">
-                                            <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest">Transformationscoaching</h1>
-                                            <!--end::Title-->
-                                            <!--begin::Price-->
-                                            <div class="text-start">
-                                                {{-- <span class="mb-2 text-primary">CHF</span> --}}
-                                                <span class="fs-3x fw-bold text-primary">CHF 1800</span>
+                        <!--end::Heading-->
+                        <!--begin::Pricing-->
+                        <div class="text-start" id="kt_pricing">
+                            <!--begin::Row-->
+                            <div class="row g-10">
+                                @if ($index % 2 == 0)
+                                    <!--begin::Col-->
+                                    <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear"
+                                        data-aos-duration="500" data-aos-delay="500">
+                                        <div class="d-flex h-100 align-items-center">
+                                            <!--begin::Option-->
+                                            <div
+                                                class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
+                                                <!--begin::Heading-->
+                                                <div class="mb-7 text-start">
+                                                    <!--begin::Title-->
+                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service['title'] }}
+                                                    </h1>
+                                                    <!--end::Title-->
+                                                    <!--begin::Price-->
+                                                    <div class="text-start">
+                                                        <span
+                                                            class="fs-3x fw-bold text-primary">{{ $service['price'] }}</span>
+                                                    </div>
+                                                    <!--end::Price-->
+                                                </div>
+                                                <!--end::Heading-->
+                                                <!--begin::Features-->
+                                                <div class="w-100 mb-10">
+                                                    @foreach ($service['features'] as $feature)
+                                                        <!--begin::Item-->
+                                                        <div class="d-flex flex-stack mb-5">
+                                                            <span
+                                                                class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                            <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                        </div>
+                                                        <!--end::Item-->
+                                                    @endforeach
+                                                </div>
+                                                <!--end::Features-->
+                                                <!--begin::Select-->
+                                                <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#bookingModal{{ $index }}">Jetzt Buchen!</a>
+                                                <!--end::Select-->
                                             </div>
-                                            <!--end::Price-->
+                                            <!--end::Option-->
                                         </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Features-->
-                                        <div class="w-100 mb-10">
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span
-                                                    class="fw-semibold fs-6 text-gray-800 text-start pe-3">Booklet</span>
-                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">1x Zoom
-                                                    Meetings</span>
-                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800">
-                                                    Fairer Preis</span>
-                                                <i class="ki-duotone ki-check-circle text-success fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800">
-                                                    Mein eigenes Konzept</span>
-                                                <i class="ki-duotone ki-check-circle text-success fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                        </div>
-                                        <!--end::Features-->
-                                        <!--begin::Select-->
-                                        <a href="#" class="btn btn-primary">Jetzt Buchen!</a>
-                                        <!--end::Select-->
                                     </div>
-                                    <!--end::Option-->
-                                </div>
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear"
+                                        data-aos-duration="500" data-aos-delay="500">
+                                        <div class="w-100 h-100 object-fit-cover"
+                                            style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/' . $service['image']) }})">
+                                        </div>
+                                    </div>
+                                    <!--end::Col-->
+                                @else
+                                    <!--begin::Col-->
+                                    <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear"
+                                        data-aos-duration="500" data-aos-delay="500">
+                                        <div class="w-100 h-100 object-fit-cover"
+                                            style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/' . $service['image']) }})">
+                                        </div>
+                                    </div>
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear"
+                                        data-aos-duration="500" data-aos-delay="500">
+                                        <div class="d-flex h-100 align-items-center">
+                                            <!--begin::Option-->
+                                            <div
+                                                class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
+                                                <!--begin::Heading-->
+                                                <div class="mb-7 text-start">
+                                                    <!--begin::Title-->
+                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service['title'] }}
+                                                    </h1>
+                                                    <!--end::Title-->
+                                                    <!--begin::Price-->
+                                                    <div class="text-start">
+                                                        <span
+                                                            class="fs-3x fw-bold text-primary">{{ $service['price'] }}</span>
+                                                    </div>
+                                                    <!--end::Price-->
+                                                </div>
+                                                <!--end::Heading-->
+                                                <!--begin::Features-->
+                                                <div class="w-100 mb-10">
+                                                    @foreach ($service['features'] as $feature)
+                                                        <!--begin::Item-->
+                                                        <div class="d-flex flex-stack mb-5">
+                                                            <span
+                                                                class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                            <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                        </div>
+                                                        <!--end::Item-->
+                                                    @endforeach
+                                                </div>
+                                                <!--end::Features-->
+                                                <!--begin::Select-->
+                                                <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#bookingModal{{ $index }}">Jetzt Buchen!</a>
+                                                <!--end::Select-->
+                                            </div>
+                                            <!--end::Option-->
+                                        </div>
+                                    </div>
+                                    <!--end::Col-->
+                                @endif
                             </div>
-                            <!--end::Col-->
+                            <!--end::Row-->
                         </div>
-                        <!--end::Row-->
+                        <!--end::Pricing-->
                     </div>
-                    <!--end::Pricing-->
+                    <!--end::Plans-->
                 </div>
-                <!--end::Plans-->
+                <!--end::Container-->
             </div>
-            <!--end::Container-->
+            <!--end::Wrapper-->
         </div>
-        <!--end::Wrapper-->
-    </div>
-    <!--end::Pricing Section-->
+        <!--end::Pricing Section-->
 
-    <!--begin::Pricing Section-->
-    <div class="mt-sm-n20 position-relative mt-20 mb-20">
-        <div class="clouds-3"></div>
-        <!--begin::Wrapper-->
-        <div class="landing-light-bg position-relative z-index-2">
-            <!--begin::Container-->
-            <div class="container">
-                <!--begin::Plans-->
-                <div class="d-flex flex-column pt-lg-20">
-                    <!--begin::Heading-->
-                    <div class="mb-13 text-start">
-                        <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
-                            data-kt-scroll-offset="{default: 100, lg: 150}">Tierkommunikation</h1>
-                        <div class="text-gray-600 fw-semibold fs-5">erhalte ein Coaching nach meinem
-                            eigenen Konzept auf allen 5 Bewusstseins ebenen und profitiere von
-                            folgenden Inhalten
+        <!--begin::Modal-->
+        <div class="modal fade" tabindex="-1" id="bookingModal{{ $index }}">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">{{ $service['title'] }}</h3>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
                         </div>
                     </div>
-                    <!--end::Heading-->
-                    <!--begin::Pricing-->
-                    <div class="text-start" id="kt_pricing">
-                        <!--begin::Row-->
-                        <div class="row g-10">
-                            <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                                <div class="d-flex h-100 align-items-center">
-                                    <!--begin::Option-->
-                                    <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
-                                        <!--begin::Heading-->
-                                        <div class="mb-7 text-start">
-                                            <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest">Transformationscoaching</h1>
-                                            <!--end::Title-->
-                                            <!--begin::Price-->
-                                            <div class="text-start">
-                                                {{-- <span class="mb-2 text-primary">CHF</span> --}}
-                                                <span class="fs-3x fw-bold text-primary">CHF 1800</span>
-                                            </div>
-                                            <!--end::Price-->
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Features-->
-                                        <div class="w-100 mb-10">
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span
-                                                    class="fw-semibold fs-6 text-gray-800 text-start pe-3">Booklet</span>
-                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">1x Zoom
-                                                    Meetings</span>
-                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800">
-                                                    Fairer Preis</span>
-                                                <i class="ki-duotone ki-check-circle text-success fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800">
-                                                    Mein eigenes Konzept</span>
-                                                <i class="ki-duotone ki-check-circle text-success fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                        </div>
-                                        <!--end::Features-->
-                                        <!--begin::Select-->
-                                        <a href="#" class="btn btn-primary">Jetzt Buchen!</a>
-                                        <!--end::Select-->
-                                    </div>
-                                    <!--end::Option-->
-                                </div>
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                                <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/tier.webp') }})">
-                                </div>
-                            </div>
-                            <!--end::Col-->
+                    <div class="modal-body">
+                        <div class="mb-5">
+                            <label class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="radio" name="bookingType{{ $index }}"
+                                    value="personal" checked>
+                                <span class="form-check-label">Persönliche Buchung</span>
+                            </label>
                         </div>
-                        <!--end::Row-->
+                        <div class="mb-5">
+                            <label class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="radio" name="bookingType{{ $index }}"
+                                    value="group">
+                                <span class="form-check-label">Gruppenbuchung</span>
+                            </label>
+                        </div>
                     </div>
-                    <!--end::Pricing-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Abbrechen</button>
+                        <button type="button" class="btn btn-primary"
+                            onclick="handleBooking({{ $index }})">Bestätigen</button>
+                    </div>
                 </div>
-                <!--end::Plans-->
             </div>
-            <!--end::Container-->
         </div>
-        <!--end::Wrapper-->
-    </div>
-    <!--end::Pricing Section-->
-
-    <!--begin::Pricing Section-->
-    <div class="mt-sm-n20 position-relative mt-20 mb-20">
-        <div class="clouds-4"></div>
-        <!--begin::Wrapper-->
-        <div class="landing-light-bg position-relative z-index-2">
-            <!--begin::Container-->
-            <div class="container">
-                <!--begin::Plans-->
-                <div class="d-flex flex-column pt-lg-20">
-                    <!--begin::Heading-->
-                    <div class="mb-13 text-end">
-                        <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
-                            data-kt-scroll-offset="{default: 100, lg: 150}">Gruppenseminare</h1>
-                        <div class="text-gray-600 fw-semibold fs-5">erhalte ein Coaching nach meinem eigenen Konzept
-                            auf
-                            allen 5 Bewusstseins ebenen und profitiere von folgenden Inhalten
-                        </div>
-                    </div>
-                    <!--end::Heading-->
-                    <!--begin::Pricing-->
-                    <div class="text-start" id="kt_pricing">
-                        <!--begin::Row-->
-                        <div class="row g-10">
-                            <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                                <div class="w-100 h-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/medial.webp') }})">
-                                </div>
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
-                                <div class="d-flex h-100 align-items-center">
-                                    <!--begin::Option-->
-                                    <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
-                                        <!--begin::Heading-->
-                                        <div class="mb-7 text-start">
-                                            <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest">Transformationscoaching</h1>
-                                            <!--end::Title-->
-                                            <!--begin::Price-->
-                                            <div class="text-start">
-                                                {{-- <span class="mb-2 text-primary">CHF</span> --}}
-                                                <span class="fs-3x fw-bold text-primary">CHF 1800</span>
-                                            </div>
-                                            <!--end::Price-->
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Features-->
-                                        <div class="w-100 mb-10">
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span
-                                                    class="fw-semibold fs-6 text-gray-800 text-start pe-3">Booklet</span>
-                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">1x Zoom
-                                                    Meetings</span>
-                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800">
-                                                    Fairer Preis</span>
-                                                <i class="ki-duotone ki-check-circle text-success fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack mb-5">
-                                                <span class="fw-semibold fs-6 text-gray-800">
-                                                    Mein eigenes Konzept</span>
-                                                <i class="ki-duotone ki-check-circle text-success fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Item-->
-                                        </div>
-                                        <!--end::Features-->
-                                        <!--begin::Select-->
-                                        <a href="#" class="btn btn-primary">Jetzt Buchen!</a>
-                                        <!--end::Select-->
-                                    </div>
-                                    <!--end::Option-->
-                                </div>
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <!--end::Row-->
-                    </div>
-                    <!--end::Pricing-->
-                </div>
-                <!--end::Plans-->
-            </div>
-            <!--end::Container-->
-        </div>
-        <!--end::Wrapper-->
-    </div>
-    <!--end::Pricing Section-->
+        <!--end::Modal-->
+    @endforeach
 
 </x-landing-layout>
+
+
+<script>
+    function handleBooking(index) {
+        const bookingType = document.querySelector(`input[name="bookingType${index}"]:checked`).value;
+        const serviceTitle = "{{ $services[0]['title'] }}"; // Get the service title
+
+        if (bookingType === 'personal') {
+            // Redirect to payment section
+            window.location.href = "{{ route('payment') }}?service=" + encodeURIComponent(serviceTitle);
+        } else {
+            // Redirect to booking page
+            window.location.href = "{{ route('booking') }}?service=" + encodeURIComponent(serviceTitle);
+        }
+    }
+</script>
