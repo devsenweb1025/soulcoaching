@@ -206,37 +206,61 @@
                             data-tns-responsive="{768:{items:1},992:{items: 2},1200:{items: 3}}"
                             data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
 
+                            @php
+                                $reviews = [
+                                    [
+                                        'text' => '„Ich bin begeistert von der Seelenfluesterin. Sie hat eine einfühlsamen Art und hat mich wirklich mit einer Kartenlegung unterstützt. Ich kann Seelenfluesterin nur empfehlen."',
+                                        'name' => 'Anna',
+                                        'location' => 'Ostschweiz',
+                                        'audio' => [
+                                            'mp3' => asset(theme()->getMediaUrlPath() . 'audio/Anna.mp3'),
+                                        ]
+                                    ],
+                                    [
+                                        'text' => '„Ich wurde sehr unterstützt, darum habe ich gleich ein Package gebucht. Ich empfehle sie von Herzen."',
+                                        'name' => 'Sabrina',
+                                        'location' => 'Luzern',
+                                        'audio' => [
+                                            'mp3' => asset(theme()->getMediaUrlPath() . 'audio/Sabrina.mp3'),
+                                        ]
+                                    ],
+                                    [
+                                        'text' => '„Es war unglaublich, welchen Draht die Seelenfluesterin zum Universum hat. Die Kartenlegung war super. Ich bin begeistert."',
+                                        'name' => 'Philippe',
+                                        'location' => 'Bern',
+                                        'audio' => [
+                                            'mp3' => asset(theme()->getMediaUrlPath() . 'audio/Philippe.mp3'),
+                                        ]
+                                    ],
+                                    [
+                                        'text' => '„Danke für die Energetische Heilung. Es war eindrücklich zu spüren, dass etwas im Körper gegangen ist. Ich fühle mich leichter und fühle mich besser."',
+                                        'name' => 'Marion',
+                                        'location' => 'St.Gallen',
+                                        'audio' => [
+                                            'mp3' => asset(theme()->getMediaUrlPath() . 'audio/Marion.mp3'),
+
+                                        ]
+                                    ],
+                                ];
+                            @endphp
+
+                            @foreach($reviews as $review)
                             <!--begin::Item-->
                             <div class="px-5 py-5">
                                 <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300 h-100">
                                     <div class="card-body d-flex flex-column justify-content-between">
                                         <div class="fs-3">
-                                            „Deine klaren Worte und deine sanfte Art haben mir geholfen, die Dinge
-                                            klarer zu
-                                            sehen.
-                                            Die Rückführung war sehr hilfreich, um zu erkennen, was meine Aufgabe auf
-                                            der
-                                            Erde
-                                            ist.“
+                                            {{ $review['text'] }}
                                         </div>
 
                                         <div class="card-toolbar text-center">
-                                            <div
-                                                class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2 my-5">
-                                                <div class="fs-3">Priska</div>
-                                                <div class="fs-6 text-gray-600">St. Gallen</div>
+                                            <div class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2 my-5">
+                                                <div class="fs-3">{{ $review['name'] }}</div>
+                                                <div class="fs-6 text-gray-600">{{ $review['location'] }}</div>
                                             </div>
                                             <div class="d-flex align-items-center">
                                                 <audio controls class="w-100">
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
-                                                        type="audio/mpeg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.ogg"
-                                                        type="audio/ogg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.wav"
-                                                        type="audio/wav" />
+                                                    <source src="{{ $review['audio']['mp3'] }}" type="audio/mpeg" />
                                                     Audio not supported
                                                 </audio>
                                             </div>
@@ -245,158 +269,7 @@
                                 </div>
                             </div>
                             <!--end::Item-->
-                            <!--begin::Item-->
-                            <div class="px-5 py-5">
-                                <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300 h-100">
-                                    <div class="card-body d-flex flex-column justify-content-between">
-                                        <div class="fs-3">
-                                            „Anfangs war ich ein wenig nervös, aber du hast mich immer gut begleitet und
-                                            alles
-                                            erklärt, was du getan hast. Das hat mir ermöglicht, loszulassen. Ich freue
-                                            mich
-                                            schon sehr auf die nächste Behandlung.“
-                                        </div>
-
-                                        <div class="card-toolbar text-center">
-                                            <div
-                                                class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2 my-5">
-                                                <div class="fs-3">Ana</div>
-                                                <div class="fs-6 text-gray-600">Zentralschweiz</div>
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <audio controls class="w-100">
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
-                                                        type="audio/mpeg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.ogg"
-                                                        type="audio/ogg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.wav"
-                                                        type="audio/wav" />
-                                                    Audio not supported
-                                                </audio>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Item-->
-
-                            <!--begin::Item-->
-                            <div class="px-5 py-5">
-                                <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300 h-100">
-                                    <div class="card-body d-flex flex-column justify-content-between">
-                                        <div class="fs-3">
-                                            „Deine klaren Worte und deine sanfte Art haben mir geholfen, die Dinge
-                                            klarer zu
-                                            sehen.
-                                            Die Rückführung war sehr hilfreich, um zu erkennen, was meine Aufgabe auf
-                                            der
-                                            Erde
-                                            ist.“
-                                        </div>
-
-                                        <div class="card-toolbar text-center">
-                                            <div
-                                                class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2 my-5">
-                                                <div class="fs-3">Marion</div>
-                                                <div class="fs-6 text-gray-600">Zürich</div>
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <audio controls class="w-100">
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
-                                                        type="audio/mpeg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.ogg"
-                                                        type="audio/ogg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.wav"
-                                                        type="audio/wav" />
-                                                    Audio not supported
-                                                </audio>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Item-->
-                            <!--begin::Item-->
-                            <div class="px-5 py-5">
-                                <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300 h-100">
-                                    <div class="card-body d-flex flex-column justify-content-between">
-                                        <div class="fs-3">
-                                            „Anfangs war ich ein wenig nervös, aber du hast mich immer gut begleitet und
-                                            alles
-                                            erklärt, was du getan hast. Das hat mir ermöglicht, loszulassen. Ich freue
-                                            mich
-                                            schon sehr auf die nächste Behandlung.“
-                                        </div>
-
-                                        <div class="card-toolbar text-center">
-                                            <div
-                                                class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2 my-5">
-                                                <div class="fs-3">Ana</div>
-                                                <div class="fs-6 text-gray-600">Zentralschweiz</div>
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <audio controls class="w-100">
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
-                                                        type="audio/mpeg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.ogg"
-                                                        type="audio/ogg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.wav"
-                                                        type="audio/wav" />
-                                                    Audio not supported
-                                                </audio>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Item-->
-
-                            <!--begin::Item-->
-                            <div class="px-5 py-5">
-                                <div class="card card-stretch card-shadow card-borderless mb-5 bg-gray-300 h-100">
-                                    <div class="card-body d-flex flex-column justify-content-between">
-                                        <div class="fs-3">
-                                            „Anfangs war ich ein wenig nervös, aber du hast mich immer gut begleitet und
-                                            alles
-                                            erklärt, was du getan hast. Das hat mir ermöglicht, loszulassen. Ich freue
-                                            mich
-                                            schon sehr auf die nächste Behandlung.“
-                                        </div>
-
-                                        <div class="card-toolbar text-center">
-                                            <div
-                                                class="d-flex flex-column align-items-start border-0 border-left-2 border-dotted border-gray-600 px-2 my-5">
-                                                <div class="fs-3">Ana</div>
-                                                <div class="fs-6 text-gray-600">Zentralschweiz</div>
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <audio controls class="w-100">
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
-                                                        type="audio/mpeg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.ogg"
-                                                        type="audio/ogg" />
-                                                    <source
-                                                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.wav"
-                                                        type="audio/wav" />
-                                                    Audio not supported
-                                                </audio>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Item-->
+                            @endforeach
                         </div>
                         <!--end::Slider-->
 
