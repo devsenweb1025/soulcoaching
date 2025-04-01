@@ -114,50 +114,17 @@
             <!--begin::Container-->
             <div class="container z-index-2 mt-10">
                 <div class="row h-100 z-index-2">
-                    <div class="col-6 col-md-6 col-lg-4 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
+                    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="500">
                         <!--begin::Image input-->
-                        <div class="image-input image-input-empty image-input-empty w-100 h-100"
+                        <div class="w-100 h-100"
                             data-kt-image-input="true" style="background-position:center;">
 
                             <!--begin::Image preview wrapper-->
-                            <div class="image-input-wrapper w-100 h-100 object-fit-cover"
-                                style="background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'svg/avatars/blank.svg') }})">
+                            <div class="w-100 h-500px h-md-100"
+                                style="background-position:center; background-repeat: no-repeat; background-size: contain; background-image: url({{ asset(theme()->getMediaUrlPath() . 'svg/avatars/blank.svg') }})">
                             </div>
                             <!--end::Image preview wrapper-->
-
-                            <!--begin::Edit button-->
-                            <label
-                                class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow"
-                                data-kt-image-input-action="change" data-bs-toggle="tooltip" data-bs-dismiss="click"
-                                title="Change avatar">
-                                <i class="ki-duotone ki-pencil fs-6"><span class="path1"></span><span
-                                        class="path2"></span></i>
-
-                                <!--begin::Inputs-->
-                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-                                <input type="hidden" name="avatar_remove" />
-                                <!--end::Inputs-->
-                            </label>
-                            <!--end::Edit button-->
-
-                            <!--begin::Cancel button-->
-                            <span
-                                class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow"
-                                data-kt-image-input-action="cancel" data-bs-toggle="tooltip" data-bs-dismiss="click"
-                                title="Cancel avatar">
-                                <i class="ki-outline ki-cross fs-3"></i>
-                            </span>
-                            <!--end::Cancel button-->
-
-                            <!--begin::Remove button-->
-                            <span
-                                class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow"
-                                data-kt-image-input-action="remove" data-bs-toggle="tooltip" data-bs-dismiss="click"
-                                title="Remove avatar">
-                                <i class="ki-outline ki-cross fs-3"></i>
-                            </span>
-                            <!--end::Remove button-->
                         </div>
 
                         <div class="text-center d-flex justify-content-center align-items-center mt-10">
@@ -167,7 +134,7 @@
                         </div>
                         <!--end::Image input-->
                     </div>
-                    <div class="col-6 col-md-6 col-lg-8 h-100" data-aos="fade-up" data-aos-easing="linear"
+                    <div class="col-12 col-md-6 col-lg-8 h-100" data-aos="fade-up" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="500">
                         <!--begin::Testimonial-->
                         <div class="p-lg-10 p-md-5">
