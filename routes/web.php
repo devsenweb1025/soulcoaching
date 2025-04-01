@@ -78,7 +78,7 @@ Route::get('about', [LandingController::class,'about'])->name('about');
 Route::get('services', [LandingController::class,'services'])->name('services');
 Route::get('prices', [LandingController::class,'prices'])->name('prices');
 Route::get('online-course', [LandingController::class,'course'])->name('course');
-Route::get('online-shope', [LandingController::class,'shop'])->name('shop');
+Route::get('online-shop', [LandingController::class,'shop'])->name('shop');
 Route::get('contact', [LandingController::class,'contact'])->name('contact');
 
 // Booking
