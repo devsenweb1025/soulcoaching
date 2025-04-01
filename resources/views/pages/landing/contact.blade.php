@@ -46,7 +46,7 @@
                                             class="btn btn-icon btn-light btn-color-primary pulse pulse-primary shadow p-5">
                                             {!! theme()->getIcon('sms', 'fs-2tx text-primary') !!}
                                         </span>
-                                        <span class="ml-5">Mailen Sie mi</span>
+                                        <span class="ml-5">Mailen Sie mir</span>
                                     </div>
                                     <div class="text-gray-800 fs-2 mb-5">
                                         Fragen zu den Angeboten oder sonstiges anliegen? Schreiben Sie mir
