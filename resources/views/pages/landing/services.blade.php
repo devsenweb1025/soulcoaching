@@ -112,7 +112,7 @@
             </div>
             <!--end::Heading-->
             <!--begin::Container-->
-            <div class="container z-index-2 mt-10">
+            <div class="container z-index-2">
                 <div class="row h-100 z-index-2">
                     <div class="col-12 col-md-6 col-lg-4 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="500">
