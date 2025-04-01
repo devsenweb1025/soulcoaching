@@ -34,7 +34,7 @@
                 'title' => 'Transformationscoaching',
                 'description' =>
                     'Du hast schon viele Lebensaufgaben bewältigt. Doch gerade stehst du an? Dein Geistiges Team weiss, was zu tun ist. Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.',
-                'price' => 'CHF 2222 / Month Benefits:',
+                'price' => 'CHF 2222 / Monat Vorteile:',
                 'image' => 'coaching.webp',
                 'features' => [
                     'Booklet mit 100 Seiten',
@@ -47,7 +47,7 @@
                 'title' => 'Energetische Heilung für Mensch und Tier',
                 'description' =>
                     'Du hast körperliche Schmerzen die sich niemand erklären kann oder aber du möchtest deine Energiezentren (Chakren) reinigen und stärken, dann ist die Energetische Heilung das korrekte für dich. Das gilt auch für dein Haustier.',
-                'price' => 'CHF 111.- / Stunde Beneftis:',
+                'price' => 'CHF 111.- / Stunde Vorteile:',
                 'image' => 'courses-2.webp',
                 'features' => ['sofortige Wirkung', 'sofortige Steigerung des Körperlichen und mentalen Wohlbefinden'],
             ],
@@ -55,7 +55,7 @@
                 'title' => 'Tierkommunikation',
                 'description' =>
                     'Möchtest du wissen, was dein Tier dir mitteilen möchte – oder warum es sich gerade verändert verhält? Mit Hilfe von telepathischer Tierkommunikation nehme ich Kontakt zu deinem Tier auf, um Antworten, Wünsche und Gefühle sichtbar zu machen. Ob bei Verhaltensauffälligkeiten, gesundheitlichen Fragen oder zur Begleitung im Sterbeprozess: Ich helfe dir, die Verbindung zu deinem Tier zu stärken – liebevoll und intuitiv.',
-                'price' => 'CHF 77.- / pro Gespräch Benefits:',
+                'price' => 'CHF 77.- / pro Gespräch Vorteile:',
                 'image' => 'tier.webp',
                 'features' => [
                     'Du erhälst eine 1:1 Sprachaufnahme, wo ich 1:1 das was dein Tier sagt weitergebe',
@@ -66,7 +66,7 @@
                 'title' => 'Frag das Universum',
                 'description' =>
                     'Du brauchst jetzt sofort eine Antwort vom Universum? Mit meiner spirituellen Hotline für Kartenlegen bekommst du intuitiv und direkt eine Legung am Telefon – ohne Wartezeit, liebevoll und klar geführt. Ob Liebe, Beruf oder Lebensweg: Die Lenormand-Kartenlegung gibt dir neue Einsichten genau dann, wenn du sie brauchst.',
-                'price' => 'CHF 2.50/.-min benefits:',
+                'price' => 'CHF 2.50.- / min Vorteile:',
                 'image' => 'medial.webp',
                 'features' => ['Sofortige Klarheit', 'Direkter Kontakt', 'Antwort auf konkrete Lebensfragen'],
             ],
