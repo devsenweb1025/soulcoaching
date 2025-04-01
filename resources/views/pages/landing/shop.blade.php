@@ -50,7 +50,7 @@
                             <div class="card card-stretch shadow card-borderless mb-5">
                                 <div class="card-header py-5">
                                     <div class="w-100 h-200px"
-                                        style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/products/' . $index . '.webp') }})">
+                                        style="background-repeat: no-repeat;background-size: contain;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/products/' . $index . '.webp') }})">
                                     </div>
                                 </div>
                                 <div class="card-body">
