@@ -101,7 +101,7 @@
                         <!--begin::Pricing-->
                         <div class="text-start" id="kt_pricing">
                             <!--begin::Row-->
-                            <div class="row g-10">
+                            <div class="row g-10 {{ $index % 2 == 0 ? 'flex-column-reverse flex-md-row' : 'flex-column flex-md-row' }}">
                                 @if ($index % 2 == 0)
                                     <!--begin::Col-->
                                     <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear"
@@ -157,7 +157,7 @@
                                     <!--begin::Col-->
                                     <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="500">
-                                        <div class="w-100 h-100 object-fit-cover"
+                                        <div class="w-100 h-300px h-md-100 object-fit-cover"
                                             style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/prices/' . $service['image']) }})">
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@
                                     <!--begin::Col-->
                                     <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="500">
-                                        <div class="w-100 h-100 object-fit-cover"
+                                        <div class="w-100 h-300px h-md-100 object-fit-cover"
                                             style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/prices/' . $service['image']) }})">
                                         </div>
                                     </div>
