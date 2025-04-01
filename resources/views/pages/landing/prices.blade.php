@@ -42,6 +42,8 @@
                     'Fairer Preis',
                     'Wöchentlich 1x Zoom Call von einer Stunde mit mir',
                 ],
+                'button' => 'Jetzt Buchen!',
+                'button_link' => route('booking'),
             ],
             [
                 'title' => 'Energetische Heilung für Mensch und Tier',
@@ -50,6 +52,8 @@
                 'price' => 'CHF 111.- / Stunde Vorteile:',
                 'image' => 'courses-2.webp',
                 'features' => ['sofortige Wirkung', 'sofortige Steigerung des Körperlichen und mentalen Wohlbefinden'],
+                'button' => 'Jetzt Buchen!',
+                'button_link' => route('booking'),
             ],
             [
                 'title' => 'Tierkommunikation',
@@ -61,6 +65,8 @@
                     'Du erhälst eine 1:1 Sprachaufnahme, wo ich 1:1 das was dein Tier sagt weitergebe',
                     'Ich bin auch noch nach der Sitzung 1-2 Tage für Fragen erreichbar.',
                 ],
+                'button' => 'Jetzt Buchen!',
+                'button_link' => route('booking'),
             ],
             [
                 'title' => 'Frag das Universum',
@@ -69,6 +75,8 @@
                 'price' => 'CHF 2.50.- / min Vorteile:',
                 'image' => 'medial.webp',
                 'features' => ['Sofortige Klarheit', 'Direkter Kontakt', 'Antwort auf konkrete Lebensfragen'],
+                'button' => 'Jetzt Anrufen',
+                'button_link' => route('services'),
             ],
         ];
     @endphp
@@ -133,8 +141,13 @@
                                                 </div>
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
-                                                <a href="#" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#bookingModal{{ $index }}">Jetzt Buchen!</a>
+                                                @if($service['button'] === 'Jetzt Anrufen')
+                                                    <a href="{{ $service['button_link'] }}" class="btn btn-primary">{{ $service['button'] }}</a>
+                                                @else
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal{{ $index }}">
+                                                        {{ $service['button'] }}
+                                                    </button>
+                                                @endif
                                                 <!--end::Select-->
                                             </div>
                                             <!--end::Option-->
@@ -196,8 +209,13 @@
                                                 </div>
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
-                                                <a href="#" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#bookingModal{{ $index }}">Jetzt Buchen!</a>
+                                                @if($service['button'] === 'Jetzt Anrufen')
+                                                    <a href="{{ $service['button_link'] }}" class="btn btn-primary">{{ $service['button'] }}</a>
+                                                @else
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal{{ $index }}">
+                                                        {{ $service['button'] }}
+                                                    </button>
+                                                @endif
                                                 <!--end::Select-->
                                             </div>
                                             <!--end::Option-->
@@ -218,14 +236,14 @@
         </div>
         <!--end::Pricing Section-->
 
+        @if($service['button'] !== 'Jetzt Anrufen')
         <!--begin::Modal-->
         <div class="modal fade" tabindex="-1" id="bookingModal{{ $index }}">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title">{{ $service['title'] }}</h3>
-                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
-                            aria-label="Close">
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
                             <i class="ki-duotone ki-cross fs-1">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
@@ -235,44 +253,40 @@
                     <div class="modal-body">
                         <div class="mb-5">
                             <label class="form-check form-check-custom form-check-solid">
-                                <input class="form-check-input" type="radio" name="bookingType{{ $index }}"
-                                    value="personal" checked>
+                                <input class="form-check-input" type="radio" name="bookingType{{ $index }}" value="personal" checked>
                                 <span class="form-check-label">Persönliche Buchung</span>
                             </label>
                         </div>
                         <div class="mb-5">
                             <label class="form-check form-check-custom form-check-solid">
-                                <input class="form-check-input" type="radio" name="bookingType{{ $index }}"
-                                    value="group">
+                                <input class="form-check-input" type="radio" name="bookingType{{ $index }}" value="group">
                                 <span class="form-check-label">Gruppenbuchung</span>
                             </label>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Abbrechen</button>
-                        <button type="button" class="btn btn-primary"
-                            onclick="handleBooking({{ $index }})">Bestätigen</button>
+                        <button type="button" class="btn btn-primary" onclick="handleBooking({{ $index }}, '{{ $service['title'] }}')">Bestätigen</button>
                     </div>
                 </div>
             </div>
         </div>
         <!--end::Modal-->
+        @endif
     @endforeach
 
-</x-landing-layout>
+    @push('scripts')
+    <script>
+        function handleBooking(index, serviceTitle) {
+            const bookingType = document.querySelector(`input[name="bookingType${index}"]:checked`).value;
 
-
-<script>
-    function handleBooking(index) {
-        const bookingType = document.querySelector(`input[name="bookingType${index}"]:checked`).value;
-        const serviceTitle = "{{ $services[0]['title'] }}"; // Get the service title
-
-        if (bookingType === 'personal') {
-            // Redirect to payment section
-            window.location.href = "{{ route('payment') }}?service=" + encodeURIComponent(serviceTitle);
-        } else {
-            // Redirect to booking page
-            window.location.href = "{{ route('booking') }}?service=" + encodeURIComponent(serviceTitle);
+            if (bookingType === 'personal') {
+                window.location.href = "{{ route('payment') }}?service=" + encodeURIComponent(serviceTitle);
+            } else {
+                window.location.href = "{{ route('booking') }}?service=" + encodeURIComponent(serviceTitle);
+            }
         }
-    }
-</script>
+    </script>
+    @endpush
+
+</x-landing-layout>
