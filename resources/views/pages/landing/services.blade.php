@@ -101,8 +101,7 @@
             <!--begin::Heading-->
             <div class="d-flex flex-column flex-center text-center mb-10 mb-lg-10 h-100 z-index-2">
                 <!--begin::Title-->
-                <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Hotline für Kartenlegung - 0901 881
-                    881
+                <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Hotline für Kartenlegung<div class="fw-bolder">0901 881 881</div>
                     <span
                         style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                         {{-- <span id="kt_landing_hero_text"></span> --}}
@@ -117,8 +116,7 @@
                     <div class="col-12 col-md-6 col-lg-4 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="500">
                         <!--begin::Image input-->
-                        <div class="w-100 h-100"
-                            data-kt-image-input="true" style="background-position:center;">
+                        <div class="w-100 h-100" data-kt-image-input="true" style="background-position:center;">
 
                             <!--begin::Image preview wrapper-->
                             <div class="w-100 h-500px h-md-100"
@@ -147,8 +145,10 @@
                                     Möchtest du schnell und einfach eine Kartenlegung über das Telefon?
                                 </div>
                                 <div class="text-gray-600 fs-2 mb-5">
-                                    Dann ruf bei Kartenlegerin XY an und erhalte deine Legung schnell und unkompliziert
-                                    - <span class="fw-bolder">0901 881 881</span>
+                                    <div>
+                                        Dann ruf bei Kartenlegerin XY an und erhalte deine Legung schnell und unkompliziert -
+                                    </div>
+                                    <div class="fw-bolder">0901 881 881</div>
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     Jeweils MO - FR <br />
