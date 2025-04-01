@@ -48,14 +48,8 @@
                                         <div class="col-8 d-flex align-items-center">
                                             <audio controls class="w-100">
                                                 <source
-                                                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
+                                                    src="{{ asset(theme()->getMediaUrlPath() . 'audio/welcome.m4a') }}"
                                                     type="audio/mpeg" />
-                                                <source
-                                                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.ogg"
-                                                    type="audio/ogg" />
-                                                <source
-                                                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.wav"
-                                                    type="audio/wav" />
                                                 Audio not supported
                                             </audio>
                                         </div>
