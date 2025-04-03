@@ -41,6 +41,11 @@ class LandingController extends Controller
         return view("pages.landing.contact");
     }
 
+    public function medien()
+    {
+        return view("pages.landing.media");
+    }
+
     public function booking()
     {
         return view("pages.landing.booking");

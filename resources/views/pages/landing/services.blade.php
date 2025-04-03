@@ -27,7 +27,6 @@
     </div>
     <!--end::Landing hero-->
 
-
     <!--begin::Plans-->
     <div class="d-flex flex-column position-relative mb-15">
         <div class="clouds-2"></div>
@@ -81,9 +80,9 @@
                             </div>
                             <div class="card-footer">
                                 <div class="card-toolbar text-center">
-                                    <button type="button" class="btn btn-primary">
+                                    <a href="{{ route('prices') }}" class="btn btn-primary">
                                         zu den Preisen
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

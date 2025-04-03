@@ -51,48 +51,47 @@
                         <!--begin::Row-->
                         <div class="row g-10 flex-column-reverse flex-md-row">
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6" data-aos="flip-left" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
+                            <div class="col-xl-5 col-md-6" data-aos="flip-left" data-aos-easing="linear"
+                                data-aos-duration="500" data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
                                         <!--begin::Heading-->
                                         <div class="mb-7 text-start">
                                             <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest fs-2">Dieser Kurs ist für dich
-                                                wenn...
+                                            <h1 class="text-gray-900 mb-5 fw-boldest fs-2">Dieser Kurs ist für dich wenn...
                                             </h1>
                                             <!--end::Title-->
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Du dein Wissen über die Chakren
+                                                    <span class="bullet me-5 fs-3"></span> Du dein Wissen über die Chakren
                                                     erweitern willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Wissen willst welche Chakren,
+                                                    <span class="bullet me-5 fs-3"></span> Wissen willst welche Chakren,
                                                     welche Körperliche Beschwerden auslösen können
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Wissen willst, welche Chakren,
+                                                    <span class="bullet me-5 fs-3"></span> Wissen willst, welche Chakren,
                                                     welche mentalen Beschwerden hervorrufen können
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Wie du die Chakren reinigen kannst
+                                                    <span class="bullet me-5 fs-3"></span> Wie du die Chakren reinigen kannst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Wie du die Chakren stärken kannst
+                                                    <span class="bullet me-5 fs-3"></span> Wie du die Chakren stärken kannst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Wenn du dich unwohl, müde und
+                                                    <span class="bullet me-5 fs-3"></span> Wenn du dich unwohl, müde und
                                                     schlapp fühlst es aber keinen Grund dafür gibt
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deine Selbstheilung voran bringen
+                                                    <span class="bullet me-5 fs-3"></span> Deine Selbstheilung voran bringen
                                                     willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Voraussetzung für das Verständnis
+                                                    <span class="bullet me-5 fs-3"></span> Voraussetzung für das Verständnis
                                                     des Energetischen Heilen Kurses
                                                 </li>
                                             </div>
@@ -109,7 +108,7 @@
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Schmerzen & Chakra Kurs: CHF 480.-
+                                                    <span class="bullet me-5 fs-3"></span> Schmerzen & Chakra Kurs: CHF 480.-
                                                 </li>
                                             </div>
                                             <!--end::Price-->
@@ -125,14 +124,14 @@
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Buche den Kurs mit dem
+                                                    <span class="bullet me-5 fs-3"></span> Buche den Kurs mit dem
                                                     untenstehenden Formular
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Zahle den Kurs per Twint im Voraus
+                                                    <span class="bullet me-5 fs-3"></span> Zahle den Kurs per Twint im Voraus
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Nach Zahlungseingang erhältst du
+                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang erhältst du
                                                     einen Link und ein Passwort und schon geht es los
                                                 </li>
                                             </div>
@@ -145,10 +144,10 @@
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
+                            <div class="col-xl-7 col-md-6" data-aos="flip-right" data-aos-easing="linear"
+                                data-aos-duration="500" data-aos-delay="500">
                                 <div class="w-100 h-300px h-md-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/chakra.jpg') }})">
+                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/chakra.png') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
@@ -186,7 +185,7 @@
                         <div class="row g-10">
                             <!--begin::Col-->
                             <div class="col-12" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
+                                data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -251,8 +250,8 @@
                         <!--begin::Row-->
                         <div class="row g-10 flex-column-reverse flex-md-row">
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
+                            <div class="col-xl-5 col-md-6" data-aos="fade-right" data-aos-easing="linear"
+                                data-aos-duration="500" data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -266,35 +265,35 @@
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Du dein Wissen über das
+                                                    <span class="bullet me-5 fs-3"></span> Du dein Wissen über das
                                                     Energetische Heilen erweitern willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Wissen willst wie Energetisches
+                                                    <span class="bullet me-5 fs-3"></span> Wissen willst wie Energetisches
                                                     Heilen funktioniert
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Dir Abhilfe im Alltag verschaffen
+                                                    <span class="bullet me-5 fs-3"></span> Dir Abhilfe im Alltag verschaffen
                                                     willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deinen Liebsten unterstützen
+                                                    <span class="bullet me-5 fs-3"></span> Deinen Liebsten unterstützen
                                                     willst
                                                     kannst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deinem Herzenstier helfen willst
+                                                    <span class="bullet me-5 fs-3"></span> Deinem Herzenstier helfen willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deine Energie | Schwingung
+                                                    <span class="bullet me-5 fs-3"></span> Deine Energie | Schwingung
                                                     erhöhen willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deiner Seelenaufgabe näher kommen
+                                                    <span class="bullet me-5 fs-3"></span> Deiner Seelenaufgabe näher kommen
                                                     willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deine Selbstheilung voran bringen
+                                                    <span class="bullet me-5 fs-3"></span> Deine Selbstheilung voran bringen
                                                     willst
                                                 </li>
                                             </div>
@@ -311,15 +310,15 @@
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Buche den Kurs mit dem
+                                                    <span class="bullet me-5 fs-3"></span> Buche den Kurs mit dem
                                                     untenstehenden Formular
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Zahle den Kurs per Twint im
+                                                    <span class="bullet me-5 fs-3"></span> Zahle den Kurs per Twint im
                                                     Voraus
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Nach Zahlungseingang erhältst du
+                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang erhältst du
                                                     einen Link und ein Passwort und schon geht es los
                                                 </li>
                                             </div>
@@ -332,8 +331,8 @@
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
+                            <div class="col-xl-7 col-md-6" data-aos="fade-left" data-aos-easing="linear"
+                                data-aos-duration="500" data-aos-delay="500">
                                 <div class="w-100 h-300px h-md-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/theorie.jpg') }})">
                                 </div>
@@ -372,16 +371,16 @@
                         <!--begin::Row-->
                         <div class="row g-10 flex-column flex-md-row">
                             <!--begin::Col-->
-                            <div class="col-xl-8 col-md-6" data-aos="zoom-in-right" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
+                            <div class="col-xl-7 col-md-6" data-aos="zoom-in-right" data-aos-easing="linear"
+                                data-aos-duration="500" data-aos-delay="500">
                                 <div class="w-100 h-300px h-md-100 object-fit-cover"
                                     style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/praxis.jpg') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-xl-4 col-md-6" data-aos="zoom-in-left" data-aos-easing="linear" data-aos-duration="500"
-                            data-aos-delay="500">
+                            <div class="col-xl-5 col-md-6" data-aos="zoom-in-left" data-aos-easing="linear"
+                                data-aos-duration="500" data-aos-delay="500">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -395,35 +394,35 @@
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Du dein Wissen über das
+                                                    <span class="bullet me-5 fs-3"></span> Du dein Wissen über das
                                                     Energetische Heilen erweitern willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Wissen willst wie Energetisches
+                                                    <span class="bullet me-5 fs-3"></span> Wissen willst wie Energetisches
                                                     Heilen funktioniert
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Dir Abhilfe im Alltag verschaffen
+                                                    <span class="bullet me-5 fs-3"></span> Dir Abhilfe im Alltag verschaffen
                                                     willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deinen Liebsten unterstützen
+                                                    <span class="bullet me-5 fs-3"></span> Deinen Liebsten unterstützen
                                                     willst
                                                     kannst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deinem Herzenstier helfen willst
+                                                    <span class="bullet me-5 fs-3"></span> Deinem Herzenstier helfen willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deine Energie | Schwingung
+                                                    <span class="bullet me-5 fs-3"></span> Deine Energie | Schwingung
                                                     erhöhen willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deiner Seelenaufgabe näher kommen
+                                                    <span class="bullet me-5 fs-3"></span> Deiner Seelenaufgabe näher kommen
                                                     willst
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Deine Selbstheilung voran bringen
+                                                    <span class="bullet me-5 fs-3"></span> Deine Selbstheilung voran bringen
                                                     willst
                                                 </li>
                                             </div>
@@ -440,15 +439,15 @@
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Buche den Kurs mit dem
+                                                    <span class="bullet me-5 fs-3"></span> Buche den Kurs mit dem
                                                     untenstehenden Formular
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Zahle den Kurs per Twint im
+                                                    <span class="bullet me-5 fs-3"></span> Zahle den Kurs per Twint im
                                                     Voraus
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5"></span> Nach Zahlungseingang erhältst du
+                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang erhältst du
                                                     einen Link und ein Passwort und schon geht es los
                                                 </li>
                                             </div>

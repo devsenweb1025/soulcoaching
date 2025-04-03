@@ -35,6 +35,10 @@
                                 class="text-white opacity-50 text-hover-primary fs-5 mb-6">Über mich</a>
                             <!--end::Link-->
                             <!--begin::Link-->
+                            <a href="{{ route('medien') }}"
+                                class="text-white opacity-50 text-hover-primary fs-5 mb-6">Medien & Partner</a>
+                            <!--end::Link-->
+                            <!--begin::Link-->
                             <a href="{{ route('services') }}"
                                 class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dienstleistungen</a>
                             <!--end::Link-->

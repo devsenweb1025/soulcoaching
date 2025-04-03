@@ -69,6 +69,15 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('medien') ? 'active' : '' }}"
+                                href="{{ route('medien') }}" data-kt-scroll-toggle="true"
+                                data-kt-drawer-dismiss="true">Medien & Partner</a>
+                            <!--end::Menu link-->
+                        </div>
+                        <!--end::Menu item-->
+                        <!--begin::Menu item-->
+                        <div class="menu-item mx-2">
+                            <!--begin::Menu link-->
                             <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('services') ? 'active' : '' }}"
                                 href="{{ route('services') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Dienstleistungen</a>

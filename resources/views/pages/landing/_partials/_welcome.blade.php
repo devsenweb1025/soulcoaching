@@ -71,6 +71,32 @@
             </div>
         </div>
         <!--end::Container-->
+
+        <!--begin::Partner Carousel-->
+        <div class="tns tns-default" style="direction: ltr" data-aos="fade-up" data-aos-easing="linear"
+            data-aos-duration="500" data-aos-delay="0">
+            <!--begin::Slider-->
+            <div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="3000"
+                data-tns-autoplay="true" data-tns-autoplay-timeout="2000" data-tns-autoplay-hover-pause="false"
+                data-tns-controls="false" data-tns-nav="false" data-tns-items="1" data-tns-slide-by="1"
+                data-tns-responsive="{768:{items:3},992:{items:5},1200:{items:5}}">
+                @for ($i = 1; $i <= 5; $i++)
+                    <!--begin::Item-->
+                    <div class="px-5 py-5">
+                        <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
+                            <a href="{{ route('medien') }}">
+                                <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/partner' . $i . '.png') }}"
+                                    alt="Partner {{ $i }}" class="img-fluid"
+                                    style="max-height: 100px; width: auto;">
+                            </a>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                @endfor
+            </div>
+            <!--end::Slider-->
+        </div>
+        <!--end::Partner Carousel-->
     </div>
     <!--end::Testimonials Section-->
 </div>
