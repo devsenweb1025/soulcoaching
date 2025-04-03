@@ -120,7 +120,7 @@
                                                     <!--begin::Price-->
                                                     <div class="text-start">
                                                         <span
-                                                            class="fs-2x fw-bold text-primary">{{ $service['price'] }}</span>
+                                                            class="fs-2x fw-bold text-primary">{!! $service['price'] !!}</span>
                                                     </div>
                                                     <!--end::Price-->
                                                 </div>
@@ -191,7 +191,7 @@
                                                     <!--begin::Price-->
                                                     <div class="text-start">
                                                         <span
-                                                            class="fs-3x fw-bold text-primary">{{ $service['price'] }}</span>
+                                                            class="fs-2x fw-bold text-primary">{!! $service['price'] !!}</span>
                                                     </div>
                                                     <!--end::Price-->
                                                 </div>
