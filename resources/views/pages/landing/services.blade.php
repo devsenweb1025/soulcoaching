@@ -19,8 +19,17 @@
                     {{-- <span id="kt_landing_hero_text"></span> --}}
                 </span>
             </h1>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">Entdecke von diversen Angeboten und Dienstleistungen von mir
-            </p>
+                <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
+                    Entdecke mein vielseitiges Angebot rund um spirituelles Coaching, energetisches Heilen,
+                    Tierkommunikation, Kartenlegen und meine spirituelle Hotline.<br /><br />
+                    Ob du dich in einer Lebenskrise befindest, deine Chakren reinigen möchtest oder Hilfe bei der
+                    Verbindung
+                    zu deinem Tier suchst – ich begleite dich mit Herz und Intuition auf deinem Weg zu mehr Klarheit,
+                    Energie und Selbstheilung.
+                </p>
+                <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">
+
+                </p>
             <!--end::Title-->
         </div>
         <!--end::Heading-->
@@ -38,12 +47,12 @@
                         [
                             'title' => 'Transformationscoaching',
                             'description' =>
-                                'Du hast schon viele Lebensaufgaben bewältigt. Doch gerade stehst du an? Dein Geistiges Team weiss, was zu tun ist. Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.',
+                                'Du hast schon viele Herausforderungen gemeistert aber gerade fühlst du dich blockiert oder orientierungslos? Im spirituellen Transformationscoaching verbinde ich mich mit deinem Geistigen Team und empfange Botschaften, die dir helfen, deinen individuellen Weg zu erkennen. Diese Form der Begleitung unterstützt dich bei Themen wie Selbstentfaltung, Sinnfindung und spirituellem Wachstum',
                         ],
                         [
                             'title' => 'Energetische Heilung für Mensch und Tier',
                             'description' =>
-                                'Du hast körperliche Schmerzen die sich niemand erklären kann oder aber du möchtest deine Energiezentren (Chakren) reinigen und stärken, dann ist die Energetische Heilung das korrekte für dich. Das gilt auch für dein Haustier.',
+                                'Du hast körperliche Beschwerden, die sich niemand erklären kann – oder das Gefühl, energetisch aus dem Gleichgewicht zu sein? Dann ist die energetische Heilung genau das Richtige für dich. Sie hilft, Blockaden zu lösen, die Chakren zu reinigen und neue Energie in dein System zu bringen. Diese sanfte Heilmethode eignet sich sowohl für Menschen als auch für Tiere – denn auch unsere tierischen Begleiter können energetische Disharmonien zeigen.',
                         ],
                         [
                             'title' => 'Tierkommunikation',
@@ -53,7 +62,7 @@
                         [
                             'title' => 'Frag das Universum',
                             'description' =>
-                                'Du brauchst jetzt sofort eine Antwort vom Universum? Mit meiner spirituellen Hotline für Kartenlegen bekommst du intuitiv und direkt eine Legung am Telefon – ohne Wartezeit, liebevoll und klar geführt. Ob Liebe, Beruf oder Lebensweg: Die Lenormand-Kartenlegung gibt dir neue Einsichten genau dann, wenn du sie brauchst.',
+                                'Du brauchst jetzt sofort eine spirituelle Antwort oder einen Hinweis für deine aktuelle Situation? Dann rufe mich direkt an – unter der Nummer 0901 881 881 erhältst du eine schnelle, intuitive Kartenlegung per Telefon. Ob Liebe, Beruf oder Lebensfragen: Die spirituelle Hotline steht dir zur Verfügung – anonym, vertraulich und sofort erreichbar.',
                         ],
                     ];
                 @endphp
@@ -100,7 +109,8 @@
             <!--begin::Heading-->
             <div class="d-flex flex-column flex-center text-center mb-10 mb-lg-10 h-100 z-index-2">
                 <!--begin::Title-->
-                <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Hotline für Kartenlegung<div class="fw-bolder">0901 881 881</div>
+                <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Hotline für Kartenlegung<div
+                        class="fw-bolder">0901 881 881</div>
                     <span
                         style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                         {{-- <span id="kt_landing_hero_text"></span> --}}
@@ -140,24 +150,34 @@
                                 <h1 class="text-primary fw-bolder lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">
                                     NEU!
                                 </h1>
-                                <div class="text-gray-600 fs-4 mb-5">
-                                    Möchtest du schnell und einfach eine Kartenlegung über das Telefon?
-                                </div>
                                 <div class="text-gray-600 fs-2 mb-5">
-                                    <div>
-                                        Dann ruf bei Kartenlegerin XY an und erhalte deine Legung schnell und unkompliziert -
-                                    </div>
-                                    <div class="fw-bolder">0901 881 881</div>
+                                    Du brauchst schnell eine klare Antwort oder möchtest dir liebevoll die Karten legen
+                                    lassen?<br />
+                                    Dann ruf mich unter 0901 881 881 an und erhalte deine intuitive Kartenlegung
+                                    bequem
+                                    über das Telefon – ganz ohne Wartezeit, vertrauensvoll und direkt auf deine
+                                    Frage
+                                    abgestimmt.
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
+                                    0901 881 881 <br />
                                     Jeweils MO - FR <br />
                                     08:00 - 12:00 <br />
                                     13:00 - 16:00
                                 </div>
+                                <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
+                                    CHF 2.50.- / min<br />
+                                    Diese Hotline eignet sich ideal für:
+                                </div>
+                                <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
+                                    🔮 Lenormand-Kartenlegung<br />
+                                    🔮 Hellsehen per Telefon<br />
+                                    🔮 Spirituelle Lebensfragen (Liebe, Beruf, Klarheit)
+                                </div>
                                 <div class="text-gray-600 fs-2 mb-5">
-                                    Möchtest auch du einmal die Hotline bedienen oder eine Legung von
-                                    Seelenflüsterin Sarah höchstpersönlich bekommen, dann melde dich gerne per
-                                    Kontaktformular
+                                    Möchtest auch du einmal die Hotline bedienen?<br />
+                                    Dann melde Dich bei mir über das Kontaktformular und vielleicht bedienst schon bald
+                                    du die Hotline.
                                 </div>
                                 <div>
                                     <div class="d-flex justify-content-center align-items-center mb-5">

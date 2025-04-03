@@ -28,35 +28,35 @@
                             <!--end::Subtitle-->
                             <!--begin::Link-->
                             <a href="{{ route('home') }}"
-                                class="text-white opacity-50 text-hover-primary fs-5 mb-6">Start</a>
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Start</a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="{{ route('about') }}"
-                                class="text-white opacity-50 text-hover-primary fs-5 mb-6">Über mich</a>
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Über mich</a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="{{ route('medien') }}"
-                                class="text-white opacity-50 text-hover-primary fs-5 mb-6">Medien & Partner</a>
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Medien & Partner</a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="{{ route('services') }}"
-                                class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dienstleistungen</a>
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Dienstleistungen</a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="{{ route('prices') }}"
-                                class="text-white opacity-50 text-hover-primary fs-5 mb-6">Preise</a>
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Preise</a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="{{ route('course') }}"
-                                class="text-white opacity-50 text-hover-primary fs-5 mb-6">Online Kurse</a>
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Online Kurse</a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="{{ route('shop') }}"
-                                class="text-white opacity-50 text-hover-primary fs-5 mb-6">Online Shop</a>
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Online Shop</a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="{{ route('contact') }}"
-                                class="text-white opacity-50 text-hover-primary fs-5">Kontakt</a>
+                                class="text-gray-600 text-hover-white fs-5">Kontakt</a>
                             <!--end::Link-->
                         </div>
                         <!--end::Links-->
@@ -69,28 +69,28 @@
                             <a href="https://tiktok.com/@seelenfluesterin6" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/tiktok-dark.svg') }}"
                                     class="h-20px me-2" alt="" />
-                                <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">TikTok</span>
+                                <span class="text-gray-600 text-hover-white fs-5 mb-6">TikTok</span>
                             </a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="https://instagram.com/seelenfluesterin6" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/instagram-2-1.svg') }}"
                                     class="h-20px me-2" alt="" />
-                                <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
+                                <span class="text-gray-600 text-hover-white fs-5 mb-6">Instagram</span>
                             </a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="https://api.whatsapp.com/send?phone=41798227602" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/whatsapp.svg') }}"
                                     class="h-20px me-2 bg-white rounded-1" alt="" />
-                                <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Whatsapp</span>
+                                <span class="text-gray-600 text-hover-white fs-5 mb-6">Whatsapp</span>
                             </a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="https://facebook.com/sarah.barone.12" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/facebook-4.svg') }}"
                                     class="h-20px me-2" alt="" />
-                                <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
+                                <span class="text-gray-600 text-hover-white fs-5 mb-6">Facebook</span>
                             </a>
                             <!--end::Link-->
                         </div>
@@ -107,9 +107,15 @@
                         <h2 class="fw-bold text-gray-500 mb-6">Rechtliche Informationen</h2>
                         <!--end::Title-->
                         <!--begin::Text-->
-                        <div class="text-white opacity-50 fs-5 mb-6">Impressum</div>
-                        <div class="text-white opacity-50 fs-5 mb-6">Datenschutzerklärung</div>
-                        <div class="text-white opacity-50 fs-5 mb-6">Allgemeine Geschäftsbedingungen</div>
+                        <div class="text-gray-600 fs-5 mb-6">
+                            <a href="{{ route('impressum') }}" class="text-gray-600 text-hover-white">Impressum</a>
+                        </div>
+                        <div class="text-gray-600 fs-5 mb-6">
+                            <a href="{{ route('datenschutz') }}" class="text-gray-600 text-hover-white">Datenschutzerklärung</a>
+                        </div>
+                        <div class="text-gray-600 fs-5 mb-6">
+                            <a href="{{ route('agb') }}" class="text-gray-600 text-hover-white">Allgemeine Geschäftsbedingungen</a>
+                        </div>
                         <!--end::Text-->
                     </div>
                     <!--end::Block-->

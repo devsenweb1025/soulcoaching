@@ -57,9 +57,12 @@
                                             </h1>
                                             <div data-aos="fade-up">
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Ich bin Sarah, spirituelle Beraterin, Medium und Heilerin. Mein Weg
-                                                    ist geprägt von tiefem Wissen, Erfahrung und der Verbindung zur
-                                                    feinstofflichen Welt. Ich arbeite nach dem Motto:
+                                                    Ich bin Sarah – spirituelle Coachin, Heilerin und Medium aus der
+                                                    Schweiz.
+                                                </div>
+                                                <div class="text-gray-600 fs-4 mb-5">
+                                                    Mein Weg ist geprägt von tiefem Wissen, persönlicher Transformation
+                                                    und der Verbindung zur feinstofflichen Welt.
                                                 </div>
                                             </div>
                                         </div>
@@ -97,10 +100,13 @@
                                             </h1>
                                             <div data-aos="fade-up">
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Seit 16 Jahren ist Sulana meine Begleiterin.
-                                                    Paddington Begleitet Sulana mit spezieller Energie aus der Londoner
-                                                    Medialitätsschule.
-                                                    Sulana hat mich sehr vieles gelehrt.
+                                                    Seit über 16 Jahren ist Sulana meine treue Weggefährtin – und eine
+                                                    wundervolle energetische Begleiterin.
+                                                </div>
+                                                <div class="text-gray-600 fs-4 mb-5">
+                                                    Sie bringt eine ganz eigene Kraft mit, geprägt durch die Schulung in
+                                                    der Londoner Medialitätsschule. Viele meiner Erkenntnisse verdanke
+                                                    ich ihr.
                                                 </div>
                                             </div>
                                         </div>
@@ -130,17 +136,9 @@
                                 </h1>
                                 <div>
                                     <div class="text-gray-600 fs-4 mb-5">
-                                        Ehrlichkeit gehört zu meinen Grundprinzipien.
-                                    </div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Liebe ist das wichtigste.
-                                    </div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Wenn wir aufeinander eingehen und aufeinander
-                                        achten, sind wir alle stark.
-                                    </div>
-                                    <div class="text-gray-600 fs-4">
-                                        Wir sind alle verbunden - alles ist eins.
+                                        Ehrlichkeit, Liebe und Mitgefühl sind die Säulen meiner Arbeit. Ich glaube an
+                                        die Kraft der Verbindung – zwischen Menschen, Tieren und der geistigen Welt.
+                                        «Wir sind alle verbunden – alles ist eins.“
                                     </div>
                                 </div>
                             </div>

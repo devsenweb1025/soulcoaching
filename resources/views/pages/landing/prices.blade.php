@@ -19,8 +19,10 @@
                     {{-- <span id="kt_landing_hero_text"></span> --}}
                 </span>
             </h1>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">
-                Melde dich jetzt und profitiere von unschlagbaren Preisen
+            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
+                Du möchtest wissen, was eine Sitzung in Tierkommunikation, spirituellem Coaching oder energetischer
+                Heilung kostet?<br /><br />
+                Hier findest du transparente Preise für alle meine Dienstleistungen
             </p>
             <!--end::Title-->
         </div>

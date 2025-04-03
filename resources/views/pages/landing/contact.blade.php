@@ -19,8 +19,11 @@
                     {{-- <span id="kt_landing_hero_text"></span> --}}
                 </span>
             </h1>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">
-                Haben Sie Fragen oder benötigen hilfe? Gerne sind wir für Sie da
+            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
+                Hast du Fragen zu einer Sitzung in spiritueller Lebensberatung, energetischem Heilen, Tierkommunikation
+                oder zum Ablauf eines spirituellen Coachings?<br /><br />
+                Ich bin für dich da – ob du in der Schweiz, in Österreich oder Deutschland lebst.<br /><br />
+                Schreib mir direkt über das Kontaktformular oder ruf mich an – ich freue mich auf deine Anfrage.
             </p>
             <!--end::Title-->
         </div>
@@ -109,12 +112,14 @@
                                                 placeholder="+41" id="phone_input">
                                         </div>
                                         <div class="mb-10">
-                                            <label for="reason_input" class="required form-label">Um welche Dienstleistung handelt es sich?</label>
+                                            <label for="reason_input" class="required form-label">Um welche
+                                                Dienstleistung handelt es sich?</label>
                                             <input type="email" class="form-control form-control-solid"
                                                 placeholder="Dienstleistung und Produkt angeben" id="reason_input">
                                         </div>
                                         <div class="mb-10">
-                                            <label for="description_input" class="required form-label">Beschreiben Sie ihr Anliegen</label>
+                                            <label for="description_input" class="required form-label">Beschreiben Sie
+                                                ihr Anliegen</label>
                                             <textarea class="form-control form-control-solid" placeholder="Ihre Nachricht" id="description_input"
                                                 style="height: 100px"></textarea>
                                         </div>
@@ -145,7 +150,8 @@
                     <div class="card-body">
 
                         <div class="card-title d-flex flex-column align-items-center text-center mt-20 mb-10"
-                            data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                            data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                            data-aos-delay="500">
                             <div class="header-title fs-4x font-cinzel">Meist gestellte Fragen</div>
                             <div class="header-sub fs-2 text-gray-700">Finde schnell Antworten zu deinen Fragen</div>
                         </div>

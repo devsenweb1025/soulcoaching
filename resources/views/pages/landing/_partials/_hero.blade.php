@@ -29,7 +29,7 @@
                 {{-- <span id="kt_landing_hero_text"></span> --}}
             </span>
         </h1>
-        <p class="fs-1 fs-md-1x fs-lg-2x mb-15 font-archivo">Herzlich Willkommen - Seelenflüsterin Sarah</p>
+        <p class="fs-1 fs-md-1x fs-lg-2x mb-15 font-archivo">Herzlich Willkommen bei Seelenflüsterin Sarah</p>
         <!--end::Title-->
         <!--begin::Action-->
         <div class="d-flex justify-content-center">

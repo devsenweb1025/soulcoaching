@@ -23,7 +23,7 @@
                                 $faqs = [
                                     [
                                         'question' =>
-                                            'Was ist der Unterschied von einem Coaching zu einem spirituellen Coaching?',
+                                            'Was ist der Unterschied von einem Coaching zu einem Transformationscoaching?',
                                         'answer' =>
                                             'Mein Coaching ist kein herkömmliches, weil ich mich vor dem Coaching mit deinem System verbinde und dadurch Inputs für dich bekomme. Ausserdem werden wir nicht nur auf Mentaler Ebene arbeiten, sondern beziehen deine Seele immer mit ein. So kommst du schneller und mit Herz an dein Ziel. Alle 5 Bewusstseinsebenen werden eingebaut.',
                                         'is_expanded' => true,

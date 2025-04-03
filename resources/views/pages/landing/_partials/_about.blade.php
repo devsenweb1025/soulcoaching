@@ -36,10 +36,19 @@
                                             <div class="text-gray-600 fs-4 mb-5">
                                                 "Wer seine Schattenseiten nicht erfahren hat, wird sein Licht nicht
                                                 erkennen." Seelenfluesterin Sarah
+                                                Mein Name ist Sarah – ich bin mediale Lebensbegleiterin, spiritueller
+                                                Coach und fühle mich berufen, Menschen und Tiere auf ihrem Weg zu
+                                                Heilung, Klarheit und innerem Wachstum zu unterstützen.
                                             </div>
-                                            <div class="text-gray-600 fs-4 mb-15">
-                                                Ich habe eine Fähigkeit, die ich neu entdecken durfte nämlich meine
-                                                Medialität.
+                                            <div class="text-gray-600 fs-4 mb-5">
+                                                Meine Fähigkeit zur Medialität durfte ich auf meinem eigenen Lebensweg
+                                                neu entdecken – heute setze ich sie ein für: spirituelles Coaching
+                                                energetisches Heilen (für Mensch & Tier) Tierkommunikation Kartenlegen &
+                                                mediale Beratung am Telefon.
+                                            </div>
+                                            <div class="text-gray-600 fs-4 mb-10">
+                                                Ich begleite Menschen in der Schweiz, Österreich & Deutschland,
+                                                persönlich oder online – intuitiv, liebevoll und lösungsorientiert.
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center align-items-center mb-5">

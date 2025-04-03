@@ -26,7 +26,7 @@
                             <div class="p-lg-10 p-md-5">
                                 <!--begin::Wrapper-->
                                 <div class="mb-2">
-                                    <h1 class="mb-15 mb-md-10 mb-sm-5 text-md-center mt-10 fs-3x font-cinzel"
+                                    <h1 class="mb-10 mb-md-10 mb-sm-5 text-md-center fs-3x font-cinzel"
                                         data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                                         data-aos-delay="1000">
                                         Willkommen liebe Seele
@@ -34,12 +34,23 @@
                                     <div data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
                                         data-aos-delay="1000">
                                         <div class="text-gray-600 fs-4 mb-5">
-                                            Hier beginnt deine Reise. Deine Seele hat dich hierher geführt. Schön, dass
-                                            du
-                                            da
-                                            bist und dass es dich gibt.
+                                            Deine Reise zu mehr Bewusstsein beginnt hier.
                                         </div>
-                                        <div class="text-gray-600 fs-4 mb-15">
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Spürst du den Ruf nach innerer Klarheit, Heilung und spiritueller
+                                            Begleitung?
+                                        </div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Deine Seele hat dich nicht zufällig hierher geführt – sondern genau dahin,
+                                            wo Transformation möglich ist. Ich begleite dich mit spirituellem Coaching,
+                                            energetischer Heilung und medialer Beratung auf deinem Weg – ob du in der
+                                            Schweiz, in Österreich oder Deutschland bist.
+                                        </div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Hier darfst du dich erinnern, wer du wirklich bist – und lernen, deine
+                                            Selbstheilungskräfte zu aktivieren. Als erstes Geschenk lade ich dich zu
+                                            einer kleinen geführten Meditation ein – sie öffnet das Tor zu deiner Reise
+                                            nach innen.
                                             Als erstes möchte ich dich mit dieser kleiner Meditation beschenken.
                                         </div>
                                     </div>
