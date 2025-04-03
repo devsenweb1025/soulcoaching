@@ -35,7 +35,7 @@
                                             data-aos-delay="1000">
                                             <div class="text-gray-600 fs-4 mb-5">
                                                 "Wer seine Schattenseiten nicht erfahren hat, wird sein Licht nicht
-                                                erkennen." Seelenfluesterin Sarah
+                                                erkennen." Seelenfluesterin Sarah.<br />
                                                 Mein Name ist Sarah – ich bin mediale Lebensbegleiterin, spiritueller
                                                 Coach und fühle mich berufen, Menschen und Tiere auf ihrem Weg zu
                                                 Heilung, Klarheit und innerem Wachstum zu unterstützen.
