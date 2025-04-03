@@ -81,6 +81,9 @@ Route::get('online-course', [LandingController::class,'course'])->name('course')
 Route::get('online-shop', [LandingController::class,'shop'])->name('shop');
 Route::get('contact', [LandingController::class,'contact'])->name('contact');
 Route::get('medien', [LandingController::class,'medien'])->name('medien');
+Route::get('impressum', [LandingController::class,'impressum'])->name('impressum');
+Route::get('datenschutz', [LandingController::class,'datenschutz'])->name('datenschutz');
+Route::get('agb', [LandingController::class,'agb'])->name('agb');
 
 // Booking
 Route::get('booking', [LandingController::class,'booking'])->name('booking');

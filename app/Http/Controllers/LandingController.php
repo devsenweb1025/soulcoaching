@@ -55,4 +55,19 @@ class LandingController extends Controller
     {
         return view("pages.landing.payment");
     }
+
+    public function impressum()
+    {
+        return view('pages.landing.impressum');
+    }
+
+    public function datenschutz()
+    {
+        return view('pages.landing.datenschutz');
+    }
+
+    public function agb()
+    {
+        return view('pages.landing.agb');
+    }
 }

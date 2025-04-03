@@ -19,11 +19,13 @@
                     {{-- <span id="kt_landing_hero_text"></span> --}}
                 </span>
             </h1>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">
-                Die Seelenacademy bringt dich in deine Ursprungskraft zurück, nämlich in die Selbstheilung. In
-                verschiedenen Kursen lernst du was bedeutet es ein energetisches Wesen zu sein, was bedeuten deine
-                Schmerzen, wie kannst du dich selbst heilen und deine Energie verbessern, damit du mehr Lebenskraft
-                hast.
+            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
+                In der Seelenacademy lernst du, wie du deine Selbstheilungskräfte aktivieren kannst, um emotionale und
+                körperliche Blockaden zu lösen und deine Lebensenergie zu steigern.<br /><br />
+                Meine Online-Kurse verbinden energetisches Heilen, spirituelles Coaching und ganzheitliches Wissen über
+                Chakra-Harmonisierung, Transformation und Bewusstseinsentwicklung.<br /><br />
+                Du erfährst, was es bedeutet, ein energetisches Wesen zu sein, und wie du dich selbst stärken, heilen
+                und innerlich wachsen kannst – bequem von überall in der Schweiz, Österreich oder Deutschland.
             </p>
             <!--end::Title-->
         </div>
@@ -59,41 +61,29 @@
                                         <!--begin::Heading-->
                                         <div class="mb-7 text-start">
                                             <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest fs-2">Dieser Kurs ist für dich wenn...
+                                            <h1 class="text-gray-900 mb-5 fw-boldest fs-2">Dieser Kurs ist für dich
+                                                wenn...
                                             </h1>
                                             <!--end::Title-->
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Du dein Wissen über die Chakren
-                                                    erweitern willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Wissen willst welche Chakren,
-                                                    welche Körperliche Beschwerden auslösen können
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Wissen willst, welche Chakren,
-                                                    welche mentalen Beschwerden hervorrufen können
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Wie du die Chakren reinigen kannst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Wie du die Chakren stärken kannst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Wenn du dich unwohl, müde und
-                                                    schlapp fühlst es aber keinen Grund dafür gibt
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deine Selbstheilung voran bringen
-                                                    willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Voraussetzung für das Verständnis
-                                                    des Energetischen Heilen Kurses
-                                                </li>
+                                                @php
+                                                    $chakraItems = [
+                                                        'Du dein Wissen über die Chakren erweitern möchtest',
+                                                        'Du wissen willst, welche Chakren mit welchen körperlichen oder emotionalen Beschwerden verbunden sind',
+                                                        'Du lernen willst, wie du deine Chakren reinigen und Chakren stärken kannst',
+                                                        'Du dich müde, energielos oder innerlich blockiert fühlst, aber keine medizinische Ursache bekannt ist',
+                                                        'Du deine Selbstheilungskräfte aktivieren und mehr Energie & Lebensfreude spüren möchtest',
+                                                        'Du dich für den Kurs energetisches Heilen vorbereiten willst',
+                                                        'Du die Ursachen für energetische Blockaden verstehen willst',
+                                                    ];
+                                                @endphp
+
+                                                @foreach ($chakraItems as $item)
+                                                    <li class="d-flex align-items-center py-2">
+                                                        <span class="bullet me-5 fs-3"></span> {{ $item }}
+                                                    </li>
+                                                @endforeach
                                             </div>
                                             <!--end::Price-->
                                         </div>
@@ -108,7 +98,8 @@
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Schmerzen & Chakra Kurs: CHF 480.-
+                                                    <span class="bullet me-5 fs-3"></span> Schmerzen & Chakra Kurs: CHF
+                                                    480.-
                                                 </li>
                                             </div>
                                             <!--end::Price-->
@@ -128,10 +119,12 @@
                                                     untenstehenden Formular
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Zahle den Kurs per Twint im Voraus
+                                                    <span class="bullet me-5 fs-3"></span> Zahle den Kurs per Twint im
+                                                    Voraus
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang erhältst du
+                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang erhältst
+                                                    du
                                                     einen Link und ein Passwort und schon geht es los
                                                 </li>
                                             </div>
@@ -193,13 +186,15 @@
                                         <div class="text-start">
                                             <!--begin::Title-->
                                             <div class="text-gray-900 mb-5 fw-boldest">
-                                                Energetisches Heilen ist
-                                                mehr als nur Handauflegen. Es ist eine Haltung. Es gibt Gesetze an die
-                                                man sich halten soll und auch Regeln die man nicht missachten darf.
-                                                Darum ist unser Kurs in Theorie und Praxis aufgeteilt.
-
-                                                Beachte, dass der Chakra Kurs das Vorverständnis für den energertischen
-                                                Heiler Kurs darstellt.
+                                                Energetisches Heilen ist mehr als Handauflegen – es ist eine innere
+                                                Haltung, ein Weg zur Aktivierung der Selbstheilungskräfte. In diesem
+                                                Kurs lernst du die Grundlagen der Energiearbeit, erfährst, wie du
+                                                energetische Blockaden lösen und deine Lebensenergie ins Gleichgewicht
+                                                bringen kannst. Du erhältst nicht nur theoretisches Wissen, sondern auch
+                                                praktische Übungen für den Alltag. Der Kurs ist ideal für alle, die sich
+                                                für holistische Heilmethoden, Chakra-Heilung und spirituelles Heilen
+                                                interessieren. Bitte beachte: Der Chakra Kurs bildet die empfohlene
+                                                Grundlage für diesen Kurs.
                                             </div>
                                             <!--end::Title-->
 
@@ -264,38 +259,24 @@
                                             <!--end::Title-->
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Du dein Wissen über das
-                                                    Energetische Heilen erweitern willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Wissen willst wie Energetisches
-                                                    Heilen funktioniert
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Dir Abhilfe im Alltag verschaffen
-                                                    willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deinen Liebsten unterstützen
-                                                    willst
-                                                    kannst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deinem Herzenstier helfen willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deine Energie | Schwingung
-                                                    erhöhen willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deiner Seelenaufgabe näher kommen
-                                                    willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deine Selbstheilung voran bringen
-                                                    willst
-                                                </li>
+                                                @php
+                                                    $theorieItems = [
+                                                        'Du dein Wissen über energetisches Heilen erweitern möchtest',
+                                                        'Du verstehen willst, wie Energiearbeit bei körperlichen und emotionalen Blockaden helfen kann',
+                                                        'Du nach Lösungen für deine Selbstheilung im Alltag suchst',
+                                                        'Du deinen Liebsten durch spirituelle Heilmethoden helfen willst',
+                                                        'Du deinen Herzensweg mit mehr Energie und Klarheit gehen willst',
+                                                        'Du deine Schwingung erhöhen und dein inneres Gleichgewicht stärken möchtest',
+                                                        'Du deiner Seelenaufgabe näherkommen und dich persönlich weiterentwickeln willst',
+                                                        'Du deine Selbstheilungskräfte aktivieren und bewusst leben möchtest',
+                                                    ];
+                                                @endphp
+
+                                                @foreach ($theorieItems as $item)
+                                                    <li class="d-flex align-items-center py-2">
+                                                        <span class="bullet me-5 fs-3"></span> {{ $item }}
+                                                    </li>
+                                                @endforeach
                                             </div>
                                             <!--end::Price-->
                                         </div>
@@ -318,7 +299,8 @@
                                                     Voraus
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang erhältst du
+                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang
+                                                    erhältst du
                                                     einen Link und ein Passwort und schon geht es los
                                                 </li>
                                             </div>
@@ -393,38 +375,24 @@
                                             <!--end::Title-->
                                             <!--begin::Price-->
                                             <div class="d-flex flex-column">
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Du dein Wissen über das
-                                                    Energetische Heilen erweitern willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Wissen willst wie Energetisches
-                                                    Heilen funktioniert
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Dir Abhilfe im Alltag verschaffen
-                                                    willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deinen Liebsten unterstützen
-                                                    willst
-                                                    kannst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deinem Herzenstier helfen willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deine Energie | Schwingung
-                                                    erhöhen willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deiner Seelenaufgabe näher kommen
-                                                    willst
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Deine Selbstheilung voran bringen
-                                                    willst
-                                                </li>
+                                                @php
+                                                    $praxisItems = [
+                                                        'Dein Wissen über energetisches Heilen vertiefen und gezielt anwenden möchtest',
+                                                        'Verstehen willst, wie Energiearbeit auf Körper, Geist & Seele wirkt',
+                                                        'Im Alltag Blockaden lösen und mehr innere Balance spüren möchtest',
+                                                        'Deine Liebsten mit Energiearbeit unterstützen willst – liebevoll und intuitiv kannst',
+                                                        'Deinem Herzenstier bei emotionalen oder körperlichen Beschwerden helfen möchtest',
+                                                        'Lernen willst, wie man die Chakren reinigt und stärkt',
+                                                        'Den Ruf deiner Seelenaufgabe besser verstehen und ihr folgen möchtest',
+                                                        'Deine Selbstheilungskräfte aktivieren willst, um ganz in deine Kraft zu kommen',
+                                                    ];
+                                                @endphp
+
+                                                @foreach ($praxisItems as $item)
+                                                    <li class="d-flex align-items-center py-2">
+                                                        <span class="bullet me-5 fs-3"></span> {{ $item }}
+                                                    </li>
+                                                @endforeach
                                             </div>
                                             <!--end::Price-->
                                         </div>
@@ -447,7 +415,8 @@
                                                     Voraus
                                                 </li>
                                                 <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang erhältst du
+                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang
+                                                    erhältst du
                                                     einen Link und ein Passwort und schon geht es los
                                                 </li>
                                             </div>
