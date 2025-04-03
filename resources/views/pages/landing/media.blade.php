@@ -18,7 +18,7 @@
                     style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                 </span>
             </h1>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">
+            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
                 In der heutigen Zeit ist es wichtiger denn je, echte Verbindungen zu schaffen – auch im digitalen Raum.
                 <br /><br />
                 Als spirituelle Begleiterin, Tierkommunikatorin und Expertin für energetisches Heilen freue ich mich
