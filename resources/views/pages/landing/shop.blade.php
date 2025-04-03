@@ -36,12 +36,6 @@
             <div class="container">
                 <!--begin::Plans-->
                 <div class="d-flex flex-column pt-lg-20">
-                    <!--begin::Heading-->
-                    <div class="mb-13 text-start">
-                        <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
-                            data-kt-scroll-offset="{default: 100, lg: 150}">Kerzen</h1>
-                    </div>
-                    <!--end::Heading-->
                     <!--begin::Pricing-->
                     <div class="row g-5">
                         @foreach(range(1, 15) as $index)

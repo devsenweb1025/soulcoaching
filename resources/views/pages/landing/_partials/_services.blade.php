@@ -77,9 +77,9 @@
                                     </div>
                                     <div class="card-footer">
                                         <div class="card-toolbar text-center">
-                                            <button type="button" class="btn btn-primary">
+                                            <a href="{{ route('prices') }}" class="btn btn-primary">
                                                 zu den Preisen
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
