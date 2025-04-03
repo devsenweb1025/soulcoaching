@@ -18,7 +18,7 @@
                 <!--begin::Logo image-->
                 <a href="{{ route('home') }}">
                     <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/landing.png') }}"
-                        class="logo-default h-70px h-lg-100px" />
+                        class="logo-default h-70px h-lg-70px" />
                     <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/landing.png') }}"
                         class="logo-sticky h-70px h-lg-100px" />
                 </a>
@@ -50,7 +50,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('home') ? 'active' : '' }}"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('home') ? 'active' : '' }}"
                                 href="{{ route('home') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Startseite</a>
                             <!--end::Menu link-->
@@ -59,7 +59,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('about') ? 'active' : '' }}"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('about') ? 'active' : '' }}"
                                 href="{{ route('about') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Über
                                 mich</a>
@@ -69,7 +69,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('medien') ? 'active' : '' }}"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('medien') ? 'active' : '' }}"
                                 href="{{ route('medien') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Medien & Partner</a>
                             <!--end::Menu link-->
@@ -78,7 +78,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('services') ? 'active' : '' }}"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('services') ? 'active' : '' }}"
                                 href="{{ route('services') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Dienstleistungen</a>
                             <!--end::Menu link-->
@@ -87,7 +87,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('prices') ? 'active' : '' }}"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('prices') ? 'active' : '' }}"
                                 href="{{ route('prices') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Preise</a>
                             <!--end::Menu link-->
@@ -96,7 +96,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('course') ? 'active' : '' }}"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('course') ? 'active' : '' }}"
                                 href="{{ route('course') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Online
                                 Kurse</a>
@@ -106,7 +106,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('shop') ? 'active' : '' }}"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('shop') ? 'active' : '' }}"
                                 href="{{ route('shop') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Online
                                 Shop</a>
@@ -116,7 +116,7 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 px-xxl-6 {{ url()->current() == route('contact') ? 'active' : '' }}"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('contact') ? 'active' : '' }}"
                                 href="{{ route('contact') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Kontakt</a>
                             <!--end::Menu link-->
