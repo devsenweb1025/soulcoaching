@@ -31,21 +31,30 @@
                 <div class="card shadow-sm bg-gray-300" data-aos="zoom-in" data-aos-easing="linear"
                     data-aos-duration="500" data-aos-delay="0">
                     <div class="card-body">
-                        <h1 style="padding-top: 3pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                            Datenschutzerklärung</h1>
-                        <p
-                            style="padding-top: 9pt;padding-left: 5pt;text-indent: 0pt;line-height: 114%;text-align: left;">
-                            Verantwortliche
-                            Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung
-                            (DSGVO), ist:</p>
-                        <p style="padding-top: 15pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                            Seelenfluesterin</p>
-                        <p
-                            style="padding-top: 2pt;padding-left: 5pt;text-indent: 0pt;line-height: 114%;text-align: left;">
-                            <a href="mailto:Seelenfluesterin@gmx.ch" class="s1" target="_blank">E-Mail:
-                            </a>Seelenfluesterin@gmx.ch
+                        <!--begin::Title-->
+                        <h1 class="text-gray-900 fw-boldest fs-2x">Verantwortliche Stelle</h1>
+                        <!--end::Title-->
+                        <!--begin::Text-->
+                        <div class="fs-2 py-2">
+                            Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:<br />
+                            Seelenfluesterin<br />
+                            <a href="mailto:Seelenfluesterin@gmx.ch" target="_blank">E-Mail: Seelenfluesterin@gmx.ch</a><br />
                             WebSite: https://seelenfluesterin.net
-                        </p>
+                        </div>
+                        <!--end::Text-->
+
+                        <!--begin::Title-->
+                        <h1 class="text-gray-900 fw-boldest fs-2x">Allgemeiner Hinweis</h1>
+                        <!--end::Title-->
+                        <!--begin::Text-->
+                        <div class="fs-2 py-2">
+                            Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und den datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.<br /><br />
+                            In Zusammenarbeit mit unseren Hosting-Providern bemühen wir uns, die Datenbanken so gut wie möglich vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung zu schützen.<br /><br />
+                            Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.<br /><br />
+                            Durch die Nutzung dieser Website erklären Sie sich mit der Erhebung, Verarbeitung und Nutzung von Daten gemäss der nachfolgenden Beschreibung einverstanden. Diese Website kann grundsätzlich ohne Registrierung besucht werden. Dabei werden Daten wie beispielsweise aufgerufene Seiten bzw. Namen der abgerufenen Datei, Datum und Uhrzeit zu statistischen Zwecken auf dem Server gespeichert, ohne dass diese Daten unmittelbar auf Ihre Person bezogen werden.<br /><br />
+                            Personenbezogene Daten, insbesondere Name, Adresse oder E-Mail-Adresse werden soweit möglich auf freiwilliger Basis erhoben. Ohne Ihre Einwilligung erfolgt keine Weitergabe der Daten an Dritte.
+                        </div>
+                        <!--end::Text-->
 
                         <h1 style="padding-top: 13pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">Allgemeiner
                             Hinweis</h1>
@@ -218,7 +227,7 @@
                                     verschlüsselte Verbindung erkennen Sie daran, dass die</p>
                                 <p style="padding-left: 5pt;text-indent: 0pt;line-height: 16pt;text-align: left;">
                                     Adresszeile des Browsers
-                                    von „http://“ auf „https://“ wechselt und an</p>
+                                    von "http://" auf "https://" wechselt und an</p>
                                 <p style="padding-top: 2pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">dem
                                     Schloss-Symbol in Ihrer
                                     Browserzeile.</p>
@@ -728,7 +737,7 @@
                                 wünschen, loggen Sie
                                 sich bitte vor dem Besuch unserer Seite bei Facebook aus. Interaktionen, insbesondere
                                 das Nutzen einer
-                                Kommentarfunktion oder das Anklicken eines „Like“- oder „Teilen“-Buttons werden
+                                Kommentarfunktion oder das Anklicken eines "Like" oder "Teilen"-Buttons werden
                                 ebenfalls an Facebook
                                 weitergegeben. Mehr erfahren Sie unter </a><span
                                 style=" color: #333; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 13.5pt;">https://de-</span><a
@@ -770,7 +779,7 @@
                         <p class="s3"
                             style="padding-top: 2pt;padding-left: 5pt;text-indent: 0pt;line-height: 114%;text-align: left;">
                             <a href="https://mailchimp.com/legal/privacy/" class="s1"
-                                target="_blank">‚MailChimp‘, einer
+                                target="_blank">‚MailChimp', einer
                                 Newsletterversandplattform des US-Anbieters Rocket Science Group, LLC, 675 Ponce De Leon
                                 Ave NE #5000,
                                 Atlanta, GA 30308, USA. Die Datenschutzbestimmungen des Versanddienstleisters können Sie
