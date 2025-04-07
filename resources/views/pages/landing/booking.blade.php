@@ -4,7 +4,7 @@
             <div class="col-lg-10">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h1 class="text-center mb-5">Schedule an Appointment</h1>
+                        <h1 class="text-center mb-5">Termin vereinbaren</h1>
 
                         <!-- Calendly inline widget -->
                         <div class="calendly-inline-widget" data-url="{{ request()->has('service') ? 'https://calendly.com/seelenfluesterin-sarah/' . urlencode(request('service')) : 'https://calendly.com/seelenfluesterin-sarah' }}"
