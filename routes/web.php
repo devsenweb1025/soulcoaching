@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function () {
 
     // Booking
     Route::get('booking', [LandingController::class, 'booking'])->name('booking');
+    Route::get('payment', [LandingController::class, 'payment'])->name('payment');
 });
 
 Route::resource('users', UsersController::class);
