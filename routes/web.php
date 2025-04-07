@@ -65,13 +65,14 @@ Route::middleware('auth')->group(function () {
         Route::resource('system', SystemLogsController::class)->only(['index', 'destroy']);
         Route::resource('audit', AuditLogsController::class)->only(['index', 'destroy']);
     });
-
-    // Booking
-    Route::get('booking', [LandingController::class, 'booking'])->name('booking');
-    Route::get('payment', [LandingController::class, 'payment'])->name('payment');
 });
 
 Route::resource('users', UsersController::class);
+
+
+// Booking
+Route::get('booking', [LandingController::class, 'booking'])->name('booking');
+Route::get('payment', [LandingController::class, 'payment'])->name('payment');
 
 /**
  * Socialite login using Google service

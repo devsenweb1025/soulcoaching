@@ -24,7 +24,13 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(theme()->getPageUrl(RouteServiceProvider::HOME));
+                if (session()->has('url.intended')) {
+                    $intendedUrl = session()->get('url.intended');
+                    session()->forget('url.intended');
+                    return redirect($intendedUrl);
+                }
+
+                return redirect(RouteServiceProvider::HOME);
             }
         }
 
