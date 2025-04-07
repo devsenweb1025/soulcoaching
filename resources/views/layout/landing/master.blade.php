@@ -10,7 +10,7 @@
         <!--begin::Root-->
         <div class="d-flex flex-column flex-root position-relative">
             <!--begin::Header Section-->
-            <div class="mt-5 position-relative" id="home">
+            <div class="position-relative" id="home">
                 @include('layout.landing._header')
             </div>
             <!--end::Header Section-->
