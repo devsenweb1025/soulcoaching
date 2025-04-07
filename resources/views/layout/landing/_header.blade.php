@@ -1,5 +1,5 @@
 <!--begin::Header-->
-<div class="landing-header card card-flush container fixed z-index-3" data-kt-sticky="true"
+<div class="landing-header card card-flush container fixed z-index-3 p-0" data-kt-sticky="true"
     data-kt-sticky-name="landing-header" data-kt-sticky-top="10px">
     <!--begin::Container-->
     <div class="container">
