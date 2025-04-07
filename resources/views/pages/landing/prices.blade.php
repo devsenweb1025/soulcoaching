@@ -34,6 +34,7 @@
         $services = [
             [
                 'title' => 'Transformationscoaching',
+                'event' => 'transformationscoaching',
                 'description' =>
                     'Du hast schon viele Lebensaufgaben bewältigt. Doch gerade stehst du an? Dein Geistiges Team weiss, was zu tun ist. Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.',
                 'price' => 'CHF 2222 / Monat<br>Vorteile:',
@@ -45,20 +46,22 @@
                     'Wöchentlich 1x Zoom Call von einer Stunde mit mir',
                 ],
                 'button' => 'Jetzt Buchen!',
-                'button_link' => route('booking'),
+                'button_link' => route('booking', ['event' => 'transformationscoaching']),
             ],
             [
                 'title' => 'Energetische Heilung für Mensch und Tier',
+                'event' => 'energetische-heilung-fur-mensch-und-tier',
                 'description' =>
                     'Du hast körperliche Schmerzen die sich niemand erklären kann oder aber du möchtest deine Energiezentren (Chakren) reinigen und stärken, dann ist die Energetische Heilung das korrekte für dich. Das gilt auch für dein Haustier.',
                 'price' => 'CHF 111.- / Stunde<br>Vorteile:',
                 'image' => 'Energetische.png',
                 'features' => ['sofortige Wirkung', 'sofortige Steigerung des Körperlichen und mentalen Wohlbefinden'],
                 'button' => 'Jetzt Buchen!',
-                'button_link' => route('booking'),
+                'button_link' => route('booking', ['event' => 'energetische-heilung-fur-mensch-und-tier']),
             ],
             [
                 'title' => 'Tierkommunikation',
+                'event' => 'tierkommunikation',
                 'description' =>
                     'Möchtest du wissen, was dein Tier dir mitteilen möchte – oder warum es sich gerade verändert verhält? Mit Hilfe von telepathischer Tierkommunikation nehme ich Kontakt zu deinem Tier auf, um Antworten, Wünsche und Gefühle sichtbar zu machen. Ob bei Verhaltensauffälligkeiten, gesundheitlichen Fragen oder zur Begleitung im Sterbeprozess: Ich helfe dir, die Verbindung zu deinem Tier zu stärken – liebevoll und intuitiv.',
                 'price' => 'CHF 77.- / pro Gespräch<br>Vorteile:',
@@ -68,7 +71,7 @@
                     'Ich bin auch noch nach der Sitzung 1-2 Tage für Fragen erreichbar.',
                 ],
                 'button' => 'Jetzt Buchen!',
-                'button_link' => route('booking'),
+                'button_link' => route('booking', ['event' => 'tierkommunikation']),
             ],
             [
                 'title' => 'Frag das Universum',
@@ -78,7 +81,7 @@
                 'image' => 'Frag.jpg',
                 'features' => ['Sofortige Klarheit', 'Direkter Kontakt', 'Antwort auf konkrete Lebensfragen'],
                 'button' => 'Jetzt Anrufen',
-                'button_link' => route('services'),
+                'button_link' => route('services', ['scroll_to' => 'hotline']),
             ],
         ];
     @endphp
@@ -144,15 +147,15 @@
                                                 </div>
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
-                                                @if ($service['button'] === 'Jetzt Anrufen')
-                                                    <a href="{{ $service['button_link'] }}"
-                                                        class="btn btn-primary">{{ $service['button'] }}</a>
-                                                @else
+                                                @if ($service['title'] === 'Transformationscoaching')
                                                     <button type="button" class="btn btn-primary"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#bookingModal{{ $index }}">
                                                         {{ $service['button'] }}
                                                     </button>
+                                                @else
+                                                    <a href="{{ $service['button_link'] }}"
+                                                        class="btn btn-primary">{{ $service['button'] }}</a>
                                                 @endif
                                                 <!--end::Select-->
                                             </div>
@@ -215,15 +218,15 @@
                                                 </div>
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
-                                                @if ($service['button'] === 'Jetzt Anrufen')
-                                                    <a href="{{ $service['button_link'] }}?scroll_to=hotline"
-                                                        class="btn btn-primary">{{ $service['button'] }}</a>
-                                                @else
+                                                @if ($service['title'] === 'Transformationscoaching')
                                                     <button type="button" class="btn btn-primary"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#bookingModal{{ $index }}">
                                                         {{ $service['button'] }}
                                                     </button>
+                                                @else
+                                                    <a href="{{ $service['button_link'] }}"
+                                                        class="btn btn-primary">{{ $service['button'] }}</a>
                                                 @endif
                                                 <!--end::Select-->
                                             </div>
@@ -245,7 +248,7 @@
         </div>
         <!--end::Pricing Section-->
 
-        @if ($service['button'] !== 'Jetzt Anrufen')
+        @if ($service['title'] === 'Transformationscoaching')
             <!--begin::Modal-->
             <div class="modal fade" tabindex="-1" id="bookingModal{{ $index }}">
                 <div class="modal-dialog modal-dialog-centered">
@@ -279,7 +282,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Abbrechen</button>
                             <button type="button" class="btn btn-primary"
-                                onclick="handleBooking({{ $index }}, '{{ $service['title'] }}')">Bestätigen</button>
+                                onclick="handleBooking({{ $index }}, '{{ $service['event'] }}')">Bestätigen</button>
                         </div>
                     </div>
                 </div>
@@ -320,7 +323,10 @@
                     // Scroll to the target section if found
                     if (targetSection) {
                         setTimeout(() => {
-                            targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
                         }, 1000);
                     }
                 }
