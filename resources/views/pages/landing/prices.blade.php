@@ -216,7 +216,7 @@
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
                                                 @if ($service['button'] === 'Jetzt Anrufen')
-                                                    <a href="{{ $service['button_link'] }}"
+                                                    <a href="{{ $service['button_link'] }}?scroll_to=hotline"
                                                         class="btn btn-primary">{{ $service['button'] }}</a>
                                                 @else
                                                     <button type="button" class="btn btn-primary"
@@ -299,6 +299,32 @@
                     window.location.href = "{{ route('booking') }}?service=" + service;
                 }
             }
+
+            // Auto-scroll to specific service when service parameter is provided
+            document.addEventListener('DOMContentLoaded', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const serviceParam = urlParams.get('service');
+
+                if (serviceParam) {
+                    // Find the service section with matching title
+                    const serviceSections = document.querySelectorAll('.landing-light-bg');
+                    let targetSection = null;
+
+                    serviceSections.forEach(section => {
+                        const titleElement = section.querySelector('h1.fs-2hx');
+                        if (titleElement && titleElement.textContent.trim() === serviceParam) {
+                            targetSection = section;
+                        }
+                    });
+
+                    // Scroll to the target section if found
+                    if (targetSection) {
+                        setTimeout(() => {
+                            targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 1000);
+                    }
+                }
+            });
         </script>
     @endpush
 

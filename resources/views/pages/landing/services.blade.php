@@ -89,7 +89,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="card-toolbar text-center">
-                                    <a href="{{ route('prices') }}" class="btn btn-primary">
+                                    <a href="{{ route('prices', ['service' => $service['title']]) }}" class="btn btn-primary">
                                         zu den Preisen
                                     </a>
                                 </div>
@@ -103,7 +103,7 @@
     </div>
     <!--end::Plans-->
     <!--begin::Wrapper-->
-    <div class="py-20 landing-light-bg rounded position-relative">
+    <div class="py-20 landing-light-bg rounded position-relative" id="hotline-section">
         <div class="clouds-2"></div>
         <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 z-index-2">
             <!--begin::Heading-->
@@ -223,5 +223,20 @@
                 }
             });
         });
+
+        // Auto-scroll to hotline section when hotline parameter is provided
+        const urlParams = new URLSearchParams(window.location.search);
+        const scrollToParam = urlParams.get('scroll_to');
+
+        if (scrollToParam === 'hotline') {
+            // Find the hotline section
+            const hotlineSection = document.querySelector('.landing-light-bg.rounded');
+
+            if (hotlineSection) {
+                setTimeout(() => {
+                    hotlineSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 1000);
+            }
+        }
     });
 </script>
