@@ -265,14 +265,14 @@
                                 <label class="form-check form-check-custom form-check-solid">
                                     <input class="form-check-input" type="radio"
                                         name="bookingType{{ $index }}" value="personal" checked>
-                                    <span class="form-check-label">Persönliche Buchung</span>
+                                    <span class="form-check-label">Einzelcoaching</span>
                                 </label>
                             </div>
                             <div class="mb-5">
                                 <label class="form-check form-check-custom form-check-solid">
                                     <input class="form-check-input" type="radio"
                                         name="bookingType{{ $index }}" value="group">
-                                    <span class="form-check-label">Gruppenbuchung</span>
+                                    <span class="form-check-label">Gruppencoaching</span>
                                 </label>
                             </div>
                         </div>
