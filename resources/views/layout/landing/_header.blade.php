@@ -26,7 +26,7 @@
 
                 <!--begin::Toolbar-->
                 <div class="me-3 d-flex d-lg-none">
-                    <a href="{{ route('login') }}" class="btn btn-gradient-dark">
+                    <a href="{{ route('booking') }}" class="btn btn-gradient-dark">
                         {{-- <span>Termin buchen</span> --}}
                         <span class="display-none">
                             {!! theme()->getIcon('calendar', 'fs-1 text-white') !!}
