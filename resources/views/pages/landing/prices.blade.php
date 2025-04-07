@@ -292,11 +292,11 @@
         <script>
             function handleBooking(index, serviceTitle) {
                 const bookingType = document.querySelector(`input[name="bookingType${index}"]:checked`).value;
-
+                const service = encodeURIComponent(serviceTitle);
                 if (bookingType === 'personal') {
-                    window.location.href = "{{ route('payment') }}?service=" + encodeURIComponent(serviceTitle);
+                    window.location.href = "{{ route('payment') }}?service=" + service;
                 } else {
-                    window.location.href = "{{ route('booking') }}?service=" + encodeURIComponent(serviceTitle);
+                    window.location.href = "{{ route('booking') }}?service=" + service;
                 }
             }
         </script>

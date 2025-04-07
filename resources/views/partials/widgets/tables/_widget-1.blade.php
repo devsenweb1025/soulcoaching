@@ -133,7 +133,7 @@ $tableRows = array(
 
                         <td class="text-end">
                             <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                {!! theme()->getIcon("arrow-right", "fs-2"); !!}
+                                {!! theme()->getIcon("arrow-right", "fs-2") !!}
                             </a>
                         </td>
                     </tr>

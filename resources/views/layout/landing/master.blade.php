@@ -16,6 +16,7 @@
             <!--end::Header Section-->
             {{ $slot }}
             @include('layout.landing._footer')
+            @include('layout.landing._audio')
         </div>
         <!--end::Root-->
 
@@ -43,4 +44,5 @@
     <script type="text/javascript" src="{{ asset('plugins/custom/aos/aos.bundle.js') }}"></script>
     <script type="text/javascript" src="{{ asset('plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/custom/landing.js') }}"></script>
+    @stack('scripts')
 @endsection
