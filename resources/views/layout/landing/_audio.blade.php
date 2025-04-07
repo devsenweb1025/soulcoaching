@@ -1,10 +1,10 @@
 <!--begin::Audio Section-->
-<div class="position-fixed top-50 start-0 z-index-3 translate-middle-y bg-transparent">
-    <button id="audioToggle" class="btn btn-icon position-relative bg-primary-300 rounded-circle bg-transparent">
+<div class="position-fixed bottom-0 start-0 z-index-3">
+    <button id="audioToggle" class="btn btn-icon position-relative bg-primary rounded-circle">
         <!-- Satellite icon (shown when playing) -->
-        {!! theme()->getIcon('notification-on', 'fs-3tx text-primary audio-playing-icon d-none') !!}
+        {!! theme()->getIcon('notification-on', 'fs-3tx text-white audio-playing-icon d-none', 'solid') !!}
         <!-- Muted icon (shown when stopped) -->
-        {!! theme()->getIcon('notification-bing', 'fs-3tx text-primary audio-muted-icon') !!}
+        {!! theme()->getIcon('notification-bing', 'fs-3tx text-white audio-muted-icon', 'solid') !!}
     </button>
 </div>
 <!--end::Audio Section-->
@@ -17,10 +17,9 @@
 <style>
     #audioToggle {
         left: 14px;
-        top: 14px;
+        bottom: 14px;
         width: 54px;
         height: 54px;
-        background: transparent;
     }
 </style>
 

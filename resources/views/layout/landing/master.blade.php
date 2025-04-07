@@ -20,9 +20,9 @@
         </div>
         <!--end::Root-->
 
-        @if (theme()->getOption('layout', 'scrolltop/display') === true)
+        {{-- @if (theme()->getOption('layout', 'scrolltop/display') === true)
             {{ theme()->getView('layout/_scrolltop') }}
-        @endif
+        @endif --}}
     @endif
     <!--end::Main-->
 
