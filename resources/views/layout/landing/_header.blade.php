@@ -130,7 +130,7 @@
 
             <!--begin::Toolbar-->
             <div class="flex-equal text-end ms-1 me-3 d-none d-lg-flex">
-                <a href="{{ route('login') }}" class="btn btn-gradient-dark">
+                <a href="{{ route('booking') }}" class="btn btn-gradient-dark">
                     <span>Termin buchen</span>
                 </a>
             </div>

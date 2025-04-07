@@ -9,6 +9,8 @@ use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PayPalWebhookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +65,9 @@ Route::middleware('auth')->group(function () {
         Route::resource('system', SystemLogsController::class)->only(['index', 'destroy']);
         Route::resource('audit', AuditLogsController::class)->only(['index', 'destroy']);
     });
+
+    // Booking
+    Route::get('booking', [LandingController::class, 'booking'])->name('booking');
 });
 
 Route::resource('users', UsersController::class);
@@ -73,20 +78,18 @@ Route::resource('users', UsersController::class);
  */
 Route::get('/auth/redirect/{provider}', [SocialiteLoginController::class, 'redirect']);
 
-Route::get('', [LandingController::class,'index'])->name('home');
-Route::get('about', [LandingController::class,'about'])->name('about');
-Route::get('services', [LandingController::class,'services'])->name('services');
-Route::get('prices', [LandingController::class,'prices'])->name('prices');
-Route::get('online-course', [LandingController::class,'course'])->name('course');
-Route::get('online-shop', [LandingController::class,'shop'])->name('shop');
-Route::get('contact', [LandingController::class,'contact'])->name('contact');
-Route::get('medien', [LandingController::class,'medien'])->name('medien');
-Route::get('impressum', [LandingController::class,'impressum'])->name('impressum');
-Route::get('datenschutz', [LandingController::class,'datenschutz'])->name('datenschutz');
-Route::get('agb', [LandingController::class,'agb'])->name('agb');
+Route::get('', [LandingController::class, 'index'])->name('home');
+Route::get('about', [LandingController::class, 'about'])->name('about');
+Route::get('services', [LandingController::class, 'services'])->name('services');
+Route::get('prices', [LandingController::class, 'prices'])->name('prices');
+Route::get('online-course', [LandingController::class, 'course'])->name('course');
+Route::get('online-shop', [LandingController::class, 'shop'])->name('shop');
+Route::get('contact', [LandingController::class, 'contact'])->name('contact');
+Route::get('medien', [LandingController::class, 'medien'])->name('medien');
+Route::get('impressum', [LandingController::class, 'impressum'])->name('impressum');
+Route::get('datenschutz', [LandingController::class, 'datenschutz'])->name('datenschutz');
+Route::get('agb', [LandingController::class, 'agb'])->name('agb');
 
-// Booking
-Route::get('booking', [LandingController::class,'booking'])->name('booking');
-Route::get('payment', [LandingController::class,'payment'])->name('payment');
+// Payment Routes
 
 require __DIR__ . '/auth.php';
