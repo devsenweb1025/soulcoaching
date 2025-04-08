@@ -202,7 +202,7 @@
                         <div class="card shadow h-100">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
-                                    Mediumship with Medialität
+                                    Medialität
                                 </h1>
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
@@ -235,7 +235,7 @@
                         <div class="card shadow h-100">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
-                                    Quantenphysik with Quantenheilung
+                                    Quantenheilung
                                 </h1>
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
