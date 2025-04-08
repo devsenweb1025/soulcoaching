@@ -24,9 +24,9 @@
                 Als spirituelle Begleiterin, Tierkommunikatorin und Expertin für energetisches Heilen freue ich mich
                 über Kooperationen mit Medien, Blogs, Plattformen oder Partnern, die ähnliche Werte teilen.
                 <br /><br />
-                Ob spirituelle Lebensberatung, Chakra-Heilung, Tierkommunikation oder Online-Angebote im Bereich
-                Selbstheilung – gemeinsam können wir Menschen erreichen, die nach innerer Klarheit, Heilung und
-                Transformation suchen.
+                Es freut mich, dass ich mit den untenstehenden Unternehmen eine Kooperation bilden durfte, damit du bei
+                mir günstiger einkaufen kannst und wir die Unternehmen unterstützen die Vision einer positiven Welt
+                unterstützen.
             </p>
             <!--end::Title-->
         </div>
@@ -85,8 +85,8 @@
                         @endphp
 
                         @foreach ($partners as $id => $partner)
-                            <div class="col-lg-12 mt-10" data-aos="fade-up" data-aos-easing="linear"
-                                data-aos-duration="500" data-aos-delay="500">
+                            <div class="col-lg-12 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                                data-aos-delay="500">
                                 <div class="card shadow h-100">
                                     <div class="card-body position-relative">
                                         <div class="position-absolute top-10 left-10 text-gray-600 fs-4 mb-10">
