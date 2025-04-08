@@ -92,7 +92,7 @@
                     'Sofortige Klarheit',
                     'Direkter Kontakt',
                     'Antwort auf konkrete Lebensfragen',
-                    'nachhaltige weiterführende Lösung direkt bei mir',
+                    'Nachhaltige weiterführende Lösung direkt bei mir',
                     'Aktuelle Energietendenz, damit du deine nächsten Schritte planen kannst',
                 ],
                 'button' => 'Jetzt Anrufen',
