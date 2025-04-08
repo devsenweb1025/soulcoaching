@@ -10,7 +10,7 @@
 <!--end::Audio Section-->
 
 <audio id="backgroundAudio" loop>
-    <source src="{{ asset(theme()->getMediaUrlPath() . 'audio/welcome.m4a') }}" type="audio/mpeg">
+    <source src="{{ asset(theme()->getMediaUrlPath() . 'audio/background.mp3') }}" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 

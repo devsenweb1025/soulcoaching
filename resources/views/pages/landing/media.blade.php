@@ -24,9 +24,9 @@
                 Als spirituelle Begleiterin, Tierkommunikatorin und Expertin für energetisches Heilen freue ich mich
                 über Kooperationen mit Medien, Blogs, Plattformen oder Partnern, die ähnliche Werte teilen.
                 <br /><br />
-                Es freut mich, dass ich mit den untenstehenden Unternehmen eine Kooperation bilden durfte, damit du bei
-                mir günstiger einkaufen kannst und wir die Unternehmen unterstützen die Vision einer positiven Welt
-                unterstützen.
+                Es freut mich, dass ich mit den untenstehenden Unternehmen eine Kooperation eingehen durfte, damit du
+                bei mir günstiger einkaufen kannst und wir gemeinsam Unternehmen unterstützen, die die Vision einer
+                positiven Welt verfolgen.
             </p>
             <!--end::Title-->
         </div>
