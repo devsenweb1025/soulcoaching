@@ -57,8 +57,7 @@
                                             </h1>
                                             <div data-aos="fade-up">
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Ich bin Sarah – spirituelle Coachin, Heilerin und Medium aus der
-                                                    Schweiz.
+                                                    Ich bin Sarah – spirituelle Coachin und Heilerin aus der Schweiz.
                                                 </div>
                                                 <div class="text-gray-600 fs-4 mb-5">
                                                     Mein Weg ist geprägt von tiefem Wissen, persönlicher Transformation
@@ -101,11 +100,12 @@
                                             <div data-aos="fade-up">
                                                 <div class="text-gray-600 fs-4 mb-5">
                                                     Seit über 16 Jahren ist Sulana meine treue Weggefährtin – und eine
-                                                    wundervolle energetische Begleiterin.
+                                                    wundervolle Begleiterin.
                                                 </div>
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Sie bringt eine ganz eigene Kraft mit, geprägt durch die Schulung in
-                                                    der Londoner Medialitätsschule. Viele meiner Erkenntnisse verdanke
+                                                    Paddington begleitet Sulana mit einer speziellen Energie aus der
+                                                    Londoner Medialitätsschule.
+                                                    Sulana hat mich viel gelehrt, und viele meiner Erkenntnisse verdanke
                                                     ich ihr.
                                                 </div>
                                             </div>
@@ -163,6 +163,9 @@
                                         Ausbildung als Restaurationsfachfrau & Kauffrau
                                     </div>
                                     <div class="text-gray-600 fs-4 mb-5">
+                                        Dipl. Versicherungs- und Vorsorgeberaterin VBV
+                                    </div>
+                                    <div class="text-gray-600 fs-4 mb-5">
                                         Studium in Sozialpädagogik HF
                                     </div>
                                     <div class="text-gray-600 fs-4">
@@ -171,72 +174,6 @@
                                 </div>
                             </div>
                             <!--end::Wrapper-->
-                        </div>
-                    </div>
-                </div>
-                <!--end::Col-->
-            </div>
-            <!--end::Row-->
-
-
-            <!--begin::Row-->
-            <div class="row">
-                <!--begin::Col-->
-                <div class="col-lg-12 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                    <div class="card shadow-sm" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
-                        <div class="card-body">
-                            <div class="row flex-column-reverse flex-sm-column-reverse flex-md-row flex-lg-row">
-                                <div class="col-sm-12 col-md-6 col-lg-8 mt-5">
-                                    <!--begin::Testimonial-->
-                                    <div class="w-100 d-flex flex-column justify-content-between">
-                                        <div class="mb-5">
-                                            <h1 class="fs-2 mb-5 font-cinzel">
-                                                Berufliche Ausbildung & Qualifikationen
-                                            </h1>
-
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <div class="text-gray-600 fs-4 mb-5">
-                                                        Herzensmensch
-                                                    </div>
-                                                    <div class="text-gray-600 fs-4 mb-5">
-                                                        Sympathisch
-                                                    </div>
-                                                    <div class="text-gray-600 fs-4 mb-5">
-                                                        belesen
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="text-gray-600 fs-4 mb-5">
-                                                        Harmonieliebend
-                                                    </div>
-                                                    <div class="text-gray-600 fs-4 mb-5">
-                                                        vielseitig interessiert
-                                                    </div>
-                                                    <div class="text-gray-600 fs-4 mb-5">
-                                                        wissbegierig
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="text-gray-600 fs-4">
-                                            Ausbildung als Restaurationsfachfrau & Kauffrau
-                                        </div>
-                                    </div>
-                                    <!--end::Testimonial-->
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                    <!--begin::Testimonial-->
-                                    <div class="w-100 h-100">
-                                        <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-left.jpg') }}"
-                                            class="w-100 h-100 rounded" alt="">
-                                    </div>
-                                    <!--end::Testimonial-->
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -265,7 +202,7 @@
                         <div class="card shadow h-100">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
-                                    Mediumship
+                                    Mediumship with Medialität
                                 </h1>
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
@@ -298,7 +235,7 @@
                         <div class="card shadow h-100">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
-                                    Quantenphysik
+                                    Quantenphysik with Quantenheilung
                                 </h1>
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
@@ -320,7 +257,7 @@
                         <div class="card shadow h-100">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
-                                    Heiler Ausbildung - Onaris
+                                    Heiler Ausbildung
                                 </h1>
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
@@ -335,7 +272,7 @@
                                 </div>
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
-                                        Schamanismus und 4 Elemente
+                                        Schamanismus und die 4 Elemente
                                     </div>
                                 </div>
                                 <div class="mb-5">
@@ -368,16 +305,10 @@
                                     <div class="text-gray-800 fs-2">
                                         Tierkommunikation 1.0 & 2.0
                                     </div>
-                                    <div class="text-gray-800 fs-4">
-                                        (M. Lenk, 2024)
-                                    </div>
                                 </div>
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
                                         Tierenergetik
-                                    </div>
-                                    <div class="text-gray-800 fs-4">
-                                        (Holfinity Academy)
                                     </div>
                                 </div>
                             </div>

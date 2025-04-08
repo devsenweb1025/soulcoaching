@@ -42,16 +42,15 @@
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
                                             Deine Seele hat dich nicht zufällig hierher geführt – sondern genau dahin,
-                                            wo Transformation möglich ist. Ich begleite dich mit spirituellem Coaching,
-                                            energetischer Heilung und medialer Beratung auf deinem Weg – ob du in der
-                                            Schweiz, in Österreich oder Deutschland bist.
+                                            wo Transformation möglich ist. Ich begleite dich mit meinen Medialen
+                                            Fähigkeiten, Intuition und Psychologischen Methodiken in deine
+                                            Transformation – ob du in der Schweiz, in Österreich oder Deutschland bist.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
                                             Hier darfst du dich erinnern, wer du wirklich bist – und lernen, deine
                                             Selbstheilungskräfte zu aktivieren. Als erstes Geschenk lade ich dich zu
                                             einer kleinen geführten Meditation ein – sie öffnet das Tor zu deiner Reise
                                             nach innen.
-                                            Als erstes möchte ich dich mit dieser kleiner Meditation beschenken.
                                         </div>
                                     </div>
 
@@ -97,8 +96,7 @@
                         <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
                             <a href="{{ route('medien') }}">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/partner' . $i . '.png') }}"
-                                    alt="Partner {{ $i }}" class="img-fluid"
-                                    style="max-height: 100px; width: auto;">
+                                    alt="Partner {{ $i }}" class="img-fluid" style="max-height: 100px; width: auto;">
                             </a>
                         </div>
                     </div>

@@ -20,9 +20,9 @@
                 </span>
             </h1>
             <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
-                Du möchtest wissen, was eine Sitzung in Tierkommunikation, spirituellem Coaching oder energetischer
-                Heilung kostet?<br /><br />
-                Hier findest du transparente Preise für alle meine Dienstleistungen
+                Du möchtest mehr über die Preise für Transformationscoaching, energetisches Heilen, Tierkommunikation
+                oder meine Hotline erfahren?<br /><br />
+                Hier findest du transparente Preise für alle meine Dienstleistungen.
             </p>
             <!--end::Title-->
         </div>
@@ -36,14 +36,16 @@
                 'title' => 'Transformationscoaching',
                 'event' => 'transformationscoaching',
                 'description' =>
-                    'Du hast schon viele Lebensaufgaben bewältigt. Doch gerade stehst du an? Dein Geistiges Team weiss, was zu tun ist. Gerne Frage ich an und gemeinsam gehen wir den Weg zu deiner individuellen Lösung.',
+                    'Egal, an welchem Punkt du gerade stehst, dieses Coaching ist die Lösung. Mit diesem Konzept spielt es keine Rolle, welche Herausforderung du gerade zu bewältigen hast, denn hier arbeiten wir mit einem eigenen Konzept, bei dem alle Bewusstseinsebenen integriert werden, damit du in einem Monat dein Ziel erreichst.',
                 'price' => 'CHF 2222 / Monat<br>Vorteile:',
                 'image' => 'Trans.jpg',
                 'features' => [
-                    'Booklet mit 100 Seiten',
+                    'Komplettes Konzept mit 70 Seiten Psychologischer und Energetischer Methodiken',
                     'Schneller ans Ziel durch die Arbeit auf allen 5 Bewusstseinebenen',
                     'Fairer Preis',
                     'Wöchentlich 1x Zoom Call von einer Stunde mit mir',
+                    'Ich bin über den ganzen Monat für dich erreichbar',
+                    'Du möchtest das mit jemanden zusammen machen, dann buche die Gruppenbuchung',
                 ],
                 'button' => 'Jetzt Buchen!',
                 'button_link' => route('booking', ['event' => 'transformationscoaching']),
@@ -52,10 +54,16 @@
                 'title' => 'Energetische Heilung für Mensch und Tier',
                 'event' => 'energetische-heilung-fur-mensch-und-tier',
                 'description' =>
-                    'Du hast körperliche Schmerzen die sich niemand erklären kann oder aber du möchtest deine Energiezentren (Chakren) reinigen und stärken, dann ist die Energetische Heilung das korrekte für dich. Das gilt auch für dein Haustier.',
+                    'Der Mensch sowie das Tier nehmen Energien von Orten, anderen Menschen, anderen Tieren auf wie ein Schwamm. Darum fühlst du dich unter Umständen als Beispiel müde, obwohl körperlich alles im grünen Bereich ist.
+                                            Unsere Energiezentren sollten darum regelmässig gereinigt und wieder gefüllt werden. Das gleiche gilt bei deinem Haustier. Du wirst sehen, mit der Energetischen Heilung lösen wir viele Herausforderungen wie Vertrauensmangel, Erschöpftheit, Müdigkeit uvm.',
                 'price' => 'CHF 111.- / Stunde<br>Vorteile:',
                 'image' => 'Energetische.png',
-                'features' => ['sofortige Wirkung', 'sofortige Steigerung des Körperlichen und mentalen Wohlbefinden'],
+                'features' => [
+                    'sofortige Wirkung',
+                    'sofortige Steigerung des Körperlichen und mentalen Wohlbefinden',
+                    'du und/ oder dein Tier fühlt euch wieder Vital und voller Power',
+                    'Krankheiten können nach mehreren Sitzungen verschwinden'
+                ],
                 'button' => 'Jetzt Buchen!',
                 'button_link' => route('booking', ['event' => 'energetische-heilung-fur-mensch-und-tier']),
             ],
@@ -69,6 +77,7 @@
                 'features' => [
                     'Du erhälst eine 1:1 Sprachaufnahme, wo ich 1:1 das was dein Tier sagt weitergebe',
                     'Ich bin auch noch nach der Sitzung 1-2 Tage für Fragen erreichbar.',
+                    'Die Bindung zu deinem Tier wird sofort gestärkt, weil dein Tier weiss dass du es liebst und Kontakt aufgenommen hast'
                 ],
                 'button' => 'Jetzt Buchen!',
                 'button_link' => route('booking', ['event' => 'tierkommunikation']),
@@ -79,7 +88,13 @@
                     'Du brauchst jetzt sofort eine Antwort vom Universum? Mit meiner spirituellen Hotline für Kartenlegen bekommst du intuitiv und direkt eine Legung am Telefon – ohne Wartezeit, liebevoll und klar geführt. Ob Liebe, Beruf oder Lebensweg: Die Lenormand-Kartenlegung gibt dir neue Einsichten genau dann, wenn du sie brauchst.',
                 'price' => 'CHF 2.50.- / min<br>Vorteile:',
                 'image' => 'Frag.jpg',
-                'features' => ['Sofortige Klarheit', 'Direkter Kontakt', 'Antwort auf konkrete Lebensfragen'],
+                'features' => [
+                    'Sofortige Klarheit',
+                    'Direkter Kontakt',
+                    'Antwort auf konkrete Lebensfragen',
+                    'nachhaltige weiterführende Lösung direkt bei mir',
+                    'Aktuelle Energietendenz, damit du deine nächsten Schritte planen kannst',
+                ],
                 'button' => 'Jetzt Anrufen',
                 'button_link' => route('services', ['scroll_to' => 'hotline']),
             ],
@@ -114,8 +129,7 @@
                                         data-aos-duration="500" data-aos-delay="500">
                                         <div class="d-flex h-100 align-items-center">
                                             <!--begin::Option-->
-                                            <div
-                                                class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
+                                            <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
                                                 <!--begin::Heading-->
                                                 <div class="mb-7 text-start">
                                                     <!--begin::Title-->
@@ -148,8 +162,7 @@
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
                                                 @if ($service['title'] === 'Transformationscoaching')
-                                                    <button type="button" class="btn btn-primary"
-                                                        data-bs-toggle="modal"
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#bookingModal{{ $index }}">
                                                         {{ $service['button'] }}
                                                     </button>
@@ -185,8 +198,7 @@
                                         data-aos-duration="500" data-aos-delay="500">
                                         <div class="d-flex h-100 align-items-center">
                                             <!--begin::Option-->
-                                            <div
-                                                class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
+                                            <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
                                                 <!--begin::Heading-->
                                                 <div class="mb-7 text-start">
                                                     <!--begin::Title-->
@@ -219,8 +231,7 @@
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
                                                 @if ($service['title'] === 'Transformationscoaching')
-                                                    <button type="button" class="btn btn-primary"
-                                                        data-bs-toggle="modal"
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#bookingModal{{ $index }}">
                                                         {{ $service['button'] }}
                                                     </button>
@@ -266,15 +277,14 @@
                         <div class="modal-body">
                             <div class="mb-5">
                                 <label class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="radio"
-                                        name="bookingType{{ $index }}" value="personal" checked>
+                                    <input class="form-check-input" type="radio" name="bookingType{{ $index }}" value="personal"
+                                        checked>
                                     <span class="form-check-label">Einzelcoaching</span>
                                 </label>
                             </div>
                             <div class="mb-5">
                                 <label class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="radio"
-                                        name="bookingType{{ $index }}" value="group">
+                                    <input class="form-check-input" type="radio" name="bookingType{{ $index }}" value="group">
                                     <span class="form-check-label">Gruppencoaching</span>
                                 </label>
                             </div>
@@ -304,7 +314,7 @@
             }
 
             // Auto-scroll to specific service when service parameter is provided
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const urlParams = new URLSearchParams(window.location.search);
                 const serviceParam = urlParams.get('service');
 
