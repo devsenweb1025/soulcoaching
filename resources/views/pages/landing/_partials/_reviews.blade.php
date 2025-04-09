@@ -348,6 +348,21 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.setAttribute('aria-expanded', 'false');
         }
     });
+
+    // Audio playback control - ensure only one audio plays at a time
+    const audioElements = document.querySelectorAll('audio');
+
+    audioElements.forEach(audio => {
+        // Add play event listener to each audio element
+        audio.addEventListener('play', function() {
+            // Pause all other audio elements
+            audioElements.forEach(otherAudio => {
+                if (otherAudio !== audio && !otherAudio.paused) {
+                    otherAudio.pause();
+                }
+            });
+        });
+    });
 });
 </script>
 

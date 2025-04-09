@@ -19,17 +19,17 @@
                     {{-- <span id="kt_landing_hero_text"></span> --}}
                 </span>
             </h1>
-                <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
-                    Entdecke mein vielseitiges Angebot rund um spirituelles Coaching, energetisches Heilen,
-                    Tierkommunikation, Kartenlegen und meine spirituelle Hotline.<br /><br />
-                    Ob du dich in einer Lebenskrise befindest, deine Chakren reinigen möchtest oder Hilfe bei der
-                    Verbindung
-                    zu deinem Tier suchst – ich begleite dich mit Herz und Intuition auf deinem Weg zu mehr Klarheit,
-                    Energie und Selbstheilung.
-                </p>
-                <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">
+            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
+                Entdecke mein vielseitiges Angebot rund um spirituelles Coaching, energetisches Heilen,
+                Tierkommunikation, Kartenlegen und meine spirituelle Hotline.<br /><br />
+                Ob du dich in einer Lebenskrise befindest, deine Chakren reinigen möchtest oder Hilfe bei der
+                Verbindung
+                zu deinem Tier suchst – ich begleite dich mit Herz und Intuition auf deinem Weg zu mehr Klarheit,
+                Energie und Selbstheilung.
+            </p>
+            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">
 
-                </p>
+            </p>
             <!--end::Title-->
         </div>
         <!--end::Heading-->
@@ -68,34 +68,35 @@
                 @endphp
 
                 @foreach ($services as $service)
-                    <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
-                        <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
-                            <div class="card-header">
-                                <h2 class="card-title fs-2 fw-bold">
-                                    {{ $service['title'] }}
-                                </h2>
-                            </div>
-                            <div class="card-body fs-4">
-                                <div class="text-gray-600 fw-semibold fs-5 description-text">
-                                    @php
-                                        $text = $service['description'];
-                                        $shortText = strlen($text) > 145 ? substr($text, 0, 145) . '...' : $text;
-                                    @endphp
-                                    <span class="short-text">{{ $shortText }}</span>
-                                    <span class="full-text" style="display: none;">{{ $text }}</span>
+                                <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                                    data-aos-delay="500">
+                                    <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
+                                        <div class="card-header">
+                                            <h2 class="card-title fs-2 fw-bold">
+                                                {{ $service['title'] }}
+                                            </h2>
+                                        </div>
+                                        <div class="card-body fs-4">
+                                            <div class="text-gray-600 fw-semibold fs-5 description-text">
+                                                @php
+                                                    $text = $service['description'];
+                                                    $shortText = strlen($text) > 145 ? substr($text, 0, 145) . '...' : $text;
+                                                @endphp
+                                                <span class="short-text">{{ $shortText }}</span>
+                                                <span class="full-text" style="display: none;">{{ $text }}</span>
+                                            </div>
+                                            <a href="#" class="text-primary show-more-link">Mehr anzeigen</a>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="card-toolbar text-center">
+                                                <a href="{{ route('prices', ['service' => $service['title']]) }}"
+                                                    class="btn btn-primary">
+                                                    zu den Preisen
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="#" class="text-primary show-more-link">Mehr anzeigen</a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-toolbar text-center">
-                                    <a href="{{ route('prices', ['service' => $service['title']]) }}" class="btn btn-primary">
-                                        zu den Preisen
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 @endforeach
             </div>
             <!--end::Pricing-->
@@ -129,7 +130,7 @@
 
                             <!--begin::Image preview wrapper-->
                             <div class="w-100 h-500px h-md-100"
-                                style="background-position:center; background-repeat: no-repeat; background-size: contain; background-image: url({{ asset(theme()->getMediaUrlPath() . 'svg/avatars/blank.svg') }})">
+                                style="background-position:center; background-repeat: no-repeat; background-size: contain; background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/customer.jpeg') }})">
                             </div>
                             <!--end::Image preview wrapper-->
                         </div>
@@ -151,36 +152,48 @@
                                     NEU!
                                 </h1>
                                 <div class="text-gray-600 fs-2 mb-5">
-                                    Du brauchst schnell eine klare Antwort oder möchtest dir liebevoll die Karten legen
-                                    lassen?<br />
-                                    Dann ruf mich unter 0901 881 881 an und erhalte deine intuitive Kartenlegung
-                                    bequem
-                                    über das Telefon – ganz ohne Wartezeit, vertrauensvoll und direkt auf deine
-                                    Frage
-                                    abgestimmt.
+                                    Brauchst du schnelle und kompetente Unterstützung?
+                                </div>
+                                <div class="text-gray-600 fs-2 mb-5">
+                                    Dann ruf jetzt Elisabeth unter 0901 881 881 an und erhalte deine intuitive
+                                    Kartenlegung bequem über das Telefon – ganz ohne Wartezeit, vertrauensvoll und
+                                    direkt auf deine Frage abgestimmt.
+                                </div>
+                                <div class="text-gray-600 fw-bold fs-2 fw-bolder">
+                                    Über Elisabeth:
+                                </div>
+                                <div class="text-gray-600 fs-2 mb-5">
+                                    Ich möchte mit meinen Fähigkeiten Menschen helfen, die Probleme haben oder denen der
+                                    gegenwärtige klare Blick für das Wesentliche verloren gegangen ist. Ich verfüge über
+                                    eine sehr ausgeprägte Feinfühligkeit und habe seit 17 Jahren eine starke Bindung zu
+                                    meinen Kipper - Karten.<br />
+                                    Sei nicht ängstlich. Jeder Mensch hat mal Probleme. Aber die können wir gemeinsam
+                                    lösen.<br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    0901 881 881 <br />
-                                    Jeweils MO - FR <br />
-                                    08:00 - 12:00 <br />
-                                    13:00 - 16:00
+                                    Zeiten:<br />
+                                    MO, DI, MI und FR: 08:00 Uhr - 10 Uhr / 14:30 Uhr - 18:00 Uhr <br />
+                                    DO & SA: 08:00 Uhr - 23:00 Uhr <br />
+                                    SO: 18:00 Uhr - 23:00 Uhr <br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    CHF 2.50.- / min<br />
-                                    Diese Hotline eignet sich ideal für:
+                                    CHF 2.50.- / min
+                                </div>
+                                <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
+                                    Diese Hotline eignet sich ideal für:<br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     🔮 Lenormand-Kartenlegung<br />
                                     🔮 Hellsehen per Telefon<br />
                                     🔮 Spirituelle Lebensfragen (Liebe, Beruf, Klarheit)
                                 </div>
-                                <div class="text-gray-600 fs-2 mb-5">
+                                <div class="text-gray-600 fs-2 fw-bolder mb-5">
                                     Möchtest auch du einmal die Hotline bedienen?<br />
                                     Dann melde Dich bei mir über das Kontaktformular und vielleicht bedienst schon bald
                                     du die Hotline.
                                 </div>
                                 <div>
-                                    <div class="d-flex justify-content-center align-items-center mb-5">
+                                    <div class="d-flex justify-content-start align-items-center mb-5">
                                         <a href="{{ route('contact') }}" class="btn btn-primary">Kontaktformular</a>
                                     </div>
                                 </div>
@@ -201,11 +214,11 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const showMoreLinks = document.querySelectorAll('.show-more-link');
 
         showMoreLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const descriptionText = this.previousElementSibling;
                 const shortText = descriptionText.querySelector('.short-text');
