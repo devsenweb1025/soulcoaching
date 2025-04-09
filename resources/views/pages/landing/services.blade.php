@@ -123,26 +123,26 @@
             <!--begin::Container-->
             <div class="container z-index-2">
                 <div class="row h-100 z-index-2">
-                    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
+                    <div class="col-12 col-md-6 col-lg-5 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="500">
                         <!--begin::Image input-->
-                        <div class="w-100 h-100" data-kt-image-input="true" style="background-position:center;">
+                        <div class="w-100 h-100 py-lg-10 py-md-5" data-kt-image-input="true" style="background-position:center;">
 
                             <!--begin::Image preview wrapper-->
-                            <div class="w-100 h-500px h-md-100"
-                                style="background-position:center; background-repeat: no-repeat; background-size: contain; background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/customer.jpeg') }})">
+                            <div class="w-100 h-700px h-md-100"
+                                style="background-position:center; background-repeat: no-repeat; background-size: cover; background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/customer.jpeg') }})">
                             </div>
                             <!--end::Image preview wrapper-->
-                        </div>
 
-                        <div class="text-center d-flex justify-content-center align-items-center mt-10">
-                            {!! theme()->getIcon('faceid', 'fs-2hx text-gray-700') !!}
-                            <span class="ms-2 fs-xs-2 fs-sm-2 fs-md-2x text-gray-700">Hier könnte dein Bild
-                                sein.</span>
+                            <div class="text-center d-flex justify-content-center align-items-center mt-10">
+                                {!! theme()->getIcon('faceid', 'fs-2hx text-gray-700') !!}
+                                <span class="ms-2 fs-xs-2 fs-sm-2 fs-md-2x text-gray-700">Hier könnte dein Bild
+                                    sein.</span>
+                            </div>
                         </div>
                         <!--end::Image input-->
                     </div>
-                    <div class="col-12 col-md-6 col-lg-8 h-100" data-aos="fade-up" data-aos-easing="linear"
+                    <div class="col-12 col-md-6 col-lg-7 h-100" data-aos="fade-up" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="500">
                         <!--begin::Testimonial-->
                         <div class="p-lg-10 p-md-5">
