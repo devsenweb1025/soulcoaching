@@ -26,12 +26,68 @@
 
                 <!--begin::Toolbar-->
                 <div class="me-3 d-flex d-lg-none">
-                    <a href="{{ route('booking') }}" class="btn btn-gradient-dark">
-                        {{-- <span>Termin buchen</span> --}}
-                        <span class="display-none">
-                            {!! theme()->getIcon('calendar', 'fs-1 text-white') !!}
-                        </span>
-                    </a>
+                    @auth
+                        <!--begin::User menu-->
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative">
+                                <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="display-none">
+                                        {!! theme()->getIcon('user', 'fs-1 text-white') !!}
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMobile">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('services') }}">
+                                            <i class="ki-duotone ki-profile-user fs-2 me-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <span>Mein Profil</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('course') }}">
+                                            <i class="ki-duotone ki-basket fs-2 me-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <span>Meine Bestellungen</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('course') }}">
+                                            <i class="ki-duotone ki-book fs-2 me-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <span>Meine Kurse</span>
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();">
+                                            <i class="ki-duotone ki-exit fs-2 me-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <span>Abmelden</span>
+                                        </a>
+                                        <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--end::User menu-->
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-gradient-dark">
+                            <span class="display-none">
+                                {!! theme()->getIcon('user', 'fs-1 text-white') !!}
+                            </span>
+                        </a>
+                    @endauth
                 </div>
                 <!--end::Toolbar-->
             </div>
@@ -130,9 +186,64 @@
 
             <!--begin::Toolbar-->
             <div class="flex-equal text-end ms-1 me-3 d-none d-lg-flex">
-                <a href="{{ route('booking') }}" class="btn btn-gradient-dark">
-                    <span>Termin buchen</span>
-                </a>
+                @auth
+                    <!--begin::User menu-->
+                    <div class="d-flex align-items-center">
+                        <div class="position-relative">
+                            <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span>{{ Auth::user()->name }}</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('services') }}">
+                                        <i class="ki-duotone ki-profile-user fs-2 me-2">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        <span>Mein Profil</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('course') }}">
+                                        <i class="ki-duotone ki-basket fs-2 me-2">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        <span>Meine Bestellungen</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('course') }}">
+                                        <i class="ki-duotone ki-book fs-2 me-2">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        <span>Meine Kurse</span>
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="ki-duotone ki-exit fs-2 me-2">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        <span>Abmelden</span>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--end::User menu-->
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-gradient-dark">
+                        <span>Einloggen</span>
+                    </a>
+                @endauth
             </div>
             <!--end::Toolbar-->
         </div>
