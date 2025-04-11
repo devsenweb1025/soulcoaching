@@ -37,7 +37,7 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMobile">
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('services') }}">
+                                        <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                             <i class="ki-duotone ki-profile-user fs-2 me-2">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -195,7 +195,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('services') }}">
+                                    <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                         <i class="ki-duotone ki-profile-user fs-2 me-2">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
