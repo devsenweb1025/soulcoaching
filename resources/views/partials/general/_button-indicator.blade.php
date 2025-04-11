@@ -1,6 +1,6 @@
 <!--begin::Indicator label-->
 <span class="indicator-label">
-    {{ $label ?? 'Upgrade Plan' }}
+    {{ $label ?? 'Sign Up' }}
 </span>
 <!--end::Indicator label-->
 <!--begin::Indicator progress-->

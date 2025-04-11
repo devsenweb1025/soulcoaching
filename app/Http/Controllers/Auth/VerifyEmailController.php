@@ -4,28 +4,64 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Models\User;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class VerifyEmailController extends Controller
 {
     /**
-     * Mark the authenticated user's email address as verified.
+     * Mark the user's email address as verified.
      *
-     * @param  \Illuminate\Foundation\Auth\EmailVerificationRequest  $request
-     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @param  string  $hash
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(EmailVerificationRequest $request)
+    public function __invoke(Request $request, $id, $hash)
     {
-        if ($request->user()->hasVerifiedEmail()) {
+        $user = User::find($id);
+
+        if (!$user) {
+            return redirect()->route('verification.notice')
+                ->with('error', 'Invalid verification link. User not found.');
+        }
+
+        if (!hash_equals((string) $hash, sha1($user->email))) {
+            return redirect()->route('verification.notice')
+                ->with('error', 'Invalid verification link.');
+        }
+
+        if ($user->hasVerifiedEmail()) {
+            return redirect()->route('verification.notice')
+                ->with('message', 'Email already verified.');
+        }
+
+        if ($user->markEmailAsVerified()) {
+            event(new Verified($user));
+
+            // Sign in the user
+            Auth::login($user);
+
             return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
         }
 
-        if ($request->user()->markEmailAsVerified()) {
-            event(new Verified($request->user()));
-        }
+        return redirect()->route('verification.notice')
+            ->with('error', 'Unable to verify email. Please try again or request a new verification link.');
+    }
 
-        return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+    /**
+     * Handle invalid verification links
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function handleInvalidVerification(Request $request)
+    {
+        return redirect()->route('verification.notice')
+            ->with('error', 'Invalid or expired verification link. Please request a new verification email.');
     }
 }

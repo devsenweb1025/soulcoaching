@@ -33,6 +33,20 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        // Check if email is verified before attempting login
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && !$user->hasVerifiedEmail()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Please verify your email address before logging in. If you need a new verification link, please click the resend button below.',
+                'data' => [
+                    'email' => $request->email,
+                    'verified' => false
+                ]
+            ], 403);
+        }
+
         $request->authenticate();
 
         $request->session()->regenerate();
