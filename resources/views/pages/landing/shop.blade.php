@@ -181,13 +181,28 @@
                                     </div>
                                     <div class="card-footer">
                                         <div class="card-toolbar text-center">
-                                            <button type="button" class="btn btn-primary">
-                                                @if ($index == 1)
-                                                    Bei Verfügbarkeit benachrichtigen
-                                                @else
+                                            <form class="add-to-cart-form d-flex align-items-center justify-content-between"
+                                                  data-product-id="{{ $index }}"
+                                                  method="POST"
+                                                  action="{{ route('cart.add', ['productId' => $index]) }}">
+                                                @csrf
+                                                <div class="input-group me-2 w-auto">
+                                                    <button class="btn btn-outline-secondary" type="button"
+                                                        onclick="decrementQuantity(this)">-</button>
+                                                    <input type="number" class="form-control text-center"
+                                                        name="quantity" value="1" min="1"
+                                                        style="width: 50px;">
+                                                    <button class="btn btn-outline-secondary" type="button"
+                                                        onclick="incrementQuantity(this)">+</button>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="ki-duotone ki-cart fs-2 me-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
                                                     In den Warenkorb
-                                                @endif
-                                            </button>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -208,6 +223,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const showMoreLinks = document.querySelectorAll('.show-more-link');
+        const addToCartForms = document.querySelectorAll('.add-to-cart-form');
 
         showMoreLinks.forEach(link => {
             link.addEventListener('click', function(e) {
@@ -228,5 +244,133 @@
                 }
             });
         });
+
+        addToCartForms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const form = this;
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.innerHTML = `
+                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                    Wird hinzugefügt...
+                `;
+
+                const productId = form.dataset.productId;
+                const quantity = form.querySelector('input[name="quantity"]').value;
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                // Create form data
+                const formData = new FormData();
+                formData.append('_token', csrfToken);
+                formData.append('quantity', quantity);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (response.status === 401) {
+                        // Unauthorized - redirect to login
+                        window.location.href = '/login';
+                        return;
+                    }
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Update cart count in profile dropdown
+                        const cartCountElement = document.querySelector('.cart-count');
+                        if (cartCountElement) {
+                            cartCountElement.textContent = data.cartCount;
+                        }
+
+                        // Show success message
+                        const toast = document.createElement('div');
+                        toast.className = 'position-fixed bottom-0 end-0 p-3';
+                        toast.style.zIndex = '5';
+                        toast.innerHTML = `
+                            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header">
+                                    <i class="ki-duotone ki-check-circle fs-2 text-success me-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    <strong class="me-auto">Erfolg</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body">
+                                    ${data.message}
+                                </div>
+                            </div>
+                        `;
+                        document.body.appendChild(toast);
+
+                        // Remove toast after 3 seconds
+                        setTimeout(() => {
+                            toast.remove();
+                        }, 3000);
+                    } else {
+                        throw new Error(data.message || 'Failed to add item to cart');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Show error message
+                    const toast = document.createElement('div');
+                    toast.className = 'position-fixed bottom-0 end-0 p-3';
+                    toast.style.zIndex = '5';
+                    toast.innerHTML = `
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <i class="ki-duotone ki-cross-circle fs-2 text-danger me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <strong class="me-auto">Fehler</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                ${error.message}
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(toast);
+
+                    // Remove toast after 3 seconds
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 3000);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                });
+            });
+        });
     });
+
+    function incrementQuantity(button) {
+        const input = button.parentElement.querySelector('input');
+        input.value = parseInt(input.value) + 1;
+    }
+
+    function decrementQuantity(button) {
+        const input = button.parentElement.querySelector('input');
+        if (parseInt(input.value) > 1) {
+            input.value = parseInt(input.value) - 1;
+        }
+    }
 </script>

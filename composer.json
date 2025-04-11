@@ -10,6 +10,7 @@
     "require": {
         "anlutro/l4-settings": "^1.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "hardevine/shoppingcart": "^3.4",
         "jackiedo/log-reader": "^2.2",
         "laravel/framework": "^10.0",
         "laravel/socialite": "^5.2",
