@@ -34,6 +34,7 @@ array_walk($menu, function ($val) {
         // Exclude documentation from auth middleware
         if (!(Str::contains($val['path'], 'documentation') || Str::contains($val['path'], 'landing'))) {
             $route->middleware('auth');
+            $route->middleware('admin');
         }
 
         // Custom page demo for 500 server error
