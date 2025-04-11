@@ -30,7 +30,8 @@
                         <!--begin::User menu-->
                         <div class="d-flex align-items-center">
                             <div class="position-relative">
-                                <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdownMobile"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="display-none">
                                         {!! theme()->getIcon('user', 'fs-1 text-white') !!}
                                     </span>
@@ -63,17 +64,20 @@
                                             <span>Meine Kurse</span>
                                         </a>
                                     </li>
-                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();">
+                                            onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();">
                                             <i class="ki-duotone ki-exit fs-2 me-2">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                             </i>
                                             <span>Abmelden</span>
                                         </a>
-                                        <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
                                             @csrf
                                         </form>
                                     </li>
@@ -190,7 +194,8 @@
                     <!--begin::User menu-->
                     <div class="d-flex align-items-center">
                         <div class="position-relative">
-                            <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <span>{{ Auth::user()->name }}</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
@@ -221,17 +226,30 @@
                                         <span>Meine Kurse</span>
                                     </a>
                                 </li>
-                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a href="{{ route('cart.index') }}" class="dropdown-item">
+                                        <i class="ki-duotone ki-handcart fs-2 me-2">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        Shopping Cart
+                                        <span class="badge bg-primary rounded-pill ms-2 cart-count">{{ Cart::count() }}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="ki-duotone ki-exit fs-2 me-2">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                         </i>
                                         <span>Abmelden</span>
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </li>
