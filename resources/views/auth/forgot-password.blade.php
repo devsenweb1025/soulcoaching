@@ -1,6 +1,6 @@
 <x-auth-layout>
     <!--begin::Forgot Password Form-->
-    <form class="form w-100 " novalidate="novalidate" id="kt_password_reset_form" action="{{ theme()->getPageUrl('password.email') }}">
+    <form class="form w-100" novalidate="novalidate" id="kt_password_reset_form" action="{{ route('password.email') }}" method="POST">
         @csrf
 
         <!--begin::Heading-->
@@ -13,22 +13,43 @@
             <!--end::Link-->
         </div>
         <!--begin::Heading-->
-        <!--begin::Input group=-->
-        <div class="fv-row mb-8 fv-plugins-icon-container">
+
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <!--begin::Input group-->
+        <div class="fv-row mb-8">
             <!--begin::Email-->
-            <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent">
+            <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" required />
             <!--end::Email-->
         </div>
+        <!--end::Input group-->
+
         <!--begin::Actions-->
         <div class="d-flex flex-wrap justify-content-center pb-lg-0">
-            <button type="button" id="kt_password_reset_submit" class="btn btn-primary me-4">
-                @include('partials.general._button-indicator')
+            <button type="submit" id="kt_password_reset_submit" class="btn btn-primary me-4">
+                @include('partials.general._button-indicator', ['label' => 'Reset Password'])
             </button>
-            <a href="{{ theme()->getPageUrl('login') }}" class="btn btn-light">Cancel</a>
+            <a href="{{ route('login') }}" class="btn btn-light">Cancel</a>
         </div>
         <!--end::Actions-->
-        <div></div>
     </form>
     <!--end::Forgot Password Form-->
 
+    @push('scripts')
+    <script src="{{ asset('js/custom/authentication/password-reset/password-reset.js') }}"></script>
+    @endpush
 </x-auth-layout>
