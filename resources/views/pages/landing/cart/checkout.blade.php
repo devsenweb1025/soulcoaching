@@ -1,28 +1,5 @@
 <x-landing-layout>
     @include('pages.landing._partials._background')
-    <!--begin::Landing hero-->
-    <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-350px px-9">
-        <div class="cloud">
-            <div style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0"
-                data-framer-background-image-wrapper="true">
-                <img decoding="async" loading="lazy"
-                    src="https://framerusercontent.com/images/dDB4JCGfoX5DJBUD3qohcdOK9U.png" alt=""
-                    style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover">
-            </div>
-        </div>
-        <!--begin::Heading-->
-        <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2 container">
-            <!--begin::Title-->
-            <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Checkout
-                <span
-                    style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-                </span>
-            </h1>
-            <!--end::Title-->
-        </div>
-        <!--end::Heading-->
-    </div>
-    <!--end::Landing hero-->
 
     <!--begin::Checkout Section-->
     <div class="position-relative mt-20 mb-20">
@@ -31,7 +8,21 @@
         <div class="landing-light-bg position-relative z-index-2">
             <!--begin::Container-->
             <div class="container">
+
+                <!--begin::Heading-->
+                <div
+                    class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
+                    <!--begin::Title-->
+                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Checkout
+                        <span
+                            style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
+                        </span>
+                    </h1>
+                    <!--end::Title-->
+                </div>
+                <!--end::Heading-->
                 <div class="row g-5">
+
                     <!--begin::Order Summary-->
                     <div class="col-lg-4">
                         <div class="card shadow card-borderless mb-5">
@@ -55,7 +46,8 @@
                                                         <div class="d-flex align-items-center">
                                                             <div class="symbol symbol-50px me-5">
                                                                 <img src="{{ asset('storage/' . $item->options->image) }}"
-                                                                    class="object-fit-contain" alt="{{ $item->name }}" />
+                                                                    class="object-fit-contain"
+                                                                    alt="{{ $item->name }}" />
                                                             </div>
                                                             <div class="d-flex justify-content-start flex-column">
                                                                 <span

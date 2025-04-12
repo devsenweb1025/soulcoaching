@@ -65,6 +65,16 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="{{ route('cart.index') }}" class="dropdown-item">
+                                            <i class="ki-duotone ki-handcart fs-2 me-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            Shopping Cart
+                                            <span class="badge bg-primary rounded-pill ms-2 cart-count">{{ Cart::count() }}</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
