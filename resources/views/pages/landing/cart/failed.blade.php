@@ -56,7 +56,7 @@
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-center">
                                     <a href="{{ route('cart.checkout') }}" class="btn btn-primary me-3">Try Again</a>
-                                    <a href="{{ route('shop') }}" class="btn btn-light">Continue Shopping</a>
+                                    <a href="{{ route('shop.index') }}" class="btn btn-light">Continue Shopping</a>
                                 </div>
                                 <!--end::Actions-->
                             </div>

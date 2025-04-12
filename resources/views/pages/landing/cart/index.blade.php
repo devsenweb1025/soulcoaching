@@ -24,11 +24,13 @@
                                             <tr data-row-id="{{ $item->rowId }}">
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <img src="{{ $item->options->image }}" alt="{{ $item->name }}"
-                                                            class="img-thumbnail me-3 object-fit-contain" style="width: 60px; height: 60px;">
+                                                        <img src="{{ asset('storage/' . $item->options->image) }}"
+                                                            alt="{{ $item->name }}"
+                                                            class="img-thumbnail me-3 object-fit-contain"
+                                                            style="width: 60px; height: 60px;">
                                                         <div>
                                                             <h6 class="mb-0">
-                                                                <a href="{{ route('shop', $item->id) }}"
+                                                                <a href="{{ route('shop.show', $item->options->slug) }}"
                                                                     class="text-decoration-none text-dark">
                                                                     {{ $item->name }}
                                                                 </a>
@@ -71,7 +73,7 @@
 
                             <div class="row mt-4">
                                 <div class="col-md-6">
-                                    <a href="{{ route('shop') }}" class="btn btn-light">
+                                    <a href="{{ route('shop.index') }}" class="btn btn-light">
                                         <i class="ki-duotone ki-arrow-left fs-2 me-2">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
@@ -107,7 +109,7 @@
                                 </i>
                                 <h4>Your cart is empty</h4>
                                 <p class="text-muted">Looks like you haven't added any items to your cart yet.</p>
-                                <a href="{{ route('shop') }}" class="btn btn-primary">
+                                <a href="{{ route('shop.index') }}" class="btn btn-primary">
                                     Start Shopping
                                 </a>
                             </div>

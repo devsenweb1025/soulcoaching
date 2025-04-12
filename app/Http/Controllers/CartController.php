@@ -7,7 +7,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderConfirmation;
 use App\Models\Order;
-
+use App\Models\Product;
 class CartController extends Controller
 {
     public function index()
@@ -18,7 +18,7 @@ class CartController extends Controller
     public function add($productId, Request $request)
     {
         try {
-            $product = $this->getProductData($productId);
+            $product = Product::find($productId);
 
             if (!$product) {
                 if ($request->wantsJson()) {
@@ -49,6 +49,7 @@ class CartController extends Controller
                     'qty' => $quantity,
                     'price' => $product['price'],
                     'options' => [
+                        'slug' => $product['slug'],
                         'image' => $product['image'],
                         'description' => $product['description']
                     ]
@@ -291,116 +292,4 @@ class CartController extends Controller
         }
     }
 
-    private function getProductData($id)
-    {
-        $products = [
-            1 => [
-                'id' => 1,
-                'name' => 'Ritualkerze - Abschiedskerze',
-                'price' => 28.90,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/1.webp'),
-                'description' => 'Vielleicht ist dein Herzenstier über die Regenbogenbrücke gegangen, oder aber auch ein geliebter Mensch hat diesen Planeten verlassen. Diese Kerze kannst du als Ritualkerze nehmen, um deinem verstorbenen zur Seite zu stehen.'
-            ],
-            2 => [
-                'id' => 2,
-                'name' => 'Ritual - Herzensöffner',
-                'price' => 24.90,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/2.webp'),
-                'description' => 'Wir denken, dass unser Hirn uns leitet, aber in Wirklichkeit ist es unser Herz, welches uns den Weg weist.'
-            ],
-            3 => [
-                'id' => 3,
-                'name' => 'Ritual - Aurareinigung',
-                'price' => 24.90,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/3.webp'),
-                'description' => 'Die Aura ist dein persönliches Energiefeld. Als Ritual kannst du sie täglich durch Räucherware reinigen.'
-            ],
-            4 => [
-                'id' => 4,
-                'name' => 'Ritualkerze - Vollmond',
-                'price' => 24.90,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/4.webp'),
-                'description' => 'Der Vollmond hat einige Kräfte die du in diesem Leben für dich Nutzen kannst.'
-            ],
-            5 => [
-                'id' => 5,
-                'name' => 'Ritual - Neumond',
-                'price' => 24.90,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/5.webp'),
-                'description' => 'Der Neumond ist eine Zeit der Neuanfänge und der inneren Einkehr.'
-            ],
-            6 => [
-                'id' => 6,
-                'name' => 'Energetisches Räumereinigen',
-                'price' => 40.00,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/6.webp'),
-                'description' => 'Egal, ob an deinem Arbeitsplatz oder in deinem gemütlichen Zuhause. Alle Energien werden an Orten gesammelt.'
-            ],
-            7 => [
-                'id' => 7,
-                'name' => 'Palo Santo',
-                'price' => 4.50,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/7.webp'),
-                'description' => 'Palo Santo ist - wie es schon der Name sagt - das "heilige Holz" Südamerikas.'
-            ],
-            8 => [
-                'id' => 8,
-                'name' => 'Räucherstäbchen - Engel der Fülle',
-                'price' => 5.50,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/8.webp'),
-                'description' => 'Egal, um welche Art Fülle es sich handelt. Ob Finanzen, Gesundheit, Beziehungen oder eine andere Fülle.'
-            ],
-            9 => [
-                'id' => 9,
-                'name' => 'Räucherstäbchen - Engel der Liebe',
-                'price' => 5.50,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/9.webp'),
-                'description' => 'Engel wünschen sich für uns nur das Beste. Egal ob du gerade deine Selbstliebe oder die grosse Liebe entdecken willst.'
-            ],
-            10 => [
-                'id' => 10,
-                'name' => 'Räucherstäbchen - Engel des Vertrauens',
-                'price' => 5.50,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/10.webp'),
-                'description' => 'Vertrauen ist ein Grundkonstrukt für dein Leben. Egal, ob es sich um Selbst-Vertrauen handelt oder darum anderen zu vertrauen.'
-            ],
-            11 => [
-                'id' => 11,
-                'name' => 'Kartenset - Engel der Neuzeit',
-                'price' => 30.90,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/11.webp'),
-                'description' => 'Als du dich entschieden hast noch einmal auf diesen Planten zu kommen und erneut deine Seele lernen zu lassen, warst du wirklich mutig.'
-            ],
-            12 => [
-                'id' => 12,
-                'name' => 'Dein Persönlicher Seelencode',
-                'price' => 120.00,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/12.webp'),
-                'description' => 'Mit deinem Seelencode erfährst du nochmals genau, mit welchen Stärken und Schwächen du geboren wurdest.'
-            ],
-            13 => [
-                'id' => 13,
-                'name' => 'Herzens Gutschein',
-                'price' => 80.00,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/13.webp'),
-                'description' => 'Du möchtest jemanden einen persönlichen Gutschein schenken, bei dem du jemandem auch noch etwas Gutes tust.'
-            ],
-            14 => [
-                'id' => 14,
-                'name' => 'Herzens Gutschein',
-                'price' => 50.00,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/14.webp'),
-                'description' => 'Du möchtest jemanden einen persönlichen Gutschein schenken, bei dem du jemandem auch noch etwas Gutes tust.'
-            ],
-            15 => [
-                'id' => 15,
-                'name' => 'Herzens Gutschein',
-                'price' => 120.00,
-                'image' => asset(theme()->getMediaUrlPath() . 'landing/products/15.webp'),
-                'description' => 'Du möchtest jemanden einen persönlichen Gutschein schenken, bei dem du jemandem auch noch etwas Gutes tust.'
-            ]
-        ];
-
-        return $products[$id] ?? null;
-    }
 }

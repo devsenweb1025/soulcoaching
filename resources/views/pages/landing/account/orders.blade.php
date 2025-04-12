@@ -44,7 +44,7 @@
                             <div class="text-muted fw-semibold fs-5 mb-10">
                                 You haven't placed any orders yet. Start shopping to see your orders here.
                             </div>
-                            <a href="{{ route('shop') }}" class="btn btn-primary">Start Shopping</a>
+                            <a href="{{ route('shop.index') }}" class="btn btn-primary">Start Shopping</a>
                         </div>
                     </div>
                 @else

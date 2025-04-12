@@ -139,4 +139,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
 });
 
+// Shop routes
+Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop.index');
+Route::get('/shop/search', [App\Http\Controllers\ShopController::class, 'search'])->name('shop.search');
+Route::get('/shop/category/{category}', [App\Http\Controllers\ShopController::class, 'category'])->name('shop.category');
+Route::get('/shop/{slug}', [App\Http\Controllers\ShopController::class, 'show'])->name('shop.show');
+
 require __DIR__ . '/auth.php';
