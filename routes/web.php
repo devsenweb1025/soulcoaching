@@ -14,6 +14,8 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalWebhookController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,11 +81,30 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/update/{rowId}', [CartController::class, 'update'])->name('cart.update');
     Route::post('/cart/remove/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
     Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+    Route::post('/cart/store-shipping-info', [CartController::class, 'storeShippingInfo'])->name('cart.store-shipping-info');
 
     // Checkout routes
     Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
     Route::get('/cart/checkout/success', [CartController::class, 'checkoutSuccess'])->name('cart.checkout.success');
+
+    // Payment routes
+    Route::prefix('payment')->group(function () {
+        // PayPal routes
+        Route::post('/paypal/create', [PaymentController::class, 'createPayPalPayment'])->name('payment.paypal.create');
+        Route::get('/paypal/success', [PaymentController::class, 'handlePayPalSuccess'])->name('payment.paypal.success');
+        Route::get('/paypal/cancel', [PaymentController::class, 'handlePayPalCancel'])->name('payment.paypal.cancel');
+
+        // Stripe routes
+        Route::post('/stripe/create-payment-intent', [StripeController::class, 'createPaymentIntent'])->name('stripe.create-payment-intent');
+        Route::get('/stripe/success', [StripeController::class, 'handleSuccess'])->name('stripe.success');
+        Route::get('/stripe/cancel', [StripeController::class, 'handleCancel'])->name('stripe.cancel');
+    });
+
+    // Order Routes
+    Route::get('/account/orders', [OrderController::class, 'index'])->name('account.orders');
+    Route::get('/account/orders/{order}', [OrderController::class, 'show'])->name('account.orders.show');
+    Route::post('/account/orders/track', [OrderController::class, 'track'])->name('account.orders.track');
 });
 
 Route::resource('users', UsersController::class);

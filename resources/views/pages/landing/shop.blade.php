@@ -298,12 +298,12 @@
 
                         // Show success message
                         const toast = document.createElement('div');
-                        toast.className = 'position-fixed bottom-0 end-0 p-3';
+                        toast.className = 'position-fixed top-0 end-0 p-3';
                         toast.style.zIndex = '5';
                         toast.innerHTML = `
                             <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
                                 <div class="toast-header">
-                                    <i class="ki-duotone ki-check-circle fs-2 text-success me-2">
+                                    <i class="ki-duotone ki-check-circle fs-2x text-success me-2">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
@@ -329,12 +329,12 @@
                     console.error('Error:', error);
                     // Show error message
                     const toast = document.createElement('div');
-                    toast.className = 'position-fixed bottom-0 end-0 p-3';
+                    toast.className = 'position-fixed top-0 end-0 p-3';
                     toast.style.zIndex = '5';
                     toast.innerHTML = `
                         <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
-                                <i class="ki-duotone ki-cross-circle fs-2 text-danger me-2">
+                                <i class="ki-duotone ki-cross-circle fs-2x text-danger me-2">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
                                 </i>

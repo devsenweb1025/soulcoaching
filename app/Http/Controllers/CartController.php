@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderConfirmation;
+use App\Models\Order;
 
 class CartController extends Controller
 {
@@ -248,15 +249,46 @@ class CartController extends Controller
         return redirect()->route('cart.checkout.success');
     }
 
-    public function checkoutSuccess()
+    public function checkoutSuccess(Request $request)
     {
-        if (!session()->has('order')) {
-            return redirect()->route('cart.index');
-        }
+        $input = $request->all();
+        $order = Order::find($input['order']);
 
         return view('pages.landing.cart.success', [
-            'order' => session('order')
+            'order' => compact('order')
         ]);
+    }
+
+    public function storeShippingInfo(Request $request)
+    {
+        try {
+            $request->validate([
+                'first_name' => 'required|string|max:255',
+                'last_name' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'phone' => 'required|string|max:255',
+                'address' => 'required|string|max:255',
+                'city' => 'required|string|max:255',
+                'postal_code' => 'required|string|max:255',
+                'country' => 'required|string|max:255',
+            ]);
+
+            // Store shipping information in session
+            session()->put('shipping_info', [
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'city' => $request->city,
+                'postal_code' => $request->postal_code,
+                'country' => $request->country,
+            ]);
+
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     private function getProductData($id)
