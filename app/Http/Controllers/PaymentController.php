@@ -97,7 +97,10 @@ class PaymentController extends Controller
             if (isset($response['id']) && $response['id'] != null) {
                 foreach ($response['links'] as $links) {
                     if ($links['rel'] == 'approve') {
-                        return redirect()->away($links['href']);
+                        return response()->json([
+                            'orderId' => $response['id'],
+                            'approvalUrl' => $links['href'],
+                        ]);
                     }
                 }
                 return redirect()
