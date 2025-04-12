@@ -25,7 +25,7 @@
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <img src="{{ $item->options->image }}" alt="{{ $item->name }}"
-                                                            class="img-thumbnail me-3" style="width: 50px;">
+                                                            class="img-thumbnail me-3 object-fit-contain" style="width: 60px; height: 60px;">
                                                         <div>
                                                             <h6 class="mb-0">
                                                                 <a href="{{ route('shop', $item->id) }}"
@@ -135,12 +135,12 @@
 
             function showToast(message, type = 'success') {
                 const toast = document.createElement('div');
-                toast.className = `position-fixed bottom-0 end-0 p-3`;
+                toast.className = `position-fixed top-0 end-0 p-3`;
                 toast.style.zIndex = '5';
                 toast.innerHTML = `
                 <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
-                        <i class="ki-duotone ki-${type === 'success' ? 'check-circle' : 'cross-circle'} fs-2 text-${type} me-2">
+                        <i class="ki-duotone ki-${type === 'success' ? 'check-circle' : 'cross-circle'} fs-2x text-${type} me-2">
                             <span class="path1"></span>
                             <span class="path2"></span>
                         </i>

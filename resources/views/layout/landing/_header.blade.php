@@ -209,17 +209,17 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('course') }}">
-                                        <i class="ki-duotone ki-basket fs-2 me-2">
+                                    <a class="dropdown-item" href="{{ route('account.orders') }}">
+                                        <i class="ki-duotone ki-book fs-2 me-2">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                         </i>
-                                        <span>Meine Bestellungen</span>
+                                        <span>Meine Orders</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('course') }}">
-                                        <i class="ki-duotone ki-book fs-2 me-2">
+                                        <i class="ki-duotone ki-teacher fs-2 me-2">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                         </i>

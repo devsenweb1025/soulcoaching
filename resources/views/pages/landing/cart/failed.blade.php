@@ -13,7 +13,7 @@
         <!--begin::Heading-->
         <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2 container">
             <!--begin::Title-->
-            <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Payment Successful
+            <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Payment Failed
                 <span
                     style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                 </span>
@@ -24,7 +24,7 @@
     </div>
     <!--end::Landing hero-->
 
-    <!--begin::Success Section-->
+    <!--begin::Failed Section-->
     <div class="position-relative mt-20 mb-20">
         <div class="clouds-4"></div>
         <!--begin::Wrapper-->
@@ -37,7 +37,7 @@
                             <div class="card-body text-center p-10">
                                 <!--begin::Icon-->
                                 <div class="mb-10">
-                                    <i class="ki-duotone ki-check-circle fs-2hx text-success">
+                                    <i class="ki-duotone ki-cross-circle fs-2hx text-danger">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
@@ -46,7 +46,7 @@
 
                                 <!--begin::Message-->
                                 <div class="mb-10">
-                                    <h2 class="text-dark mb-5">Thank You for Your Order!</h2>
+                                    <h2 class="text-dark mb-5">Payment Failed</h2>
                                     <div class="text-muted fw-semibold fs-5">
                                         {{ session('message') }}
                                     </div>
@@ -55,8 +55,8 @@
 
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{ route('shop') }}" class="btn btn-primary me-3">Continue Shopping</a>
-                                    <a href="{{ route('account.orders') }}" class="btn btn-light">View Orders</a>
+                                    <a href="{{ route('cart.checkout') }}" class="btn btn-primary me-3">Try Again</a>
+                                    <a href="{{ route('shop') }}" class="btn btn-light">Continue Shopping</a>
                                 </div>
                                 <!--end::Actions-->
                             </div>
@@ -68,5 +68,5 @@
         </div>
         <!--end::Wrapper-->
     </div>
-    <!--end::Success Section-->
+    <!--end::Failed Section-->
 </x-landing-layout>
