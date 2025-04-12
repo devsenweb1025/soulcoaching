@@ -13,7 +13,21 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->decimal('compare_price', 10, 2)->nullable();
+            $table->integer('quantity')->default(0);
+            $table->string('sku')->unique()->nullable();
+            $table->string('barcode')->unique()->nullable();
+            $table->string('image')->nullable();
+            $table->json('images')->nullable();
+            $table->boolean('is_featured')->default(false);
+            $table->boolean('is_active')->default(true);
+            $table->json('options')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

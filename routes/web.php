@@ -134,4 +134,9 @@ Route::get('agb', [LandingController::class, 'agb'])->name('agb');
 
 // Payment Routes
 
+// Admin Product Routes
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+});
+
 require __DIR__ . '/auth.php';
