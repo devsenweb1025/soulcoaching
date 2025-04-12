@@ -60,17 +60,17 @@ class PaymentController extends Controller
                                 ]
                             ]
                         ],
-                        "items" => $cart->map(function ($item) {
+                        "items" => array_values($cart->map(function ($item) {
                             return [
                                 "name" => $item->name,
                                 "unit_amount" => [
                                     "currency_code" => "CHF",
                                     "value" => number_format($item->price, 2, '.', '')
                                 ],
-                                "quantity" => (string)$item->qty,
+                                "quantity" => (string) $item->qty,
                                 "sku" => $item->options->sku ?? null
                             ];
-                        })->toArray(),
+                        })->toArray()),
                         "shipping" => [
                             "name" => [
                                 "full_name" => $shippingInfo['first_name'] . ' ' . $shippingInfo['last_name']
@@ -93,7 +93,6 @@ class PaymentController extends Controller
             ];
 
             $response = $provider->createOrder($order);
-            dd($response);
 
             if (isset($response['id']) && $response['id'] != null) {
                 foreach ($response['links'] as $links) {
@@ -119,6 +118,19 @@ class PaymentController extends Controller
 
     public function handlePayPalSuccess(Request $request)
     {
+        $provider = $this->paypalProvider;
+        $response = $provider->capturePaymentOrder($request->token);
+        if (isset($response['status']) && $response['status'] === 'COMPLETED') {
+            // Create order
+            $order = $this->createOrder('paypal', $response['id'], $response['status']);
+
+            // Clear cart
+            Cart::destroy();
+
+            // Redirect to success page
+            return redirect()->route('cart.checkout.success', ['order' => $order->id])
+                ->with('success', 'Payment completed successfully.');
+        }
         try {
             $provider = $this->paypalProvider;
             $response = $provider->capturePaymentOrder($request->token);
@@ -175,9 +187,11 @@ class PaymentController extends Controller
 
     private function createOrder($paymentMethod, $transactionId, $status = 'pending'): Order
     {
+
         try {
             DB::beginTransaction();
-
+            // Get shipping information from session
+            $shippingInfo = session()->get('shipping_info');
             // Create order
             $order = Order::create([
                 'user_id' => auth()->id(),
@@ -185,12 +199,19 @@ class PaymentController extends Controller
                 'status' => 'pending',
                 'payment_status' => $status,
                 'payment_method' => $paymentMethod,
-                'transaction_id' => $transactionId,
+                'payment_id' => $transactionId,
                 'total' => Cart::total(),
                 'subtotal' => Cart::subtotal(),
                 'tax' => Cart::tax(),
-                'shipping_cost' => 0,
-                'shipping_info' => session('shipping_info'),
+                'shipping_first_name' => $shippingInfo['first_name'],
+                'shipping_last_name' => $shippingInfo['last_name'],
+                'shipping_email' => $shippingInfo['email'],
+                'shipping_phone' => $shippingInfo['phone'],
+                'shipping_address' => $shippingInfo['address'],
+                'shipping_city' => $shippingInfo['city'],
+                'shipping_state' => $shippingInfo['state'] ?? '',
+                'shipping_postal_code' => $shippingInfo['postal_code'],
+                'shipping_country' => $shippingInfo['country']
             ]);
 
             // Create order items
@@ -204,15 +225,6 @@ class PaymentController extends Controller
                     'options' => $item->options->toArray(),
                 ]);
             }
-
-            // Create transaction
-            TransactionModel::create([
-                'order_id' => $order->id,
-                'transaction_id' => $transactionId,
-                'payment_method' => $paymentMethod,
-                'amount' => Cart::total(),
-                'status' => 'completed',
-            ]);
 
             DB::commit();
             return $order;

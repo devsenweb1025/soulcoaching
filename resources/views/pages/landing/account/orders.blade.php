@@ -1,28 +1,5 @@
 <x-landing-layout>
     @include('pages.landing._partials._background')
-    <!--begin::Landing hero-->
-    <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-350px px-9">
-        <div class="cloud">
-            <div style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0"
-                data-framer-background-image-wrapper="true">
-                <img decoding="async" loading="lazy"
-                    src="https://framerusercontent.com/images/dDB4JCGfoX5DJBUD3qohcdOK9U.png" alt=""
-                    style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover">
-            </div>
-        </div>
-        <!--begin::Heading-->
-        <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2 container">
-            <!--begin::Title-->
-            <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">My Orders
-                <span
-                    style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-                </span>
-            </h1>
-            <!--end::Title-->
-        </div>
-        <!--end::Heading-->
-    </div>
-    <!--end::Landing hero-->
 
     <!--begin::Orders Section-->
     <div class="position-relative mt-20 mb-20">
@@ -31,25 +8,36 @@
         <div class="landing-light-bg position-relative z-index-2">
             <!--begin::Container-->
             <div class="container">
-                @if($orders->isEmpty())
-                    <div class="card shadow card-borderless">
-                        <div class="card-body text-center p-10">
-                            <div class="mb-10">
-                                <i class="ki-duotone ki-shopping-cart fs-2hx text-muted">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
+                <!--begin::Heading-->
+                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
+                    <!--begin::Title-->
+                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">My Orders
+                        <span
+                            style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
+                        </span>
+                    </h1>
+                    <!--end::Title-->
+                </div>
+                <!--end::Heading-->
+
+                <!--begin::Orders Table-->
+                <div class="card shadow card-borderless mb-5">
+                    <div class="card-body">
+                        @if ($orders->isEmpty())
+                            <div class="text-center py-10">
+                                <div class="mb-5">
+                                    <i class="ki-duotone ki-shopping-cart fs-4x text-gray-400">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                    </i>
+                                </div>
+                                <h3 class="text-gray-800 mb-2">No Orders Found</h3>
+                                <p class="text-gray-500">You haven't placed any orders yet.</p>
+                                <a href="{{ route('shop.index') }}" class="btn btn-primary">Start Shopping</a>
                             </div>
-                            <h2 class="text-dark mb-5">No Orders Found</h2>
-                            <div class="text-muted fw-semibold fs-5 mb-10">
-                                You haven't placed any orders yet. Start shopping to see your orders here.
-                            </div>
-                            <a href="{{ route('shop.index') }}" class="btn btn-primary">Start Shopping</a>
-                        </div>
-                    </div>
-                @else
-                    <div class="card shadow card-borderless">
-                        <div class="card-body p-10">
+                        @else
                             <div class="table-responsive">
                                 <table class="table align-middle table-row-bordered table-row-gray-100 gy-3 gs-7">
                                     <thead>
@@ -64,26 +52,39 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($orders as $order)
+                                        @foreach ($orders as $order)
                                             <tr>
                                                 <td>
-                                                    <span class="text-dark fw-bold text-hover-primary fs-6">{{ $order->order_number }}</span>
+                                                    <span
+                                                        class="text-dark fw-bold text-hover-primary fs-6">{{ $order->order_number }}</span>
                                                 </td>
-                                                <td>{{ $order->created_at->format('d M Y') }}</td>
-                                                <td>{{ $order->items->sum('quantity') }}</td>
-                                                <td>CHF {{ number_format($order->total, 2) }}</td>
                                                 <td>
-                                                    <span class="badge badge-light-{{ $order->status === 'completed' ? 'success' : ($order->status === 'processing' ? 'warning' : 'danger') }}">
+                                                    <span
+                                                        class="text-gray-600 fw-semibold">{{ $order->created_at->format('M d, Y') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="text-gray-600 fw-semibold">{{ $order->items->count() }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark fw-bold">CHF
+                                                        {{ number_format($order->total_amount, 2) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="badge badge-light-{{ $order->status === 'completed' ? 'success' : ($order->status === 'processing' ? 'warning' : 'danger') }}">
                                                         {{ ucfirst($order->status) }}
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    <span class="badge badge-light-{{ $order->payment_status === 'succeeded' ? 'success' : 'danger' }}">
+                                                    <span
+                                                        class="badge badge-light-{{ (strtolower($order->payment_status) === 'completed' or strtolower($order->payment_status) === 'succeeded') ? 'success' : (strtolower($order->payment_status) === 'pending' ? 'warning' : 'danger') }}">
                                                         {{ ucfirst($order->payment_status) }}
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('account.orders.show', $order) }}" class="btn btn-sm btn-light-primary">
+                                                    <a href="{{ route('account.orders.show', $order->id) }}"
+                                                        class="btn btn-sm btn-light-primary">
                                                         View Details
                                                     </a>
                                                 </td>
@@ -92,12 +93,76 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="d-flex justify-content-center mt-10">
-                                {{ $orders->links() }}
+
+                            <!--begin::Pagination-->
+                            <div class="d-flex flex-stack flex-wrap pt-10">
+                                <div class="fs-6 fw-semibold text-gray-700">
+                                    Showing {{ $orders->firstItem() ?? 0 }} to {{ $orders->lastItem() ?? 0 }} of
+                                    {{ $orders->total() }} entries
+                                </div>
+                                <ul class="pagination">
+                                    {{-- Previous Page Link --}}
+                                    @if ($orders->onFirstPage())
+                                        <li class="page-item previous disabled">
+                                            <a href="#" class="page-link">
+                                                <i class="previous"></i>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="page-item previous">
+                                            <a href="{{ $orders->previousPageUrl() }}" class="page-link">
+                                                <i class="previous"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+
+                                    {{-- Pagination Elements --}}
+                                    @foreach ($orders->links()->elements as $element)
+                                        {{-- "Three Dots" Separator --}}
+                                        @if (is_string($element))
+                                            <li class="page-item disabled">
+                                                <a href="#" class="page-link">{{ $element }}</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- Array Of Links --}}
+                                        @if (is_array($element))
+                                            @foreach ($element as $page => $url)
+                                                @if ($page == $orders->currentPage())
+                                                    <li class="page-item active">
+                                                        <a href="#" class="page-link">{{ $page }}</a>
+                                                    </li>
+                                                @else
+                                                    <li class="page-item">
+                                                        <a href="{{ $url }}"
+                                                            class="page-link">{{ $page }}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @endforeach
+
+                                    {{-- Next Page Link --}}
+                                    @if ($orders->hasMorePages())
+                                        <li class="page-item next">
+                                            <a href="{{ $orders->nextPageUrl() }}" class="page-link">
+                                                <i class="next"></i>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="page-item next disabled">
+                                            <a href="#" class="page-link">
+                                                <i class="next"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                </ul>
                             </div>
-                        </div>
+                            <!--end::Pagination-->
+                        @endif
                     </div>
-                @endif
+                </div>
+                <!--end::Orders Table-->
             </div>
             <!--end::Container-->
         </div>
