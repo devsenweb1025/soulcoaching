@@ -211,10 +211,9 @@
                     .then(data => {
                         if (data.success) {
                             // Update cart count in profile dropdown
-                            const cartCountElement = document.querySelector('.cart-count');
-                            if (cartCountElement) {
-                                cartCountElement.textContent = data.cartCount;
-                            }
+                            document.querySelectorAll('.cart-count').forEach(element => {
+                                element.textContent = `${data.cartCount}`;
+                            });
 
                             // Show success message
                             const toast = document.createElement('div');
