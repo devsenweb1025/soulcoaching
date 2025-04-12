@@ -20,13 +20,13 @@ return array(
                 "link" => "menu-center",
                 "icon" => "me-0",
             ),
-            "path" => "dashboard",
+            "path" => "admin/dashboard",
         ),
 
         // Account
-        'account' => array(
-            "breadcrumb-title" => "Account",
-            "icon" => '<i class="bi bi-shield-check fs-2x"></i>',
+        'products' => array(
+            "breadcrumb-title" => "Products",
+            "icon" => '<i class="bi bi-box fs-2x"></i>',
             "classes" => array(
                 "item" => "py-2",
                 "link" => "menu-center",
@@ -49,32 +49,18 @@ return array(
                 "items" => array(
                     array(
                         'classes' => array('content' => ''),
-                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Account</span>',
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Products</span>',
                     ),
 
                     array(
                         'title' => 'Overview',
-                        'path' => 'account/overview',
+                        'path' => 'admin/products',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                     array(
-                        'title' => 'Settings',
-                        'path' => 'account/settings',
+                        'title' => 'Categories',
+                        'path' => 'admin/products/categories',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
-                    array(
-                        'title' => 'Security',
-                        'path' => '#',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                        'attributes' => array(
-                            'link' => array(
-                                "title" => "Coming soon",
-                                "data-bs-toggle" => "tooltip",
-                                "data-bs-trigger" => "hover",
-                                "data-bs-dismiss" => "click",
-                                "data-bs-placement" => "right",
-                            ),
-                        ),
                     ),
                 ),
             ),
