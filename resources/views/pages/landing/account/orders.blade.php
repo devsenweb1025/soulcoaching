@@ -68,7 +68,7 @@
                                                 </td>
                                                 <td>
                                                     <span class="text-dark fw-bold">CHF
-                                                        {{ number_format($order->total_amount, 2) }}</span>
+                                                        {{ number_format($order->total, 2) }}</span>
                                                 </td>
                                                 <td>
                                                     <span
