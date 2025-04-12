@@ -10,9 +10,25 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::latest()->paginate(10);
+        $query = Product::query();
+
+        if ($request->has('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('sku', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+
+        $products = $query->latest()->paginate(10);
+
+        if ($request->ajax()) {
+            return view('pages.admin.products.partials.table', compact('products'))->render();
+        }
+
         return view('pages.admin.products.index', compact('products'));
     }
 
@@ -31,8 +47,8 @@ class ProductController extends Controller
             'quantity' => 'required|integer|min:0',
             'sku' => 'nullable|string|unique:products,sku',
             'barcode' => 'nullable|string|unique:products,barcode',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
         ]);

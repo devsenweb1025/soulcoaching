@@ -166,8 +166,8 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('shop') ? 'active' : '' }}"
-                                href="{{ route('shop') }}" data-kt-scroll-toggle="true"
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('shop.index') ? 'active' : '' }}"
+                                href="{{ route('shop.index') }}" data-kt-scroll-toggle="true"
                                 data-kt-drawer-dismiss="true">Online
                                 Shop</a>
                             <!--end::Menu link-->

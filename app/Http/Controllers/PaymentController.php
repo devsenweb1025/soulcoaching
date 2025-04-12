@@ -156,7 +156,7 @@ class PaymentController extends Controller
         $order = session('order');
 
         if (!$order) {
-            return redirect()->route('shop')
+            return redirect()->route('shop.index')
                 ->with('status', 'error')
                 ->with('message', 'Order not found.');
         }

@@ -54,8 +54,8 @@
                                                     <td>
                                                         <div class="d-flex align-items-center">
                                                             <div class="symbol symbol-50px me-5">
-                                                                <img src="{{ $item->options->image }}" class=""
-                                                                    alt="" />
+                                                                <img src="{{ asset('storage/' . $item->options->image) }}"
+                                                                    class="object-fit-contain" alt="{{ $item->name }}" />
                                                             </div>
                                                             <div class="d-flex justify-content-start flex-column">
                                                                 <span

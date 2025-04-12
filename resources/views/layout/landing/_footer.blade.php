@@ -51,7 +51,7 @@
                                 class="text-gray-600 text-hover-white fs-5 mb-6">Online Kurse</a>
                             <!--end::Link-->
                             <!--begin::Link-->
-                            <a href="{{ route('shop') }}"
+                            <a href="{{ route('shop.index') }}"
                                 class="text-gray-600 text-hover-white fs-5 mb-6">Online Shop</a>
                             <!--end::Link-->
                             <!--begin::Link-->
