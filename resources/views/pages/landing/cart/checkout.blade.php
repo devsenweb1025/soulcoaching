@@ -319,6 +319,7 @@
             submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
 
             const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+
             // Store shipping info in session
             const shippingResponse = await fetch('{{ route('cart.store-shipping-info') }}', {
                 method: 'POST',
@@ -355,20 +356,14 @@
                         }
                     });
 
-                    const {
-                        clientSecret
-                    } = await response.json();
+                    const { clientSecret } = await response.json();
 
                     // Confirm payment
-                    const {
-                        paymentIntent,
-                        error
-                    } = await stripe.confirmCardPayment(clientSecret, {
+                    const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
                         payment_method: {
                             card: card,
                             billing_details: {
-                                name: form.querySelector('[name="first_name"]').value + ' ' + form
-                                    .querySelector('[name="last_name"]').value,
+                                name: form.querySelector('[name="first_name"]').value + ' ' + form.querySelector('[name="last_name"]').value,
                                 email: form.querySelector('[name="email"]').value,
                                 phone: form.querySelector('[name="phone"]').value,
                                 address: {
@@ -397,8 +392,39 @@
                     submitButton.querySelector('.indicator-progress').style.display = 'none';
                 }
             } else if (paymentMethod === 'paypal') {
-                // Submit form to PayPal route
-                form.submit();
+                try {
+                    // Create PayPal order
+                    const response = await fetch('{{ route('payment.paypal.create') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    const { orderId, approvalUrl } = await response.json();
+                    console.log(response.json());
+
+                    if (orderId && approvalUrl) {
+                        // Store order ID in session
+
+
+                        // Redirect to PayPal approval URL
+                        window.location.href = approvalUrl;
+                    } else {
+                        throw new Error('Failed to create PayPal order');
+                    }
+                } catch (error) {
+                    // Show error message
+                    const errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = error.message;
+
+                    // Re-enable submit button
+                    submitButton.disabled = false;
+                    submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+                    submitButton.querySelector('.indicator-progress').style.display = 'none';
+                }
             }
         });
     </script>
