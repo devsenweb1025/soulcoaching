@@ -87,7 +87,7 @@ class StripeController extends Controller
                 $order = Order::create([
                     'user_id' => auth()->id(),
                     'order_number' => 'ORD-' . strtoupper(uniqid()),
-                    'status' => 'processing',
+                    'status' => 'pending',
                     'payment_status' => $paymentIntent->status,
                     'payment_method' => 'stripe',
                     'payment_id' => $paymentIntent->id,
