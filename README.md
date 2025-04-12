@@ -1,83 +1,214 @@
-# Metronic - Bootstrap 5 HTML, React, Angular, VueJS & Laravel Admin Dashboard Theme
+# Soul Coaching E-Commerce Platform
+
+A modern e-commerce platform built with Laravel and Metronic theme, featuring online courses, product sales, and booking management.
+
+## About Metronic Theme
+
+This project uses the Metronic theme for its admin dashboard and frontend design.
 
 - For a quick start please check [Online documentation page](//preview.keenthemes.com/metronic8/laravel/documentation/getting-started/build)
-
-
 - All demos assets are included in the package. To switch the demo please check [Switch demo documentation](//https://preview.keenthemes.com/metronic8/laravel/documentation/getting-started/multi-demo/build)
-
-
 - For any theme related questions please contact our [Theme Support](//keenthemes.com/support/)
+- Using Metronic in a new project or for a new client? Purchase a new license https://1.envato.market/EA4JP
+- Stay tuned for updates via [Twitter](//www.twitter.com/keenthemes) and [Instagram](//www.instagram.com/keenthemes)
 
+## Project Features
 
-- Using Metronic in a new project or for a new client? Purchase a new license https://1.envato.market/EA4JP or watch https://youtu.be/HJ3RNhoI24A to find out more information about licenses.
+### User Features
+- User authentication and profile management
+- Product browsing and search
+- Shopping cart functionality
+- Order management and tracking
+- Course booking and management
+- Real-time chat support
 
+### Admin Features
+- Dashboard with sales analytics
+- Product management (CRUD operations)
+- Order management
+- Course management
+- User management
+- Chat message management
 
-- Stay tuned for updates via [Twitter](//www.twitter.com/keenthemes) and [Instagram](//www.instagram.com/keenthemes) and 
-  check our marketplace for more amazing products: [Keenthemes Marketplace](//keenthemes.com/)
+### Technical Features
+- Responsive design using Metronic theme
+- Real-time cart updates
+- Secure payment processing
+- Image upload and management
+- Multi-language support
+- SEO optimization
 
+## Requirements
 
-Happy coding with Metronic!
+- PHP >= 8.1
+- MySQL >= 5.7
+- Composer
+- Node.js & NPM
+- Git
 
+## Installation
 
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd [project-directory]
+```
 
-### Laravel Quick Start
+2. Install PHP dependencies:
+```bash
+composer install
+```
 
-1. Download the latest theme source from the Marketplace.
+3. Install NPM dependencies:
+```bash
+npm install
+```
 
+4. Create environment file:
+```bash
+cp .env.example .env
+```
 
-2. Download and install `Node.js` from Nodejs. The suggested version to install is `14.16.x LTS`.
+5. Generate application key:
+```bash
+php artisan key:generate
+```
 
+6. Configure your database in `.env`:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
 
-3. Start a command prompt window or terminal and change directory to [unpacked path]:
+7. Run migrations and seeders:
+```bash
+php artisan migrate
+php artisan db:seed
+```
 
+8. Start the development server:
+```bash
+php artisan serve
+```
 
-4. Install the latest `NPM`:
-   
-        npm install --global npm@latest
+9. Compile assets:
+```bash
+npm run dev
+```
 
+## Database Structure
 
-5. To install `Composer` globally, download the installer from https://getcomposer.org/download/ Verify that Composer in successfully installed, and version of installed Composer will appear:
-   
-        composer --version
+### Main Tables
+- `users` - User accounts and profiles
+- `products` - Product catalog
+- `orders` - Customer orders
+- `order_items` - Order line items
+- `courses` - Online courses
+- `bookings` - Course bookings
+- `chat_messages` - Support chat messages
+- `categories` - Product categories
+- `product_images` - Product images
 
+### Relationships
+- Products belong to categories
+- Orders belong to users
+- Order items belong to orders and products
+- Bookings belong to users and courses
+- Chat messages belong to users
 
-6. Install `Composer` dependencies.
-   
-        composer install
+## API Endpoints
 
+### Authentication
+- POST `/login` - User login
+- POST `/register` - User registration
+- POST `/logout` - User logout
 
-7. Install `NPM` dependencies.
-   
-        npm install
+### Products
+- GET `/shop` - List all products
+- GET `/shop/{slug}` - Show product details
+- GET `/shop/search` - Search products
+- GET `/shop/category/{category}` - Filter by category
 
+### Cart
+- GET `/cart` - View cart
+- POST `/cart/add` - Add to cart
+- POST `/cart/update` - Update cart item
+- POST `/cart/remove` - Remove from cart
+- GET `/cart/count` - Get cart count
 
-8. The below command will compile all the assets(sass, js, media) to public folder:
-   
-        npm run dev
+### Orders
+- GET `/account/orders` - List user orders
+- GET `/account/orders/{order}` - Show order details
+- POST `/account/orders/track` - Track order
 
+### Admin
+- GET `/admin` - Admin dashboard
+- Resource routes for products, orders, users, etc.
 
-9. Copy `.env.example` file and create duplicate. Use `cp` command for Linux or Max user.
+## Frontend Features
 
-        cp .env.example .env
+### Shopping Cart
+- Real-time quantity updates
+- Dynamic price calculation
+- Persistent cart storage
+- Checkout process
 
-    If you are using `Windows`, use `copy` instead of `cp`.
-   
-        copy .env.example .env
-   
+### Product Display
+- Responsive grid layout
+- Image gallery
+- Product filtering
+- Search functionality
 
-10. Create a table in MySQL database and fill the database details `DB_DATABASE` in `.env` file.
+### User Dashboard
+- Order history
+- Profile management
+- Course bookings
+- Chat support
 
+## Admin Panel
 
-12. The below command will create tables into database using Laravel migration and seeder.
+### Dashboard
+- Sales analytics
+- Recent orders
+- Recent chat messages
+- Recent bookings
 
-        php artisan migrate:fresh --seed
+### Product Management
+- Create/Edit products
+- Image upload
+- Category assignment
+- Inventory management
 
+### Order Management
+- View all orders
+- Update order status
+- Process refunds
+- Generate reports
 
-13. Generate your application encryption key:
+## Security Features
 
-        php artisan key:generate
+- CSRF protection
+- XSS prevention
+- SQL injection prevention
+- Secure password hashing
+- Role-based access control
 
+## Contributing
 
-14. Start the localhost server:
-    
-        php artisan serve
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For support, email [support@example.com] or open an issue in the repository.

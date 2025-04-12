@@ -100,16 +100,16 @@
                                                 action="{{ route('cart.add', ['productId' => $product->id]) }}">
                                                 @csrf
                                                 <div class="input-group me-2 w-auto">
-                                                    <button class="btn btn-outline-secondary" type="button"
+                                                    <button class="btn btn-outline-secondary btn-sm" type="button"
                                                         onclick="decrementQuantity(this)">-</button>
                                                     <input type="number" class="form-control text-center"
                                                         name="quantity" value="1" min="1"
                                                         style="width: 50px;">
-                                                    <button class="btn btn-outline-secondary" type="button"
+                                                    <button class="btn btn-outline-secondary btn-sm" type="button"
                                                         onclick="incrementQuantity(this)">+</button>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="ki-duotone ki-cart fs-2 me-2">
+                                                    <i class="ki-duotone ki-basket fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>

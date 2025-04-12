@@ -110,7 +110,7 @@
                                                 onclick="incrementQuantity(this)">+</button>
                                         </div>
                                         <button type="submit" class="btn btn-primary" {{ $product->isInStock() ? '' : 'disabled' }}>
-                                            <i class="ki-duotone ki-cart fs-2 me-2">
+                                            <i class="ki-duotone ki-basket fs-2 me-2">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                             </i>

@@ -84,7 +84,7 @@
                                 <div class="col-md-6 text-end">
                                     <div class="d-flex justify-content-end align-items-center">
                                         <div class="me-4">
-                                            <h5 class="mb-0 cart-count">Total Items: {{ number_format(Cart::count()) }}
+                                            <h5 class="mb-0">Total Items: <span class="cart-count">{{ number_format(Cart::count()) }}</span>
                                             </h5>
                                         </div>
                                         <div class="me-4">
@@ -103,7 +103,7 @@
                             </div>
                         @else
                             <div class="text-center py-5">
-                                <i class="ki-duotone ki-cart fs-2hx text-muted mb-4">
+                                <i class="ki-duotone ki-basket fs-2hx text-muted mb-4">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
                                 </i>
@@ -124,7 +124,7 @@
         <script>
             function updateCartCount(count) {
                 document.querySelectorAll('.cart-count').forEach(element => {
-                    element.textContent = `Total Items: ${count}`;
+                    element.textContent = `${count}`;
                 });
             }
 
