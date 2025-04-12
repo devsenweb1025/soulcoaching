@@ -40,25 +40,7 @@
 				data-kt-scroll-dependencies="#kt_activities_header, #kt_activities_footer"
 				>
 
-				<!--begin::Timeline items-->
-				<div class="timeline">
-					{{ theme()->getView('pages/pages/user-profile/activity/timeline/items/_item-1', array("compact" => true)) }}
 
-					{{ theme()->getView('pages/pages/user-profile/activity/timeline/items/_item-2', array("compact" => true)) }}
-
-					{{ theme()->getView('pages/pages/user-profile/activity/timeline/items/_item-3', array("compact" => true)) }}
-
-					{{ theme()->getView('pages/pages/user-profile/activity/timeline/items/_item-4', array("compact" => true)) }}
-
-					{{ theme()->getView('pages/pages/user-profile/activity/timeline/items/_item-5', array("compact" => true)) }}
-
-					{{ theme()->getView('pages/pages/user-profile/activity/timeline/items/_item-6', array("compact" => true)) }}
-
-					{{ theme()->getView('pages/pages/user-profile/activity/timeline/items/_item-7', array("compact" => true)) }}
-
-					{{ theme()->getView('pages/pages/user-profile/activity/timeline/items/_item-8', array("compact" => true)) }}
-				</div>
-				<!--end::Timeline items-->
 			</div>
 			<!--end::Content-->
 		</div>
