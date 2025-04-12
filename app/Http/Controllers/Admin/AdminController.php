@@ -10,6 +10,7 @@ use App\Models\Booking;
 use App\Models\ChatMessage;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 class AdminController extends Controller
 {
@@ -43,12 +44,41 @@ class AdminController extends Controller
             ->get();
 
         // Get sales data for chart
-        $salesData = Order::where('status', 'completed')
+        $salesData = new Collection();
+
+        // Get last 30 days
+        $dates = collect();
+        for ($i = 29; $i >= 0; $i--) {
+            $dates->push(Carbon::now()->subDays($i)->format('Y-m-d'));
+        }
+
+        // Get course sales
+        $courseSales = Booking::where('status', 'completed')
+            ->where('payment_status', 'paid')
             ->where('created_at', '>=', Carbon::now()->subDays(30))
-            ->selectRaw('DATE(created_at) as date, SUM(total) as total')
+            ->selectRaw('DATE(created_at) as date, SUM(amount) as total')
             ->groupBy('date')
             ->get()
             ->pluck('total', 'date');
+
+        // Get product sales
+        $productSales = Order::where('status', 'completed')
+            ->where('created_at', '>=', Carbon::now()->subDays(30))
+            ->selectRaw('DATE(created_at) as date, SUM(total_amount) as total')
+            ->groupBy('date')
+            ->get()
+            ->pluck('total', 'date');
+
+        // Combine all sales data
+        foreach ($dates as $date) {
+            $salesData->push([
+                'date' => $date,
+                'course' => $courseSales[$date] ?? 0,
+                'product' => $productSales[$date] ?? 0,
+                'other' => 0,
+                'total' => ($courseSales[$date] ?? 0) + ($productSales[$date] ?? 0)
+            ]);
+        }
 
         return view('pages.admin.dashboard', compact(
             'productCount',
