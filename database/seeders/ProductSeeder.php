@@ -121,7 +121,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name' => 'Herzens Gutschein',
-                'slug' => 'herzens-gutschein-80',
+                'slug' => 'herzens-gutschein-a',
                 'price' => 80.00,
                 'description' => 'Du möchtest jemanden einen persönlichen Gutschein schenken, bei dem du jemandem auch noch etwas Gutes tust.',
                 'image' => 'products/13.webp',
@@ -130,7 +130,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name' => 'Herzens Gutschein',
-                'slug' => 'herzens-gutschein-50',
+                'slug' => 'herzens-gutschein-b',
                 'price' => 50.00,
                 'description' => 'Du möchtest jemanden einen persönlichen Gutschein schenken, bei dem du jemandem auch noch etwas Gutes tust.',
                 'image' => 'products/14.webp',
@@ -138,8 +138,9 @@ class ProductSeeder extends Seeder
                 'is_featured' => false,
             ],
             [
+                'id' => 15,
                 'name' => 'Herzens Gutschein',
-                'slug' => 'herzens-gutschein-120',
+                'slug' => 'herzens-gutschein-c',
                 'price' => 120.00,
                 'description' => 'Du möchtest jemanden einen persönlichen Gutschein schenken, bei dem du jemandem auch noch etwas Gutes tust.',
                 'image' => 'products/15.webp',
