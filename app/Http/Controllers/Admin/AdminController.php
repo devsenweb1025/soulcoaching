@@ -23,7 +23,7 @@ class AdminController extends Controller
         $bookingCount = Booking::count();
 
         // Calculate total benefits
-        $totalBenefits = Order::where('status', 'completed')->sum('total_amount');
+        $totalBenefits = Order::where('status', 'completed')->sum('total');
 
         // Get recent orders
         $recentOrders = Order::with('user')
@@ -64,7 +64,7 @@ class AdminController extends Controller
         // Get product sales
         $productSales = Order::where('status', 'completed')
             ->where('created_at', '>=', Carbon::now()->subDays(30))
-            ->selectRaw('DATE(created_at) as date, SUM(total_amount) as total')
+            ->selectRaw('DATE(created_at) as date, SUM(total) as total')
             ->groupBy('date')
             ->get()
             ->pluck('total', 'date');

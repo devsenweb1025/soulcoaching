@@ -1,5 +1,5 @@
 <!--begin::Scrolltop-->
-<div id="kt_scrolltop" class="scrolltop start-0" data-kt-scrolltop="true">
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
 	<div class="mouse-icon">
 		<div class="mouse">
 			<div class="wheel"></div>
@@ -56,8 +56,7 @@
 		width: 54px;
 		height: 54px;
         bottom: 14px;
-        left: 14px!important;
-        right: 0px;
+        right: 14px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
