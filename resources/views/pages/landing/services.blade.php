@@ -126,15 +126,17 @@
                     <div class="col-12 col-md-6 col-lg-5 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="500">
                         <!--begin::Image input-->
-                        <div class="w-100 h-100 py-lg-10 py-md-5" data-kt-image-input="true"
-                            style="background-position:center;">
+                        <div class="w-100 h-100 py-lg-10 py-md-5 d-flex flex-column justify-content-center align-items-center"
+                            data-kt-image-input="true">
 
                             <!--begin::Image preview wrapper-->
-                            {{-- <div class="w-100 h-700px h-md-100"
-                                style="background-position:center; background-repeat: no-repeat; background-size: cover; background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/customer.jpeg') }})">
-                            </div> --}}
                             <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/customer.jpeg') }}" alt=""
-                                class="w-100">
+                                class="w-50 mb-5">
+                            <!--end::Image preview wrapper-->
+
+                            <!--begin::Image preview wrapper-->
+                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/customer-temp.png') }}"
+                                alt="" class="w-50">
                             <!--end::Image preview wrapper-->
 
                             <div class="text-center d-flex justify-content-center align-items-center mt-10">
@@ -158,34 +160,38 @@
                                     Brauchst du schnelle und kompetente Unterstützung?
                                 </div>
                                 <div class="text-gray-600 fs-2 mb-5">
-                                    Dann ruf jetzt Elisabeth unter 0901 881 881 an und erhalte deine intuitive
-                                    Kartenlegung bequem über das Telefon – ganz ohne Wartezeit, vertrauensvoll und
-                                    direkt auf deine Frage abgestimmt.
+                                    Dann ruf jetzt die Seelenflüsterin-Hotline unter 0901 881 881 an und erhalte deine
+                                    intuitive Kartenlegung bequem über das Telefon – ganz ohne Wartezeit, vertrauensvoll
+                                    und direkt auf deine Frage abgestimmt.
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder">
-                                    Über Elisabeth:
+                                    Ruf die liebenswürdige Elisabeth an:
                                 </div>
                                 <div class="text-gray-600 fs-2 mb-5">
                                     Ich möchte mit meinen Fähigkeiten Menschen helfen, die Probleme haben oder denen der
-                                    gegenwärtige klare Blick für das Wesentliche verloren gegangen ist - als
-                                    Kartenlegerin in der 4. Generation mit einer starken Bindung zu meinen Kipper-Karten
-                                    seit 17 Jahren.Sei nicht ängstlich. Jeder Mensch hat mal Probleme. Aber die können
-                                    wir gemeinsam lösen.<br />
+                                    gegenwärtige klare Blick für das Wesentliche verloren gegangen ist. Ich verfüge über
+                                    eine sehr ausgeprägte Feinfühligkeit und habe seit 17 Jahren eine starke Bindung zu
+                                    meinen Kipper - Karten.
+                                    Sei nicht ängstlich. Jeder Mensch hat mal Probleme. Aber die können wir gemeinsam
+                                    lösen.<br />
+                                </div>
+                                <div class="text-gray-600 fw-bold fs-2 fw-bolder">
+                                    Elisabeth ist Kartenlegerin in der 4. Generation du bist also in den Besten Händen!<br /><br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     Zeiten:<br />
                                     MO, DI, MI und FR: 08:00 Uhr - 10 Uhr / 14:30 Uhr - 18:00 Uhr <br />
-                                    DO & SA: 08:00 Uhr - 23:00 Uhr <br />
-                                    SO: 18:00 Uhr - 23:00 Uhr <br />
+                                    DO & SA: 08:00 Uhr - 23:00 Uhr<br />
+                                    SO: 18:00 Uhr - 23:00 Uhr
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    CHF 2.50.- / Minute
+                                    CHF 2.50.- / min
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     Diese Hotline eignet sich ideal für:<br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    🔮 Lenormand-Kartenlegung<br />
+                                    🔮 Lenormand-Kartenlegung <br />
                                     🔮 Hellsehen per Telefon<br />
                                     🔮 Spirituelle Lebensfragen (Liebe, Beruf, Klarheit)
                                 </div>
