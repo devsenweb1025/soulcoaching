@@ -49,10 +49,11 @@
                                             class="btn btn-icon btn-light btn-color-primary pulse pulse-primary shadow p-5">
                                             {!! theme()->getIcon('sms', 'fs-2tx text-primary') !!}
                                         </span>
-                                        <span class="ml-5">Mailen Sie mir</span>
+                                        <span class="ml-5">Maile mir</span>
                                     </div>
                                     <div class="text-gray-800 fs-2 mb-5">
-                                        Fragen zu den Angeboten oder sonstiges anliegen? Schreiben Sie mir
+                                        Fragen zu den Angeboten oder sonstiges anliegen? Du kannst mir gerne per Mail
+                                        schreiben.
                                     </div>
                                     <span class="fw-normal fs-4">
                                         <a href="mailto:info@seelen-fluesterin.ch"
@@ -70,8 +71,8 @@
                                         <span class="ml-5">Zoom Meeting</span>
                                     </div>
                                     <div class="text-gray-800 fs-2 mb-5">
-                                        Haben Sie ein grösseres Anliegen und möchten ein Gespräch mit mir? Buchen Sie
-                                        einen Temrin mit der Buchungsfunktion
+                                        Hast Du ein grösseres Anliegen und möchtest ein Gespräch mit mir? Melde dich
+                                        über das Kontaktformular und wir vereinbaren gemeinsam einen Termin.
                                     </div>
                                     <span class="fw-normal fs-4">
                                         <a href="#" class="text-hover-primary">Termin Buchen</a></span>
@@ -91,7 +92,7 @@
                                         class="btn btn-icon btn-light btn-color-primary pulse pulse-primary shadow p-5 mb-5">
                                         {!! theme()->getIcon('user', 'fs-2tx text-primary') !!}
                                     </div>
-                                    <div class="text-center">Gerne helfe ich weiter! Gib mir Bescheid.</div>
+                                    <div class="text-center">Gerne helfe ich Dir weiter! Melde dich bei mir.</div>
                                 </div>
                                 <div class="text-gray-800 fs-2 mb-5">
                                     <form>
@@ -122,6 +123,11 @@
                                                 ihr Anliegen</label>
                                             <textarea class="form-control form-control-solid" placeholder="Ihre Nachricht" id="description_input"
                                                 style="height: 100px"></textarea>
+                                        </div>
+                                        <div class="mb-10">
+                                            <input type="checkbox" id="confirm_input" class="form-check-input">
+                                            <label for="confirm_input" class="form-check-label fs-6">Hiermit bestätige ich,
+                                                dass alle Angaben wahrheitsgetreu gemacht wurden.</label>
                                         </div>
                                         <div>
                                             <button type="submit" class="form-control btn btn-primary">Nachricht

@@ -30,13 +30,20 @@
                                     ],
                                     [
                                         'question' => 'Woher weisst du was mein Körper braucht?',
-                                        'answer' => 'Durch meine Medialen Fähigkeiten, kann ich deinen Körper auf Energetischer Ebene Scannen und sehe wo du unterstützung benötigst.',
+                                        'answer' =>
+                                            'Durch meine Medialen Fähigkeiten, kann ich deinen Körper auf Energetischer Ebene Scannen und sehe wo du unterstützung benötigst.',
                                         'is_expanded' => false,
                                     ],
                                     [
                                         'question' => 'Wie funktioniert Tierkommunikation?',
                                         'answer' =>
                                             'Bevor ich mich mit deinem Herzenstier verbinde mache ich diverse Vorbereitungen, dass alles positiv ist und alles zum Besten wohl passieren kann. Danach nehme ich Geistig Kontakt auf und stelle deine Fragen an dein Herzenstier.',
+                                        'is_expanded' => false,
+                                    ],
+                                    [
+                                        'question' => 'Was sind die 5 Bewusstseinsebenen?',
+                                        'answer' =>
+                                            'Wenn der Mensch heilt, darf er zuerst auf der spirituellen Ebene beginnen – also im Geiste. Was bedeutet das, was mir geschieht, aus einer übergeordneten Perspektive?<br/><br/>Danach folgt die mentale Ebene – hier erkunden wir, wie wir unser Denken positiv umprogrammieren können.<br/><br/>Als Drittes widmen wir uns der emotionalen Ebene – welche Gefühle sind da, was wird gebraucht?<br/><br/>Die energetische Ebene heilen wir durch energetische Heilmethoden,<br/>und die letzte Ebene ist die körperliche.',
                                         'is_expanded' => false,
                                     ],
                                 ];
@@ -62,7 +69,7 @@
                                     <div id="kt_accordion_3_item_{{ $index + 1 }}"
                                         class="fs-3 {{ $faq['is_expanded'] ? 'show' : 'collapse' }} px-10"
                                         data-bs-parent="#kt_accordion_3">
-                                        {{ $faq['answer'] }}
+                                        {!! $faq['answer'] !!}
                                     </div>
                                     <!--end::Body-->
                                 </div>
