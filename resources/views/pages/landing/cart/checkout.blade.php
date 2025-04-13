@@ -69,13 +69,13 @@
                                         {{ number_format(Cart::subtotal(), 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
-                                    <span class="fw-bold fs-5">Tax (7.7%):</span>
-                                    <span class="text-dark fw-bold fs-5">CHF {{ number_format(Cart::tax(), 2) }}</span>
+                                    <span class="fw-bold fs-5">Shipping:</span>
+                                    <span class="text-dark fw-bold fs-5">CHF {{ number_format(session('shipping_cost', 10.0), 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Total:</span>
                                     <span class="text-dark fw-bold fs-5">CHF
-                                        {{ number_format(Cart::total(), 2) }}</span>
+                                        {{ number_format(Cart::total() + session('shipping_cost', 10.0), 2) }}</span>
                                 </div>
                             </div>
                         </div>

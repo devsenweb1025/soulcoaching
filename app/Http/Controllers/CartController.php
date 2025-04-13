@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderConfirmation;
 use App\Models\Order;
 use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 class CartController extends Controller
 {
     public function index()
@@ -43,17 +43,11 @@ class CartController extends Controller
                 Cart::update($existingItem->rowId, $existingItem->qty + $quantity);
             } else {
                 // Add new item to cart
-                Cart::add([
-                    'id' => $product['id'],
-                    'name' => $product['name'],
-                    'qty' => $quantity,
-                    'price' => $product['price'],
-                    'options' => [
-                        'slug' => $product['slug'],
-                        'image' => $product['image'],
-                        'description' => $product['description']
-                    ]
-                ]);
+                Cart::add($product->id, $product->name, $quantity, $product->price, [
+                    'slug' => $product->slug,
+                    'image' => $product->image,
+                    'description' => $product->description
+                ], 0);
             }
 
             if ($request->wantsJson()) {
@@ -109,6 +103,7 @@ class CartController extends Controller
                     'message' => 'Warenkorb wurde aktualisiert!',
                     'cartCount' => Cart::count(),
                     'cartTotal' => Cart::total(),
+                    'shippingCost' => session('shipping_cost'),
                     'itemTotal' => $item->subtotal,
                     'itemCount' => $item->qty
                 ]);
@@ -154,6 +149,7 @@ class CartController extends Controller
                     'success' => true,
                     'message' => 'Artikel wurde aus dem Warenkorb entfernt!',
                     'cartCount' => Cart::count(),
+                    'shippingCost' => session('shipping_cost'),
                     'cartTotal' => Cart::total(),
                     'isCartEmpty' => Cart::count() === 0
                 ]);
@@ -185,6 +181,7 @@ class CartController extends Controller
                     'success' => true,
                     'message' => 'Warenkorb wurde geleert!',
                     'cartCount' => Cart::count(),
+                    'shippingCost' => session('shipping_cost'),
                     'cartTotal' => Cart::total()
                 ]);
             }
@@ -290,6 +287,25 @@ class CartController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
+    }
+
+    public function updateShipping(Request $request)
+    {
+        $request->validate([
+            'shipping_option' => 'required|in:small,middle,big',
+            'shipping_cost' => 'required|numeric|min:0'
+        ]);
+
+        // Store shipping option and cost in session
+        session(['shipping_option' => $request->shipping_option]);
+        session(['shipping_cost' => $request->shipping_cost]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Shipping option updated successfully',
+            'shipping_cost' => $request->shipping_cost,
+            'total' => Cart::total()
+        ]);
     }
 
 }

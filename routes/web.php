@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/remove/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
     Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
     Route::post('/cart/store-shipping-info', [CartController::class, 'storeShippingInfo'])->name('cart.store-shipping-info');
+    Route::post('/cart/update-shipping', [CartController::class, 'updateShipping'])->name('cart.update-shipping');
 
     // Checkout routes
     Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
