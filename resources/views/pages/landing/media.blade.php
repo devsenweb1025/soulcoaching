@@ -81,7 +81,7 @@
                                     'domain' => 'https://aquaschweiz.ch/',
                                     'image' => 'partner5.png',
                                 ],
-                                5 => [
+                                6 => [
                                     'name' => 'Vereinsmitglied',
                                     'description' =>
                                         'Ich bin Mitglied im Tarot e.V. – Berufsverband für Tarot und ganzheitliche Lebensberatung. Der Verband fördert die Qualität und Ethik in der Tarot-Beratung und bietet eine Plattform für Austausch, Weiterbildung und fachliche Entwicklung. Als Teil dieser Gemeinschaft engagiere ich mich für eine verantwortungsvolle und achtsame Beratungspraxis.',
