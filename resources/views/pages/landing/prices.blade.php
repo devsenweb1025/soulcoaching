@@ -94,6 +94,8 @@
                     'Antwort auf konkrete Lebensfragen',
                     'Nachhaltige weiterführende Lösung direkt bei mir',
                     'Aktuelle Energietendenz, damit du deine nächsten Schritte planen kannst',
+                    'Sofortige und nachhaltige Lösung',
+                    'Aktuelle Energietendenz',
                 ],
                 'button' => 'Jetzt Anrufen',
                 'button_link' => route('services', ['scroll_to' => 'hotline']),
