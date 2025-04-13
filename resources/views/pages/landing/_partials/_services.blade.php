@@ -34,12 +34,12 @@
                                 [
                                     'title' => 'Transformationscoaching',
                                     'description' =>
-                                        'Du hast schon viele Herausforderungen gemeistert aber gerade fühlst du dich blockiert oder orientierungslos? Im spirituellen Transformationscoaching verbinde ich mich mit deinem Geistigen Team und empfange Botschaften, die dir helfen, deinen individuellen Weg zu erkennen. Diese Form der Begleitung unterstützt dich bei Themen wie Selbstentfaltung, Sinnfindung und spirituellem Wachstum',
+                                        'Ganz gleich, wo du gerade im Leben stehst – dieses Transformationscoaching begleitet dich dabei, aktuelle Herausforderungen zu meistern. Mit einem eigenen, ganzheitlichen Ansatz, der alle Bewusstseinsebenen einbezieht, erreichst du dein Ziel innerhalb eines Monats – klar, fokussiert und tief verankert in deiner inneren Entwicklung.',
                                 ],
                                 [
                                     'title' => 'Energetische Heilung für Mensch und Tier',
                                     'description' =>
-                                        'Du hast körperliche Beschwerden, die sich niemand erklären kann – oder das Gefühl, energetisch aus dem Gleichgewicht zu sein? Dann ist die energetische Heilung genau das Richtige für dich. Sie hilft, Blockaden zu lösen, die Chakren zu reinigen und neue Energie in dein System zu bringen. Diese sanfte Heilmethode eignet sich sowohl für Menschen als auch für Tiere – denn auch unsere tierischen Begleiter können energetische Disharmonien zeigen.',
+                                        'Der Mensch sowie das Tier nehmen Energien von Orten, anderen Menschen, anderen Tieren auf wie ein Schwamm. Darum fühlst du dich unter Umständen als Beispiel müde, obwohl körperlich alles im grünen Bereich ist. Unsere Energiezentren sollten darum regelmässig gereinigt und wieder gefüllt werden. Das gleiche gilt bei deinem Haustier. Du wirst sehen, mit der Energetischen Heilung lösen wir viele Herausforderungen wie Vertrauensmangel, Erschöpftheit, Müdigkeit uvm.',
                                 ],
                                 [
                                     'title' => 'Tierkommunikation',
