@@ -136,10 +136,10 @@
 
                             <!--begin::Image preview wrapper-->
                             <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/customer-temp.png') }}"
-                                alt="" class="w-50">
+                                alt="" class="w-50 d-none d-md-block">
                             <!--end::Image preview wrapper-->
 
-                            <div class="text-center d-flex justify-content-center align-items-center mt-10">
+                            <div class="text-center d-md-flex d-none justify-content-center align-items-center mt-10">
                                 {!! theme()->getIcon('faceid', 'fs-2hx text-gray-700') !!}
                                 <span class="ms-2 fs-xs-2 fs-sm-2 fs-md-2x text-gray-700">Hier könnte dein Bild
                                     sein.</span>
@@ -176,7 +176,8 @@
                                     lösen.<br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder">
-                                    Elisabeth ist Kartenlegerin in der 4. Generation du bist also in den Besten Händen!<br /><br />
+                                    Elisabeth ist Kartenlegerin in der 4. Generation du bist also in den Besten
+                                    Händen!<br /><br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     Zeiten:<br />
@@ -194,6 +195,16 @@
                                     🔮 Lenormand-Kartenlegung <br />
                                     🔮 Hellsehen per Telefon<br />
                                     🔮 Spirituelle Lebensfragen (Liebe, Beruf, Klarheit)
+                                </div>
+                                <div class="d-flex flex-column justify-content-center align-items-center mb-10">
+                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/customer-temp.png') }}"
+                                        alt="" class="w-50 d-md-none d-block">
+                                    <div
+                                        class="text-center d-flex justify-content-center align-items-center mt-10 d-md-none d-block">
+                                        {!! theme()->getIcon('faceid', 'fs-2hx text-gray-700') !!}
+                                        <span class="ms-2 fs-xs-2 fs-sm-2 fs-md-2x text-gray-700">Hier könnte dein Bild
+                                            sein.</span>
+                                    </div>
                                 </div>
                                 <div class="text-gray-600 fs-2 fw-bolder mb-5">
                                     Möchtest auch du einmal die Hotline bedienen?<br />
