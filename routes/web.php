@@ -6,6 +6,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\OrderController as OrderManagementController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\AdminController;
@@ -93,6 +94,7 @@ Route::resource('users', UsersController::class);
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->names('products');
+    Route::resource('orders', OrderManagementController::class)->names('orders');
 });
 
 Route::resource('settings', SettingsController::class)->names('settings');

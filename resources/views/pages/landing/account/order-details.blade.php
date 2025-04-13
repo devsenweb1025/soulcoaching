@@ -66,7 +66,7 @@
                                                                         <div class="d-flex align-items-center">
                                                                             <div class="symbol symbol-50px me-5">
                                                                                 <img src="{{ asset('storage/' . $item->product->image) }}"
-                                                                                    class="" alt="" />
+                                                                                    class="object-fit-contain" alt="" />
                                                                             </div>
                                                                             <div
                                                                                 class="d-flex justify-content-start flex-column">
