@@ -37,7 +37,7 @@
                                     </span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMobile">
-                                    @if(Auth::user()->role === 'admin')
+                                    @if (Auth::user()->role === 'admin')
                                         <li>
                                             <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
                                                 <i class="ki-duotone ki-graph-3 fs-2 me-2">
@@ -76,17 +76,6 @@
                                                 <span class="path2"></span>
                                             </i>
                                             <span>Meine Kurse</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('cart.index') }}" class="dropdown-item">
-                                            <i class="ki-duotone ki-handcart fs-2 me-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                            Shopping Cart
-                                            <span
-                                                class="badge bg-primary rounded-pill ms-2 cart-count text-white">{{ Cart::count() }}</span>
                                         </a>
                                     </li>
                                     <li>
@@ -224,7 +213,7 @@
                                 <span>{{ Auth::user()->name }}</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                @if(Auth::user()->role === 'admin')
+                                @if (Auth::user()->role === 'admin')
                                     <li>
                                         <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
                                             <i class="ki-duotone ki-graph-3 fs-2 me-2">
@@ -266,17 +255,6 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('cart.index') }}" class="dropdown-item">
-                                        <i class="ki-duotone ki-handcart fs-2 me-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                        Shopping Cart
-                                        <span
-                                            class="badge bg-primary rounded-pill ms-2 cart-count text-white">{{ Cart::count() }}</span>
-                                    </a>
-                                </li>
-                                <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
@@ -302,6 +280,22 @@
                         <span>Einloggen</span>
                     </a>
                 @endauth
+
+                <!--begin::Menu item-->
+                <div class="menu-item mx-2">
+                    <!--begin::Menu link-->
+                    <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('cart.index') ? 'active' : '' }}"
+                        href="{{ route('cart.index') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">
+                        <i class="ki-duotone ki-handcart fs-2">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                        <span
+                            class="badge bg-primary rounded-pill ms-2 cart-count text-white">{{ Cart::count() }}</span>
+                    </a>
+                    <!--end::Menu link-->
+                </div>
+                <!--end::Menu item-->
             </div>
             <!--end::Toolbar-->
         </div>
