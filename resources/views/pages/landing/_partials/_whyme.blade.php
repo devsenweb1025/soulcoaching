@@ -52,7 +52,7 @@
                                     'icon' => 'parcel',
                                     'title' => 'Viel Lebenserfahrung',
                                     'description' =>
-                                        'Beruflich und Privat durfte ich vielen verschiedenennHerausforderunhen begegnen. Dafür bin ich dankbar, denn das hat mich weiterentwickeln lassen.',
+                                        'Beruflich und Privat durfte ich vielen verschiedenen Herausforderungen begegnen. Dafür bin ich dankbar, denn das hat mich weiterentwickeln lassen.',
                                     'delay' => '600',
                                 ],
                                 [
