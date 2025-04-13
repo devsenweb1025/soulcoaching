@@ -97,7 +97,7 @@
                                                                 <div class="text-muted small">For small items up to 2kg
                                                                 </div>
                                                             </div>
-                                                            <span class="text-primary">CHF 5.00</span>
+                                                            <span class="text-primary">CHF 8.50</span>
                                                         </div>
                                                     </label>
                                                 </div>
@@ -112,7 +112,7 @@
                                                                 <div class="text-muted small">For medium items up to 5kg
                                                                 </div>
                                                             </div>
-                                                            <span class="text-primary">CHF 10.00</span>
+                                                            <span class="text-primary">CHF 11.50</span>
                                                         </div>
                                                     </label>
                                                 </div>
@@ -127,7 +127,7 @@
                                                                 <div class="text-muted small">For large items up to 10kg
                                                                 </div>
                                                             </div>
-                                                            <span class="text-primary">CHF 15.00</span>
+                                                            <span class="text-primary">CHF 20.50</span>
                                                         </div>
                                                     </label>
                                                 </div>
@@ -135,11 +135,11 @@
                                             <div class="d-flex flex-column align-items-end">
                                                 <div class="mb-2">
                                                     <h5 class="mb-0 shipping-cost">Shipping: CHF
-                                                        {{ number_format(session('shipping_cost', 10.0), 2) }}</h5>
+                                                        {{ number_format(session('shipping_cost', 11.50), 2) }}</h5>
                                                 </div>
                                                 <div class="mb-2">
                                                     <h5 class="mb-0 cart-total">Total: CHF
-                                                        {{ number_format(Cart::total() + session('shipping_cost', 10.0), 2) }}
+                                                        {{ number_format(Cart::total() + session('shipping_cost', 11.50), 2) }}
                                                     </h5>
                                                 </div>
                                                 <a href="{{ route('cart.checkout') }}" class="btn btn-primary">
@@ -361,9 +361,9 @@
                 radio.addEventListener('change', function() {
                     const shippingOption = this.value;
                     const shippingCosts = {
-                        'small': 5.00,
-                        'middle': 10.00,
-                        'big': 15.00
+                        'small': 8.50,
+                        'middle': 11.50,
+                        'big': 20.50
                     };
 
                     fetch('/cart/update-shipping', {
