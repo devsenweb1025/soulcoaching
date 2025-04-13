@@ -37,20 +37,13 @@
                                             Deine Reise zu mehr Bewusstsein beginnt hier.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
-                                            Spürst du den Ruf nach innerer Klarheit, Heilung und spiritueller
-                                            Begleitung?
+                                            Spürst du den Ruf nach innerer Klarheit, Heilung und spiritueller Begleitung?
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
-                                            Deine Seele hat dich nicht zufällig hierher geführt – sondern genau dahin,
-                                            wo Transformation möglich ist. Ich begleite dich mit meinen Medialen
-                                            Fähigkeiten, Intuition und Psychologischen Methodiken in deine
-                                            Transformation – ob du in der Schweiz, in Österreich oder Deutschland bist.
+                                            Deine Seele hat dich nicht zufällig hierher geführt – sondern genau dahin, wo Transformation möglich ist. Ich begleite dich mit meinen Medialen Fähigkeiten, Intuition und Psychologischen Methodiken in deine Transformation – ob du in der Schweiz, in Österreich oder Deutschland bist.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
-                                            Hier darfst du dich erinnern, wer du wirklich bist – und lernen, deine
-                                            Selbstheilungskräfte zu aktivieren. Als erstes Geschenk lade ich dich zu
-                                            einer kleinen geführten Meditation ein – sie öffnet das Tor zu deiner Reise
-                                            nach innen.
+                                            Hier darfst du dich erinnern, wer du wirklich bist – und lernen, deine Selbstheilungskräfte zu aktivieren. Als erstes Geschenk lade ich dich zu einer kleinen geführten Meditation ein – sie öffnet das Tor zu deiner Reise nach innen.
                                         </div>
                                     </div>
 
@@ -64,9 +57,9 @@
                                             </audio>
                                         </div>
                                         <div class="col-4 d-flex align-items-center justify-content-end">
-                                            <button type="button" class="btn btn-primary">
+                                            <a href="{{ route('services') }}" class="btn btn-primary">
                                                 Mehr entdecken
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
