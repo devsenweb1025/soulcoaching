@@ -106,7 +106,7 @@
                                         </div>
                                         <!--end::Heading-->
                                         <!--begin::Heading-->
-                                        <div class="mb-7 text-start">
+                                        <div class="text-start">
                                             <a href="#" class="btn btn-primary">
                                                 <i class="ki-duotone ki-basket fs-2 me-2">
                                                     <span class="path1"></span>
@@ -168,7 +168,7 @@
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
                                         <!--begin::Heading-->
-                                        <div class="text-start">
+                                        <div class="text-start mb-5">
                                             <!--begin::Title-->
                                             <div class="text-gray-900 mb-5 fw-boldest">
                                                 Energetisches Heilen ist mehr als Handauflegen – es ist eine innere
@@ -189,6 +189,18 @@
                                             <div class="text-gray-900 fw-boldest">
                                                 Kompletter Energetischer Heilkurs CHF 999.-
                                             </div>
+                                        </div>
+                                        <!--end::Heading-->
+
+                                        <!--begin::Heading-->
+                                        <div class="text-start">
+                                            <a href="#" class="btn btn-primary">
+                                                <i class="ki-duotone ki-basket fs-2 me-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                In den Warenkorb
+                                            </a>
                                         </div>
                                         <!--end::Heading-->
                                     </div>
@@ -264,18 +276,6 @@
                                                 @endforeach
                                             </div>
                                             <!--end::Price-->
-                                        </div>
-                                        <!--end::Heading-->
-
-                                        <!--begin::Heading-->
-                                        <div class="mb-7 text-start">
-                                            <a href="#" class="btn btn-primary">
-                                                <i class="ki-duotone ki-basket fs-2 me-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                                In den Warenkorb
-                                            </a>
                                         </div>
                                         <!--end::Heading-->
                                     </div>
@@ -366,17 +366,6 @@
                                                 @endforeach
                                             </div>
                                             <!--end::Price-->
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Heading-->
-                                        <div class="mb-7 text-start">
-                                            <a href="#" class="btn btn-primary">
-                                                <i class="ki-duotone ki-basket fs-2 me-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                                In den Warenkorb
-                                            </a>
                                         </div>
                                         <!--end::Heading-->
                                     </div>
