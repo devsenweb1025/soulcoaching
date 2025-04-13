@@ -57,7 +57,7 @@
                                             </h1>
                                             <div data-aos="fade-up">
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Ich bin Sarah – spirituelle Coachin und Heilerin aus der Schweiz.
+                                                    Ich bin Sarah – spiritueller Coach und Heilerin aus der Schweiz.
                                                 </div>
                                                 <div class="text-gray-600 fs-4 mb-5">
                                                     Mein Weg ist geprägt von tiefem Wissen, persönlicher Transformation
@@ -242,11 +242,6 @@
                                         Quantenheilung & Spontanheilung
                                     </div>
                                 </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Mitochondrien & TCM
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -361,6 +356,11 @@
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
                                         Pendelkurs
+                                    </div>
+                                </div>
+                                <div class="mb-5">
+                                    <div class="text-gray-800 fs-2">
+                                        Mitochondrien & TCM
                                     </div>
                                 </div>
                             </div>
