@@ -74,8 +74,6 @@
                                         Hast Du ein grösseres Anliegen und möchtest ein Gespräch mit mir? Melde dich
                                         über das Kontaktformular und wir vereinbaren gemeinsam einen Termin.
                                     </div>
-                                    <span class="fw-normal fs-4">
-                                        <a href="#" class="text-hover-primary">Termin Buchen</a></span>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +124,8 @@
                                         </div>
                                         <div class="mb-10">
                                             <input type="checkbox" id="confirm_input" class="form-check-input">
-                                            <label for="confirm_input" class="form-check-label fs-6">Hiermit bestätige ich,
+                                            <label for="confirm_input" class="form-check-label fs-6">Hiermit bestätige
+                                                ich,
                                                 dass alle Angaben wahrheitsgetreu gemacht wurden.</label>
                                         </div>
                                         <div>
