@@ -36,9 +36,12 @@
                         <!--end::Title-->
                         <!--begin::Text-->
                         <div class="fs-2 py-2">
-                            Seelenfluesterin<br />
+                            Seelenfluesterin
+                            Buchenstrasse 2<br />
+                            9322 Egnach<br />
                             Schweiz<br />
-                            E-Mail: seelenfluesterin@gmx.ch
+                            E-Mail: seelenfluesterin@gmx.ch<br />
+                            Website: <a href="https://www.seelen-fluesterin.ch" target="_blank">www.seelen-fluesterin.ch</a>
                         </div>
                         <!--end::Text-->
 

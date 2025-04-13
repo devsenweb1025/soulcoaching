@@ -35,10 +35,10 @@
                         <!--end::Title-->
                         <!--begin::Text-->
                         <div class="fs-2 py-2">
-                            Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:<br />
+                            Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:
                             Seelenfluesterin<br />
-                            <a href="mailto:Seelenfluesterin@gmx.ch" target="_blank">E-Mail: Seelenfluesterin@gmx.ch</a><br />
-                            WebSite: https://seelenfluesterin.net
+                            E-Mail: Seelenfluesterin@gmx.ch<br />
+                            Website: <a href="https://www.seelen-fluesterin.ch" target="_blank">www.seelen-fluesterin.ch</a>
                         </div>
                         <!--end::Text-->
 
