@@ -37,7 +37,7 @@
                 'event' => 'transformationscoaching',
                 'description' =>
                     'Egal, an welchem Punkt du gerade stehst, dieses Coaching ist die Lösung. Mit diesem Konzept spielt es keine Rolle, welche Herausforderung du gerade zu bewältigen hast, denn hier arbeiten wir mit einem eigenen Konzept, bei dem alle Bewusstseinsebenen integriert werden, damit du in einem Monat dein Ziel erreichst.',
-                'price' => 'CHF 2222 / Monat<br>Vorteile:',
+                'price' => 'CHF 2222.- / Monat<br>Vorteile:',
                 'image' => 'Trans.jpg',
                 'features' => [
                     'Komplettes Konzept mit 70 Seiten Psychologischer und Energetischer Methodiken',
