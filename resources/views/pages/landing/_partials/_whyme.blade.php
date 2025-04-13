@@ -22,38 +22,38 @@
                             $cards = [
                                 [
                                     'icon' => 'keyboard',
-                                    'title' => 'Herzensmensch',
+                                    'title' => 'Hohe Empathie',
                                     'description' => 'Ich begegne dir mit Offenheit, Mitgefühl und ehrlicher Präsenz – weil dein Wohl mir am Herzen liegt.',
                                     'delay' => '500'
                                 ],
                                 [
                                     'icon' => 'rocket',
-                                    'title' => 'Harmonie liebend',
+                                    'title' => 'Friedvoll',
                                     'description' => 'Ich kreiere für dich einen Raum der Ruhe, in dem du dich verstanden, sicher und getragen fühlen darfst – sei es im spirituellen Coaching oder in einer energetischen Heilsitzung.',
                                     'delay' => '600'
                                 ],
                                 [
                                     'icon' => 'setting-2',
-                                    'title' => 'Sympatisch',
-                                    'description' => 'Meine warme, intuitive Art macht es dir leicht, dich zu öffnen und Vertrauen zu fassen – auch bei sensiblen Themen in der Tierkommunikation oder medialen Beratung.',
+                                    'title' => 'Persönlichkeitsentwicklung',
+                                    'description' => '8 Jahre eigene Erfahrung in der Persönlichkeitsentwicklung sowie mit Coaches von Greators zusammen gearbeitet.',
                                     'delay' => '700'
                                 ],
                                 [
                                     'icon' => 'pulse',
-                                    'title' => 'Vielseitig interessiert',
+                                    'title' => 'Ganzheitliche Betrachtungsweise',
                                     'description' => 'Ich sehe dich als einzigartiges Wesen – und richte meine Arbeit individuell auf deine persönlichen, emotionalen und spirituellen Bedürfnisse aus.',
                                     'delay' => '500'
                                 ],
                                 [
                                     'icon' => 'parcel',
-                                    'title' => 'Belesen',
-                                    'description' => 'Mein Wissen über energetisches Heilen, spirituelle Prozesse und mediale Methoden wächst stetig – und fließt in jede Sitzung mit ein.',
+                                    'title' => 'Viel Lebenserfahrung',
+                                    'description' => 'Da ich Beruflich in vielen verschiedenen Bereichen gearbeitet habe durfte ich mir viel Wissen aneignen. Immer wieder durfte ich durch viele Transformationsprozesse hindurch gehen im letzten entdeckte ich die Fähigkeit meiner Hellsinne. So entstand auch mein Coaching Konzept welches für die Transformation aus jeder Lebenslage hilft.',
                                     'delay' => '600'
                                 ],
                                 [
                                     'icon' => 'medal-star',
-                                    'title' => 'Wissbegierig',
-                                    'description' => 'Ich bilde mich kontinuierlich weiter, um dir moderne und gleichzeitig tiefgründige Impulse auf deinem Weg anbieten zu können – intuitiv, klar und liebevoll.',
+                                    'title' => 'Medialität and text',
+                                    'description' => '2 Jahre Erfahrung und konstantes Training mit diversen Medialitätsschulen und Vereinen.',
                                     'delay' => '700'
                                 ]
                             ];
