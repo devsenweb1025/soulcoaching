@@ -26,7 +26,7 @@
                 <br /><br />
                 Es freut mich, dass ich mit den untenstehenden Unternehmen eine Kooperation eingehen durfte, damit du
                 bei mir günstiger einkaufen kannst und wir gemeinsam Unternehmen unterstützen, die die Vision einer
-                positiven Welt verfolgen.
+                positiven Welt teilen.
             </p>
             <!--end::Title-->
         </div>
