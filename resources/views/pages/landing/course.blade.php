@@ -105,30 +105,15 @@
                                             <!--end::Price-->
                                         </div>
                                         <!--end::Heading-->
-
                                         <!--begin::Heading-->
                                         <div class="mb-7 text-start">
-                                            <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest fs-2">Wie läuft das ab:
-                                            </h1>
-                                            <!--end::Title-->
-                                            <!--begin::Price-->
-                                            <div class="d-flex flex-column">
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Buche den Kurs mit dem
-                                                    untenstehenden Formular
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Zahle den Kurs per Twint im
-                                                    Voraus
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang erhältst
-                                                    du
-                                                    einen Link und ein Passwort und schon geht es los
-                                                </li>
-                                            </div>
-                                            <!--end::Price-->
+                                            <a href="#" class="btn btn-primary">
+                                                <i class="ki-duotone ki-basket fs-2 me-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                In den Warenkorb
+                                            </a>
                                         </div>
                                         <!--end::Heading-->
                                     </div>
@@ -284,27 +269,13 @@
 
                                         <!--begin::Heading-->
                                         <div class="mb-7 text-start">
-                                            <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest fs-2">Wie läuft das ab:
-                                            </h1>
-                                            <!--end::Title-->
-                                            <!--begin::Price-->
-                                            <div class="d-flex flex-column">
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Buche den Kurs mit dem
-                                                    untenstehenden Formular
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Zahle den Kurs per Twint im
-                                                    Voraus
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang
-                                                    erhältst du
-                                                    einen Link und ein Passwort und schon geht es los
-                                                </li>
-                                            </div>
-                                            <!--end::Price-->
+                                            <a href="#" class="btn btn-primary">
+                                                <i class="ki-duotone ki-basket fs-2 me-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                In den Warenkorb
+                                            </a>
                                         </div>
                                         <!--end::Heading-->
                                     </div>
@@ -397,30 +368,15 @@
                                             <!--end::Price-->
                                         </div>
                                         <!--end::Heading-->
-
                                         <!--begin::Heading-->
                                         <div class="mb-7 text-start">
-                                            <!--begin::Title-->
-                                            <h1 class="text-gray-900 mb-5 fw-boldest fs-2">Wie läuft das ab:
-                                            </h1>
-                                            <!--end::Title-->
-                                            <!--begin::Price-->
-                                            <div class="d-flex flex-column">
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Buche den Kurs mit dem
-                                                    untenstehenden Formular
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Zahle den Kurs per Twint im
-                                                    Voraus
-                                                </li>
-                                                <li class="d-flex align-items-center py-2">
-                                                    <span class="bullet me-5 fs-3"></span> Nach Zahlungseingang
-                                                    erhältst du
-                                                    einen Link und ein Passwort und schon geht es los
-                                                </li>
-                                            </div>
-                                            <!--end::Price-->
+                                            <a href="#" class="btn btn-primary">
+                                                <i class="ki-duotone ki-basket fs-2 me-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                In den Warenkorb
+                                            </a>
                                         </div>
                                         <!--end::Heading-->
                                     </div>
