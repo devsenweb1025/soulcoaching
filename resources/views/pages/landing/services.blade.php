@@ -80,7 +80,7 @@
                                 <div class="text-gray-600 fw-semibold fs-5 description-text">
                                     @php
                                         $text = $service['description'];
-                                        $shortText = strlen($text) > 145 ? substr($text, 0, 145) . '...' : $text;
+                                        $shortText = strlen($text) > 174 ? substr($text, 0, 174) . '...' : $text;
                                     @endphp
                                     <span class="short-text">{{ $shortText }}</span>
                                     <span class="full-text" style="display: none;">{{ $text }}</span>

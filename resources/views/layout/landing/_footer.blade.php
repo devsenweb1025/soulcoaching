@@ -1,17 +1,17 @@
 <!--begin::Footer Section-->
 <div class="mb-0 z-index-2">
     <!--begin::Wrapper-->
-    <div class="landing-dark-bg pt-20">
+    <div class="landing-dark-bg pt-10">
         <!--begin::Container-->
         <div class="container">
             <!--begin::Row-->
             <div class="row py-10 py-lg-20">
-                <div class="col-lg-2 pe-lg-16 mb-10 mb-lg-0 p-10">
+                <div class="col-lg-2 mb-10 mb-lg-0 p-1 p-md-10">
                     <div class="d-flex align-items-center justify-content-center order-2 order-md-1">
                         <!--begin::Logo-->
                         <a href="landing.html">
                             <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/landing-dark.png') }}"
-                                class="h-150px h-md-100px" />
+                                class="h-50px h-md-100px" />
                         </a>
                         <!--end::Logo image-->
                     </div>
