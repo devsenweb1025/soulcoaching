@@ -81,23 +81,76 @@
                                         Continue Shopping
                                     </a>
                                 </div>
-                                <div class="col-md-6 text-end">
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <div class="me-4">
-                                            <h5 class="mb-0">Total Items: <span class="cart-count">{{ number_format(Cart::count()) }}</span>
-                                            </h5>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title mb-4">Shipping Options</h5>
+                                            <div class="mb-4">
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input shipping-option" type="radio"
+                                                        name="shipping_option" id="shipping-small" value="small"
+                                                        {{ session('shipping_option', 'middle') === 'small' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="shipping-small">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <strong>Small Package</strong>
+                                                                <div class="text-muted small">For small items up to 2kg
+                                                                </div>
+                                                            </div>
+                                                            <span class="text-primary">CHF 5.00</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input shipping-option" type="radio"
+                                                        name="shipping_option" id="shipping-middle" value="middle"
+                                                        {{ session('shipping_option', 'middle') === 'middle' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="shipping-middle">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <strong>Middle Package</strong>
+                                                                <div class="text-muted small">For medium items up to 5kg
+                                                                </div>
+                                                            </div>
+                                                            <span class="text-primary">CHF 10.00</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input shipping-option" type="radio"
+                                                        name="shipping_option" id="shipping-big" value="big"
+                                                        {{ session('shipping_option', 'middle') === 'big' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="shipping-big">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <strong>Big Package</strong>
+                                                                <div class="text-muted small">For large items up to 10kg
+                                                                </div>
+                                                            </div>
+                                                            <span class="text-primary">CHF 15.00</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column align-items-end">
+                                                <div class="mb-2">
+                                                    <h5 class="mb-0 shipping-cost">Shipping: CHF
+                                                        {{ number_format(session('shipping_cost', 10.0), 2) }}</h5>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <h5 class="mb-0 cart-total">Total: CHF
+                                                        {{ number_format(Cart::total() + session('shipping_cost', 10.0), 2) }}
+                                                    </h5>
+                                                </div>
+                                                <a href="{{ route('cart.checkout') }}" class="btn btn-primary">
+                                                    Proceed to Checkout
+                                                    <i class="ki-duotone ki-arrow-right fs-2 ms-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="me-4">
-                                            <h5 class="mb-0 cart-total">Total Price: CHF
-                                                {{ number_format(Cart::total(), 2) }}</h5>
-                                        </div>
-                                        <a href="{{ route('cart.checkout') }}" class="btn btn-primary">
-                                            Proceed to Checkout
-                                            <i class="ki-duotone ki-arrow-right fs-2 ms-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -128,10 +181,11 @@
                 });
             }
 
-            function updateCartTotal(total) {
+            function updateCartTotal(total, shipping_cost = 0) {
                 const cartTotalElement = document.querySelector('.cart-total');
                 if (cartTotalElement) {
-                    cartTotalElement.textContent = `Total Price: CHF ${parseFloat(total).toFixed(2)}`;
+                    cartTotalElement.textContent =
+                        `Total Price: CHF ${(parseFloat(total) + parseFloat(shipping_cost)).toFixed(2)}`;
                 }
             }
 
@@ -238,7 +292,7 @@
 
                             // Update cart totals
                             updateCartCount(data.cartCount);
-                            updateCartTotal(data.cartTotal);
+                            updateCartTotal(data.cartTotal, data.shippingCost);
                             showToast(data.message);
                         } else {
                             // Revert to original value on error
@@ -282,7 +336,7 @@
                                     row.remove();
                                 }
                                 updateCartCount(data.cartCount);
-                                updateCartTotal(data.cartTotal);
+                                updateCartTotal(data.cartTotal, data.shippingCost);
                                 showToast(data.message);
 
                                 if (data.isCartEmpty) {
@@ -301,6 +355,48 @@
                         });
                 }
             }
+
+            // Add shipping option change handler
+            document.querySelectorAll('.shipping-option').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const shippingOption = this.value;
+                    const shippingCosts = {
+                        'small': 5.00,
+                        'middle': 10.00,
+                        'big': 15.00
+                    };
+
+                    fetch('/cart/update-shipping', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                            },
+                            body: JSON.stringify({
+                                shipping_option: shippingOption,
+                                shipping_cost: shippingCosts[shippingOption]
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                // Update shipping cost display
+                                document.querySelector('.shipping-cost').textContent =
+                                    `Shipping: CHF ${parseFloat(data.shipping_cost).toFixed(2)}`;
+                                // Update total
+                                document.querySelector('.cart-total').textContent =
+                                    `Total: CHF ${(parseFloat(data.total) + parseFloat(data.shipping_cost)).toFixed(2)}`;
+                                showToast('Shipping option updated successfully');
+                            } else {
+                                showToast(data.message, 'error');
+                            }
+                        })
+                        .catch(error => {
+                            showToast('An error occurred while updating shipping option', 'error');
+                        });
+                });
+            });
         </script>
     @endpush
 </x-landing-layout>
