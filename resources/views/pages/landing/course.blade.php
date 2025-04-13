@@ -99,7 +99,7 @@
                                             <div class="d-flex flex-column">
                                                 <li class="d-flex align-items-center py-2">
                                                     <span class="bullet me-5 fs-3"></span> Schmerzen & Chakra Kurs: CHF
-                                                    480.-
+                                                    444.-
                                                 </li>
                                             </div>
                                             <!--end::Price-->
@@ -202,7 +202,7 @@
                                             </h1>
 
                                             <div class="text-gray-900 fw-boldest">
-                                                Kompletter Energetischer Heilkurs CHF 950.-
+                                                Kompletter Energetischer Heilkurs CHF 999.-
                                             </div>
                                         </div>
                                         <!--end::Heading-->
