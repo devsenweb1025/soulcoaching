@@ -47,12 +47,12 @@
                         [
                             'title' => 'Transformationscoaching',
                             'description' =>
-                                'Du hast schon viele Herausforderungen gemeistert aber gerade fühlst du dich blockiert oder orientierungslos? Im spirituellen Transformationscoaching verbinde ich mich mit deinem Geistigen Team und empfange Botschaften, die dir helfen, deinen individuellen Weg zu erkennen. Diese Form der Begleitung unterstützt dich bei Themen wie Selbstentfaltung, Sinnfindung und spirituellem Wachstum',
+                                'Ganz gleich, wo du gerade im Leben stehst – dieses Transformationscoaching begleitet dich dabei, aktuelle Herausforderungen zu meistern. Mit einem eigenen, ganzheitlichen Ansatz, der alle Bewusstseinsebenen einbezieht, erreichst du dein Ziel innerhalb eines Monats – klar, fokussiert und tief verankert in deiner inneren Entwicklung.',
                         ],
                         [
                             'title' => 'Energetische Heilung für Mensch und Tier',
                             'description' =>
-                                'Du hast körperliche Beschwerden, die sich niemand erklären kann – oder das Gefühl, energetisch aus dem Gleichgewicht zu sein? Dann ist die energetische Heilung genau das Richtige für dich. Sie hilft, Blockaden zu lösen, die Chakren zu reinigen und neue Energie in dein System zu bringen. Diese sanfte Heilmethode eignet sich sowohl für Menschen als auch für Tiere – denn auch unsere tierischen Begleiter können energetische Disharmonien zeigen.',
+                                'Der Mensch sowie das Tier nehmen Energien von Orten, anderen Menschen, anderen Tieren auf wie ein Schwamm. Darum fühlst du dich unter Umständen als Beispiel müde, obwohl körperlich alles im grünen Bereich ist. Unsere Energiezentren sollten darum regelmässig gereinigt und wieder gefüllt werden. Das gleiche gilt bei deinem Haustier. Du wirst sehen, mit der Energetischen Heilung lösen wir viele Herausforderungen wie Vertrauensmangel, Erschöpftheit, Müdigkeit uvm.',
                         ],
                         [
                             'title' => 'Tierkommunikation',
@@ -68,35 +68,35 @@
                 @endphp
 
                 @foreach ($services as $service)
-                                <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                                    data-aos-delay="500">
-                                    <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
-                                        <div class="card-header">
-                                            <h2 class="card-title fs-2 fw-bold">
-                                                {{ $service['title'] }}
-                                            </h2>
-                                        </div>
-                                        <div class="card-body fs-4">
-                                            <div class="text-gray-600 fw-semibold fs-5 description-text">
-                                                @php
-                                                    $text = $service['description'];
-                                                    $shortText = strlen($text) > 145 ? substr($text, 0, 145) . '...' : $text;
-                                                @endphp
-                                                <span class="short-text">{{ $shortText }}</span>
-                                                <span class="full-text" style="display: none;">{{ $text }}</span>
-                                            </div>
-                                            <a href="#" class="text-primary show-more-link">Mehr anzeigen</a>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="card-toolbar text-center">
-                                                <a href="{{ route('prices', ['service' => $service['title']]) }}"
-                                                    class="btn btn-primary">
-                                                    zu den Preisen
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                        data-aos-delay="500">
+                        <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
+                            <div class="card-header">
+                                <h2 class="card-title fs-2 fw-bold">
+                                    {{ $service['title'] }}
+                                </h2>
+                            </div>
+                            <div class="card-body fs-4">
+                                <div class="text-gray-600 fw-semibold fs-5 description-text">
+                                    @php
+                                        $text = $service['description'];
+                                        $shortText = strlen($text) > 145 ? substr($text, 0, 145) . '...' : $text;
+                                    @endphp
+                                    <span class="short-text">{{ $shortText }}</span>
+                                    <span class="full-text" style="display: none;">{{ $text }}</span>
                                 </div>
+                                <a href="#" class="text-primary show-more-link">Mehr anzeigen</a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-toolbar text-center">
+                                    <a href="{{ route('prices', ['service' => $service['title']]) }}"
+                                        class="btn btn-primary">
+                                        zu den Preisen
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </div>
             <!--end::Pricing-->
@@ -126,7 +126,8 @@
                     <div class="col-12 col-md-6 col-lg-5 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
                         data-aos-duration="500" data-aos-delay="500">
                         <!--begin::Image input-->
-                        <div class="w-100 h-100 py-lg-10 py-md-5" data-kt-image-input="true" style="background-position:center;">
+                        <div class="w-100 h-100 py-lg-10 py-md-5" data-kt-image-input="true"
+                            style="background-position:center;">
 
                             <!--begin::Image preview wrapper-->
                             <div class="w-100 h-700px h-md-100"
@@ -214,11 +215,11 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const showMoreLinks = document.querySelectorAll('.show-more-link');
 
         showMoreLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const descriptionText = this.previousElementSibling;
                 const shortText = descriptionText.querySelector('.short-text');
@@ -247,7 +248,10 @@
 
             if (hotlineSection) {
                 setTimeout(() => {
-                    hotlineSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    hotlineSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }, 1000);
             }
         }
