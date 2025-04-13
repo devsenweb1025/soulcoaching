@@ -52,7 +52,7 @@
                                 ],
                                 [
                                     'icon' => 'medal-star',
-                                    'title' => 'Medialität and text',
+                                    'title' => 'Medialität',
                                     'description' => '2 Jahre Erfahrung und konstantes Training mit diversen Medialitätsschulen und Vereinen.',
                                     'delay' => '700'
                                 ]
