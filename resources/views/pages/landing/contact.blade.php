@@ -92,7 +92,7 @@
                                         class="btn btn-icon btn-light btn-color-primary pulse pulse-primary shadow p-5 mb-5">
                                         {!! theme()->getIcon('user', 'fs-2tx text-primary') !!}
                                     </div>
-                                    <div class="text-center">Gerne helfe ich Dir weiter! Melde dich bei mir.</div>
+                                    <div class="text-center">Gerne helfe ich Dir weiter!<br />Melde dich bei mir.</div>
                                 </div>
                                 <div class="text-gray-800 fs-2 mb-5">
                                     <form>
