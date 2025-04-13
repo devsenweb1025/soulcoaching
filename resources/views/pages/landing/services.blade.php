@@ -179,7 +179,7 @@
                                     SO: 18:00 Uhr - 23:00 Uhr <br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    CHF 2.50.- / min
+                                    CHF 2.50.- / Minute
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     Diese Hotline eignet sich ideal für:<br />
