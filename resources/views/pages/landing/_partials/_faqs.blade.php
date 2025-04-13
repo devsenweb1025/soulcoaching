@@ -30,7 +30,7 @@
                                     ],
                                     [
                                         'question' => 'Woher weisst du was mein Körper braucht?',
-                                        'answer' => 'Durch meine Medialen Fähigkeiten, kann ich deinen Körper auf Energetischer Ebene Scannen und sehe wo du unterstützung benötigst. Teils sagt es mir meine Intuition.',
+                                        'answer' => 'Durch meine Medialen Fähigkeiten, kann ich deinen Körper auf Energetischer Ebene Scannen und sehe wo du unterstützung benötigst.',
                                         'is_expanded' => false,
                                     ],
                                     [
