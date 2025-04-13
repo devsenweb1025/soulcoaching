@@ -77,7 +77,7 @@
                 'features' => [
                     'Du erhälst eine 1:1 Sprachaufnahme, wo ich 1:1 das was dein Tier sagt weitergebe',
                     'Ich bin auch noch nach der Sitzung 1-2 Tage für Fragen erreichbar',
-                    'Die Bindung zu deinem Tier wird sofort gestärkt, weil dein Tier weiss dass du es liebst und Kontakt aufgenommen hast'
+                    'Die Bindung zu deinem Tier wird sofort gestärkt, weil dein Tier weiss, dass du es liebst und Kontakt aufgenommen hast'
                 ],
                 'button' => 'Jetzt Buchen!',
                 'button_link' => route('booking', ['event' => 'tierkommunikation']),
