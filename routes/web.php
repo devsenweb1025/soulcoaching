@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\OrderController as OrderManagementController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ChatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,6 +97,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->names('products');
     Route::resource('orders', OrderManagementController::class)->names('orders');
+
+    // Chat Routes
+    Route::prefix('chat')->name('chat.')->group(function () {
+        Route::get('/', [ChatController::class, 'index'])->name('index');
+        Route::get('/conversations', [ChatController::class, 'conversations'])->name('conversations');
+        Route::get('/settings', [ChatController::class, 'settings'])->name('settings');
+        Route::post('/settings/update', [ChatController::class, 'updateSettings'])->name('settings.update');
+    });
 });
 
 Route::resource('settings', SettingsController::class)->names('settings');

@@ -156,11 +156,11 @@
                             <!--begin::Wrapper-->
                             <div class="">
                                 <h1 class="fs-2 mb-5 font-cinzel">
-                                    Berufliche Ausbildungen EFZ & Qualifikationen
+                                    Berufliche Ausbildung & Qualifikationen
                                 </h1>
                                 <div>
                                     <div class="text-gray-600 fs-4 mb-5">
-                                        Ausbildung als Restaurationsfachfrau & Kauffrau
+                                        Ausbildungen EFZ als Restaurationsfachfrau & Kauffrau
                                     </div>
                                     <div class="text-gray-600 fs-4 mb-5">
                                         Dipl. Versicherungs- und Vorsorgeberaterin VBV
@@ -351,6 +351,11 @@
                                     </div>
                                     <div class="text-gray-800 fs-4">
                                         (Leonormand)
+                                    </div>
+                                </div>
+                                <div class="mb-5">
+                                    <div class="text-gray-800 fs-2">
+                                        Tarot
                                     </div>
                                 </div>
                                 <div class="mb-5">

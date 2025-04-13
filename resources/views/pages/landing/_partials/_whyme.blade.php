@@ -21,14 +21,14 @@
                         @php
                             $cards = [
                                 [
-                                    'icon' => 'keyboard',
+                                    'icon' => 'lovely',
                                     'title' => 'Hohe Empathie',
                                     'description' =>
                                         'Ich begegne dir mit Offenheit, Mitgefühl und ehrlicher Präsenz – weil dein Wohl mir am Herzen liegt.',
                                     'delay' => '500',
                                 ],
                                 [
-                                    'icon' => 'rocket',
+                                    'icon' => 'twitter',
                                     'title' => 'Friedvoll',
                                     'description' =>
                                         'Ich kreiere für dich einen Raum der Ruhe, in dem du dich verstanden, sicher und getragen fühlen darfst – sei es im spirituellen Coaching oder in einer energetischen Heilsitzung.',
