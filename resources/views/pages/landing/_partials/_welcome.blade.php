@@ -83,7 +83,7 @@
                 data-tns-autoplay="true" data-tns-autoplay-timeout="2000" data-tns-autoplay-hover-pause="false"
                 data-tns-controls="false" data-tns-nav="false" data-tns-items="1" data-tns-slide-by="1"
                 data-tns-responsive="{768:{items:3},992:{items:5},1200:{items:5}}">
-                @for ($i = 1; $i <= 5; $i++)
+                @for ($i = 1; $i <= 6; $i++)
                     <!--begin::Item-->
                     <div class="px-5 py-5">
                         <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
