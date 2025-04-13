@@ -130,9 +130,11 @@
                             style="background-position:center;">
 
                             <!--begin::Image preview wrapper-->
-                            <div class="w-100 h-700px h-md-100"
+                            {{-- <div class="w-100 h-700px h-md-100"
                                 style="background-position:center; background-repeat: no-repeat; background-size: cover; background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/customer.jpeg') }})">
-                            </div>
+                            </div> --}}
+                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/customer.jpeg') }}" alt=""
+                                class="w-100">
                             <!--end::Image preview wrapper-->
 
                             <div class="text-center d-flex justify-content-center align-items-center mt-10">
@@ -165,11 +167,10 @@
                                 </div>
                                 <div class="text-gray-600 fs-2 mb-5">
                                     Ich möchte mit meinen Fähigkeiten Menschen helfen, die Probleme haben oder denen der
-                                    gegenwärtige klare Blick für das Wesentliche verloren gegangen ist. Ich verfüge über
-                                    eine sehr ausgeprägte Feinfühligkeit und habe seit 17 Jahren eine starke Bindung zu
-                                    meinen Kipper - Karten.<br />
-                                    Sei nicht ängstlich. Jeder Mensch hat mal Probleme. Aber die können wir gemeinsam
-                                    lösen.<br />
+                                    gegenwärtige klare Blick für das Wesentliche verloren gegangen ist - als
+                                    Kartenlegerin in der 4. Generation mit einer starken Bindung zu meinen Kipper-Karten
+                                    seit 17 Jahren.Sei nicht ängstlich. Jeder Mensch hat mal Probleme. Aber die können
+                                    wir gemeinsam lösen.<br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     Zeiten:<br />
