@@ -34,52 +34,50 @@
                         <h1 class="text-gray-900 fw-boldest fs-2x">Kontakt-Adresse
                         </h1>
                         <!--end::Title-->
+                        <!--begin::Title-->
+                        <h1 class="text-gray-900 fw-boldest fs-2x">Seelenfluesterin – Einzelunternehmen
+                        </h1>
+                        <!--end::Title-->
                         <!--begin::Text-->
                         <div class="fs-2 py-2">
-                            Seelenfluesterin
+                            Inhaberin: Sarah Barone<br />
                             Buchenstrasse 2<br />
                             9322 Egnach<br />
                             Schweiz<br />
                             E-Mail: seelenfluesterin@gmx.ch<br />
-                            Website: <a href="https://www.seelen-fluesterin.ch" target="_blank">www.seelen-fluesterin.ch</a>
+                            Website: <a href="https://www.seelen-fluesterin.ch"
+                                target="_blank">www.seelen-fluesterin.ch</a>
                         </div>
                         <!--end::Text-->
 
                         <!--begin::Title-->
-                        <h1 class="text-gray-900 fw-boldest fs-2x">Haftungsausschluss
+                        <h1 class="text-gray-900 fw-boldest fs-2x">Haftunsgsausschluss – Allgemeine Hinweise
                         </h1>
                         <!--end::Title-->
                         <!--begin::Text-->
                         <div class="fs-2 py-2">
-                            Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen
-                            Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit
-                            der Informationen.<br />
+                            Die Inhaberin übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit,
+                            Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen auf dieser
+                            Website.<br />
 
-                            Haftungsansprüche gegen den Autor wegen Schäden materieller oder
-                            immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw.
-                            Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der
-                            Verbindung oder durch technische Störungen entstanden sind, werden
-                            ausgeschlossen.<br />
+                            Haftungsansprüche wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff
+                            oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der
+                            Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.<br />
 
-                            Alle Angebote sind unverbindlich. Der Autor behält es sich ausdrücklich
-                            vor, Teile der Seiten oder das gesamte Angebot ohne besondere
-                            Ankündigung zu verändern, zu ergänzen, zu löschen oder die
-                            Veröffentlichung zeitweise oder endgültig einzustellen.<br />
+                            Alle Angebote sind unverbindlich. Die Inhaberin behält sich ausdrücklich vor, Teile der
+                            Seiten oder das gesamte Angebot ohne besondere Ankündigung zu verändern, zu ergänzen, zu
+                            löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.<br />
                         </div>
                         <!--end::Text-->
 
                         <!--begin::Title-->
-                        <h1 class="text-gray-900 fw-boldest fs-2x">Haftungsausschluss für Links
-
-                        </h1>
+                        <h1 class="text-gray-900 fw-boldest fs-2x">Haftungsausschluss für Link</h1>
                         <!--end::Title-->
                         <!--begin::Text-->
                         <div class="fs-2 py-2">
-                            Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres
-                            Verantwortungsbereichs. Es wird jegliche Verantwortung für solche
-                            Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten
-                            erfolgen auf eigene Gefahr des jeweiligen Nutzers.
-
+                            Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs.
+                            Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung
+                            solcher Webseiten erfolgen auf eigene Gefahr des jeweiligen Nutzers.
                         </div>
                         <!--end::Text-->
 
@@ -89,13 +87,23 @@
                         <!--end::Title-->
                         <!--begin::Text-->
                         <div class="fs-2 py-2">
-                            Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder
-                            anderen Dateien auf dieser Website, gehören
-                            ausschliesslich Seelenfluesterin oder den speziell genannten
-                            Rechteinhabern. Für die Reproduktion jeglicher Elemente ist die
-                            schriftliche Zustimmung des Urheberrechtsträgers im Voraus
-                            einzuholen.<br />
-                            Quelle: <a href="https://www.swissanwalt.ch" target="_blank">SwissAnwalt</a>
+                            Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf
+                            dieser Website gehören ausschliesslich Seelenfluesterin oder den speziell genannten
+                            Rechteinhabern.<br />
+                            Für die Reproduktion, Weiterverwendung oder Verbreitung jeglicher Elemente ist die
+                            schriftliche Zustimmung des Urheberrechtsträgers im Voraus einzuholen. Dies gilt auch für
+                            das Logo und weitere geschützte Markeninhalte.
+                        </div>
+                        <!--end::Text-->
+
+                        <!--begin::Title-->
+                        <h1 class="text-gray-900 fw-boldest fs-2x">Datenschutz
+                        </h1>
+                        <!--end::Title-->
+                        <!--begin::Text-->
+                        <div class="fs-2 py-2">
+                            Informationen zur Erhebung und Nutzung personenbezogener Daten finden Sie in unserer
+                            Datenschutzerklärung
                         </div>
                         <!--end::Text-->
 
