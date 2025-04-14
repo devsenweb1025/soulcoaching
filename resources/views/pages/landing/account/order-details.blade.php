@@ -67,6 +67,9 @@
                                                                             @if (isset($item->options['download_link']))
                                                                                 <a href="{{ $item->options['download_link'] }}"
                                                                                     class="btn btn-primary">Download</a>
+                                                                            @elseif (isset($item->options['duration']))
+                                                                                <a href="{{ route('prices', ['service' => $item->name]) }}"
+                                                                                    class="text-dark fw-bold text-hover-primary fs-6">{{ $item->name }}</a>
                                                                             @else
                                                                                 <div class="symbol symbol-50px me-5">
                                                                                     <img src="{{ asset('storage/' . $item->product->image) }}"

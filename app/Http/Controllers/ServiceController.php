@@ -49,12 +49,11 @@ class ServiceController extends Controller
     {
         try {
             $request->validate([
-                'id' => 'required',
-                'type' => 'required|in:service',
+                'service_id' => 'required',
                 'payment_method' => 'required|in:stripe,paypal'
             ]);
 
-            $service = Service::findOrFail($request->id);
+            $service = Service::findOrFail($request->service_id);
             $amount = $service->price * 100; // Convert to cents
 
             if ($request->payment_method === 'stripe') {
@@ -90,7 +89,7 @@ class ServiceController extends Controller
                         ]
                     ],
                     "application_context" => [
-                        "return_url" => route('service.payment.success') . '?id=' . $service->id . '&type=service',
+                        "return_url" => route('service.payment.success') . '?id=' . $service->id,
                         "cancel_url" => route('service.payment.cancel'),
                         "user_action" => "PAY_NOW"
                     ]
@@ -121,7 +120,7 @@ class ServiceController extends Controller
     {
         try {
             $paymentMethod = $request->input('payment_method');
-            $serviceId = $request->input('id');
+            $serviceId = $request->input('service_id');
 
             if ($paymentMethod === 'stripe') {
                 $paymentIntentId = $request->input('paymentIntentId');
@@ -186,7 +185,7 @@ class ServiceController extends Controller
                 'shipping_last_name' => $user->last_name,
                 'shipping_email' => $user->email,
                 'shipping_phone' => '',
-                'shipping_address' => null,
+                'shipping_address' => '',
                 'shipping_city' => '',
                 'shipping_state' => '',
                 'shipping_postal_code' => '',
@@ -200,7 +199,7 @@ class ServiceController extends Controller
                 'product_type' => 'service',
                 'quantity' => 1,
                 'price' => $service->price,
-                'name' => $service->name,
+                'name' => $service->title,
                 'options' => [
                     'description' => $service->description,
                     'duration' => $service->duration,
