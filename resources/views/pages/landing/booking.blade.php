@@ -7,7 +7,7 @@
                         <h1 class="text-center mb-5">Termin vereinbaren</h1>
 
                         <!-- Calendly inline widget -->
-                        <div class="calendly-inline-widget" data-url="https://calendly.com/seelen-fluesterin-info/30min"
+                        <div class="calendly-inline-widget" data-url="{{ config('services.calendly.scheduling_url') }}"
                             style="min-width:320px;height:680px;"></div>
                         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                     </div>
