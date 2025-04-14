@@ -23,7 +23,7 @@ return array(
             "path" => "admin/dashboard",
         ),
 
-        // Account
+        // Products
         'products' => array(
             "breadcrumb-title" => "Products",
             "icon" => '<i class="bi bi-box fs-2x"></i>',
@@ -66,7 +66,45 @@ return array(
             ),
         ),
 
-        // Users
+        // Orders
+        'orders' => array(
+            "breadcrumb-title" => "Orders",
+            "icon" => '<i class="bi bi-cart fs-2x"></i>',
+            "classes" => array(
+                "item" => "py-2",
+                "link" => "menu-center",
+                "icon" => "me-0",
+            ),
+            "attributes" => array(
+                "item" => array(
+                    "data-kt-menu-trigger" => "click",
+                    "data-kt-menu-placement" => Theme::isRTL() ? "left-start" : "right-start",
+                ),
+                'link' => array(
+                    "data-bs-trigger" => "hover",
+                    "data-bs-dismiss" => "click",
+                    "data-bs-placement" => "right",
+                ),
+            ),
+            "arrow" => false,
+            "sub" => array(
+                "class" => "menu-sub-dropdown w-225px px-1 py-4",
+                "items" => array(
+                    array(
+                        'classes' => array('content' => ''),
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Orders</span>',
+                    ),
+
+                    array(
+                        'title' => 'Overview',
+                        'path' => 'admin/orders',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                ),
+            ),
+        ),
+
+        // System
         'system' => array(
             "breadcrumb-title" => "System",
             "icon" => '<i class="bi bi-layers fs-2x"></i>',

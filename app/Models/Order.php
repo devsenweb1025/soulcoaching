@@ -60,6 +60,7 @@ class Order extends Model
             'shipped' => '<span class="badge badge-light-info">Shipped</span>',
             'delivered' => '<span class="badge badge-light-success">Delivered</span>',
             'cancelled' => '<span class="badge badge-light-danger">Cancelled</span>',
+            'refunded' => '<span class="badge badge-light-info">Refunded</span>',
             default => '<span class="badge badge-light-dark">Unknown</span>',
         };
     }
@@ -68,9 +69,13 @@ class Order extends Model
     {
         return match($this->payment_status) {
             'pending' => '<span class="badge badge-light-warning">Pending</span>',
-            'paid' => '<span class="badge badge-light-success">Paid</span>',
+            'completed' => '<span class="badge badge-light-success">Completed</span>',
+            'succeeded' => '<span class="badge badge-light-success">Succeeded</span>',
+            'processing' => '<span class="badge badge-light-primary">Processing</span>',
+            'declined' => '<span class="badge badge-light-danger">Declined</span>',
             'failed' => '<span class="badge badge-light-danger">Failed</span>',
             'refunded' => '<span class="badge badge-light-info">Refunded</span>',
+            'partially_refunded' => '<span class="badge badge-light-info">Partially Refunded</span>',
             default => '<span class="badge badge-light-dark">Unknown</span>',
         };
     }

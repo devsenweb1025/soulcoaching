@@ -96,7 +96,14 @@ Route::resource('users', UsersController::class);
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->names('products');
-    Route::resource('orders', OrderManagementController::class)->names('orders');
+    // ... existing code ...
+    // Order Management Routes
+    Route::get('/orders', [OrderManagementController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{order}', [OrderManagementController::class, 'show'])->name('orders.show');
+    Route::post('/orders/{order}/status', [OrderManagementController::class, 'updateStatus'])->name('orders.status');
+    Route::post('/orders/{order}/payment-status', [OrderManagementController::class, 'updatePaymentStatus'])->name('orders.payment-status');
+    Route::post('/orders/{order}/tracking', [OrderManagementController::class, 'updateTracking'])->name('orders.tracking');
+    Route::delete('/orders/{order}', [OrderManagementController::class, 'destroy'])->name('orders.destroy');
 
     // Chat Routes
     Route::prefix('chat')->name('chat.')->group(function () {

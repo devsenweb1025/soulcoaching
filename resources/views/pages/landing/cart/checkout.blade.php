@@ -66,7 +66,7 @@
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Zwischensumme:</span>
                                     <span class="text-dark fw-bold fs-5">CHF
-                                        {{ number_format(Cart::subtotal(), 2) }}</span>
+                                        {{ number_format(Cart::subtotal(null, '.', ''), 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Versand:</span>
@@ -75,7 +75,7 @@
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Total:</span>
                                     <span class="text-dark fw-bold fs-5">CHF
-                                        {{ number_format(Cart::total() + session('shipping_cost', 11.50), 2) }}</span>
+                                        {{ number_format((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5), 2) }}
                                 </div>
                             </div>
                         </div>

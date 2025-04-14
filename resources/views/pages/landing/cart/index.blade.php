@@ -135,11 +135,11 @@
                                             <div class="d-flex flex-column align-items-end">
                                                 <div class="mb-2">
                                                     <h5 class="mb-0 shipping-cost">Versand: CHF
-                                                        {{ number_format(session('shipping_cost', 11.50), 2) }}</h5>
+                                                        {{ number_format(session('shipping_cost', 11.5), 2) }}</h5>
                                                 </div>
                                                 <div class="mb-2">
                                                     <h5 class="mb-0 cart-total">Total: CHF
-                                                        {{ number_format(Cart::total() + session('shipping_cost', 11.50), 2) }}
+                                                        {{ number_format((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5), 2) }}
                                                     </h5>
                                                 </div>
                                                 <a href="{{ route('cart.checkout') }}" class="btn btn-primary">

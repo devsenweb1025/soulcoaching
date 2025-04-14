@@ -1,275 +1,505 @@
 <x-base-layout>
-    <!--begin::Card-->
     <div class="card">
-        <!--begin::Card header-->
-        <div class="card-header border-0 pt-6">
-            <!--begin::Card title-->
+        <div class="card-header">
             <div class="card-title">
-                <h2>Order Details #{{ $order->order_number }}</h2>
+                <h3>Order #{{ $order->order_number }}</h3>
+                <span class="text-muted">Placed on {{ $order->created_at->format('F j, Y H:i') }}</span>
             </div>
-            <!--end::Card title-->
-            <!--begin::Card toolbar-->
             <div class="card-toolbar">
-                <!--begin::Toolbar-->
-                <div class="d-flex justify-content-end" data-kt-order-table-toolbar="base">
-                    <!--begin::Status-->
-                    <div class="me-3">
-                        <span
-                            class="badge badge-light-{{ $order->status === 'completed' ? 'success' : ($order->status === 'processing' ? 'primary' : ($order->status === 'cancelled' ? 'danger' : 'warning')) }}">
-                            {{ ucfirst($order->status) }}
-                        </span>
-                    </div>
-                    <!--end::Status-->
-                    <!--begin::Actions-->
-                    <a href="{{ route('admin.orders.index') }}" class="btn btn-light-primary me-3">
-                        <i class="ki-duotone ki-arrow-left fs-2">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                        Back to Orders
+                <div class="d-flex gap-2">
+                    <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-light-primary">
+                        <i class="fas fa-arrow-left"></i> Back to Orders
                     </a>
-                    <!--end::Actions-->
+                    <button type="button" class="btn btn-sm btn-light-primary update-status"
+                        data-id="{{ $order->id }}">
+                        <i class="fas fa-sync"></i> Update Status
+                    </button>
+                    <button type="button" class="btn btn-sm btn-light-primary update-payment-status"
+                        data-id="{{ $order->id }}">
+                        <i class="fas fa-credit-card"></i> Update Payment
+                    </button>
+                    <button type="button" class="btn btn-sm btn-light-primary update-tracking"
+                        data-id="{{ $order->id }}">
+                        <i class="fas fa-truck"></i> Update Tracking
+                    </button>
                 </div>
-                <!--end::Toolbar-->
             </div>
-            <!--end::Card toolbar-->
         </div>
-        <!--end::Card header-->
-        <!--begin::Card body-->
-        <div class="card-body py-4">
-            <!--begin::Row-->
+        <div class="card-body">
             <div class="row g-5 g-xl-8">
-                <!--begin::Col-->
-                <div class="col-xl-8">
-                    <!--begin::Card-->
-                    <div class="card mb-xl-8">
-                        <!--begin::Card header-->
-                        <div class="card-header border-0">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-dark">Order Items</span>
-                            </h3>
+                <!-- Order Summary -->
+                <div class="col-xl-4">
+                    <div class="card card-xl-stretch mb-xl-8">
+                        <div class="card-header">
+                            <h3 class="card-title">Order Summary</h3>
                         </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
-                            <!--begin::Table-->
+                        <div class="card-body">
+                            <div class="d-flex flex-column mb-5">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Status:</span>
+                                    {!! $order->status_badge !!}
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Payment Status:</span>
+                                    {!! $order->payment_status_badge !!}
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Payment Method:</span>
+                                    <span class="text-gray-800">{{ ucfirst($order->payment_method) }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Subtotal:</span>
+                                    <span class="text-gray-800">${{ number_format($order->total, 2) }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Shipping Cost:</span>
+                                    <span class="text-gray-800">${{ number_format($order->shipping_cost, 2) }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Grand Total:</span>
+                                    <span
+                                        class="text-gray-800 fw-bold">${{ number_format($order->grand_total, 2) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Information -->
+                <div class="col-xl-4">
+                    <div class="card card-xl-stretch mb-xl-8">
+                        <div class="card-header">
+                            <h3 class="card-title">Customer Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column mb-5">
+                                <div class="d-flex align-items-center mb-5">
+                                    <div class="symbol symbol-50px me-5">
+                                        <span class="symbol-label bg-light-primary">
+                                            <i class="fas fa-user text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <span class="text-gray-800 mb-1">{{ $order->user->name }}</span>
+                                        <span class="text-muted">{{ $order->user->email }}</span>
+                                    </div>
+                                </div>
+                                <div class="separator separator-dashed my-5"></div>
+                                <h4 class="text-gray-800 mb-3">Shipping Address</h4>
+                                <div class="text-gray-600">
+                                    {{ $order->shipping_first_name }} {{ $order->shipping_last_name }}<br>
+                                    {{ $order->shipping_address }}<br>
+                                    {{ $order->shipping_city }}, {{ $order->shipping_postal_code }}<br>
+                                    {{ $order->shipping_country }}<br>
+                                    {{ $order->shipping_phone }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="col-xl-4">
+                    <div class="card card-xl-stretch mb-xl-8">
+                        <div class="card-header">
+                            <h3 class="card-title">Order Items</h3>
+                        </div>
+                        <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table align-middle table-responsive table-row-dashed fs-6 gy-5">
-                                    <!--begin::Table head-->
+                                <table class="table align-middle table-row-dashed fs-6 gy-5">
                                     <thead>
                                         <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                            <th class="min-w-175px">Product</th>
-                                            <th class="min-w-100px">Price</th>
-                                            <th class="min-w-100px">Quantity</th>
-                                            <th class="min-w-100px text-end">Total</th>
+                                            <th class="min-w-125px">Product</th>
+                                            <th class="min-w-125px">Quantity</th>
+                                            <th class="min-w-125px">Price</th>
+                                            <th class="min-w-125px">Total</th>
                                         </tr>
                                     </thead>
-                                    <!--end::Table head-->
-                                    <!--begin::Table body-->
                                     <tbody class="text-gray-600 fw-semibold">
                                         @foreach ($order->items as $item)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <div class="symbol symbol-50px me-5">
-                                                            <img src="{{ asset('storage/' . $item->product->image) }}"
-                                                                class="object-fit-contain" alt="" />
+                                                        <div class="symbol symbol-50px me-3">
+                                                            <img src="{{ $item->product->image_url }}"
+                                                                alt="{{ $item->product->name }}">
                                                         </div>
-                                                        <div class="d-flex justify-content-start flex-column">
-                                                            <a href="#"
-                                                                class="text-dark fw-bold text-hover-primary mb-1 fs-6">
-                                                                {{ $item->product->name }}
-                                                            </a>
+                                                        <div class="d-flex flex-column">
                                                             <span
-                                                                class="text-muted fw-semibold text-muted d-block fs-7">
-                                                                SKU: {{ $item->product->sku }}
-                                                            </span>
+                                                                class="text-gray-800 mb-1">{{ $item->product->name }}</span>
+                                                            <span class="text-muted">SKU:
+                                                                {{ $item->product->sku }}</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <span class="text-dark fw-semibold d-block mb-1">
-                                                        CHF {{ number_format($item->price, 2, ',', '.') }}
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="text-dark fw-semibold d-block mb-1">
-                                                        {{ $item->quantity }}
-                                                    </span>
-                                                </td>
-                                                <td class="text-end">
-                                                    <span class="text-dark fw-bold d-block mb-1">
-                                                        CHF
-                                                        {{ number_format($item->price * $item->quantity, 2, ',', '.') }}
-                                                    </span>
-                                                </td>
+                                                <td>{{ $item->quantity }}</td>
+                                                <td>CHF {{ number_format($item->price, 2) }}</td>
+                                                <td>CHF {{ number_format($item->quantity * $item->price, 2) }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    <!--end::Table body-->
                                 </table>
                             </div>
-                            <!--end::Table-->
                         </div>
-                        <!--end::Card body-->
                     </div>
-                    <!--end::Card-->
                 </div>
-                <!--end::Col-->
-                <!--begin::Col-->
-                <div class="col-xl-4">
-                    <!--begin::Card-->
-                    <div class="card mb-xl-8">
-                        <!--begin::Card header-->
-                        <div class="card-header border-0">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-dark">Bestellübersicht</span>
-                            </h3>
-                        </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
-                            <!--begin::Table-->
-                            <div class="table-responsive">
-                                <table class="table align-middle table-row-dashed fs-6 gy-5">
-                                    <!--begin::Table body-->
-                                    <tbody class="text-gray-600 fw-semibold">
-                                        <tr>
-                                            <td class="text-muted">Subtotal</td>
-                                            <td class="text-end">CHF {{ number_format($order->subtotal, 2, ',', '.') }}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Tax</td>
-                                            <td class="text-end">CHF {{ number_format($order->tax, 2, ',', '.') }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Shipping</td>
-                                            <td class="text-end">CHF {{ number_format($order->shipping, 2, ',', '.') }}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Discount</td>
-                                            <td class="text-end">CHF {{ number_format($order->discount, 2, ',', '.') }}
-                                            </td>
-                                        </tr>
-                                        <tr class="fw-bold fs-6">
-                                            <td>Total</td>
-                                            <td class="text-end">CHF {{ number_format($order->total, 2, ',', '.') }}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <!--end::Table body-->
-                                </table>
-                            </div>
-                            <!--end::Table-->
-                        </div>
-                        <!--end::Card body-->
-                    </div>
-                    <!--end::Card-->
-                    <!--begin::Card-->
-                    <div class="card mb-xl-8">
-                        <!--begin::Card header-->
-                        <div class="card-header border-0">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-dark">Customer Information</span>
-                            </h3>
-                        </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
-                            <!--begin::Table-->
-                            <div class="table-responsive">
-                                <table class="table align-middle table-row-dashed fs-6 gy-5">
-                                    <!--begin::Table body-->
-                                    <tbody class="text-gray-600 fw-semibold">
-                                        <tr>
-                                            <td class="text-muted">Name</td>
-                                            <td class="text-end">{{ $order->user->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Email</td>
-                                            <td class="text-end">{{ $order->user->email }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Phone</td>
-                                            <td class="text-end">{{ $order->user->phone ?? 'N/A' }}</td>
-                                        </tr>
-                                    </tbody>
-                                    <!--end::Table body-->
-                                </table>
-                            </div>
-                            <!--end::Table-->
-                        </div>
-                        <!--end::Card body-->
-                    </div>
-                    <!--end::Card-->
-                    <!--begin::Card-->
-                    <div class="card mb-xl-8">
-                        <!--begin::Card header-->
-                        <div class="card-header border-0">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-dark">Shipping Information</span>
-                            </h3>
-                        </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
-                            <!--begin::Table-->
-                            <div class="table-responsive">
-                                <table class="table align-middle table-row-dashed fs-6 gy-5">
-                                    <!--begin::Table body-->
-                                    <tbody class="text-gray-600 fw-semibold">
-                                        <tr>
-                                            <td class="text-muted">Address</td>
-                                            <td class="text-end">{{ $order->shipping_address }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">City</td>
-                                            <td class="text-end">{{ $order->shipping_city }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">State</td>
-                                            <td class="text-end">{{ $order->shipping_state }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Postal Code</td>
-                                            <td class="text-end">{{ $order->shipping_postal_code }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Country</td>
-                                            <td class="text-end">{{ $order->shipping_country }}</td>
-                                        </tr>
-                                        @if ($order->tracking_number)
-                                            <tr>
-                                                <td class="text-muted">Tracking Number</td>
-                                                <td class="text-end">
-                                                    @if ($order->tracking_url)
-                                                        <a href="{{ $order->tracking_url }}" target="_blank"
-                                                            class="text-primary">
-                                                            {{ $order->tracking_number }}
-                                                        </a>
-                                                    @else
-                                                        {{ $order->tracking_number }}
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endif
-                                    </tbody>
-                                    <!--end::Table body-->
-                                </table>
-                            </div>
-                            <!--end::Table-->
-                        </div>
-                        <!--end::Card body-->
-                    </div>
-                    <!--end::Card-->
-                </div>
-                <!--end::Col-->
             </div>
-            <!--end::Row-->
         </div>
-        <!--end::Card body-->
     </div>
-    <!--end::Card-->
+
+    <!-- Status Update Modal -->
+    <div class="modal fade" id="statusModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Update Order Status</h2>
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form id="statusForm">
+                        @csrf
+                        <div class="mb-5">
+                            <label class="form-label required">Status</label>
+                            <select name="status" class="form-select" required>
+                                <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>Pending
+                                </option>
+                                <option value="processing" {{ $order->status === 'processing' ? 'selected' : '' }}>
+                                    Processing</option>
+                                <option value="shipped" {{ $order->status === 'shipped' ? 'selected' : '' }}>Shipped
+                                </option>
+                                <option value="delivered" {{ $order->status === 'delivered' ? 'selected' : '' }}>
+                                    Delivered</option>
+                                <option value="cancelled" {{ $order->status === 'cancelled' ? 'selected' : '' }}>
+                                    Cancelled</option>
+                                <option value="refunded" {{ $order->status === 'refunded' ? 'selected' : '' }}>
+                                    Refunded</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="updateStatusBtn">
+                        <i class="fas fa-save"></i> Update Status
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Status Update Modal -->
+    <div class="modal fade" id="paymentStatusModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Update Payment Status</h2>
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form id="paymentStatusForm">
+                        @csrf
+                        <div class="mb-5">
+                            <label class="form-label required">Payment Status</label>
+                            <select name="payment_status" class="form-select" required>
+                                <option value="pending" {{ $order->payment_status === 'pending' ? 'selected' : '' }}>
+                                    Pending</option>
+                                <option value="paid" {{ $order->payment_status === 'paid' ? 'selected' : '' }}>Paid
+                                </option>
+                                <option value="failed" {{ $order->payment_status === 'failed' ? 'selected' : '' }}>
+                                    Failed</option>
+                                <option value="refunded"
+                                    {{ $order->payment_status === 'refunded' ? 'selected' : '' }}>Refunded</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="updatePaymentStatusBtn">
+                        <i class="fas fa-save"></i> Update Status
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tracking Update Modal -->
+    <div class="modal fade" id="trackingModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Update Tracking Information</h2>
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form id="trackingForm">
+                        @csrf
+                        <div class="mb-5">
+                            <label class="form-label required">Tracking Number</label>
+                            <input type="text" name="tracking_number" class="form-control"
+                                value="{{ $order->tracking_number }}" required>
+                        </div>
+                        <div class="mb-5">
+                            <label class="form-label">Tracking URL</label>
+                            <input type="url" name="tracking_url" class="form-control"
+                                value="{{ $order->tracking_url }}">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="updateTrackingBtn">
+                        <i class="fas fa-save"></i> Update Tracking
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </x-base-layout>
+
+<script>
+    $(document).ready(function() {
+        // Handle status update
+        $('.update-status').click(function() {
+            $('#statusModal').modal('show');
+        });
+
+        $('#updateStatusBtn').click(function() {
+            const form = document.getElementById('statusForm');
+            const formData = new FormData(form);
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            fetch(`/admin/orders/{{ $order->id }}/status`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        const toast = document.createElement('div');
+                        toast.className = 'position-fixed top-0 end-0 p-3';
+                        toast.style.zIndex = '5';
+                        toast.innerHTML = `
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <i class="ki-duotone ki-check-circle fs-2x text-success me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <strong class="me-auto">Erfolg</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                ${data.message}
+                            </div>
+                        </div>
+                    `;
+                        document.body.appendChild(toast);
+
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+                    }
+                })
+                .catch(error => {
+                    const toast = document.createElement('div');
+                    toast.className = 'position-fixed top-0 end-0 p-3';
+                    toast.style.zIndex = '5';
+                    toast.innerHTML = `
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <i class="ki-duotone ki-cross-circle fs-2x text-danger me-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            <strong class="me-auto">Fehler</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            ${error.message}
+                        </div>
+                    </div>
+                `;
+                    document.body.appendChild(toast);
+
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 3000);
+                });
+        });
+
+        // Handle payment status update
+        $('.update-payment-status').click(function() {
+            $('#paymentStatusModal').modal('show');
+        });
+
+        $('#updatePaymentStatusBtn').click(function() {
+            const form = document.getElementById('paymentStatusForm');
+            const formData = new FormData(form);
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            fetch(`/admin/orders/{{ $order->id }}/payment-status`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        const toast = document.createElement('div');
+                        toast.className = 'position-fixed top-0 end-0 p-3';
+                        toast.style.zIndex = '5';
+                        toast.innerHTML = `
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <i class="ki-duotone ki-check-circle fs-2x text-success me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <strong class="me-auto">Erfolg</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                ${data.message}
+                            </div>
+                        </div>
+                    `;
+                        document.body.appendChild(toast);
+
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+                    }
+                })
+                .catch(error => {
+                    const toast = document.createElement('div');
+                    toast.className = 'position-fixed top-0 end-0 p-3';
+                    toast.style.zIndex = '5';
+                    toast.innerHTML = `
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <i class="ki-duotone ki-cross-circle fs-2x text-danger me-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            <strong class="me-auto">Fehler</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            ${error.message}
+                        </div>
+                    </div>
+                `;
+                    document.body.appendChild(toast);
+
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 3000);
+                });
+        });
+
+        // Handle tracking update
+        $('.update-tracking').click(function() {
+            $('#trackingModal').modal('show');
+        });
+
+        $('#updateTrackingBtn').click(function() {
+            const form = document.getElementById('trackingForm');
+            const formData = new FormData(form);
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            fetch(`/admin/orders/{{ $order->id }}/tracking`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        const toast = document.createElement('div');
+                        toast.className = 'position-fixed top-0 end-0 p-3';
+                        toast.style.zIndex = '5';
+                        toast.innerHTML = `
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <i class="ki-duotone ki-check-circle fs-2x text-success me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <strong class="me-auto">Erfolg</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                ${data.message}
+                            </div>
+                        </div>
+                    `;
+                        document.body.appendChild(toast);
+
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+                    }
+                })
+                .catch(error => {
+                    const toast = document.createElement('div');
+                    toast.className = 'position-fixed top-0 end-0 p-3';
+                    toast.style.zIndex = '5';
+                    toast.innerHTML = `
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <i class="ki-duotone ki-cross-circle fs-2x text-danger me-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            <strong class="me-auto">Fehler</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            ${error.message}
+                        </div>
+                    </div>
+                `;
+                    document.body.appendChild(toast);
+
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 3000);
+                });
+        });
+    });
+</script>
