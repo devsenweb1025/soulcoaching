@@ -11,7 +11,7 @@
                 <!--begin::Heading-->
                 <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
                     <!--begin::Title-->
-                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">My Orders
+                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Meine Bestellungen
                         <span
                             style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                         </span>
@@ -42,12 +42,12 @@
                                 <table class="table align-middle table-row-bordered table-row-gray-100 gy-3 gs-7">
                                     <thead>
                                         <tr class="fw-bold text-muted bg-light">
-                                            <th class="min-w-150px">Order Number</th>
-                                            <th class="min-w-100px">Date</th>
-                                            <th class="min-w-100px">Items</th>
+                                            <th class="min-w-150px">Bestell Nummer</th>
+                                            <th class="min-w-100px">Datum</th>
+                                            <th class="min-w-100px">Anzahl artikel</th>
                                             <th class="min-w-100px">Total</th>
                                             <th class="min-w-100px">Status</th>
-                                            <th class="min-w-100px">Payment Status</th>
+                                            <th class="min-w-100px">Status der Zahlung</th>
                                             <th class="min-w-100px">Actions</th>
                                         </tr>
                                     </thead>
@@ -85,7 +85,7 @@
                                                 <td>
                                                     <a href="{{ route('account.orders.show', $order->id) }}"
                                                         class="btn btn-sm btn-light-primary">
-                                                        View Details
+                                                        Bestellung anzeigen
                                                     </a>
                                                 </td>
                                             </tr>

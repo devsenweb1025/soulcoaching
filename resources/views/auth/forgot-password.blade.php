@@ -6,10 +6,10 @@
         <!--begin::Heading-->
         <div class="text-center mb-10">
             <!--begin::Title-->
-            <h1 class="text-dark fw-bolder mb-3">Forgot Password ?</h1>
+            <h1 class="text-dark fw-bolder mb-3">Passwort vergessen?</h1>
             <!--end::Title-->
             <!--begin::Link-->
-            <div class="text-gray-500 fw-semibold fs-6">Enter your email to reset your password.</div>
+            <div class="text-gray-500 fw-semibold fs-6">Bitte gib deine E-Mail-Adresse ein, um dein Passwort zurückzusetzen.</div>
             <!--end::Link-->
         </div>
         <!--begin::Heading-->

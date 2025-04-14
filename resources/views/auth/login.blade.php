@@ -21,10 +21,10 @@
         <!--begin::Heading-->
         <div class="text-center mb-11">
             <!--begin::Title-->
-            <h1 class="text-dark fw-bolder mb-3">Sign In</h1>
+            <h1 class="text-dark fw-bolder mb-3">Einloggen</h1>
             <!--end::Title-->
             <!--begin::Subtitle-->
-            <div class="text-gray-500 fw-semibold fs-6">Login with your credentials</div>
+            <div class="text-gray-500 fw-semibold fs-6">Melde dich mit deinen Zugangsdaten an</div>
             <!--end::Subtitle-->
         </div>
         <!--begin::Heading-->
@@ -50,7 +50,7 @@
         <!--begin::Input group-->
         <div class="fv-row mb-3">
             <!--begin::Password-->
-            <input type="password" placeholder="Password" name="password" autocomplete="off" class="form-control bg-transparent" required>
+            <input type="password" placeholder="Passwort" name="password" autocomplete="off" class="form-control bg-transparent" required>
             <!--end::Password-->
         </div>
         <!--end::Input group-->
@@ -60,7 +60,7 @@
             <div></div>
             @if (Route::has('password.request'))
                 <!--begin::Link-->
-                <a href="{{ route('password.request') }}" class="link-primary">Forgot Password ?</a>
+                <a href="{{ route('password.request') }}" class="link-primary">Passwort vergessen ?</a>
                 <!--end::Link-->
             @endif
         </div>
@@ -69,15 +69,15 @@
         <!--begin::Submit button-->
         <div class="d-grid mb-10">
             <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-                @include('partials.general._button-indicator', ['label' => __('Continue')])
+                @include('partials.general._button-indicator', ['label' => __('Bestätigen')])
             </button>
         </div>
         <!--end::Submit button-->
 
         <!--begin::Sign up-->
         <div class="text-gray-500 text-center fw-semibold fs-6">
-            Not a Member yet?
-            <a href="{{ route('register') }}" class="link-primary">Sign up</a>
+            Noch kein Mitglied?
+            <a href="{{ route('register') }}" class="link-primary">Registriere dich</a>
         </div>
         <!--end::Sign up-->
     </form>

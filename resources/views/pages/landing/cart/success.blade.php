@@ -12,7 +12,7 @@
                 <!--begin::Heading-->
                 <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
                     <!--begin::Title-->
-                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Payment Successful
+                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Zahlung erfolgreich
                         <span
                             style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                         </span>
@@ -35,7 +35,7 @@
 
                                 <!--begin::Message-->
                                 <div class="mb-10">
-                                    <h2 class="text-dark mb-5">Thank You for Your Order!</h2>
+                                    <h2 class="text-dark mb-5">Danke für deine Bestellungè</h2>
                                     <div class="text-muted fw-semibold fs-5">
                                         {{ session('message') }}
                                     </div>
@@ -44,8 +44,8 @@
 
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{ route('shop.index') }}" class="btn btn-primary me-3">Continue Shopping</a>
-                                    <a href="{{ route('account.orders') }}" class="btn btn-light">View Orders</a>
+                                    <a href="{{ route('shop.index') }}" class="btn btn-primary me-3">Weiter shoppen</a>
+                                    <a href="{{ route('account.orders') }}" class="btn btn-light">Bestellungen anzeigen</a>
                                 </div>
                                 <!--end::Actions-->
                             </div>
