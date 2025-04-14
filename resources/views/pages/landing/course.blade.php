@@ -109,7 +109,7 @@
                                         <div class="text-start">
                                             <div class="d-flex gap-2">
                                                 <button type="button" class="btn btn-primary"
-                                                    onclick="initiatePayment('stripe', 1)">
+                                                    onclick="showStripeForm(1, 1)">
                                                     <i class="ki-duotone ki-credit-cart fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -127,23 +127,23 @@
                                             </div>
 
                                             <!-- Stripe Card Form -->
-                                            <div id="stripe-form" class="mt-4" style="display: none;">
+                                            <div id="stripe-form-1" class="mt-4 w-400px" style="display: none;">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h5 class="card-title mb-4">Enter Card Details</h5>
-                                                        <form id="payment-form">
+                                                        <form id="payment-form-1">
                                                             <div class="mb-3">
-                                                                <label for="card-element" class="form-label">Credit or
+                                                                <label for="card-element-1" class="form-label">Credit or
                                                                     debit card</label>
-                                                                <div id="card-element" class="form-control">
+                                                                <div id="card-element-1" class="form-control">
                                                                     <!-- Stripe Card Element will be inserted here -->
                                                                 </div>
-                                                                <div id="card-errors" class="text-danger mt-2"
+                                                                <div id="card-errors-1" class="text-danger mt-2"
                                                                     role="alert"></div>
                                                             </div>
                                                             <div class="d-flex gap-2">
                                                                 <button type="submit" class="btn btn-primary"
-                                                                    id="submit-button">
+                                                                    id="submit-button-1">
                                                                     <span class="indicator-label">Pay Now</span>
                                                                     <span class="indicator-progress"
                                                                         style="display: none;">
@@ -152,7 +152,7 @@
                                                                     </span>
                                                                 </button>
                                                                 <button type="button" class="btn btn-light"
-                                                                    onclick="hideStripeForm()">Cancel</button>
+                                                                    onclick="hideStripeForm(1)">Cancel</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -240,7 +240,7 @@
                                         <div class="text-start">
                                             <div class="d-flex gap-2">
                                                 <button type="button" class="btn btn-primary"
-                                                    onclick="initiatePayment('stripe', 2)">
+                                                    onclick="showStripeForm(2, 2)">
                                                     <i class="ki-duotone ki-credit-cart fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -258,6 +258,38 @@
                                             </div>
                                         </div>
                                         <!--end::Heading-->
+                                        <!-- Stripe Card Form -->
+                                        <div id="stripe-form-2" class="mt-4 w-400px" style="display: none;">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-4">Enter Card Details</h5>
+                                                    <form id="payment-form-2">
+                                                        <div class="mb-3">
+                                                            <label for="card-element-2" class="form-label">Credit or
+                                                                debit card</label>
+                                                            <div id="card-element-2" class="form-control">
+                                                                <!-- Stripe Card Element will be inserted here -->
+                                                            </div>
+                                                            <div id="card-errors-2" class="text-danger mt-2"
+                                                                role="alert"></div>
+                                                        </div>
+                                                        <div class="d-flex gap-2">
+                                                            <button type="submit" class="btn btn-primary"
+                                                                id="submit-button-2">
+                                                                <span class="indicator-label">Pay Now</span>
+                                                                <span class="indicator-progress"
+                                                                    style="display: none;">
+                                                                    Please wait... <span
+                                                                        class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                </span>
+                                                            </button>
+                                                            <button type="button" class="btn btn-light"
+                                                                onclick="hideStripeForm(2)">Cancel</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!--end::Option-->
                                 </div>
@@ -449,107 +481,135 @@
     const stripe = Stripe('{{ config('services.stripe.key') }}');
     const elements = stripe.elements();
     let card;
+    let currentFormIndex = null;
 
     // Create card element
     function initializeCard() {
-        card = elements.create('card', {
-            style: {
-                base: {
-                    fontSize: '16px',
-                    color: '#32325d',
-                    '::placeholder': {
-                        color: '#aab7c4'
+        if (!card) {
+            card = elements.create('card', {
+                style: {
+                    base: {
+                        fontSize: '16px',
+                        color: '#32325d',
+                        '::placeholder': {
+                            color: '#aab7c4'
+                        }
+                    },
+                    invalid: {
+                        color: '#fa755a',
+                        iconColor: '#fa755a'
                     }
                 },
-                invalid: {
-                    color: '#fa755a',
-                    iconColor: '#fa755a'
-                }
-            },
-            hidePostalCode: true
-        });
-        card.mount('#card-element');
+                hidePostalCode: true
+            });
+        }
     }
 
     // Show Stripe form
-    function showStripeForm(courseId) {
-        document.getElementById('stripe-form').style.display = 'block';
-        if (!card) {
-            initializeCard();
+    function showStripeForm(courseId, index) {
+        // Hide all other forms first
+        document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
+            form.style.display = 'none';
+        });
+
+        const form = document.getElementById(`stripe-form-${index}`);
+        form.style.display = 'block';
+
+        // Initialize card if not already done
+        initializeCard();
+
+        // Unmount from previous container if exists
+        if (currentFormIndex !== null) {
+            card.unmount();
         }
-        document.getElementById('payment-form').dataset.courseId = courseId;
+
+        // Mount to new container
+        card.mount(`#card-element-${index}`);
+        currentFormIndex = index;
+
+        document.getElementById(`payment-form-${index}`).dataset.courseId = courseId;
     }
 
     // Hide Stripe form
-    function hideStripeForm() {
-        document.getElementById('stripe-form').style.display = 'none';
+    function hideStripeForm(index) {
+        document.getElementById(`stripe-form-${index}`).style.display = 'none';
+        if (currentFormIndex === index) {
+            card.unmount();
+            currentFormIndex = null;
+        }
     }
 
     // Handle form submission
-    document.getElementById('payment-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
+    document.querySelectorAll('[id^="payment-form-"]').forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-        const submitButton = document.getElementById('submit-button');
-        const courseId = this.dataset.courseId;
+            const index = this.id.split('-')[2];
+            const submitButton = document.getElementById(`submit-button-${index}`);
+            const courseId = this.dataset.courseId;
 
-        // Disable submit button
-        submitButton.disabled = true;
-        submitButton.querySelector('.indicator-label').style.display = 'none';
-        submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.querySelector('.indicator-label').style.display = 'none';
+            submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
 
-        try {
-            const response = await fetch('{{ route('course.payment.create') }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    course_id: courseId,
-                    payment_method: 'stripe'
-                })
-            });
+            try {
+                const response = await fetch('{{ route('course.payment.create') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        course_id: courseId,
+                        payment_method: 'stripe'
+                    })
+                });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            if (data.error) {
-                throw new Error(data.error);
-            }
+                if (data.error) {
+                    throw new Error(data.error);
+                }
 
-            const {
-                error
-            } = await stripe.confirmCardPayment(data.clientSecret, {
-                payment_method: {
-                    card: card,
-                    billing_details: {
-                        name: '{{ auth()->user()->name }}',
-                        email: '{{ auth()->user()->email }}'
+                const {
+                    error
+                } = await stripe.confirmCardPayment(data.clientSecret, {
+                    payment_method: {
+                        card: card,
+                        billing_details: {
+                            name: '{{ auth()->user()->name }}',
+                            email: '{{ auth()->user()->email }}'
+                        }
                     }
-                }
-            });
+                });
 
-            if (error) {
-                throw new Error(error.message);
+                if (error) {
+                    throw new Error(error.message);
+                }
+
+                window.location.href =
+                    '{{ route('course.payment.success') }}?payment_method=stripe&course_id=' +
+                    courseId + '&paymentIntentId=' + data.paymentIntentId;
+            } catch (error) {
+                Swal.fire({
+                    text: error.message ||
+                        'An error occurred while processing your payment',
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Ok, got it!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    }
+                });
+            } finally {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+                submitButton.querySelector('.indicator-progress').style.display = 'none';
             }
-
-            window.location.href = '{{ route('course.payment.success') }}?payment_method=stripe&course_id=' + courseId + '&paymentIntentId=' + data.paymentIntentId;
-        } catch (error) {
-            Swal.fire({
-                text: error.message || 'An error occurred while processing your payment',
-                icon: "error",
-                buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
-                customClass: {
-                    confirmButton: "btn btn-primary",
-                }
-            });
-        } finally {
-            // Re-enable submit button
-            submitButton.disabled = false;
-            submitButton.querySelector('.indicator-label').style.display = 'inline-block';
-            submitButton.querySelector('.indicator-progress').style.display = 'none';
-        }
+        });
     });
 
     // Handle PayPal payment

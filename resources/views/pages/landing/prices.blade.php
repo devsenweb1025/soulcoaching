@@ -50,14 +50,16 @@
                         <!--begin::Pricing-->
                         <div class="text-start" id="kt_pricing">
                             <!--begin::Row-->
-                            <div class="row g-10 {{ $service->image_direction === 'right' ? 'flex-column-reverse flex-md-row' : 'flex-column flex-md-row' }}">
+                            <div
+                                class="row g-10 {{ $service->image_direction === 'right' ? 'flex-column-reverse flex-md-row' : 'flex-column flex-md-row' }}">
                                 @if ($service->image_direction === 'right')
                                     <!--begin::Col-->
                                     <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="500">
                                         <div class="d-flex h-100 align-items-center">
                                             <!--begin::Option-->
-                                            <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
+                                            <div
+                                                class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
                                                 <!--begin::Heading-->
                                                 <div class="mb-7 text-start">
                                                     <!--begin::Title-->
@@ -66,8 +68,8 @@
                                                     <!--begin::Price-->
                                                     <div class="text-start">
                                                         <span class="fs-2x fw-bold text-primary">
-                                                            CHF {{ number_format($service->price, 2) }}.-
-                                                            @if($service->benefit_option === 'month')
+                                                            CHF {{ number_format($service->price, 2, '.', "'") }}.-
+                                                            @if ($service->benefit_option === 'month')
                                                                 / Monat
                                                             @elseif($service->benefit_option === 'hour')
                                                                 / Stunde
@@ -88,11 +90,12 @@
                                                 <!--end::Heading-->
                                                 <!--begin::Features-->
                                                 <div class="w-100 mb-10">
-                                                    @if($service->features)
+                                                    @if ($service->features)
                                                         @foreach ($service->features as $feature)
                                                             <!--begin::Item-->
                                                             <div class="d-flex flex-stack mb-5">
-                                                                <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                <span
+                                                                    class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
                                                                 <i class="ki-duotone ki-check-circle fs-1 text-success">
                                                                     <span class="path1"></span>
                                                                     <span class="path2"></span>
@@ -105,13 +108,54 @@
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
                                                 @if ($service->service_option === 'booking')
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#bookingModal{{ $index }}">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="handleBooking({{ $index }}, '{{ $service->slug }}')">
                                                         Termin buchen
                                                     </button>
                                                 @elseif ($service->service_option === 'payment')
-                                                    <a href="{{ route('payment') }}?service={{ $service->slug }}"
-                                                        class="btn btn-primary">Jetzt buchen</a>
+                                                    <div class="d-flex flex-column gap-3">
+                                                        <button type="button" class="btn btn-primary" onclick="showStripeForm('{{ $service->id }}', '{{ $index }}')">
+                                                            <i class="ki-duotone ki-credit-cart fs-2 me-2">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                            Pay with Card
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary" onclick="initiatePayment('paypal', '{{ $service->id }}')">
+                                                            <i class="ki-duotone ki-paypal fs-2 me-2">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                            Pay with PayPal
+                                                        </button>
+                                                    </div>
+
+                                                    <!-- Stripe Card Form -->
+                                                    <div id="stripe-form-{{ $index }}" class="mt-4 w-100" style="display: none;">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title mb-4">Enter Card Details</h5>
+                                                                <form id="payment-form-{{ $index }}">
+                                                                    <div class="mb-3">
+                                                                        <label for="card-element-{{ $index }}" class="form-label">Credit or debit card</label>
+                                                                        <div id="card-element-{{ $index }}" class="form-control">
+                                                                            <!-- Stripe Card Element will be inserted here -->
+                                                                        </div>
+                                                                        <div id="card-errors-{{ $index }}" class="text-danger mt-2" role="alert"></div>
+                                                                    </div>
+                                                                    <div class="d-flex gap-2">
+                                                                        <button type="submit" class="btn btn-primary" id="submit-button-{{ $index }}">
+                                                                            <span class="indicator-label">Pay Now</span>
+                                                                            <span class="indicator-progress" style="display: none;">
+                                                                                Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                            </span>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-light" onclick="hideStripeForm('{{ $index }}')">Cancel</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 @elseif ($service->service_option === 'hotline' && $service->hotline_active)
                                                     <a href="tel:{{ config('app.hotline_number') }}"
                                                         class="btn btn-primary">Hotline anrufen</a>
@@ -144,17 +188,19 @@
                                         data-aos-duration="500" data-aos-delay="500">
                                         <div class="d-flex h-100 align-items-center">
                                             <!--begin::Option-->
-                                            <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
+                                            <div
+                                                class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
                                                 <!--begin::Heading-->
                                                 <div class="mb-7 text-start">
                                                     <!--begin::Title-->
-                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service->title }}</h1>
+                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service->title }}
+                                                    </h1>
                                                     <!--end::Title-->
                                                     <!--begin::Price-->
                                                     <div class="text-start">
                                                         <span class="fs-2x fw-bold text-primary">
-                                                            CHF {{ number_format($service->price, 2) }}.-
-                                                            @if($service->benefit_option === 'month')
+                                                            CHF {{ number_format($service->price, 2, '.', "'") }}.-
+                                                            @if ($service->benefit_option === 'month')
                                                                 / Monat
                                                             @elseif($service->benefit_option === 'hour')
                                                                 / Stunde
@@ -175,12 +221,14 @@
                                                 <!--end::Heading-->
                                                 <!--begin::Features-->
                                                 <div class="w-100 mb-10">
-                                                    @if($service->features)
+                                                    @if ($service->features)
                                                         @foreach ($service->features as $feature)
                                                             <!--begin::Item-->
                                                             <div class="d-flex flex-stack mb-5">
-                                                                <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
-                                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                <span
+                                                                    class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                <i
+                                                                    class="ki-duotone ki-check-circle fs-1 text-success">
                                                                     <span class="path1"></span>
                                                                     <span class="path2"></span>
                                                                 </i>
@@ -192,13 +240,54 @@
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
                                                 @if ($service->service_option === 'booking')
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#bookingModal{{ $index }}">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="handleBooking({{ $index }}, '{{ $service->slug }}')">
                                                         Termin buchen
                                                     </button>
                                                 @elseif ($service->service_option === 'payment')
-                                                    <a href="{{ route('payment') }}?service={{ $service->slug }}"
-                                                        class="btn btn-primary">Jetzt buchen</a>
+                                                    <div class="d-flex flex-column gap-3">
+                                                        <button type="button" class="btn btn-primary" onclick="showStripeForm('{{ $service->id }}', '{{ $index }}')">
+                                                            <i class="ki-duotone ki-credit-cart fs-2 me-2">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                            Pay with Card
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary" onclick="initiatePayment('paypal', '{{ $service->id }}')">
+                                                            <i class="ki-duotone ki-paypal fs-2 me-2">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                            Pay with PayPal
+                                                        </button>
+                                                    </div>
+
+                                                    <!-- Stripe Card Form -->
+                                                    <div id="stripe-form-{{ $index }}" class="mt-4 w-100" style="display: none;">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title mb-4">Enter Card Details</h5>
+                                                                <form id="payment-form-{{ $index }}">
+                                                                    <div class="mb-3">
+                                                                        <label for="card-element-{{ $index }}" class="form-label">Credit or debit card</label>
+                                                                        <div id="card-element-{{ $index }}" class="form-control">
+                                                                            <!-- Stripe Card Element will be inserted here -->
+                                                                        </div>
+                                                                        <div id="card-errors-{{ $index }}" class="text-danger mt-2" role="alert"></div>
+                                                                    </div>
+                                                                    <div class="d-flex gap-2">
+                                                                        <button type="submit" class="btn btn-primary" id="submit-button-{{ $index }}">
+                                                                            <span class="indicator-label">Pay Now</span>
+                                                                            <span class="indicator-progress" style="display: none;">
+                                                                                Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                            </span>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-light" onclick="hideStripeForm('{{ $index }}')">Cancel</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 @elseif ($service->service_option === 'hotline' && $service->hotline_active)
                                                     <a href="tel:{{ config('app.hotline_number') }}"
                                                         class="btn btn-primary">Hotline anrufen</a>
@@ -222,62 +311,187 @@
             <!--end::Wrapper-->
         </div>
         <!--end::Pricing Section-->
-
-        @if ($service->service_option === 'booking')
-            <!--begin::Modal-->
-            <div class="modal fade" tabindex="-1" id="bookingModal{{ $index }}">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3 class="modal-title">{{ $service->title }}</h3>
-                            <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
-                                aria-label="Close">
-                                <i class="ki-duotone ki-cross fs-1">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </div>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-5">
-                                <label class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="radio" name="bookingType{{ $index }}" value="personal"
-                                        checked>
-                                    <span class="form-check-label">Einzelcoaching</span>
-                                </label>
-                            </div>
-                            <div class="mb-5">
-                                <label class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="radio" name="bookingType{{ $index }}" value="group">
-                                    <span class="form-check-label">Gruppencoaching</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Abbrechen</button>
-                            <button type="button" class="btn btn-primary"
-                                onclick="handleBooking({{ $index }}, '{{ $service->slug }}')">Bestätigen</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end::Modal-->
-        @endif
     @endforeach
 
     @push('scripts')
+        <script src="https://js.stripe.com/v3/"></script>
         <script>
-            function handleBooking(index, serviceSlug) {
-                const bookingType = document.querySelector(`input[name="bookingType${index}"]:checked`).value;
-                if (bookingType === 'personal') {
-                    window.location.href = "{{ route('booking') }}?service=" + serviceSlug + "&type=personal";
-                } else {
-                    window.location.href = "{{ route('booking') }}?service=" + serviceSlug + "&type=group";
+            const stripe = Stripe('{{ config('services.stripe.key') }}');
+            const elements = stripe.elements();
+            let card;
+            let currentFormIndex = null;
+
+            // Create card element
+            function initializeCard() {
+                if (!card) {
+                    card = elements.create('card', {
+                        style: {
+                            base: {
+                                fontSize: '16px',
+                                color: '#32325d',
+                                '::placeholder': {
+                                    color: '#aab7c4'
+                                }
+                            },
+                            invalid: {
+                                color: '#fa755a',
+                                iconColor: '#fa755a'
+                            }
+                        },
+                        hidePostalCode: true
+                    });
                 }
             }
 
+            // Show Stripe form
+            function showStripeForm(serviceId, index) {
+                // Hide all other forms first
+                document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
+                    form.style.display = 'none';
+                });
+
+                const form = document.getElementById(`stripe-form-${index}`);
+                form.style.display = 'block';
+
+                // Initialize card if not already done
+                initializeCard();
+
+                // Unmount from previous container if exists
+                if (currentFormIndex !== null) {
+                    card.unmount();
+                }
+
+                // Mount to new container
+                card.mount(`#card-element-${index}`);
+                currentFormIndex = index;
+
+                document.getElementById(`payment-form-${index}`).dataset.serviceId = serviceId;
+            }
+
+            // Hide Stripe form
+            function hideStripeForm(index) {
+                document.getElementById(`stripe-form-${index}`).style.display = 'none';
+                if (currentFormIndex === index) {
+                    card.unmount();
+                    currentFormIndex = null;
+                }
+            }
+
+            // Handle form submission
+            document.querySelectorAll('[id^="payment-form-"]').forEach(form => {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    const index = this.id.split('-')[2];
+                    const submitButton = document.getElementById(`submit-button-${index}`);
+                    const serviceId = this.dataset.serviceId;
+
+                    // Disable submit button
+                    submitButton.disabled = true;
+                    submitButton.querySelector('.indicator-label').style.display = 'none';
+                    submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
+
+                    try {
+                        const response = await fetch('{{ route('service.payment.create') }}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                service_id: serviceId,
+                                payment_method: 'stripe'
+                            })
+                        });
+
+                        const data = await response.json();
+
+                        if (data.error) {
+                            throw new Error(data.error);
+                        }
+
+                        const { error } = await stripe.confirmCardPayment(data.clientSecret, {
+                            payment_method: {
+                                card: card,
+                                billing_details: {
+                                    name: '{{ auth()->user()->name }}',
+                                    email: '{{ auth()->user()->email }}'
+                                }
+                            }
+                        });
+
+                        if (error) {
+                            throw new Error(error.message);
+                        }
+
+                        window.location.href = '{{ route('service.payment.success') }}?payment_method=stripe&service_id=' + serviceId + '&paymentIntentId=' + data.paymentIntentId;
+                    } catch (error) {
+                        Swal.fire({
+                            text: error.message || 'An error occurred while processing your payment',
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn btn-primary",
+                            }
+                        });
+                    } finally {
+                        // Re-enable submit button
+                        submitButton.disabled = false;
+                        submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+                        submitButton.querySelector('.indicator-progress').style.display = 'none';
+                    }
+                });
+            });
+
+            // Handle PayPal payment
+            async function initiatePayment(paymentMethod, serviceId) {
+                if (paymentMethod === 'stripe') {
+                    showStripeForm(serviceId);
+                    return;
+                }
+
+                try {
+                    const response = await fetch('{{ route('service.payment.create') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            service_id: serviceId,
+                            payment_method: paymentMethod
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+
+                    window.location.href = data.approvalUrl;
+                } catch (error) {
+                    Swal.fire({
+                        text: error.message || 'An error occurred while processing your payment',
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn btn-primary",
+                        }
+                    });
+                }
+            }
+
+            function handleBooking(index, serviceSlug) {
+                window.location.href = "{{ route('booking') }}?service=" + serviceSlug
+            }
+
             // Auto-scroll to specific service when service parameter is provided
-            document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('DOMContentLoaded', function() {
                 const urlParams = new URLSearchParams(window.location.search);
                 const serviceParam = urlParams.get('service');
 
