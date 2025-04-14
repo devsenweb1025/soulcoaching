@@ -265,6 +265,7 @@
 
         // Create card element
         const card = elements.create('card', {
+            hidePostalCode: true,
             style: {
                 base: {
                     fontSize: '16px',
