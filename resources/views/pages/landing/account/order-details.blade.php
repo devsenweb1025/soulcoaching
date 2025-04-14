@@ -90,11 +90,11 @@
                                     </div>
                                     <!--end::Order Items-->
 
-                                    <!--begin::Order Summary-->
+                                    <!--begin::Bestellübersicht-->
                                     <div class="col-lg-4">
                                         <div class="card shadow-sm">
                                             <div class="card-header">
-                                                <h3 class="card-title">Order Summary</h3>
+                                                <h3 class="card-title">Bestellübersicht</h3>
                                             </div>
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between mb-5">
@@ -179,7 +179,7 @@
                                         </div>
                                         <!--end::Shipping Details-->
                                     </div>
-                                    <!--end::Order Summary-->
+                                    <!--end::Bestellübersicht-->
                                 </div>
 
                                 <!--begin::Actions-->

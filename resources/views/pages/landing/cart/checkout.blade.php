@@ -13,7 +13,7 @@
                 <div
                     class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
                     <!--begin::Title-->
-                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Checkout
+                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Bezahlung
                         <span
                             style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                         </span>
@@ -23,20 +23,20 @@
                 <!--end::Heading-->
                 <div class="row g-5">
 
-                    <!--begin::Order Summary-->
+                    <!--begin::Bestellübersicht-->
                     <div class="col-lg-4">
                         <div class="card shadow card-borderless mb-5">
                             <div class="card-header">
-                                <h3 class="card-title">Order Summary</h3>
+                                <h3 class="card-title">Bestellübersicht</h3>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table align-middle table-row-bordered table-row-gray-100 gy-3 gs-7">
                                         <thead>
                                             <tr class="fw-bold text-muted bg-light">
-                                                <th class="min-w-150px">Product</th>
-                                                <th class="min-w-100px">Quantity</th>
-                                                <th class="min-w-100px">Price</th>
+                                                <th class="min-w-150px">Produkt</th>
+                                                <th class="min-w-100px">Menge</th>
+                                                <th class="min-w-100px">Preis</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -64,12 +64,12 @@
                                 </div>
                                 <div class="separator separator-dashed my-5"></div>
                                 <div class="d-flex justify-content-between mb-5">
-                                    <span class="fw-bold fs-5">Subtotal:</span>
+                                    <span class="fw-bold fs-5">Zwischensumme:</span>
                                     <span class="text-dark fw-bold fs-5">CHF
                                         {{ number_format(Cart::subtotal(), 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
-                                    <span class="fw-bold fs-5">Shipping:</span>
+                                    <span class="fw-bold fs-5">Versand:</span>
                                     <span class="text-dark fw-bold fs-5">CHF {{ number_format(session('shipping_cost', 10.0), 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--end::Order Summary-->
+                    <!--end::Bestellübersicht-->
 
                     <!--begin::Checkout Form-->
                     <div class="col-lg-8">
@@ -105,12 +105,12 @@
                                         <h4 class="mb-5">Shipping Information</h4>
                                         <div class="row g-5">
                                             <div class="col-md-6">
-                                                <label class="required fw-semibold fs-6 mb-2">First Name</label>
+                                                <label class="required fw-semibold fs-6 mb-2">Vorname</label>
                                                 <input type="text" name="first_name"
                                                     class="form-control form-control-solid mb-3 mb-lg-0" required />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="required fw-semibold fs-6 mb-2">Last Name</label>
+                                                <label class="required fw-semibold fs-6 mb-2">Name</label>
                                                 <input type="text" name="last_name"
                                                     class="form-control form-control-solid mb-3 mb-lg-0" required />
                                             </div>
@@ -120,31 +120,31 @@
                                                     class="form-control form-control-solid mb-3 mb-lg-0" required />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="required fw-semibold fs-6 mb-2">Phone</label>
+                                                <label class="required fw-semibold fs-6 mb-2">Telefonnummer</label>
                                                 <input type="tel" name="phone"
                                                     class="form-control form-control-solid mb-3 mb-lg-0" required />
                                             </div>
                                             <div class="col-12">
-                                                <label class="required fw-semibold fs-6 mb-2">Address</label>
+                                                <label class="required fw-semibold fs-6 mb-2">Strasse</label>
                                                 <input type="text" name="address"
                                                     class="form-control form-control-solid mb-3 mb-lg-0" required />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="required fw-semibold fs-6 mb-2">City</label>
+                                                <label class="required fw-semibold fs-6 mb-2">Ort</label>
                                                 <input type="text" name="city"
                                                     class="form-control form-control-solid mb-3 mb-lg-0" required />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="required fw-semibold fs-6 mb-2">Postal Code</label>
+                                                <label class="required fw-semibold fs-6 mb-2">Postleitzahl</label>
                                                 <input type="text" name="postal_code"
                                                     class="form-control form-control-solid mb-3 mb-lg-0" required />
                                             </div>
                                             <div class="col-12">
-                                                <label class="required fw-semibold fs-6 mb-2">Country</label>
+                                                <label class="required fw-semibold fs-6 mb-2">Land</label>
                                                 <select name="country" class="form-select form-select-solid" required>
-                                                    <option value="CH">Switzerland</option>
-                                                    <option value="DE">Germany</option>
-                                                    <option value="AT">Austria</option>
+                                                    <option value="CH">Schweiz</option>
+                                                    <option value="DE">Deutschland</option>
+                                                    <option value="AT">Österreich</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -153,7 +153,7 @@
 
                                     <!--begin::Payment Information-->
                                     <div class="mb-10">
-                                        <h4 class="mb-5">Payment Information</h4>
+                                        <h4 class="mb-5">Zahlungsmethode</h4>
 
                                         <!--begin::Payment Methods-->
                                         <div class="mb-10">
@@ -230,10 +230,9 @@
 
                                     <!--begin::Actions-->
                                     <div class="d-flex justify-content-end">
-                                        <a href="{{ route('cart.index') }}" class="btn btn-light me-3">Back to
-                                            Cart</a>
+                                        <a href="{{ route('cart.index') }}" class="btn btn-light me-3">Zurück zum Warenkorb</a>
                                         <button type="submit" class="btn btn-primary" id="submit-button">
-                                            <span class="indicator-label">Place Order</span>
+                                            <span class="indicator-label">Bestellung abschliessen</span>
                                             <span class="indicator-progress">Please wait...
                                                 <span
                                                     class="spinner-border spinner-border-sm align-middle ms-2"></span>

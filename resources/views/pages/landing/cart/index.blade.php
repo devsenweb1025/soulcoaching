@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Shopping Cart</h3>
+                        <h3 class="card-title">Warenkorb</h3>
                     </div>
                     <div class="card-body">
                         @if (Cart::count() > 0)
@@ -12,11 +12,11 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
+                                            <th>Produkt</th>
+                                            <th>Preis</th>
+                                            <th>Menge</th>
                                             <th>Total</th>
-                                            <th>Action</th>
+                                            <th>Löschen</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,13 +78,13 @@
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                         </i>
-                                        Continue Shopping
+                                        Weiter einkaufen
                                     </a>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title mb-4">Shipping Options</h5>
+                                            <h5 class="card-title mb-4">Lieferart</h5>
                                             <div class="mb-4">
                                                 <div class="form-check mb-3">
                                                     <input class="form-check-input shipping-option" type="radio"
@@ -93,7 +93,7 @@
                                                     <label class="form-check-label" for="shipping-small">
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             <div>
-                                                                <strong>Small Package</strong>
+                                                                <strong>Leichtes Paket</strong>
                                                                 <div class="text-muted small">For small items up to 2kg
                                                                 </div>
                                                             </div>
@@ -108,7 +108,7 @@
                                                     <label class="form-check-label" for="shipping-middle">
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             <div>
-                                                                <strong>Middle Package</strong>
+                                                                <strong>Mittleres Paket</strong>
                                                                 <div class="text-muted small">For medium items up to 5kg
                                                                 </div>
                                                             </div>
@@ -123,7 +123,7 @@
                                                     <label class="form-check-label" for="shipping-big">
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             <div>
-                                                                <strong>Big Package</strong>
+                                                                <strong>Schweres Paket</strong>
                                                                 <div class="text-muted small">For large items up to 10kg
                                                                 </div>
                                                             </div>
@@ -134,7 +134,7 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-end">
                                                 <div class="mb-2">
-                                                    <h5 class="mb-0 shipping-cost">Shipping: CHF
+                                                    <h5 class="mb-0 shipping-cost">Versand: CHF
                                                         {{ number_format(session('shipping_cost', 11.50), 2) }}</h5>
                                                 </div>
                                                 <div class="mb-2">
@@ -143,7 +143,7 @@
                                                     </h5>
                                                 </div>
                                                 <a href="{{ route('cart.checkout') }}" class="btn btn-primary">
-                                                    Proceed to Checkout
+                                                    Weiter zur Zahlung
                                                     <i class="ki-duotone ki-arrow-right fs-2 ms-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
