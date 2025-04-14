@@ -44,7 +44,7 @@
                             Buchenstrasse 2<br />
                             9322 Egnach<br />
                             Schweiz<br />
-                            E-Mail: seelenfluesterin@gmx.ch<br />
+                            E-Mail: info@seelen-fluesterin.ch<br />
                             Website: <a href="https://www.seelen-fluesterin.ch"
                                 target="_blank">www.seelen-fluesterin.ch</a>
                         </div>

@@ -34,118 +34,92 @@
                             <div class="col-lg-12">
                                 <div class="text-gray-800 fs-4 mb-5">
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">1. Geltungsbereich</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Geltungsbereich</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Dienstleistungen
-                                        und Angebote von Seelenflüsterin, abrufbar unter www.seelenfluesterin.ch. Mit
-                                        der Inanspruchnahme des Angebots erklärt sich die Kundin / der Kunde mit diesen
-                                        Bedingungen einverstanden.
+                                        Diese Allgemeinen Geschaeftsbedingungen gelten fuer alle Dienstleistungen und Angebote von Seelenfluesterin, abrufbar unter www.seelen-fluesterin.ch. Mit der Nutzung der Leistungen erklaert sich die Kundin bzw. der Kunde mit diesen Bedingungen einverstanden.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">2. Leistungen</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Leistungen</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Seelenflüsterin bietet spirituelle Begleitung, Energiearbeit, mediale Beratungen
-                                        sowie Onlinekurse und digitale Inhalte an. Die Leistungen erfolgen nach bestem
-                                        Wissen und Gewissen, ersetzen jedoch keine medizinische, psychologische oder
-                                        psychotherapeutische Behandlung.
+                                        Seelenfluesterin bietet spirituelle Begleitung, Energiearbeit, mediale Beratungen, Tierkommunikation, Kartenlegung per Hotline, Onlinekurse sowie digitale Produkte an. Die Leistungen erfolgen nach bestem Wissen und Gewissen, ersetzen jedoch keine aerztliche, psychologische oder psychotherapeutische Behandlung oder Diagnose.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">3. Buchung & Registrierung</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Buchung und Registrierung</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Für bestimmte Angebote (z. B. Onlinekurse oder Workshops) ist eine vorherige
-                                        Registrierung oder Anmeldung über ein Onlineformular erforderlich. Alle Angaben
-                                        müssen vollständig und wahrheitsgemäß erfolgen. Zugangsdaten sind vertraulich zu
-                                        behandeln und dürfen nicht weitergegeben werden.
+                                        Fuer bestimmte Angebote wie Onlinekurse, Workshops oder Beratungen ist eine vorherige Anmeldung oder Registrierung erforderlich. Die Kundin bzw. der Kunde verpflichtet sich, bei der Anmeldung vollstaendige und wahrheitsgemaesse Angaben zu machen. Zugangsdaten sind persoenlich und vertraulich zu behandeln.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">4. Preise & Zahlung</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Preise und Zahlung</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Alle Preise sind in Schweizer Franken (CHF) angegeben. Die Zahlung erfolgt im
-                                        Voraus, sofern nichts anderes vereinbart ist. Mögliche Zahlungsarten sind
-                                        Vorauskasse, Twint oder andere im Buchungsprozess angebotene Optionen.
+                                        Alle Preise verstehen sich in Schweizer Franken (CHF). Die Zahlung erfolgt im Voraus oder direkt im Anschluss an ein Gespraech via Zoom. Akzeptierte Zahlungsmethoden sind Mastercard, Visa (Kreditkarten), PayPal und Twint.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">5. Digitale Inhalte & Online-Kurse</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Digitale Inhalte und Onlinekurse</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Bei Onlinekursen oder digitalen Produkten, die per Link zur Verfügung gestellt
-                                        werden, erlischt das Widerrufsrecht mit Bereitstellung des Links.<br />
-                                        Der Zugang ist persönlich und nicht übertragbar. Die Weitergabe oder
-                                        Veröffentlichung der Inhalte ist untersagt.
+                                        Mit Bereitstellung des Download- oder Zugangslinks zu einem digitalen Produkt erlischt das Widerrufsrecht. Der Zugriff ist ausschliesslich fuer die registrierte Person bestimmt und nicht uebertragbar. Eine Weitergabe, Veroeffentlichung oder Vervielfaeltigung der Inhalte ist ausdruecklich untersagt. Bei Verstoss wird eine Konventionalstrafe von CHF 40’000.– faellig.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">6. Terminabsagen</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Terminabsagen</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Termine können bis 24 Stunden vorher kostenlos abgesagt oder verschoben werden.
-                                        Bei späteren Absagen oder Nichterscheinen wird der volle Betrag in Rechnung
-                                        gestellt, sofern kein triftiger Grund vorliegt.
+                                        Termine muessen mindestens 48 Stunden im Voraus abgesagt oder verschoben werden. Bei kurzfristigeren Absagen oder Nichterscheinen wird der volle Betrag in Rechnung gestellt, es sei denn, es liegt ein triftiger und nachweisbarer Grund vor.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">7. Haftungsausschluss</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Haftungsausschluss</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Alle Angebote und Beratungen dienen der persönlichen Weiterentwicklung und
-                                        spirituellen Unterstützung. Es wird keine Haftung für Entscheidungen oder
-                                        Handlungen übernommen, die auf Basis der erhaltenen Informationen getroffen
-                                        werden. Die Verantwortung liegt vollständig bei der Kundin / dem Kunden.
+                                        Die Inanspruchnahme der Leistungen erfolgt auf eigene Verantwortung. Es wird keine Haftung fuer Entscheidungen oder Handlungen uebernommen, die auf Grundlage der erhaltenen Informationen getroffen werden. Die Angebote dienen der persoenlichen Weiterentwicklung und ersetzen keine medizinische Beratung.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">8. Nutzung von Drittanbietern</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Nutzung von Drittanbietern</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Für die Durchführung der Leistungen (z. B. Zoom, Zahlungsanbieter oder
-                                        Kursplattformen) können Drittanbieter eingesetzt werden. Deren Datenschutz- und
-                                        Nutzungsbedingungen gelten ergänzend. Es gelten zusätzlich die Bestimmungen der
-                                        Datenschutzerklärung.
+                                        Fuer die Durchfuehrung der Leistungen koennen Drittanbieter wie z. B. Zoom, Calendly, Mailchimp oder Zahlungsdienste genutzt werden. Deren Datenschutz- und Nutzungsbedingungen gelten zusaetzlich zu den Bestimmungen der Datenschutzerklaerung von Seelenfluesterin.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">9. Urheberrechte</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Urheberrechte</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Alle Inhalte, Texte, Videos und Bilder auf dieser Website sowie in den digitalen
-                                        Produkten unterliegen dem Urheberrecht. Eine Vervielfältigung, Verbreitung oder
-                                        Verwendung ist nur mit ausdrücklicher schriftlicher Genehmigung erlaubt.
+                                        Saemtliche Inhalte dieser Website sowie alle digitalen Produkte (Texte, Videos, Bilder etc.) sind urheberrechtlich geschuetzt. Jegliche Weiterverwendung bedarf der ausdruecklichen, schriftlichen Genehmigung durch Seelenfluesterin. Unrechtmaessige Nutzung wird rechtlich verfolgt.
                                     </div>
                                     <!--end::Text-->
 
                                     <!--begin::Title-->
-                                    <h1 class="text-gray-900 fw-boldest fs-2x">10. Schlussbestimmungen</h1>
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Schlussbestimmungen</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Es gilt Schweizer Recht. Gerichtsstand ist, soweit gesetzlich zulässig, der Sitz
-                                        von Seelenflüsterin. Sollten einzelne Bestimmungen dieser AGB unwirksam sein,
-                                        bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+                                        Es gilt ausschliesslich Schweizer Recht. Gerichtsstand ist, soweit gesetzlich zulaessig, der Sitz von Seelenfluesterin in Egnach, Schweiz. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Gueltigkeit der uebrigen unberuehrt.
                                     </div>
                                     <!--end::Text-->
                                 </div>
