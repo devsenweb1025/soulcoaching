@@ -48,16 +48,16 @@ class PaymentController extends Controller
                         "invoice_id" => uniqid('ORDER-'),
                         "amount" => [
                             "currency_code" => "CHF",
-                            "value" => number_format($total, 2, '.', ''),
+                            "value" => number_format($total, 2, '.', '') + number_format(session('shipping_cost', 11.50), 2, '.', ''),
                             "breakdown" => [
                                 "item_total" => [
                                     "currency_code" => "CHF",
                                     "value" => number_format(Cart::subtotal(), 2, '.', '')
                                 ],
-                                "tax_total" => [
+                                "shipping" => [
                                     "currency_code" => "CHF",
-                                    "value" => number_format(Cart::tax(), 2, '.', '')
-                                ]
+                                    "value" => number_format(session('shipping_cost', 11.50), 2, '.', '')
+                                ],
                             ]
                         ],
                         "items" => array_values($cart->map(function ($item) {
@@ -206,6 +206,7 @@ class PaymentController extends Controller
                 'total' => Cart::total(),
                 'subtotal' => Cart::subtotal(),
                 'tax' => Cart::tax(),
+                'shipping_cost' => session('shipping_cost', 11.50),
                 'shipping_first_name' => $shippingInfo['first_name'],
                 'shipping_last_name' => $shippingInfo['last_name'],
                 'shipping_email' => $shippingInfo['email'],
