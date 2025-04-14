@@ -510,6 +510,15 @@
         @endif
     });
 
+    // Check if user is logged in
+    function checkAuth() {
+        @if(!auth()->check())
+            window.location.href = '{{ route('login') }}';
+            return false;
+        @endif
+        return true;
+    }
+
     // Create card element
     function initializeCard() {
         if (!card) {
@@ -534,6 +543,8 @@
 
     // Show Stripe form
     function showStripeForm(courseId, index) {
+        if (!checkAuth()) return;
+
         // Hide all other forms first
         document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
             form.style.display = 'none';
@@ -570,6 +581,7 @@
     document.querySelectorAll('[id^="payment-form-"]').forEach(form => {
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
+            if (!checkAuth()) return;
 
             const index = this.id.split('-')[2];
             const submitButton = document.getElementById(`submit-button-${index}`);
@@ -600,14 +612,12 @@
                     throw new Error(data.error);
                 }
 
-                const {
-                    error
-                } = await stripe.confirmCardPayment(data.clientSecret, {
+                const { error } = await stripe.confirmCardPayment(data.clientSecret, {
                     payment_method: {
                         card: card,
                         billing_details: {
-                            name: '{{ auth()->user()->name }}',
-                            email: '{{ auth()->user()->email }}'
+                            name: '{{ isset(auth()->user()->name) ? auth()->user()->name : '' }}',
+                            email: '{{ isset(auth()->user()->email) ? auth()->user()->email : '' }}'
                         }
                     }
                 });
@@ -616,13 +626,10 @@
                     throw new Error(error.message);
                 }
 
-                window.location.href =
-                    '{{ route('course.payment.success') }}?payment_method=stripe&course_id=' +
-                    courseId + '&paymentIntentId=' + data.paymentIntentId;
+                window.location.href = '{{ route('course.payment.success') }}?payment_method=stripe&course_id=' + courseId + '&paymentIntentId=' + data.paymentIntentId;
             } catch (error) {
                 Swal.fire({
-                    text: error.message ||
-                        'An error occurred while processing your payment',
+                    text: error.message || 'An error occurred while processing your payment',
                     icon: "error",
                     buttonsStyling: false,
                     confirmButtonText: "Ok, got it!",
@@ -641,6 +648,8 @@
 
     // Handle PayPal payment
     async function initiatePayment(paymentMethod, courseId) {
+        if (!checkAuth()) return;
+
         if (paymentMethod === 'stripe') {
             showStripeForm(courseId);
             return;
