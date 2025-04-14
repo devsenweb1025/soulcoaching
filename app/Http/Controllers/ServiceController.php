@@ -29,13 +29,13 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $services = Service::where('is_active', true)->get();
+        $services = Service::where('is_active', true)->orderBy('order', 'asc')->get();
         return view('pages.landing.services', compact('services'));
     }
 
     public function prices()
     {
-        $services = Service::where('is_active', true)->get();
+        $services = Service::where('is_active', true)->orderBy('order', 'asc')->get();
         return view('pages.landing.prices', compact('services'));
     }
 
