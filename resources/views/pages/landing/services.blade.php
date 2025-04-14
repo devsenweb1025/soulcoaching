@@ -42,30 +42,7 @@
         <div class="container z-index-2">
             <!--begin::Pricing-->
             <div class="row g-5 z-index-2">
-                @php
-                    $services = [
-                        [
-                            'title' => 'Transformationscoaching',
-                            'description' =>
-                                'Ganz gleich, wo du gerade im Leben stehst – dieses Transformationscoaching begleitet dich dabei, aktuelle Herausforderungen zu meistern. Mit einem eigenen, ganzheitlichen Ansatz, der alle Bewusstseinsebenen einbezieht, erreichst du dein Ziel innerhalb eines Monats – klar, fokussiert und tief verankert in deiner inneren Entwicklung.',
-                        ],
-                        [
-                            'title' => 'Energetische Heilung für Mensch und Tier',
-                            'description' =>
-                                'Der Mensch sowie das Tier nehmen Energien von Orten, anderen Menschen, anderen Tieren auf wie ein Schwamm. Darum fühlst du dich unter Umständen als Beispiel müde, obwohl körperlich alles im grünen Bereich ist. Unsere Energiezentren sollten darum regelmässig gereinigt und wieder gefüllt werden. Das gleiche gilt bei deinem Haustier. Du wirst sehen, mit der Energetischen Heilung lösen wir viele Herausforderungen wie Vertrauensmangel, Erschöpftheit, Müdigkeit uvm.',
-                        ],
-                        [
-                            'title' => 'Tierkommunikation',
-                            'description' =>
-                                'Möchtest du wissen, was dein Tier dir mitteilen möchte – oder warum es sich gerade verändert verhält? Mit Hilfe von telepathischer Tierkommunikation nehme ich Kontakt zu deinem Tier auf, um Antworten, Wünsche und Gefühle sichtbar zu machen. Ob bei Verhaltensauffälligkeiten, gesundheitlichen Fragen oder zur Begleitung im Sterbeprozess: Ich helfe dir, die Verbindung zu deinem Tier zu stärken – liebevoll und intuitiv.',
-                        ],
-                        [
-                            'title' => 'Frag das Universum',
-                            'description' =>
-                                'Du brauchst jetzt sofort eine spirituelle Antwort oder einen Hinweis für deine aktuelle Situation? Dann rufe mich direkt an – unter der Nummer 0901 881 881 erhältst du eine schnelle, intuitive Kartenlegung per Telefon. Ob Liebe, Beruf oder Lebensfragen: Die spirituelle Hotline steht dir zur Verfügung – anonym, vertraulich und sofort erreichbar.',
-                        ],
-                    ];
-                @endphp
+
 
                 @foreach ($services as $service)
                     <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"

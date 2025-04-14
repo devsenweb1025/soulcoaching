@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\LandingController;
-use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
@@ -13,6 +12,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\CoursePaymentController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Admin\ServiceController as ServiceManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,8 +32,6 @@ use Illuminate\Support\Facades\Route;
 // Landing
 Route::get('', [LandingController::class, 'index'])->name('home');
 Route::get('about', [LandingController::class, 'about'])->name('about');
-Route::get('services', [LandingController::class, 'services'])->name('services');
-Route::get('prices', [LandingController::class, 'prices'])->name('prices');
 Route::get('online-course', [LandingController::class, 'course'])->name('course');
 Route::get('contact', [LandingController::class, 'contact'])->name('contact');
 Route::get('medien', [LandingController::class, 'medien'])->name('medien');
@@ -100,8 +99,6 @@ Route::middleware('auth')->group(function () {
 
 // --------------------------------------------- Online Shop End---------------------------------------------
 
-Route::resource('users', UsersController::class);
-
 // Admin Product Routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
@@ -115,14 +112,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/orders/{order}/tracking', [OrderManagementController::class, 'updateTracking'])->name('orders.tracking');
     Route::delete('/orders/{order}', [OrderManagementController::class, 'destroy'])->name('orders.destroy');
 
-    // Chat Routes
-    Route::prefix('chat')->name('chat.')->group(function () {
-        Route::get('/', [ChatController::class, 'index'])->name('index');
-        Route::get('/conversations', [ChatController::class, 'conversations'])->name('conversations');
-        Route::get('/settings', [ChatController::class, 'settings'])->name('settings');
-        Route::post('/settings/update', [ChatController::class, 'updateSettings'])->name('settings.update');
-    });
-
     // Booking Management Routes
     Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
     Route::get('/bookings/events', [BookingController::class, 'getEvents'])->name('bookings.events');
@@ -130,8 +119,20 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::put('/bookings/{booking}', [BookingController::class, 'update'])->name('bookings.update');
     Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+
+    Route::resource('services', ServiceManagementController::class)->names('services');
+    Route::post('services/{service}/toggle-active', [ServiceManagementController::class, 'toggleActive'])->name('services.toggle-active');
+    Route::post('services/{service}/toggle-featured', [ServiceManagementController::class, 'toggleFeatured'])->name('services.toggle-featured');
 });
 
-Route::resource('settings', SettingsController::class)->names('settings');
+// Service Routes
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::get('/prices', [ServiceController::class, 'prices'])->name('prices');
+Route::get('/service/{id}', [ServiceController::class, 'show'])->name('service.show');
+
+// Service Payment Routes
+Route::post('/service/payment/create', [ServiceController::class, 'createPaymentIntent'])->name('service.payment.create');
+Route::get('/service/payment/success', [ServiceController::class, 'handleSuccess'])->name('service.payment.success');
+Route::get('/service/payment/cancel', [ServiceController::class, 'handleCancel'])->name('service.payment.cancel');
 
 require __DIR__ . '/auth.php';
