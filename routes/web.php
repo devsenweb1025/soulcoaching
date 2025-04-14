@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\CoursePaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,6 +88,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/account/orders', [OrderController::class, 'index'])->name('account.orders');
     Route::get('/account/orders/{order}', [OrderController::class, 'show'])->name('account.orders.show');
     Route::post('/account/orders/track', [OrderController::class, 'track'])->name('account.orders.track');
+
+    // Course Payment Routes
+    Route::get('/course', [CoursePaymentController::class, 'index'])->name('course');
+    Route::get('/course/{id}', [CoursePaymentController::class, 'show'])->name('course.show');
+    Route::post('/course/payment/create', [CoursePaymentController::class, 'createPaymentIntent'])->name('course.payment.create');
+    Route::get('/course/payment/success', [CoursePaymentController::class, 'handleSuccess'])->name('course.payment.success');
+    Route::get('/course/payment/cancel', [CoursePaymentController::class, 'handleCancel'])->name('course.payment.cancel');
+    Route::get('/course/{id}/download', [CoursePaymentController::class, 'download'])->name('course.download');
 });
 
 // --------------------------------------------- Online Shop End---------------------------------------------

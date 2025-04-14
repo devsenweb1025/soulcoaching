@@ -28,7 +28,8 @@ class Course extends Model
         'location',
         'duration',
         'requirements',
-        'materials'
+        'materials',
+        'download_link'
     ];
 
     protected $casts = [
