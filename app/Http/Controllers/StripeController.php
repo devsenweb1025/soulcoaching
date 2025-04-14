@@ -30,7 +30,7 @@ class StripeController extends Controller
             Stripe::setApiKey(config('services.stripe.secret'));
 
             $paymentIntent = PaymentIntent::create([
-                'amount' => (number_format(Cart::total(), 2) + number_format(session('shipping_cost', 11.50), 2)) * 100, // Convert to cents
+                'amount' => ((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5)) * 100, // Convert to cents
                 'currency' => 'chf',
                 'payment_method_types' => ['card'],
                 'metadata' => [
