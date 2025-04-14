@@ -89,7 +89,7 @@ class ServiceController extends Controller
                         ]
                     ],
                     "application_context" => [
-                        "return_url" => route('service.payment.success') . '?id=' . $service->id,
+                        "return_url" => route('service.payment.success') . '?service_id=' . $service->id,
                         "cancel_url" => route('service.payment.cancel'),
                         "user_action" => "PAY_NOW"
                     ]

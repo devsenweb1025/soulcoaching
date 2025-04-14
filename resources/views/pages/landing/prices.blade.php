@@ -114,14 +114,16 @@
                                                     </button>
                                                 @elseif ($service->service_option === 'payment')
                                                     <div class="d-flex flex-column gap-3">
-                                                        <button type="button" class="btn btn-primary" onclick="showStripeForm('{{ $service->id }}', '{{ $index }}')">
+                                                        <button type="button" class="btn btn-primary"
+                                                            onclick="showStripeForm('{{ $service->id }}', '{{ $index }}')">
                                                             <i class="ki-duotone ki-credit-cart fs-2 me-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
                                                             Pay with Card
                                                         </button>
-                                                        <button type="button" class="btn btn-primary" onclick="initiatePayment('paypal', '{{ $service->id }}')">
+                                                        <button type="button" class="btn btn-primary"
+                                                            onclick="initiatePayment('paypal', '{{ $service->id }}')">
                                                             <i class="ki-duotone ki-paypal fs-2 me-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
@@ -131,26 +133,36 @@
                                                     </div>
 
                                                     <!-- Stripe Card Form -->
-                                                    <div id="stripe-form-{{ $index }}" class="mt-4 w-100" style="display: none;">
+                                                    <div id="stripe-form-{{ $index }}" class="mt-4 w-100"
+                                                        style="display: none;">
                                                         <div class="card">
                                                             <div class="card-body">
                                                                 <h5 class="card-title mb-4">Enter Card Details</h5>
                                                                 <form id="payment-form-{{ $index }}">
                                                                     <div class="mb-3">
-                                                                        <label for="card-element-{{ $index }}" class="form-label">Credit or debit card</label>
-                                                                        <div id="card-element-{{ $index }}" class="form-control">
+                                                                        <label for="card-element-{{ $index }}"
+                                                                            class="form-label">Credit or debit
+                                                                            card</label>
+                                                                        <div id="card-element-{{ $index }}"
+                                                                            class="form-control">
                                                                             <!-- Stripe Card Element will be inserted here -->
                                                                         </div>
-                                                                        <div id="card-errors-{{ $index }}" class="text-danger mt-2" role="alert"></div>
+                                                                        <div id="card-errors-{{ $index }}"
+                                                                            class="text-danger mt-2" role="alert">
+                                                                        </div>
                                                                     </div>
                                                                     <div class="d-flex gap-2">
-                                                                        <button type="submit" class="btn btn-primary" id="submit-button-{{ $index }}">
+                                                                        <button type="submit" class="btn btn-primary"
+                                                                            id="submit-button-{{ $index }}">
                                                                             <span class="indicator-label">Pay Now</span>
-                                                                            <span class="indicator-progress" style="display: none;">
-                                                                                Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                            <span class="indicator-progress"
+                                                                                style="display: none;">
+                                                                                Please wait... <span
+                                                                                    class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                                                             </span>
                                                                         </button>
-                                                                        <button type="button" class="btn btn-light" onclick="hideStripeForm('{{ $index }}')">Cancel</button>
+                                                                        <button type="button" class="btn btn-light"
+                                                                            onclick="hideStripeForm('{{ $index }}')">Cancel</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -246,14 +258,16 @@
                                                     </button>
                                                 @elseif ($service->service_option === 'payment')
                                                     <div class="d-flex flex-column gap-3">
-                                                        <button type="button" class="btn btn-primary" onclick="showStripeForm('{{ $service->id }}', '{{ $index }}')">
+                                                        <button type="button" class="btn btn-primary"
+                                                            onclick="showStripeForm('{{ $service->id }}', '{{ $index }}')">
                                                             <i class="ki-duotone ki-credit-cart fs-2 me-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
                                                             Pay with Card
                                                         </button>
-                                                        <button type="button" class="btn btn-primary" onclick="initiatePayment('paypal', '{{ $service->id }}')">
+                                                        <button type="button" class="btn btn-primary"
+                                                            onclick="initiatePayment('paypal', '{{ $service->id }}')">
                                                             <i class="ki-duotone ki-paypal fs-2 me-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
@@ -263,26 +277,37 @@
                                                     </div>
 
                                                     <!-- Stripe Card Form -->
-                                                    <div id="stripe-form-{{ $index }}" class="mt-4 w-100" style="display: none;">
+                                                    <div id="stripe-form-{{ $index }}" class="mt-4 w-100"
+                                                        style="display: none;">
                                                         <div class="card">
                                                             <div class="card-body">
                                                                 <h5 class="card-title mb-4">Enter Card Details</h5>
                                                                 <form id="payment-form-{{ $index }}">
                                                                     <div class="mb-3">
-                                                                        <label for="card-element-{{ $index }}" class="form-label">Credit or debit card</label>
-                                                                        <div id="card-element-{{ $index }}" class="form-control">
+                                                                        <label for="card-element-{{ $index }}"
+                                                                            class="form-label">Credit or debit
+                                                                            card</label>
+                                                                        <div id="card-element-{{ $index }}"
+                                                                            class="form-control">
                                                                             <!-- Stripe Card Element will be inserted here -->
                                                                         </div>
-                                                                        <div id="card-errors-{{ $index }}" class="text-danger mt-2" role="alert"></div>
+                                                                        <div id="card-errors-{{ $index }}"
+                                                                            class="text-danger mt-2" role="alert">
+                                                                        </div>
                                                                     </div>
                                                                     <div class="d-flex gap-2">
-                                                                        <button type="submit" class="btn btn-primary" id="submit-button-{{ $index }}">
-                                                                            <span class="indicator-label">Pay Now</span>
-                                                                            <span class="indicator-progress" style="display: none;">
-                                                                                Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                        <button type="submit" class="btn btn-primary"
+                                                                            id="submit-button-{{ $index }}">
+                                                                            <span class="indicator-label">Pay
+                                                                                Now</span>
+                                                                            <span class="indicator-progress"
+                                                                                style="display: none;">
+                                                                                Please wait... <span
+                                                                                    class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                                                             </span>
                                                                         </button>
-                                                                        <button type="button" class="btn btn-light" onclick="hideStripeForm('{{ $index }}')">Cancel</button>
+                                                                        <button type="button" class="btn btn-light"
+                                                                            onclick="hideStripeForm('{{ $index }}')">Cancel</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -313,212 +338,242 @@
         <!--end::Pricing Section-->
     @endforeach
 
-    @push('scripts')
-        <script src="https://js.stripe.com/v3/"></script>
-        <script>
-            const stripe = Stripe('{{ config('services.stripe.key') }}');
-            const elements = stripe.elements();
-            let card;
-            let currentFormIndex = null;
-
-            // Create card element
-            function initializeCard() {
-                if (!card) {
-                    card = elements.create('card', {
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#32325d',
-                                '::placeholder': {
-                                    color: '#aab7c4'
-                                }
-                            },
-                            invalid: {
-                                color: '#fa755a',
-                                iconColor: '#fa755a'
-                            }
-                        },
-                        hidePostalCode: true
-                    });
-                }
-            }
-
-            // Show Stripe form
-            function showStripeForm(serviceId, index) {
-                // Hide all other forms first
-                document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
-                    form.style.display = 'none';
-                });
-
-                const form = document.getElementById(`stripe-form-${index}`);
-                form.style.display = 'block';
-
-                // Initialize card if not already done
-                initializeCard();
-
-                // Unmount from previous container if exists
-                if (currentFormIndex !== null) {
-                    card.unmount();
-                }
-
-                // Mount to new container
-                card.mount(`#card-element-${index}`);
-                currentFormIndex = index;
-
-                document.getElementById(`payment-form-${index}`).dataset.serviceId = serviceId;
-            }
-
-            // Hide Stripe form
-            function hideStripeForm(index) {
-                document.getElementById(`stripe-form-${index}`).style.display = 'none';
-                if (currentFormIndex === index) {
-                    card.unmount();
-                    currentFormIndex = null;
-                }
-            }
-
-            // Handle form submission
-            document.querySelectorAll('[id^="payment-form-"]').forEach(form => {
-                form.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-
-                    const index = this.id.split('-')[2];
-                    const submitButton = document.getElementById(`submit-button-${index}`);
-                    const serviceId = this.dataset.serviceId;
-
-                    // Disable submit button
-                    submitButton.disabled = true;
-                    submitButton.querySelector('.indicator-label').style.display = 'none';
-                    submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
-
-                    try {
-                        const response = await fetch('{{ route('service.payment.create') }}', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                'Accept': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                service_id: serviceId,
-                                payment_method: 'stripe'
-                            })
-                        });
-
-                        const data = await response.json();
-
-                        if (data.error) {
-                            throw new Error(data.error);
-                        }
-
-                        const { error } = await stripe.confirmCardPayment(data.clientSecret, {
-                            payment_method: {
-                                card: card,
-                                billing_details: {
-                                    name: '{{ auth()->user()->name }}',
-                                    email: '{{ auth()->user()->email }}'
-                                }
-                            }
-                        });
-
-                        if (error) {
-                            throw new Error(error.message);
-                        }
-
-                        window.location.href = '{{ route('service.payment.success') }}?payment_method=stripe&service_id=' + serviceId + '&paymentIntentId=' + data.paymentIntentId;
-                    } catch (error) {
-                        Swal.fire({
-                            text: error.message || 'An error occurred while processing your payment',
-                            icon: "error",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary",
-                            }
-                        });
-                    } finally {
-                        // Re-enable submit button
-                        submitButton.disabled = false;
-                        submitButton.querySelector('.indicator-label').style.display = 'inline-block';
-                        submitButton.querySelector('.indicator-progress').style.display = 'none';
-                    }
-                });
-            });
-
-            // Handle PayPal payment
-            async function initiatePayment(paymentMethod, serviceId) {
-                if (paymentMethod === 'stripe') {
-                    showStripeForm(serviceId);
-                    return;
-                }
-
-                try {
-                    const response = await fetch('{{ route('service.payment.create') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            service_id: serviceId,
-                            payment_method: paymentMethod
-                        })
-                    });
-
-                    const data = await response.json();
-
-                    if (data.error) {
-                        throw new Error(data.error);
-                    }
-
-                    window.location.href = data.approvalUrl;
-                } catch (error) {
-                    Swal.fire({
-                        text: error.message || 'An error occurred while processing your payment',
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary",
-                        }
-                    });
-                }
-            }
-
-            function handleBooking(index, serviceSlug) {
-                window.location.href = "{{ route('booking') }}?service=" + serviceSlug
-            }
-
-            // Auto-scroll to specific service when service parameter is provided
-            document.addEventListener('DOMContentLoaded', function() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const serviceParam = urlParams.get('service');
-
-                if (serviceParam) {
-                    // Find the service section with matching slug
-                    const serviceSections = document.querySelectorAll('.landing-light-bg');
-                    let targetSection = null;
-
-                    serviceSections.forEach(section => {
-                        const titleElement = section.querySelector('h1.fs-2hx');
-                        if (titleElement && titleElement.textContent.trim() === serviceParam) {
-                            targetSection = section;
-                        }
-                    });
-
-                    // Scroll to the target section if found
-                    if (targetSection) {
-                        setTimeout(() => {
-                            targetSection.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'center'
-                            });
-                        }, 1000);
-                    }
-                }
-            });
-        </script>
-    @endpush
 
 </x-landing-layout>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    const stripe = Stripe('{{ config('services.stripe.key') }}');
+    const elements = stripe.elements();
+    let card;
+    let currentFormIndex = null;
+
+    // Show success/error messages if they exist
+    document.addEventListener('DOMContentLoaded', function() {
+        @if (session('success'))
+            Swal.fire({
+                text: '{{ session('success') }}',
+                icon: "success",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                }
+            });
+        @endif
+
+        @if (session('error'))
+            Swal.fire({
+                text: '{{ session('error') }}',
+                icon: "error",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                }
+            });
+        @endif
+    });
+
+    // Create card element
+    function initializeCard() {
+        if (!card) {
+            card = elements.create('card', {
+                style: {
+                    base: {
+                        fontSize: '16px',
+                        color: '#32325d',
+                        '::placeholder': {
+                            color: '#aab7c4'
+                        }
+                    },
+                    invalid: {
+                        color: '#fa755a',
+                        iconColor: '#fa755a'
+                    }
+                },
+                hidePostalCode: true
+            });
+        }
+    }
+
+    // Show Stripe form
+    function showStripeForm(serviceId, index) {
+        // Hide all other forms first
+        document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
+            form.style.display = 'none';
+        });
+
+        const form = document.getElementById(`stripe-form-${index}`);
+        form.style.display = 'block';
+
+        // Initialize card if not already done
+        initializeCard();
+
+        // Unmount from previous container if exists
+        if (currentFormIndex !== null) {
+            card.unmount();
+        }
+
+        // Mount to new container
+        card.mount(`#card-element-${index}`);
+        currentFormIndex = index;
+
+        document.getElementById(`payment-form-${index}`).dataset.serviceId = serviceId;
+    }
+
+    // Hide Stripe form
+    function hideStripeForm(index) {
+        document.getElementById(`stripe-form-${index}`).style.display = 'none';
+        if (currentFormIndex === index) {
+            card.unmount();
+            currentFormIndex = null;
+        }
+    }
+
+    // Handle form submission
+    document.querySelectorAll('[id^="payment-form-"]').forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const index = this.id.split('-')[2];
+            const submitButton = document.getElementById(`submit-button-${index}`);
+            const serviceId = this.dataset.serviceId;
+
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.querySelector('.indicator-label').style.display = 'none';
+            submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
+
+            try {
+                const response = await fetch('{{ route('service.payment.create') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        service_id: serviceId,
+                        payment_method: 'stripe'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                const {
+                    error
+                } = await stripe.confirmCardPayment(data.clientSecret, {
+                    payment_method: {
+                        card: card,
+                        billing_details: {
+                            name: '{{ auth()->user()->name }}',
+                            email: '{{ auth()->user()->email }}'
+                        }
+                    }
+                });
+
+                if (error) {
+                    throw new Error(error.message);
+                }
+
+                window.location.href =
+                    '{{ route('service.payment.success') }}?payment_method=stripe&service_id=' +
+                    serviceId + '&paymentIntentId=' + data.paymentIntentId;
+            } catch (error) {
+                Swal.fire({
+                    text: error.message ||
+                        'An error occurred while processing your payment',
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Ok, got it!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    }
+                });
+            } finally {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+                submitButton.querySelector('.indicator-progress').style.display = 'none';
+            }
+        });
+    });
+
+    // Handle PayPal payment
+    async function initiatePayment(paymentMethod, serviceId) {
+        if (paymentMethod === 'stripe') {
+            showStripeForm(serviceId);
+            return;
+        }
+
+        try {
+            const response = await fetch('{{ route('service.payment.create') }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    service_id: serviceId,
+                    payment_method: paymentMethod
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
+            window.location.href = data.approvalUrl;
+        } catch (error) {
+            Swal.fire({
+                text: error.message || 'An error occurred while processing your payment',
+                icon: "error",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                }
+            });
+        }
+    }
+
+    function handleBooking(index, serviceSlug) {
+        window.location.href = "{{ route('booking') }}?service=" + serviceSlug
+    }
+
+    // Auto-scroll to specific service when service parameter is provided
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceParam = urlParams.get('service');
+
+        if (serviceParam) {
+            // Find the service section with matching slug
+            const serviceSections = document.querySelectorAll('.landing-light-bg');
+            let targetSection = null;
+
+            serviceSections.forEach(section => {
+                const titleElement = section.querySelector('h1.fs-2hx');
+                if (titleElement && titleElement.textContent.trim() === serviceParam) {
+                    targetSection = section;
+                }
+            });
+
+            // Scroll to the target section if found
+            if (targetSection) {
+                setTimeout(() => {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }, 1000);
+            }
+        }
+    });
+</script>

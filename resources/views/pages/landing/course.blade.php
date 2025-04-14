@@ -483,6 +483,33 @@
     let card;
     let currentFormIndex = null;
 
+    // Show success/error messages if they exist
+    document.addEventListener('DOMContentLoaded', function() {
+        @if(session('success'))
+            Swal.fire({
+                text: '{{ session('success') }}',
+                icon: "success",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                }
+            });
+        @endif
+
+        @if(session('error'))
+            Swal.fire({
+                text: '{{ session('error') }}',
+                icon: "error",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                }
+            });
+        @endif
+    });
+
     // Create card element
     function initializeCard() {
         if (!card) {
