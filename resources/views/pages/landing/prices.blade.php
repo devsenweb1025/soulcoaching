@@ -349,7 +349,7 @@
 
     // Show success/error messages if they exist
     document.addEventListener('DOMContentLoaded', function() {
-        @if (session('success'))
+        @if(session('success'))
             Swal.fire({
                 text: '{{ session('success') }}',
                 icon: "success",
@@ -361,7 +361,7 @@
             });
         @endif
 
-        @if (session('error'))
+        @if(session('error'))
             Swal.fire({
                 text: '{{ session('error') }}',
                 icon: "error",
@@ -373,6 +373,15 @@
             });
         @endif
     });
+
+    // Check if user is logged in
+    function checkAuth() {
+        @if(!auth()->check())
+            window.location.href = '{{ route('login') }}';
+            return false;
+        @endif
+        return true;
+    }
 
     // Create card element
     function initializeCard() {
@@ -398,6 +407,8 @@
 
     // Show Stripe form
     function showStripeForm(serviceId, index) {
+        if (!checkAuth()) return;
+
         // Hide all other forms first
         document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
             form.style.display = 'none';
@@ -470,8 +481,8 @@
                     payment_method: {
                         card: card,
                         billing_details: {
-                            name: '{{ auth()->user()->name }}',
-                            email: '{{ auth()->user()->email }}'
+                            name: '{{ isset(auth()->user()->name) ? auth()->user()->name : '' }}',
+                            email: '{{ isset(auth()->user()->email) ? auth()->user()->email : '' }}'
                         }
                     }
                 });
@@ -505,6 +516,8 @@
 
     // Handle PayPal payment
     async function initiatePayment(paymentMethod, serviceId) {
+        if (!checkAuth()) return;
+
         if (paymentMethod === 'stripe') {
             showStripeForm(serviceId);
             return;
@@ -544,8 +557,10 @@
         }
     }
 
+    // Handle booking
     function handleBooking(index, serviceSlug) {
-        window.location.href = "{{ route('booking') }}?service=" + serviceSlug
+        if (!checkAuth()) return;
+        window.location.href = "{{ route('booking') }}?service=" + serviceSlug;
     }
 
     // Auto-scroll to specific service when service parameter is provided

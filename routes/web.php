@@ -50,6 +50,8 @@ Route::get('/shop/search', [App\Http\Controllers\ShopController::class, 'search'
 Route::get('/shop/category/{category}', [App\Http\Controllers\ShopController::class, 'category'])->name('shop.category');
 Route::get('/shop/{slug}', [App\Http\Controllers\ShopController::class, 'show'])->name('shop.show');
 
+Route::get('/course', [CoursePaymentController::class, 'index'])->name('course');
+
 // require auth
 Route::middleware('auth')->group(function () {
     // Profile
@@ -89,7 +91,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/account/orders/track', [OrderController::class, 'track'])->name('account.orders.track');
 
     // Course Payment Routes
-    Route::get('/course', [CoursePaymentController::class, 'index'])->name('course');
     Route::get('/course/{id}', [CoursePaymentController::class, 'show'])->name('course.show');
     Route::post('/course/payment/create', [CoursePaymentController::class, 'createPaymentIntent'])->name('course.payment.create');
     Route::get('/course/payment/success', [CoursePaymentController::class, 'handleSuccess'])->name('course.payment.success');
