@@ -112,6 +112,9 @@
                                                         onclick="handleBooking({{ $index }}, '{{ $service->slug }}')">
                                                         Termin buchen
                                                     </button>
+                                                @elseif ($service->hotline_active)
+                                                    <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
+                                                        class="btn btn-primary">Hotline anrufen</a>
                                                 @elseif ($service->service_option === 'payment')
                                                     <div class="d-flex flex-column gap-3">
                                                         <button type="button" class="btn btn-primary"
@@ -168,9 +171,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                @elseif ($service->service_option === 'hotline' && $service->hotline_active)
-                                                    <a href="tel:{{ config('app.hotline_number') }}"
-                                                        class="btn btn-primary">Hotline anrufen</a>
                                                 @endif
                                                 <!--end::Select-->
                                             </div>
@@ -256,6 +256,9 @@
                                                         onclick="handleBooking({{ $index }}, '{{ $service->slug }}')">
                                                         Termin buchen
                                                     </button>
+                                                @elseif ($service->hotline_active)
+                                                    <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
+                                                        class="btn btn-primary">Hotline anrufen</a>
                                                 @elseif ($service->service_option === 'payment')
                                                     <div class="d-flex flex-column gap-3">
                                                         <button type="button" class="btn btn-primary"
@@ -313,9 +316,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                @elseif ($service->service_option === 'hotline' && $service->hotline_active)
-                                                    <a href="tel:{{ config('app.hotline_number') }}"
-                                                        class="btn btn-primary">Hotline anrufen</a>
                                                 @endif
                                                 <!--end::Select-->
                                             </div>
