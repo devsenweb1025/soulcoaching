@@ -17,6 +17,7 @@
             {{ $slot }}
             @include('layout.landing._footer')
             @include('layout.landing._audio')
+            @include('layout.landing._cart')
         </div>
         <!--end::Root-->
 
