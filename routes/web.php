@@ -11,6 +11,7 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ChatController;
+use App\Http\Controllers\Admin\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -93,7 +94,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('users', UsersController::class);
 
 // Admin Product Routes
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->names('products');
     // ... existing code ...
@@ -112,6 +113,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::get('/settings', [ChatController::class, 'settings'])->name('settings');
         Route::post('/settings/update', [ChatController::class, 'updateSettings'])->name('settings.update');
     });
+
+    // Booking Management Routes
+    Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+    Route::get('/bookings/events', [BookingController::class, 'getEvents'])->name('bookings.events');
+    Route::get('/bookings/invitees', [BookingController::class, 'getInvitees'])->name('bookings.invitees');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+    Route::put('/bookings/{booking}', [BookingController::class, 'update'])->name('bookings.update');
+    Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 });
 
 Route::resource('settings', SettingsController::class)->names('settings');
