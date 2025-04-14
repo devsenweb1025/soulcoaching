@@ -26,7 +26,7 @@ class OrderController extends Controller
             abort(403, 'Unauthorized access to this order.');
         }
 
-        $order->load('items');
+        $order->load('items')->with('items.options');
 
         return view('pages.landing.account.order-details', compact('order'));
     }

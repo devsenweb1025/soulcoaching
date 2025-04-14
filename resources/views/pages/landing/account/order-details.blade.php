@@ -64,15 +64,21 @@
                                                                 <tr>
                                                                     <td>
                                                                         <div class="d-flex align-items-center">
-                                                                            <div class="symbol symbol-50px me-5">
-                                                                                <img src="{{ asset('storage/' . $item->product->image) }}"
-                                                                                    class="object-fit-contain" alt="" />
-                                                                            </div>
-                                                                            <div
-                                                                                class="d-flex justify-content-start flex-column">
-                                                                                <span
-                                                                                    class="text-dark fw-bold text-hover-primary fs-6">{{ $item->product->name }}</span>
-                                                                            </div>
+                                                                            @if (isset($item->options['download_link']))
+                                                                                <a href="{{ $item->options['download_link'] }}"
+                                                                                    class="btn btn-primary">Download</a>
+                                                                            @else
+                                                                                <div class="symbol symbol-50px me-5">
+                                                                                    <img src="{{ asset('storage/' . $item->product->image) }}"
+                                                                                        class="object-fit-contain"
+                                                                                        alt="" />
+                                                                                </div>
+                                                                                <div
+                                                                                    class="d-flex justify-content-start flex-column">
+                                                                                    <span
+                                                                                        class="text-dark fw-bold text-hover-primary fs-6">{{ $item->product->name }}</span>
+                                                                                </div>
+                                                                            @endif
                                                                         </div>
                                                                     </td>
                                                                     <td>CHF {{ number_format($item->price, 2) }}</td>
