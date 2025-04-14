@@ -141,5 +141,48 @@ return array(
                 ),
             ),
         ),
+
+        // Services
+        'services' => array(
+            "breadcrumb-title" => "Services",
+            "icon" => '<i class="bi bi-briefcase fs-2x"></i>',
+            "classes" => array(
+                "item" => "py-2",
+                "link" => "menu-center",
+                "icon" => "me-0",
+            ),
+            "attributes" => array(
+                "item" => array(
+                    "data-kt-menu-trigger" => "click",
+                    "data-kt-menu-placement" => Theme::isRTL() ? "left-start" : "right-start",
+                ),
+                'link' => array(
+                    "data-bs-trigger" => "hover",
+                    "data-bs-dismiss" => "click",
+                    "data-bs-placement" => "right",
+                ),
+            ),
+            "arrow" => false,
+            "sub" => array(
+                "class" => "menu-sub-dropdown w-225px px-1 py-4",
+                "items" => array(
+                    array(
+                        'classes' => array('content' => ''),
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Services</span>',
+                    ),
+
+                    array(
+                        'title' => 'Overview',
+                        'path' => 'admin/services',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'title' => 'Create New',
+                        'path' => 'admin/services/create',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                ),
+            ),
+        ),
     ),
 );

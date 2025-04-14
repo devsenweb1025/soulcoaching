@@ -28,14 +28,6 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-        <a href="{{ route('settings.index') }}" class="menu-link px-5">
-            {{ __('My Profile') }}
-        </a>
-    </div>
-    <!--end::Menu item-->
-
-    <!--begin::Menu item-->
-    <div class="menu-item px-5">
         <a href="#" class="menu-link px-5" data-bs-toggle="tooltip" data-bs-placement="left" title="{{ __('Coming soon') }}">
             <span class="menu-text">{{ __('My Projects') }}</span>
             <span class="menu-badge">
@@ -191,14 +183,6 @@
             <!--end::Menu item-->
         </div>
         <!--end::Menu sub-->
-    </div>
-    <!--end::Menu item-->
-
-    <!--begin::Menu item-->
-    <div class="menu-item px-5 my-1">
-        <a href="{{ theme()->getPageUrl('settings.index') }}" class="menu-link px-5">
-            {{ __('Account Settings') }}
-        </a>
     </div>
     <!--end::Menu item-->
 

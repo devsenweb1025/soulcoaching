@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class LandingController extends Controller
 {
@@ -14,16 +15,6 @@ class LandingController extends Controller
     public function about()
     {
         return view("pages.landing.about");
-    }
-
-    public function services()
-    {
-        return view("pages.landing.services");
-    }
-
-    public function prices()
-    {
-        return view("pages.landing.prices");
     }
 
     public function course()

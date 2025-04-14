@@ -28,80 +28,7 @@
         </div>
         <!--end::Heading-->
     </div>
-    <!--end::Landing hero-->
 
-    @php
-        $services = [
-            [
-                'title' => 'Transformationscoaching',
-                'event' => 'transformationscoaching',
-                'description' =>
-                    'Egal, an welchem Punkt du gerade stehst, dieses Coaching ist die Lösung. Mit diesem Konzept spielt es keine Rolle, welche Herausforderung du gerade zu bewältigen hast, denn hier arbeiten wir mit einem eigenen Konzept, bei dem alle Bewusstseinsebenen integriert werden, damit du in einem Monat dein Ziel erreichst.',
-                'price' => 'CHF 2222.- / Monat<br>Vorteile:',
-                'image' => 'Trans.jpg',
-                'features' => [
-                    'Komplettes Konzept mit 70 Seiten Psychologischer und Energetischer Methodiken',
-                    'Schneller ans Ziel durch die Arbeit auf allen 5 Bewusstseinebenen',
-                    'Fairer Preis',
-                    'Wöchentlich 1x Zoom Call von einer Stunde mit mir',
-                    'Ich bin über den ganzen Monat für dich erreichbar',
-                    'Du möchtest das mit jemanden zusammen machen, dann buche die Gruppenbuchung',
-                ],
-                'button' => 'Jetzt Buchen!',
-                'button_link' => route('booking', ['event' => 'transformationscoaching']),
-            ],
-            [
-                'title' => 'Energetische Heilung für Mensch und Tier',
-                'event' => 'energetische-heilung-fur-mensch-und-tier',
-                'description' =>
-                    'Der Mensch sowie das Tier nehmen Energien von Orten, anderen Menschen, anderen Tieren auf wie ein Schwamm. Darum fühlst du dich unter Umständen als Beispiel müde, obwohl körperlich alles im grünen Bereich ist.
-                                            Unsere Energiezentren sollten darum regelmässig gereinigt und wieder gefüllt werden. Das gleiche gilt bei deinem Haustier. Du wirst sehen, mit der Energetischen Heilung lösen wir viele Herausforderungen wie Vertrauensmangel, Erschöpftheit, Müdigkeit uvm.',
-                'price' => 'CHF 111.- / Stunde<br>Vorteile:',
-                'image' => 'Energetische.png',
-                'features' => [
-                    'sofortige Wirkung',
-                    'sofortige Steigerung des Körperlichen und mentalen Wohlbefinden',
-                    'du und/ oder dein Tier fühlt euch wieder Vital und voller Power',
-                    'Krankheiten können nach mehreren Sitzungen verschwinden'
-                ],
-                'button' => 'Jetzt Buchen!',
-                'button_link' => route('booking', ['event' => 'energetische-heilung-fur-mensch-und-tier']),
-            ],
-            [
-                'title' => 'Tierkommunikation',
-                'event' => 'tierkommunikation',
-                'description' =>
-                    'Möchtest du wissen, was dein Tier dir mitteilen möchte – oder warum es sich gerade verändert verhält? Mit Hilfe von telepathischer Tierkommunikation nehme ich Kontakt zu deinem Tier auf, um Antworten, Wünsche und Gefühle sichtbar zu machen. Ob bei Verhaltensauffälligkeiten, gesundheitlichen Fragen oder zur Begleitung im Sterbeprozess: Ich helfe dir, die Verbindung zu deinem Tier zu stärken – liebevoll und intuitiv.',
-                'price' => 'CHF 77.- / pro Gespräch<br>Vorteile:',
-                'image' => 'Tier.png',
-                'features' => [
-                    'Du erhälst eine 1:1 Sprachaufnahme, wo ich 1:1 das was dein Tier sagt weitergebe',
-                    'Ich bin auch noch nach der Sitzung 1-2 Tage für Fragen erreichbar',
-                    'Die Bindung zu deinem Tier wird sofort gestärkt, weil dein Tier weiss, dass du es liebst und Kontakt aufgenommen hast'
-                ],
-                'button' => 'Jetzt Buchen!',
-                'button_link' => route('booking', ['event' => 'tierkommunikation']),
-            ],
-            [
-                'title' => 'Frag das Universum',
-                'description' =>
-                    'Du brauchst jetzt sofort eine Antwort vom Universum? Mit meiner spirituellen Hotline für Kartenlegen bekommst du intuitiv und direkt eine Legung am Telefon – ohne Wartezeit, liebevoll und klar geführt. Ob Liebe, Beruf oder Lebensweg: Die Lenormand-Kartenlegung gibt dir neue Einsichten genau dann, wenn du sie brauchst.',
-                'price' => 'CHF 2.50.- / min<br>Vorteile:',
-                'image' => 'Frag.jpg',
-                'features' => [
-                    'Sofortige Klarheit',
-                    'Direkter Kontakt',
-                    'Antwort auf konkrete Lebensfragen',
-                    'Nachhaltige weiterführende Lösung direkt bei mir',
-                    'Aktuelle Energietendenz, damit du deine nächsten Schritte planen kannst',
-                    'Sofortige und nachhaltige Lösung',
-                    'Aktuelle Energietendenz',
-                ],
-                'button' => 'Jetzt Anrufen',
-                'button_link' => route('services', ['scroll_to' => 'hotline']),
-            ],
-        ];
-    @endphp
 
     @foreach ($services as $index => $service)
         <!--begin::Pricing Section-->
@@ -114,18 +41,17 @@
                     <!--begin::Plans-->
                     <div class="d-flex flex-column pt-lg-20">
                         <!--begin::Heading-->
-                        <div class="mb-13 {{ $index % 2 == 0 ? 'text-start' : 'text-end' }}">
+                        <div class="mb-13 {{ $service->image_direction === 'right' ? 'text-start' : 'text-end' }}">
                             <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
-                                data-kt-scroll-offset="{default: 100, lg: 150}">{{ $service['title'] }}</h1>
-                            <div class="text-gray-600 fw-semibold fs-5">{{ $service['description'] }}</div>
+                                data-kt-scroll-offset="{default: 100, lg: 150}">{{ $service->title }}</h1>
+                            <div class="text-gray-600 fw-semibold fs-5">{{ $service->description }}</div>
                         </div>
                         <!--end::Heading-->
                         <!--begin::Pricing-->
                         <div class="text-start" id="kt_pricing">
                             <!--begin::Row-->
-                            <div
-                                class="row g-10 {{ $index % 2 == 0 ? 'flex-column-reverse flex-md-row' : 'flex-column flex-md-row' }}">
-                                @if ($index % 2 == 0)
+                            <div class="row g-10 {{ $service->image_direction === 'right' ? 'flex-column-reverse flex-md-row' : 'flex-column flex-md-row' }}">
+                                @if ($service->image_direction === 'right')
                                     <!--begin::Col-->
                                     <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="500">
@@ -135,42 +61,60 @@
                                                 <!--begin::Heading-->
                                                 <div class="mb-7 text-start">
                                                     <!--begin::Title-->
-                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service['title'] }}
-                                                    </h1>
+                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service->title }}</h1>
                                                     <!--end::Title-->
                                                     <!--begin::Price-->
                                                     <div class="text-start">
-                                                        <span
-                                                            class="fs-2x fw-bold text-primary">{!! $service['price'] !!}</span>
+                                                        <span class="fs-2x fw-bold text-primary">
+                                                            CHF {{ number_format($service->price, 2) }}.-
+                                                            @if($service->benefit_option === 'month')
+                                                                / Monat
+                                                            @elseif($service->benefit_option === 'hour')
+                                                                / Stunde
+                                                            @elseif($service->benefit_option === 'min')
+                                                                / Minute
+                                                            @elseif($service->benefit_option === 'per call')
+                                                                / pro Gespräch
+                                                            @endif
+                                                        </span>
+                                                    </div>
+                                                    <div class="text-start">
+                                                        <span class="fs-2x fw-bold text-primary">
+                                                            Vorteile:
+                                                        </span>
                                                     </div>
                                                     <!--end::Price-->
                                                 </div>
                                                 <!--end::Heading-->
                                                 <!--begin::Features-->
                                                 <div class="w-100 mb-10">
-                                                    @foreach ($service['features'] as $feature)
-                                                        <!--begin::Item-->
-                                                        <div class="d-flex flex-stack mb-5">
-                                                            <span
-                                                                class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
-                                                            <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                        </div>
-                                                        <!--end::Item-->
-                                                    @endforeach
+                                                    @if($service->features)
+                                                        @foreach ($service->features as $feature)
+                                                            <!--begin::Item-->
+                                                            <div class="d-flex flex-stack mb-5">
+                                                                <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>
+                                                            </div>
+                                                            <!--end::Item-->
+                                                        @endforeach
+                                                    @endif
                                                 </div>
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
-                                                @if ($service['title'] === 'Transformationscoaching')
+                                                @if ($service->service_option === 'booking')
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#bookingModal{{ $index }}">
-                                                        {{ $service['button'] }}
+                                                        Termin buchen
                                                     </button>
-                                                @else
-                                                    <a href="{{ $service['button_link'] }}"
-                                                        class="btn btn-primary">{{ $service['button'] }}</a>
+                                                @elseif ($service->service_option === 'payment')
+                                                    <a href="{{ route('payment') }}?service={{ $service->slug }}"
+                                                        class="btn btn-primary">Jetzt buchen</a>
+                                                @elseif ($service->service_option === 'hotline' && $service->hotline_active)
+                                                    <a href="tel:{{ config('app.hotline_number') }}"
+                                                        class="btn btn-primary">Hotline anrufen</a>
                                                 @endif
                                                 <!--end::Select-->
                                             </div>
@@ -182,7 +126,7 @@
                                     <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="500">
                                         <div class="w-100 h-300px h-md-100 object-fit-cover"
-                                            style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/prices/' . $service['image']) }})">
+                                            style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'landing/prices/default.jpg') }})">
                                         </div>
                                     </div>
                                     <!--end::Col-->
@@ -191,7 +135,7 @@
                                     <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="500">
                                         <div class="w-100 h-300px h-md-100 object-fit-cover"
-                                            style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/prices/' . $service['image']) }})">
+                                            style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'landing/prices/default.jpg') }})">
                                         </div>
                                     </div>
                                     <!--end::Col-->
@@ -204,42 +148,60 @@
                                                 <!--begin::Heading-->
                                                 <div class="mb-7 text-start">
                                                     <!--begin::Title-->
-                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service['title'] }}
-                                                    </h1>
+                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service->title }}</h1>
                                                     <!--end::Title-->
                                                     <!--begin::Price-->
                                                     <div class="text-start">
-                                                        <span
-                                                            class="fs-2x fw-bold text-primary">{!! $service['price'] !!}</span>
+                                                        <span class="fs-2x fw-bold text-primary">
+                                                            CHF {{ number_format($service->price, 2) }}
+                                                            @if($service->benefit_option === 'month')
+                                                                / Monat
+                                                            @elseif($service->benefit_option === 'hour')
+                                                                / Stunde
+                                                            @elseif($service->benefit_option === 'min')
+                                                                / Minute
+                                                            @elseif($service->benefit_option === 'per call')
+                                                                / pro Gespräch
+                                                            @endif
+                                                        </span>
+                                                    </div>
+                                                    <div class="text-start">
+                                                        <span class="fs-2x fw-bold text-primary">
+                                                            Vorteile:
+                                                        </span>
                                                     </div>
                                                     <!--end::Price-->
                                                 </div>
                                                 <!--end::Heading-->
                                                 <!--begin::Features-->
                                                 <div class="w-100 mb-10">
-                                                    @foreach ($service['features'] as $feature)
-                                                        <!--begin::Item-->
-                                                        <div class="d-flex flex-stack mb-5">
-                                                            <span
-                                                                class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
-                                                            <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                        </div>
-                                                        <!--end::Item-->
-                                                    @endforeach
+                                                    @if($service->features)
+                                                        @foreach ($service->features as $feature)
+                                                            <!--begin::Item-->
+                                                            <div class="d-flex flex-stack mb-5">
+                                                                <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>
+                                                            </div>
+                                                            <!--end::Item-->
+                                                        @endforeach
+                                                    @endif
                                                 </div>
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
-                                                @if ($service['title'] === 'Transformationscoaching')
+                                                @if ($service->service_option === 'booking')
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#bookingModal{{ $index }}">
-                                                        {{ $service['button'] }}
+                                                        Termin buchen
                                                     </button>
-                                                @else
-                                                    <a href="{{ $service['button_link'] }}"
-                                                        class="btn btn-primary">{{ $service['button'] }}</a>
+                                                @elseif ($service->service_option === 'payment')
+                                                    <a href="{{ route('payment') }}?service={{ $service->slug }}"
+                                                        class="btn btn-primary">Jetzt buchen</a>
+                                                @elseif ($service->service_option === 'hotline' && $service->hotline_active)
+                                                    <a href="tel:{{ config('app.hotline_number') }}"
+                                                        class="btn btn-primary">Hotline anrufen</a>
                                                 @endif
                                                 <!--end::Select-->
                                             </div>
@@ -261,13 +223,13 @@
         </div>
         <!--end::Pricing Section-->
 
-        @if ($service['title'] === 'Transformationscoaching')
+        @if ($service->service_option === 'booking')
             <!--begin::Modal-->
             <div class="modal fade" tabindex="-1" id="bookingModal{{ $index }}">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title">{{ $service['title'] }}</h3>
+                            <h3 class="modal-title">{{ $service->title }}</h3>
                             <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                                 aria-label="Close">
                                 <i class="ki-duotone ki-cross fs-1">
@@ -294,7 +256,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Abbrechen</button>
                             <button type="button" class="btn btn-primary"
-                                onclick="handleBooking({{ $index }}, '{{ $service['event'] }}')">Bestätigen</button>
+                                onclick="handleBooking({{ $index }}, '{{ $service->slug }}')">Bestätigen</button>
                         </div>
                     </div>
                 </div>
@@ -305,13 +267,12 @@
 
     @push('scripts')
         <script>
-            function handleBooking(index, serviceTitle) {
+            function handleBooking(index, serviceSlug) {
                 const bookingType = document.querySelector(`input[name="bookingType${index}"]:checked`).value;
-                const service = encodeURIComponent(serviceTitle);
                 if (bookingType === 'personal') {
-                    window.location.href = "{{ route('payment') }}?service=" + service;
+                    window.location.href = "{{ route('booking') }}?service=" + serviceSlug + "&type=personal";
                 } else {
-                    window.location.href = "{{ route('booking') }}?service=" + service;
+                    window.location.href = "{{ route('booking') }}?service=" + serviceSlug + "&type=group";
                 }
             }
 
@@ -321,7 +282,7 @@
                 const serviceParam = urlParams.get('service');
 
                 if (serviceParam) {
-                    // Find the service section with matching title
+                    // Find the service section with matching slug
                     const serviceSections = document.querySelectorAll('.landing-light-bg');
                     let targetSection = null;
 
