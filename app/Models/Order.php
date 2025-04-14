@@ -21,6 +21,7 @@ class Order extends Model
         'subtotal',
         'tax',
         'total',
+        'shipping_cost',
         'shipping_first_name',
         'shipping_last_name',
         'shipping_email',
@@ -38,6 +39,7 @@ class Order extends Model
         'subtotal' => 'decimal:2',
         'tax' => 'decimal:2',
         'total' => 'decimal:2',
+        'shipping_cost' => 'decimal:2',
     ];
 
     public function user(): BelongsTo
@@ -71,5 +73,10 @@ class Order extends Model
             'refunded' => '<span class="badge badge-light-info">Refunded</span>',
             default => '<span class="badge badge-light-dark">Unknown</span>',
         };
+    }
+
+    public function getGrandTotalAttribute()
+    {
+        return $this->total + $this->shipping_cost;
     }
 }
