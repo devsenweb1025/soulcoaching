@@ -22,7 +22,7 @@ var KTSignupFreeTrial = function() {
                                 message: 'Dies ist keine gültige Mailadresse',
                             },
 							notEmpty: {
-								message: 'Email address is required'
+								message: 'Mailadresse ist erforderlich'
 							}
 						}
 					},
@@ -32,7 +32,7 @@ var KTSignupFreeTrial = function() {
                                 message: 'The Passwort ist erforderlich'
                             },
                             callback: {
-                                message: 'Please enter valid password',
+                                message: 'Bitte ein gültiges Passwort eingeben.',
                                 callback: function(input) {
                                     if (input.value.length > 0) {
                                         return validatePassword();
@@ -44,7 +44,7 @@ var KTSignupFreeTrial = function() {
                     'confirm-password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password confirmation is required'
+                                message: 'Bitte bestätige dein Passwort.'
                             },
                             identical: {
                                 compare: function() {
@@ -57,7 +57,7 @@ var KTSignupFreeTrial = function() {
                     'toc': {
                         validators: {
                             notEmpty: {
-                                message: 'You must accept the terms and conditions'
+                                message: 'Bitte akzeptiere die AGB, um fortzufahren.'
                             }
                         }
                     }
@@ -110,7 +110,7 @@ var KTSignupFreeTrial = function() {
                         }).then(function (result) {
                             if (result.isConfirmed) {
                                 form.reset();  // reset form
-                                passwordMeter.reset();  // reset password meter
+                                passwordMeter.reset();  // Passwort zurücksetzen meter
 
                                 //form.submit(); // submit form
                                 var redirectUrl = form.getAttribute('data-kt-redirect-url');

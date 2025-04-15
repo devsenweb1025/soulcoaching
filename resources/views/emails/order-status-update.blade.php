@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Update</title>
+    <title>Bestellstatus Update</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,25 +13,30 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
         }
+
         .header {
             text-align: center;
             padding: 20px 0;
             border-bottom: 1px solid #eee;
         }
+
         .content {
             padding: 20px 0;
         }
+
         .update-details {
             margin: 20px 0;
             padding: 20px;
             background: #f9f9f9;
             border-radius: 5px;
         }
+
         .footer {
             text-align: center;
             padding: 20px 0;
@@ -40,44 +46,50 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
-            <h1>Order Update</h1>
+            <h1>Bestellstatus Update</h1>
         </div>
 
         <div class="content">
             <p>Dear {{ $order->shipping_first_name }} {{ $order->shipping_last_name }},</p>
 
-            <p>Your order #{{ $order->id }} has been updated:</p>
+            <p>Deine Bestellung #{{ $order->id }} wurde aktualisiert:</p>
 
             <div class="update-details">
-                @if($updateType === 'status')
-                    <h2>Order Status Update</h2>
-                    <p>Your order status has been updated from <strong>{{ $oldValue ?? 'pending' }}</strong> to <strong>{{ $newValue }}</strong>.</p>
+                @if ($updateType === 'status')
+                    <h2>Bestellstatus Update</h2>
+                    <p>Deine Bestellung wurde von <strong>{{ $oldValue ?? 'pending' }}</strong> zu
+                        <strong>{{ $newValue }}</strong> aktualisiert.</p>
                 @elseif($updateType === 'payment')
-                    <h2>Payment Status Update</h2>
-                    <p>Your payment status has been updated from <strong>{{ $oldValue ?? 'pending' }}</strong> to <strong>{{ $newValue }}</strong>.</p>
+                    <h2>Zahlungsstatus Update</h2>
+                    <p>Deine Zahlung wurde von <strong>{{ $oldValue ?? 'pending' }}</strong> zu
+                        <strong>{{ $newValue }}</strong> aktualisiert.</p>
                 @elseif($updateType === 'tracking')
-                    <h2>Tracking Information Update</h2>
-                    <p>Your order has been shipped with the following tracking information:</p>
-                    <p><strong>Tracking Number:</strong> {{ $newValue['tracking_number'] }}</p>
-                    @if($newValue['tracking_url'])
-                        <p><strong>Tracking URL:</strong> <a href="{{ $newValue['tracking_url'] }}">Click here to track your order</a></p>
+                    <h2>Sendungsnummer Update</h2>
+                    <p>Deine Bestellung wurde mit folgender Sendungsnummer versendet:</p>
+                    <p><strong>Sendungsnummer:</strong> {{ $newValue['tracking_number'] }}</p>
+                    @if ($newValue['tracking_url'])
+                        <p><strong>Tracking URL:</strong> <a href="{{ $newValue['tracking_url'] }}">Hier klicken um deine
+                                Bestellung zu verfolgen</a></p>
                     @endif
                 @endif
             </div>
 
-            <p>You can view your order details by logging into your account.</p>
+            <p>Du kannst deine Bestellungdetails ansehen, indem du dich in deinem Kundenkonto einloggst.</p>
 
-            <p>If you have any questions about your order, please contact us.</p>
+            <p>Wenn du Fragen zu deiner Bestellung hast, bitte kontaktiere uns.</p>
 
-            <p>Best regards,<br>Your Store Team</p>
+            <p>Mit freundlichen Grüssen,<br>Dein Seelenfluesterin Team</p>
         </div>
 
         <div class="footer">
-            <p>This is an automated message, please do not reply to this email.</p>
+            <p>Diese ist eine automatisch generierte Nachricht, bitte antworte nicht auf diese Mail.</p>
+            <p>&copy; {{ date('Y') }} Seelenfluesterin. Alle Rechte vorbehalten.</p>
         </div>
     </div>
 </body>
+
 </html>

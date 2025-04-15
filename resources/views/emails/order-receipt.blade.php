@@ -54,5 +54,6 @@
 
     <hr>
     <p>Diese E-Mail wurde automatisch generiert.</p>
+    <p>&copy; {{ date('Y') }} Seelenfluesterin. Alle Rechte vorbehalten.</p>
 </body>
 </html>

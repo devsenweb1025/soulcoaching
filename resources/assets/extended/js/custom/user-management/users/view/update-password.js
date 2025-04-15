@@ -28,7 +28,7 @@ var KTUsersUpdatePassword = function () {
                                 message: 'The Passwort ist erforderlich'
                             },
                             callback: {
-                                message: 'Please enter valid password',
+                                message: 'Bitte ein gültiges Passwort eingeben.',
                                 callback: function (input) {
                                     if (input.value.length > 0) {
                                         return validatePassword();
@@ -40,7 +40,7 @@ var KTUsersUpdatePassword = function () {
                     'confirm_password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password confirmation is required'
+                                message: 'Bitte bestätige dein Passwort.'
                             },
                             identical: {
                                 compare: function () {

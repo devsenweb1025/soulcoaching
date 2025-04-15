@@ -5,10 +5,10 @@ return array(
 
     // Product
     'product' => array(
-        'name' => 'Metronic',
-        'description' => 'Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme',
-        'preview' => 'https://preview.keenthemes.com/metronic8/laravel',
-        'home' => 'https://keenthemes.com/metronic',
+        'name' => 'magentix',
+        'description' => 'magentix - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme',
+        'preview' => 'https://preview.keenthemes.com/magentix8/laravel',
+        'home' => 'https://keenthemes.com/magentix',
         'purchase' => 'https://1.envato.market/EA4JP',
         'licenses' => array(
             'terms' => 'https://themeforest.net/licenses/standard',

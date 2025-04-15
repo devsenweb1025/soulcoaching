@@ -34,7 +34,7 @@ class CourseAccessEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Your Course Access Details - ' . $this->course->name,
+            subject: 'Zugangsdaten zu Deinem Kurs - ' . $this->course->name,
         );
     }
 

@@ -20,7 +20,7 @@ var KTAuthResetPassword = function() {
                                 message: 'Dies ist keine gültige Mailadresse',
                             },
 							notEmpty: {
-								message: 'Email address is required'
+								message: 'Mailadresse ist erforderlich'
 							}
 						}
 					}
@@ -58,7 +58,7 @@ var KTAuthResetPassword = function() {
 
                         // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                         Swal.fire({
-                            text: "We have send a password reset link to your email.",
+                            text: "Ein Link zum Zurücksetzen des Passworts wurde dir per E-Mail gesendet.",
                             icon: "success",
                             buttonsStyling: false,
                             confirmButtonText: "Weiter!",

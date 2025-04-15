@@ -18,14 +18,14 @@ var KTSignupGeneral = function() {
 					'first-name': {
 						validators: {
 							notEmpty: {
-								message: 'First Name is required'
+								message: 'Vorname ist erforderlich'
 							}
 						}
                     },
                     'last-name': {
 						validators: {
 							notEmpty: {
-								message: 'Last Name is required'
+								message: 'Name ist erforderlich'
 							}
 						}
 					},
@@ -36,7 +36,7 @@ var KTSignupGeneral = function() {
                                 message: 'Dies ist keine gültige Mailadresse',
                             },
 							notEmpty: {
-								message: 'Email address is required'
+								message: 'Mailadresse ist erforderlich'
 							}
 						}
 					},
@@ -46,7 +46,7 @@ var KTSignupGeneral = function() {
                                 message: 'The Passwort ist erforderlich'
                             },
                             callback: {
-                                message: 'Please enter valid password',
+                                message: 'Bitte ein gültiges Passwort eingeben.',
                                 callback: function(input) {
                                     if (input.value.length > 0) {
                                         return validatePassword();
@@ -58,7 +58,7 @@ var KTSignupGeneral = function() {
                     'confirm-password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password confirmation is required'
+                                message: 'Bitte bestätige dein Passwort.'
                             },
                             identical: {
                                 compare: function() {
@@ -71,7 +71,7 @@ var KTSignupGeneral = function() {
                     'toc': {
                         validators: {
                             notEmpty: {
-                                message: 'You must accept the terms and conditions'
+                                message: 'Bitte akzeptiere die AGB, um fortzufahren.'
                             }
                         }
                     }
@@ -115,7 +115,7 @@ var KTSignupGeneral = function() {
 
                         // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                         Swal.fire({
-                            text: "You have successfully reset your password!",
+                            text: "Du hast dein Passwort erfolgreich zurückgesetzt!",
                             icon: "success",
                             buttonsStyling: false,
                             confirmButtonText: "Weiter!",
@@ -125,7 +125,7 @@ var KTSignupGeneral = function() {
                         }).then(function (result) {
                             if (result.isConfirmed) {
                                 form.reset();  // reset form
-                                passwordMeter.reset();  // reset password meter
+                                passwordMeter.reset();  // Passwort zurücksetzen meter
                                 //form.submit();
 
                                 //form.submit(); // submit form

@@ -13,7 +13,7 @@
                     </div>
                 @elseif (session('status') === 'verification-link-sent')
                     <div class="alert alert-success">
-                        {{ __('A new verification link has been sent to your email address.') }}
+                        {{ __('Ein neuer Bestätigungslink wurde an deine E-Mail-Adresse gesendet.') }}
                     </div>
                 @elseif (request()->has('verified') && request()->verified == 1)
                     <div class="alert alert-success">

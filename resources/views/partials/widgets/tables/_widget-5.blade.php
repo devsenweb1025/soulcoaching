@@ -33,7 +33,7 @@ $tableRows = array(
                 'title' => 'New Users',
                 'description' => 'Awesome Users'
             ),
-            'technologies' => 'Laravel,Metronic',
+            'technologies' => 'Laravel,magentix',
             'status' => array(
                 'label' => 'Success',
                 'color' => 'primary'
@@ -137,7 +137,7 @@ $tableRows = array(
                 'title' => 'New Users',
                 'description' => 'Awesome Users'
             ),
-            'technologies' => 'Laravel,Metronic',
+            'technologies' => 'Laravel,magentix',
             'status' => array(
                 'label' => 'Success',
                 'color' => 'primary'

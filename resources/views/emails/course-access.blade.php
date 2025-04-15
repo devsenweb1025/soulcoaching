@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <title>Course Access Details</title>
+    <title>Details zum Kurszugang</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,15 +13,18 @@
             margin: 0 auto;
             padding: 20px;
         }
+
         .header {
             text-align: center;
             margin-bottom: 30px;
         }
+
         .content {
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 5px;
         }
+
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -30,6 +34,7 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+
         .footer {
             margin-top: 30px;
             text-align: center;
@@ -38,36 +43,39 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header">
-        <h1>Thank You for Your Purchase!</h1>
+        <h1>VIelen Dank für deinen EInkauf!</h1>
     </div>
 
     <div class="content">
-        <h2>Course: {{ $course->name }}</h2>
-        <p>Dear {{ $order->user->name }},</p>
-        <p>Thank you for purchasing our course. We're excited to have you on board!</p>
+        <h2>Kurs: {{ $course->name }}</h2>
+        <p>Lieber {{ $order->user->name }},</p>
+        <p>vielen Dank, dass du meinen Kurs gekauft hast. Ich freue mich sehr, dass du mit dabei bist!</p>
 
-        <p>Your order details:</p>
+        <p>Deine Bestelldetails:</p>
         <ul>
-            <li>Order Number: {{ $order->order_number }}</li>
-            <li>Course: {{ $course->name }}</li>
-            <li>Amount Paid: CHF {{ number_format($order->total, 2) }}</li>
-            <li>Payment Method: {{ ucfirst($order->payment_method) }}</li>
+            <li>Bestellnummer: {{ $order->order_number }}</li>
+            <li>Kurs: {{ $course->name }}</li>
+            <li>Bezahlt: CHF {{ number_format($order->total, 2) }}</li>
+            <li>Zahlungsmethode: {{ ucfirst($order->payment_method) }}</li>
         </ul>
 
-        <p>You can access your course materials by clicking the button below:</p>
+        <p>Du kannst deine Kursunterlagen herunterladen, indem du auf den folgenden Button klickst
+            oder dich in deinem Kundenkonto einloggst und unter „Meine Bestellungen“ nachschaust.</p>
 
         <div style="text-align: center;">
-            <a href="{{ $downloadLink }}" class="button">Download Course Materials</a>
+            <a href="{{ $downloadLink }}" class="button">Kursmaterialien herunterladen</a>
         </div>
 
-        <p>If you have any questions or need assistance, please don't hesitate to contact our support team.</p>
+        <p>Wenn du Fragen hast oder Hilfe benötigst, zögere bitte nicht, dich bei mir zu melden.</p>
     </div>
 
     <div class="footer">
-        <p>This is an automated message, please do not reply directly to this email.</p>
-        <p>&copy; {{ date('Y') }} Your Company Name. All rights reserved.</p>
+        <p>Das ist eine automatisch generierte Nachricht, bitte antworte nicht direkt auf diese Mail.</p>
+        <p>&copy; {{ date('Y') }} Seelenfluesterin. Alle Rechte vorbehalten.</p>
     </div>
 </body>
+
 </html>

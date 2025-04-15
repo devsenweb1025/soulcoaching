@@ -31,7 +31,7 @@ var KTSignupComingSoon = function() {
                                 message: 'Dies ist keine gültige Mailadresse',
                             },
 							notEmpty: {
-								message: 'Email address is required'
+								message: 'Mailadresse ist erforderlich'
 							}
 						}
 					}

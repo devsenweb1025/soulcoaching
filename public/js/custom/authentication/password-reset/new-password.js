@@ -20,7 +20,7 @@ var KTPasswordResetNewPassword = function () {
                                 message: 'The Passwort ist erforderlich'
                             },
                             callback: {
-                                message: 'Please enter valid password',
+                                message: 'Bitte ein gültiges Passwort eingeben.',
                                 callback: function (input) {
                                     if (input.value.length > 0) {
                                         return validatePassword();
@@ -32,7 +32,7 @@ var KTPasswordResetNewPassword = function () {
                     'confirm-password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password confirmation is required'
+                                message: 'Bitte bestätige dein Passwort.'
                             },
                             identical: {
                                 compare: function () {
@@ -45,7 +45,7 @@ var KTPasswordResetNewPassword = function () {
                     'toc': {
                         validators: {
                             notEmpty: {
-                                message: 'You must accept the terms and conditions'
+                                message: 'Bitte akzeptiere die AGB, um fortzufahren.'
                             }
                         }
                     }
@@ -83,7 +83,7 @@ var KTPasswordResetNewPassword = function () {
                         .then(function (response) {
                             // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                             Swal.fire({
-                                text: "You have successfully reset your password!",
+                                text: "Du hast dein Passwort erfolgreich zurückgesetzt!",
                                 icon: "success",
                                 buttonsStyling: false,
                                 confirmButtonText: "Weiter!",
@@ -96,7 +96,7 @@ var KTPasswordResetNewPassword = function () {
                                     form.querySelector('[name="email"]').value = "";
                                     form.querySelector('[name="password"]').value = "";
                                     form.querySelector('[name="confirm-password"]').value = "";
-                                    passwordMeter.reset();  // reset password meter
+                                    passwordMeter.reset();  // Passwort zurücksetzen meter
                                 }
                             });
                         })

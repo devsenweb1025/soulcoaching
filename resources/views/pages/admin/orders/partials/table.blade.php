@@ -91,7 +91,7 @@
     <div class="fs-6 fw-semibold text-gray-700">
         Showing {{ $orders->firstItem() ?? 0 }} to {{ $orders->lastItem() ?? 0 }} of {{ $orders->total() }} entries
     </div>
-    {{ $orders->links('vendor.pagination.metronic') }}
+    {{ $orders->links('vendor.pagination.index') }}
 </div>
 <!--end::Pagination-->
 

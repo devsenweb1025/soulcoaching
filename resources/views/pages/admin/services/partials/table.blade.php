@@ -136,6 +136,6 @@
         Showing {{ $services->firstItem() ?? 0 }} to {{ $services->lastItem() ?? 0 }} of {{ $services->total() }}
         entries
     </div>
-    {{ $services->links('vendor.pagination.metronic') }}
+    {{ $services->links('vendor.pagination.index') }}
 </div>
 <!--end::Pagination-->
