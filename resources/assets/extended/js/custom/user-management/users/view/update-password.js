@@ -18,14 +18,14 @@ var KTUsersUpdatePassword = function () {
                     'current_password': {
                         validators: {
                             notEmpty: {
-                                message: 'Current password is required'
+                                message: 'Aktuelles Passwort ist erforderlich '
                             }
                         }
                     },
                     'new_password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password is required'
+                                message: 'The Passwort ist erforderlich'
                             },
                             callback: {
                                 message: 'Please enter valid password',
@@ -46,7 +46,7 @@ var KTUsersUpdatePassword = function () {
                                 compare: function () {
                                     return form.querySelector('[name="new_password"]').value;
                                 },
-                                message: 'The password and its confirm are not the same'
+                                message: 'Die Passwörter stimmen nicht überein.'
                             }
                         }
                     },
@@ -81,14 +81,14 @@ var KTUsersUpdatePassword = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -115,14 +115,14 @@ var KTUsersUpdatePassword = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -146,7 +146,7 @@ var KTUsersUpdatePassword = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -157,12 +157,12 @@ var KTUsersUpdatePassword = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }

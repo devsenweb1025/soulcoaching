@@ -56,12 +56,12 @@ var KTEcommerceUpdateProfile = function () {
 
 						setTimeout(function() {
 							submitButton.removeAttribute('data-kt-indicator');
-							
+
 							Swal.fire({
 								text: "Your profile has been saved!",
 								icon: "success",
 								buttonsStyling: false,
-								confirmButtonText: "Ok, got it!",
+								confirmButtonText: "Weiter!",
 								customClass: {
 									confirmButton: "btn btn-primary"
 								}
@@ -70,14 +70,14 @@ var KTEcommerceUpdateProfile = function () {
 									// Enable submit button after loading
 									submitButton.disabled = false;
 								}
-							});							
-						}, 2000);   						
+							});
+						}, 2000);
 					} else {
 						Swal.fire({
-							text: "Sorry, looks like there are some errors detected, please try again.",
+							text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
 							icon: "error",
 							buttonsStyling: false,
-							confirmButtonText: "Ok, got it!",
+							confirmButtonText: "Weiter!",
 							customClass: {
 								confirmButton: "btn btn-primary"
 							}

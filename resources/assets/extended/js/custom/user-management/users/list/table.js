@@ -162,7 +162,7 @@ var KTUsersList = function () {
                             text: "You have deleted " + userName + "!.",
                             icon: "success",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn fw-bold btn-primary",
                             }
@@ -178,7 +178,7 @@ var KTUsersList = function () {
                             text: customerName + " was not deleted.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn fw-bold btn-primary",
                             }
@@ -231,7 +231,7 @@ var KTUsersList = function () {
                         text: "You have deleted all selected customers!.",
                         icon: "success",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-primary",
                         }
@@ -255,7 +255,7 @@ var KTUsersList = function () {
                         text: "Selected customers was not deleted.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-primary",
                         }

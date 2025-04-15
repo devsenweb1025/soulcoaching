@@ -187,7 +187,7 @@
                     text: data.message || 'Ihre Nachricht wurde erfolgreich gesendet!',
                     icon: "success",
                     buttonsStyling: false,
-                    confirmButtonText: "Ok, got it!",
+                    confirmButtonText: "Weiter!",
                     customClass: {
                         confirmButton: "btn btn-primary",
                     }
@@ -202,7 +202,7 @@
                 text: error.message || 'Ein Fehler ist aufgetreten',
                 icon: "error",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-primary",
                 }

@@ -88,7 +88,7 @@ var KTAppCalendar = function () {
                     endStr: arg.event.endStr,
                     allDay: arg.event.allDay
                 });
-                
+
                 handleViewEvent();
             },
 
@@ -371,12 +371,12 @@ var KTAppCalendar = function () {
                             // Simulate form submission
                             submitButton.removeAttribute('data-kt-indicator');
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "New event added to calendar!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -425,12 +425,12 @@ var KTAppCalendar = function () {
                             //form.submit(); // Submit form
                         }, 2000);
                     } else {
-                        // Show popup warning 
+                        // Show popup warning
                         Swal.fire({
-                            text: "Sorry, looks like there are some errors detected, please try again.",
+                            text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn btn-primary"
                             }
@@ -490,12 +490,12 @@ var KTAppCalendar = function () {
                             // Simulate form submission
                             submitButton.removeAttribute('data-kt-indicator');
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "New event added to calendar!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -547,12 +547,12 @@ var KTAppCalendar = function () {
                             //form.submit(); // Submit form
                         }, 2000);
                     } else {
-                        // Show popup warning 
+                        // Show popup warning
                         Swal.fire({
-                            text: "Sorry, looks like there are some errors detected, please try again.",
+                            text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn btn-primary"
                             }
@@ -612,13 +612,13 @@ var KTAppCalendar = function () {
                 if (result.value) {
                     calendar.getEventById(data.id).remove();
 
-                    viewModal.hide(); // Hide modal				
+                    viewModal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your event was not deleted!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -657,14 +657,14 @@ var KTAppCalendar = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -693,14 +693,14 @@ var KTAppCalendar = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -734,7 +734,7 @@ var KTAppCalendar = function () {
         });
     }
 
-    // Populate form 
+    // Populate form
     const populateForm = () => {
         eventName.value = data.eventName ? data.eventName : '';
         eventDescription.value = data.eventDescription ? data.eventDescription : '';

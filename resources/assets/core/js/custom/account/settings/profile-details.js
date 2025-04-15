@@ -112,7 +112,7 @@ var KTAccountSettingsProfileDetails = function () {
                         text: "Thank you! You've updated your basic info",
                         icon: "success",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-light-primary"
                         }
@@ -120,10 +120,10 @@ var KTAccountSettingsProfileDetails = function () {
 
                 } else {
                     swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-light-primary"
                         }
@@ -137,7 +137,7 @@ var KTAccountSettingsProfileDetails = function () {
     return {
         init: function () {
             form = document.getElementById('kt_account_profile_details_form');
-            
+
             if (!form) {
                 return;
             }

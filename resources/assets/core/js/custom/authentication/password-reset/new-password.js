@@ -13,16 +13,16 @@ var KTPasswordResetNewPassword = function() {
         validator = FormValidation.formValidation(
 			form,
 			{
-				fields: {					 
+				fields: {
                     'password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password is required'
+                                message: 'The Passwort ist erforderlich'
                             },
                             callback: {
                                 message: 'Please enter valid password',
                                 callback: function(input) {
-                                    if (input.value.length > 0) {        
+                                    if (input.value.length > 0) {
                                         return validatePassword();
                                     }
                                 }
@@ -38,7 +38,7 @@ var KTPasswordResetNewPassword = function() {
                                 compare: function() {
                                     return form.querySelector('[name="password"]').value;
                                 },
-                                message: 'The password and its confirm are not the same'
+                                message: 'Die Passwörter stimmen nicht überein.'
                             }
                         }
                     },
@@ -54,7 +54,7 @@ var KTPasswordResetNewPassword = function() {
 					trigger: new FormValidation.plugins.Trigger({
                         event: {
                             password: false
-                        }  
+                        }
                     }),
 					bootstrap: new FormValidation.plugins.Bootstrap5({
                         rowSelector: '.fv-row',
@@ -75,7 +75,7 @@ var KTPasswordResetNewPassword = function() {
                     // Show loading indication
                     submitButton.setAttribute('data-kt-indicator', 'on');
 
-                    // Disable button to avoid multiple click 
+                    // Disable button to avoid multiple click
                     submitButton.disabled = true;
 
                     // Simulate ajax request
@@ -91,26 +91,26 @@ var KTPasswordResetNewPassword = function() {
                             text: "You have successfully reset your password!",
                             icon: "success",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn btn-primary"
                             }
                         }).then(function (result) {
-                            if (result.isConfirmed) { 
-                                form.querySelector('[name="password"]').value= "";   
-                                form.querySelector('[name="confirm-password"]').value= "";      
+                            if (result.isConfirmed) {
+                                form.querySelector('[name="password"]').value= "";
+                                form.querySelector('[name="confirm-password"]').value= "";
                                 passwordMeter.reset();  // reset password meter
                                 //form.submit();
                             }
                         });
-                    }, 1500);   						
+                    }, 1500);
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary"
                         }
@@ -127,7 +127,7 @@ var KTPasswordResetNewPassword = function() {
     }
 
     var validatePassword = function() {
-        
+
 
         return  (passwordMeter.getScore() === 100);
     }

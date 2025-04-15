@@ -35,14 +35,14 @@ var KTSignupGeneral = function () {
                                 message: 'Email address is required'
                             },
                             emailAddress: {
-                                message: 'The value is not a valid email address'
+                                message: 'Dies ist keine gültige Mailadresse'
                             }
                         }
                     },
                     'password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password is required'
+                                message: 'The Passwort ist erforderlich'
                             },
                             callback: {
                                 message: 'Please enter valid password',
@@ -63,7 +63,7 @@ var KTSignupGeneral = function () {
                                 compare: function () {
                                     return form.querySelector('[name="password"]').value;
                                 },
-                                message: 'The password and its confirm are not the same'
+                                message: 'Die Passwörter stimmen nicht überein.'
                             }
                         }
                     },
@@ -112,7 +112,7 @@ var KTSignupGeneral = function () {
                                 text: "Du hast dich erfolgreich registriert! Bitte bestätige über das erhaltene Mail dein Konto.",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -138,7 +138,7 @@ var KTSignupGeneral = function () {
                                     text: dataMessage,
                                     icon: "error",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
+                                    confirmButtonText: "Weiter!",
                                     customClass: {
                                         confirmButton: "btn btn-primary"
                                     }
@@ -156,10 +156,10 @@ var KTSignupGeneral = function () {
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary"
                         }
