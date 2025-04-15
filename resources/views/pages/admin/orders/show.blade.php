@@ -120,16 +120,30 @@
                                             <tr>
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <div class="symbol symbol-50px me-3">
-                                                            <img src="{{ $item->product->image_url }}"
-                                                                alt="{{ $item->product->name }}">
-                                                        </div>
-                                                        <div class="d-flex flex-column">
-                                                            <span
-                                                                class="text-gray-800 mb-1">{{ $item->product->name }}</span>
-                                                            <span class="text-muted">SKU:
-                                                                {{ $item->product->sku }}</span>
-                                                        </div>
+                                                        @if ($item->product_type === 'course')
+                                                            <a href="{{ $item->options['download_link'] }}"
+                                                                class="text-dark fw-bold text-hover-primary fs-6">{{ $item->name }}</a>
+                                                        @elseif ($item->product_type === 'service')
+                                                            <div class="symbol symbol-50px me-3">
+                                                                <img src="{{ asset('storage/' . $item->service->image) }}"
+                                                                    alt="{{ $item->service->title }}">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <a href="{{ route('admin.services.edit', $item->service) }}"
+                                                                    class="text-dark fw-bold text-hover-primary fs-6">{{ $item->name }}</a>
+                                                            </div>
+                                                        @else
+                                                            <div class="symbol symbol-50px me-3">
+                                                                <img src="{{ $item->product->image_url }}"
+                                                                    alt="{{ $item->product->name }}">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span
+                                                                    class="text-gray-800 mb-1">{{ $item->product->name }}</span>
+                                                                <span class="text-muted">SKU:
+                                                                    {{ $item->product->sku }}</span>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </td>
                                                 <td>{{ $item->quantity }}</td>
