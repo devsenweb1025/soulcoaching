@@ -62,7 +62,7 @@ var KTAccountSettingsSigninMethods = function () {
                     emailaddress: {
                         validators: {
                             notEmpty: {
-                                message: 'Email is required'
+                                message: 'Email ist erforderlich'
                             },
                             emailAddress: {
                                 message: 'Dies ist keine gültige Mailadresse'
@@ -95,7 +95,7 @@ var KTAccountSettingsSigninMethods = function () {
             validation.validate().then(function (status) {
                 if (status == 'Valid') {
                     swal.fire({
-                        text: "Sent password reset. Please check your email",
+                        text: "E-Mail zum Zurücksetzen des Passworts wurde verschickt.",
                         icon: "success",
                         buttonsStyling: false,
                         confirmButtonText: "Weiter!",
@@ -183,7 +183,7 @@ var KTAccountSettingsSigninMethods = function () {
             validation.validate().then(function (status) {
                 if (status == 'Valid') {
                     swal.fire({
-                        text: "Sent password reset. Please check your email",
+                        text: "E-Mail zum Zurücksetzen des Passworts wurde verschickt.",
                         icon: "success",
                         buttonsStyling: false,
                         confirmButtonText: "Weiter!",

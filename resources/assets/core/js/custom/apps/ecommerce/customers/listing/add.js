@@ -26,7 +26,7 @@ var KTModalCustomersAdd = function () {
                     'email': {
 						validators: {
 							notEmpty: {
-								message: 'Customer email is required'
+								message: 'Customer Email ist erforderlich'
 							}
 						}
 					},

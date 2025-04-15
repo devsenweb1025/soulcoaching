@@ -63,7 +63,6 @@ var KTSigninGeneral = function () {
                     // Simulate ajax request
                     axios.post(submitButton.closest('form').getAttribute('action'), new FormData(form))
                         .then(function (response) {
-                            console.log(response.data);
                             // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                             Swal.fire({
                                 text: "Anmeldung erfolgreich!",
@@ -82,91 +81,25 @@ var KTSigninGeneral = function () {
                             });
                         })
                         .catch(function (error) {
-                            let errorMessage = '';
+                            let dataMessage = error.response.data.message;
+                            let dataErrors = error.response.data.errors;
 
-                            if (error.response) {
-                                if (error.response.status === 403 && error.response.data.status === 'error') {
-                                    // Handle unverified email case
-                                    errorMessage = error.response.data.message;
-
-                                    // Show resend verification email button
-                                    Swal.fire({
-                                        text: errorMessage,
-                                        icon: "error",
-                                        buttonsStyling: false,
-                                        showCancelButton: true,
-                                        confirmButtonText: "Resend Verification Email",
-                                        cancelButtonText: "Cancel",
-                                        customClass: {
-                                            confirmButton: "btn btn-primary",
-                                            cancelButton: "btn btn-light"
-                                        }
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            // Show loading state
-                                            Swal.fire({
-                                                title: "Sending...",
-                                                text: "Please wait while we send the verification email",
-                                                icon: "info",
-                                                showConfirmButton: false,
-                                                allowOutsideClick: false
-                                            });
-
-                                            // Send resend verification request
-                                            axios.post('/email/verification-notification', {
-                                                email: form.querySelector('[name="email"]').value
-                                            })
-                                            .then(function(response) {
-                                                Swal.fire({
-                                                    text: "Verification email has been sent! Please check your inbox.",
-                                                    icon: "success",
-                                                    buttonsStyling: false,
-                                                    confirmButtonText: "Weiter!",
-                                                    customClass: {
-                                                        confirmButton: "btn btn-primary"
-                                                    }
-                                                });
-                                            })
-                                            .catch(function(error) {
-                                                let resendErrorMessage = 'Failed to send verification email. Please try again.';
-                                                if (error.response && error.response.data.message) {
-                                                    resendErrorMessage = error.response.data.message;
-                                                }
-                                                Swal.fire({
-                                                    text: resendErrorMessage,
-                                                    icon: "error",
-                                                    buttonsStyling: false,
-                                                    confirmButtonText: "Weiter!",
-                                                    customClass: {
-                                                        confirmButton: "btn btn-primary"
-                                                    }
-                                                });
-                                            });
-                                        }
-                                    });
-                                    return; // Return early to prevent showing the default error message
-                                } else if (error.response.data.errors) {
-                                    // Handle validation errors
-                                    const errors = error.response.data.errors;
-                                    for (const field in errors) {
-                                        errorMessage += errors[field].join('\n') + '\n';
-                                    }
-                                } else if (error.response.data.message) {
-                                    errorMessage = error.response.data.message;
-                                }
-                            } else {
-                                errorMessage = 'An unexpected error occurred. Please try again.';
+                            for (const errorsKey in dataErrors) {
+                                if (!dataErrors.hasOwnProperty(errorsKey)) continue;
+                                dataMessage += "\r\n" + dataErrors[errorsKey];
                             }
 
-                            Swal.fire({
-                                text: errorMessage,
-                                icon: "error",
-                                buttonsStyling: false,
-                                confirmButtonText: "Weiter!",
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
-                                }
-                            });
+                            if (error.response) {
+                                Swal.fire({
+                                    text: dataMessage,
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Weiter!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+                            }
                         })
                         .then(function () {
                             // always executed

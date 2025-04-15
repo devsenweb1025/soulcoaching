@@ -50,8 +50,53 @@ var KTPasswordResetGeneral = function () {
                     // Disable button to avoid multiple click
                     submitButton.disabled = true;
 
-                    // Submit form
-                    form.submit();
+                    // Simulate ajax request
+                    axios.post(submitButton.closest('form').getAttribute('action'), new FormData(form))
+                        .then(function (response) {
+                            // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
+                            Swal.fire({
+                                text: "Please check your email to proceed with the password reset.",
+                                icon: "success",
+                                buttonsStyling: false,
+                                confirmButtonText: "Weiter!",
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            }).then(function (result) {
+                                if (result.isConfirmed) {
+                                    form.querySelector('[name="email"]').value = "";
+                                }
+                            });
+                        })
+                        .catch(function (error) {
+                            let dataMessage = error.response.data.message;
+                            let dataErrors = error.response.data.errors;
+
+                            for (const errorsKey in dataErrors) {
+                                if (!dataErrors.hasOwnProperty(errorsKey)) continue;
+                                dataMessage += "\r\n" + dataErrors[errorsKey];
+                            }
+
+                            if (error.response) {
+                                Swal.fire({
+                                    text: dataMessage,
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Weiter!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+                            }
+                        })
+                        .then(function () {
+                            // always executed
+                            // Hide loading indication
+                            submitButton.removeAttribute('data-kt-indicator');
+
+                            // Enable button
+                            submitButton.disabled = false;
+                        });
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({
