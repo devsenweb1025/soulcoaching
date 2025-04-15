@@ -74,6 +74,9 @@
                                         Hast Du ein grösseres Anliegen und möchtest ein Gespräch mit mir? Melde dich
                                         über das Kontaktformular und wir vereinbaren gemeinsam einen Termin.
                                     </div>
+                                    <a href="{{ route('booking') }}" class="btn btn-primary">
+                                        Termin buchen
+                                    </a>
                                 </div>
                             </div>
                         </div>

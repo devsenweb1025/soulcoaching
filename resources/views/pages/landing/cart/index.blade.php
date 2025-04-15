@@ -94,7 +94,7 @@
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             <div>
                                                                 <strong>Leichtes Paket</strong>
-                                                                <div class="text-muted small">For small items up to 2kg
+                                                                <div class="text-muted small">Für kleine Artikel bis zu 2kg
                                                                 </div>
                                                             </div>
                                                             <span class="text-primary">CHF 8.50</span>
@@ -109,7 +109,7 @@
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             <div>
                                                                 <strong>Mittleres Paket</strong>
-                                                                <div class="text-muted small">For medium items up to 5kg
+                                                                <div class="text-muted small">Für mittlere Artikel bis zu 5kg
                                                                 </div>
                                                             </div>
                                                             <span class="text-primary">CHF 11.50</span>
@@ -124,7 +124,7 @@
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             <div>
                                                                 <strong>Schweres Paket</strong>
-                                                                <div class="text-muted small">For large items up to 10kg
+                                                                <div class="text-muted small">Für grosse Artikel bis zu 10kg
                                                                 </div>
                                                             </div>
                                                             <span class="text-primary">CHF 20.50</span>

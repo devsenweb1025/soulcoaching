@@ -40,7 +40,7 @@
                         <!--end::Title-->
                         <!--begin::Text-->
                         <div class="fs-2 py-2">
-                            Inhaberin: Sarah Barone<br />
+                            Inhaberin: Sarah B.<br />
                             Buchenstrasse 2<br />
                             9322 Egnach<br />
                             Schweiz<br />
