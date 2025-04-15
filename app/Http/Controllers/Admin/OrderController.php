@@ -7,6 +7,8 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Mail\OrderStatusUpdateMail;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -53,10 +55,22 @@ class OrderController extends Controller
             'status' => 'required|in:pending,processing,shipped,delivered,cancelled,refunded'
         ]);
 
+        $oldStatus = $order->status;
         $order->update([
             'status' => $request->status,
             'notes' => $request->notes
         ]);
+
+        try {
+            Mail::to($order->shipping_email)->send(new OrderStatusUpdateMail(
+                $order,
+                'status',
+                $request->status,
+                $oldStatus
+            ));
+        } catch (\Exception $e) {
+            \Log::error('Failed to send order status update email: ' . $e->getMessage());
+        }
 
         return response()->json([
             'success' => true,
@@ -71,11 +85,22 @@ class OrderController extends Controller
             'payment_status' => 'required|in:pending,paid,failed,refunded'
         ]);
 
+        $oldPaymentStatus = $order->payment_status;
         $order->update([
             'payment_status' => $request->payment_status,
             'notes' => $request->notes
         ]);
 
+        try {
+            Mail::to($order->shipping_email)->send(new OrderStatusUpdateMail(
+                $order,
+                'payment',
+                $request->payment_status,
+                $oldPaymentStatus
+            ));
+        } catch (\Exception $e) {
+            \Log::error('Failed to send payment status update email: ' . $e->getMessage());
+        }
 
         return response()->json([
             'success' => true,
@@ -91,12 +116,31 @@ class OrderController extends Controller
             'tracking_url' => 'nullable|url'
         ]);
 
+        $oldTracking = [
+            'tracking_number' => $order->tracking_number,
+            'tracking_url' => $order->tracking_url
+        ];
+
         $order->update([
             'tracking_number' => $request->tracking_number,
             'tracking_url' => $request->tracking_url
         ]);
 
-        return  response()->json([
+        try {
+            Mail::to($order->shipping_email)->send(new OrderStatusUpdateMail(
+                $order,
+                'tracking',
+                [
+                    'tracking_number' => $request->tracking_number,
+                    'tracking_url' => $request->tracking_url
+                ],
+                $oldTracking
+            ));
+        } catch (\Exception $e) {
+            \Log::error('Failed to send tracking update email: ' . $e->getMessage());
+        }
+
+        return response()->json([
             'success' => true,
             'message' => 'Tracking information updated successfully.',
             'tracking_number' => $order->tracking_number,
