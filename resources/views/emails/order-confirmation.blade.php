@@ -61,14 +61,13 @@
         </div>
 
         <div class="content">
-            <p>Dear {{ $order['shipping']['first_name'] }} {{ $order['shipping']['last_name'] }},</p>
+            <p>Dear {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }},</p>
 
             <p>Thank you for your order. We have received it and are processing it. Here are your order details:</p>
 
             <div class="order-details">
                 <h2>Order #{{ $order['id'] }}</h2>
                 <p><strong>Order Date:</strong> {{ now()->format('F j, Y') }}</p>
-                <p><strong>Total Amount:</strong> CHF {{ number_format($order['total'], 2) }}</p>
             </div>
 
             <h3>Order Items</h3>
@@ -89,16 +88,30 @@
                         </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" style="text-align: right;"><strong>Subtotal:</strong></td>
+                        <td><strong>CHF {{ number_format($order['subtotal'], 2) }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: right;"><strong>Shipping Cost:</strong></td>
+                        <td><strong>CHF {{ number_format($order['shipping_cost'], 2) }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: right;"><strong>Total:</strong></td>
+                        <td><strong>CHF {{ number_format($order['total'], 2) }}</strong></td>
+                    </tr>
+                </tfoot>
             </table>
 
             <h3>Shipping Details</h3>
             <p>
-                {{ $order['shipping']['first_name'] }} {{ $order['shipping']['last_name'] }}<br>
-                {{ $order['shipping']['address'] }}<br>
-                {{ $order['shipping']['postal_code'] }} {{ $order['shipping']['city'] }}<br>
-                {{ $order['shipping']['country'] }}<br>
-                {{ $order['shipping']['email'] }}<br>
-                {{ $order['shipping']['phone'] }}
+                {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }}<br>
+                {{ $order['shipping_address'] }}<br>
+                {{ $order['shipping_postal_code'] }} {{ $order['shipping_city'] }}<br>
+                {{ $order['shipping_country'] }}<br>
+                {{ $order['shipping_email'] }}<br>
+                {{ $order['shipping_phone'] }}
             </p>
 
             <p>If you have any questions about your order, please contact us.</p>

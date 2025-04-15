@@ -34,6 +34,7 @@ Route::get('', [LandingController::class, 'index'])->name('home');
 Route::get('about', [LandingController::class, 'about'])->name('about');
 Route::get('online-course', [LandingController::class, 'course'])->name('course');
 Route::get('contact', [LandingController::class, 'contact'])->name('contact');
+Route::post('contact', [LandingController::class, 'contactSubmit'])->name('contact.submit');
 Route::get('medien', [LandingController::class, 'medien'])->name('medien');
 Route::get('impressum', [LandingController::class, 'impressum'])->name('impressum');
 Route::get('datenschutz', [LandingController::class, 'datenschutz'])->name('datenschutz');
@@ -135,5 +136,7 @@ Route::get('/service/{id}', [ServiceController::class, 'show'])->name('service.s
 Route::post('/service/payment/create', [ServiceController::class, 'createPaymentIntent'])->name('service.payment.create');
 Route::get('/service/payment/success', [ServiceController::class, 'handleSuccess'])->name('service.payment.success');
 Route::get('/service/payment/cancel', [ServiceController::class, 'handleCancel'])->name('service.payment.cancel');
+
+
 
 require __DIR__ . '/auth.php';

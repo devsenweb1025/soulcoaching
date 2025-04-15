@@ -14,6 +14,7 @@ use Stripe\PaymentIntent;
 use Stripe\Exception\ApiErrorException;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Mail\ServiceAccessEmail;
+use App\Mail\ServicePurchaseMail;
 
 class ServiceController extends Controller
 {
@@ -209,6 +210,17 @@ class ServiceController extends Controller
 
             // Send service access email
             Mail::to($user->email)->send(new ServiceAccessEmail($service, $order));
+
+            try {
+                Mail::to(config('mail.admin_email'))->send(new ServicePurchaseMail(
+                    $service,
+                    auth()->user(),
+                    $transactionId,
+                    $paymentMethod
+                ));
+            } catch (\Exception $e) {
+                \Log::error('Failed to send service purchase email: ' . $e->getMessage());
+            }
 
             DB::commit();
         } catch (\Exception $e) {
