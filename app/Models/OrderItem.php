@@ -31,11 +31,31 @@ class OrderItem extends Model
 
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 
     public function getTotalAttribute(): float
     {
         return $this->price * $this->quantity;
+    }
+
+    public function getProductTypeAttribute(): string
+    {
+        if (isset($this->options['download_link'])) {
+            return 'course';
+        } else if (isset($this->options['duration'])) {
+            return 'service';
+        }
+        return 'product';
+    }
+
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class, 'product_id', 'id');
+    }
+
+    public function service(): BelongsTo
+    {
+        return $this->belongsTo(Service::class, 'product_id', 'id');
     }
 }

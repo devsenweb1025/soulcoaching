@@ -64,12 +64,20 @@
                                                                 <tr>
                                                                     <td>
                                                                         <div class="d-flex align-items-center">
-                                                                            @if (isset($item->options['download_link']))
+                                                                            @if ($item->product_type === 'course')
                                                                                 <a href="{{ $item->options['download_link'] }}"
                                                                                     class="btn btn-primary">Download</a>
-                                                                            @elseif (isset($item->options['duration']))
-                                                                                <a href="{{ route('prices', ['service' => $item->name]) }}"
-                                                                                    class="text-dark fw-bold text-hover-primary fs-6">{{ $item->name }}</a>
+                                                                            @elseif ($item->product_type === 'service')
+                                                                                <div class="symbol symbol-50px me-5">
+                                                                                    <img src="{{ asset('storage/' . $item->service->image) }}"
+                                                                                        class="object-fit-contain"
+                                                                                        alt="" />
+                                                                                </div>
+                                                                                <div
+                                                                                    class="d-flex justify-content-start flex-column">
+                                                                                    <a href="{{ route('prices', ['service' => $item->name]) }}"
+                                                                                        class="text-dark fw-bold text-hover-primary fs-6">{{ $item->name }}</a>
+                                                                                </div>
                                                                             @else
                                                                                 <div class="symbol symbol-50px me-5">
                                                                                     <img src="{{ asset('storage/' . $item->product->image) }}"

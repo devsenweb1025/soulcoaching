@@ -40,7 +40,7 @@
                     </td>
                     <td>
                         <div class="d-flex justify-content-start flex-column">
-                            <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">
+                            <a href="{{ route('admin.services.edit', $service) }}" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">
                                 {{ $service->title }}
                             </a>
                             <span class="text-gray-400 fw-semibold d-block fs-7">
