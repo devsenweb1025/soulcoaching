@@ -301,8 +301,7 @@
                                                                     <div class="d-flex gap-2">
                                                                         <button type="submit" class="btn btn-primary"
                                                                             id="submit-button-{{ $index }}">
-                                                                            <span class="indicator-label">Pay
-                                                                                Now</span>
+                                                                            <span class="indicator-label">Jetzt bezahlen</span>
                                                                             <span class="indicator-progress"
                                                                                 style="display: none;">
                                                                                 Please wait... <span
@@ -310,7 +309,7 @@
                                                                             </span>
                                                                         </button>
                                                                         <button type="button" class="btn btn-light"
-                                                                            onclick="hideStripeForm('{{ $index }}')">Cancel</button>
+                                                                            onclick="hideStripeForm('{{ $index }}')">abbrechen</button>
                                                                     </div>
                                                                 </form>
                                                             </div>

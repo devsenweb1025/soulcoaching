@@ -66,16 +66,7 @@
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                             </i>
-                                            <span>Meine Orders</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('course') }}">
-                                            <i class="ki-duotone ki-teacher fs-2 me-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                            <span>Meine Kurse</span>
+                                            <span>Meine Bestellungen</span>
                                         </a>
                                     </li>
                                     <li>
@@ -242,16 +233,7 @@
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                         </i>
-                                        <span>Meine Orders</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('course') }}">
-                                        <i class="ki-duotone ki-teacher fs-2 me-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                        <span>Meine Kurse</span>
+                                        <span>Meine Bestellungen</span>
                                     </a>
                                 </li>
                                 <li>
