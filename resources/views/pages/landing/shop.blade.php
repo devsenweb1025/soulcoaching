@@ -40,14 +40,14 @@
                 <!--begin::Plans-->
                 <div class="d-flex flex-column pt-lg-20">
                     <!--begin::Pricing-->
-                    <div class="row g-5">
+                    <div class="row g-5" id="products-container">
                         @forelse ($products as $product)
                             <div class="col-lg-4 p-5" data-aos="fade-up" data-aos-easing="linear"
                                 data-aos-duration="500" data-aos-delay="500">
                                 <div class="card card-stretch shadow card-borderless mb-5">
                                     <div class="card-header py-5">
                                         <div class="w-100 h-200px"
-                                            style="background-repeat: no-repeat;background-size: contain;background-position:center;background-image: url({{ $product->image ? asset('storage/' . $product->image) : asset('assets/media/svg/files/blank-image.svg') }})">
+                                            style="background-repeat: no-repeat;background-size: contain;background-position:center;background-image: url({{ $product->image ? asset('storage/' . $product->image) : asset(theme()->getMediaUrlPath() . 'svg/files/blank-image.svg') }})">
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -129,6 +129,17 @@
                         @endforelse
                     </div>
                     <!--end::Pricing-->
+
+                    @if($products->hasMorePages())
+                        <div class="text-center mt-10">
+                            <button type="button" class="btn btn-primary" id="load-more-products">
+                                <span class="indicator-label">Mehr Produkte laden</span>
+                                <span class="indicator-progress" style="display: none;">
+                                    Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                        </div>
+                    @endif
                 </div>
                 <!--end::Plans-->
             </div>
@@ -279,6 +290,123 @@
                     });
             });
         });
+
+        // Load More Products functionality
+        const loadMoreButton = document.getElementById('load-more-products');
+        if (loadMoreButton) {
+            let currentPage = 1;
+            const productsContainer = document.getElementById('products-container');
+
+            loadMoreButton.addEventListener('click', function() {
+                const button = this;
+                const indicatorLabel = button.querySelector('.indicator-label');
+                const indicatorProgress = button.querySelector('.indicator-progress');
+
+                // Show loading state
+                indicatorLabel.style.display = 'none';
+                indicatorProgress.style.display = 'inline-block';
+                button.disabled = true;
+
+                // Increment page number
+                currentPage++;
+
+                // Fetch next page of products
+                fetch(`/shop?page=${currentPage}`, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.text())
+                .then(html => {
+                    // Create a temporary container to parse the HTML
+                    const tempContainer = document.createElement('div');
+                    tempContainer.innerHTML = html;
+
+                    // Get the products from the response
+                    const newProducts = tempContainer.querySelector('#products-container').innerHTML;
+
+                    // Append new products to the container
+                    productsContainer.insertAdjacentHTML('beforeend', newProducts);
+
+                    // Check if there are more pages
+                    const hasMorePages = tempContainer.querySelector('#load-more-products') !== null;
+                    if (!hasMorePages) {
+                        button.remove();
+                    }
+
+                    // Reinitialize AOS for new elements
+                    AOS.refresh();
+
+                    // Reattach event listeners to new product cards
+                    initializeNewProductCards();
+                })
+                .catch(error => {
+                    console.error('Error loading more products:', error);
+                    // Show error message
+                    const toast = document.createElement('div');
+                    toast.className = 'position-fixed top-0 end-0 p-3';
+                    toast.style.zIndex = '5';
+                    toast.innerHTML = `
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <i class="ki-duotone ki-cross-circle fs-2x text-danger me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <strong class="me-auto">Fehler</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Fehler beim Laden weiterer Produkte. Bitte versuchen Sie es später erneut.
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(toast);
+                    setTimeout(() => toast.remove(), 3000);
+                })
+                .finally(() => {
+                    // Reset button state
+                    indicatorLabel.style.display = 'inline-block';
+                    indicatorProgress.style.display = 'none';
+                    button.disabled = false;
+                });
+            });
+        }
+
+        function initializeNewProductCards() {
+            // Reinitialize show more/less functionality for new products
+            const newShowMoreLinks = document.querySelectorAll('.show-more-link:not(.initialized)');
+            newShowMoreLinks.forEach(link => {
+                link.classList.add('initialized');
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const descriptionText = this.previousElementSibling;
+                    const shortText = descriptionText.querySelector('.short-text');
+                    const fullText = descriptionText.querySelector('.full-text');
+                    const isExpanded = fullText.style.display !== 'none';
+
+                    if (isExpanded) {
+                        fullText.style.display = 'none';
+                        shortText.style.display = 'inline';
+                        this.textContent = 'Mehr anzeigen';
+                    } else {
+                        fullText.style.display = 'inline';
+                        shortText.style.display = 'none';
+                        this.textContent = 'Weniger anzeigen';
+                    }
+                });
+            });
+
+            // Reinitialize add to cart functionality for new products
+            const newAddToCartForms = document.querySelectorAll('.add-to-cart-form:not(.initialized)');
+            newAddToCartForms.forEach(form => {
+                form.classList.add('initialized');
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // ... existing add to cart form submission code ...
+                });
+            });
+        }
     });
 
     function incrementQuantity(button) {

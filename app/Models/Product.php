@@ -82,7 +82,7 @@ class Product extends Model
      */
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/' . $this->image) : asset('assets/media/svg/files/blank-image.svg');
+        return $this->image ? asset('storage/' . $this->image) : asset(theme()->getMediaUrlPath() . 'svg/files/blank-image.svg');
     }
 
     /**

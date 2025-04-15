@@ -16,7 +16,7 @@
                             <div class="col-lg-6">
                                 <div class="position-relative">
                                     <div class="w-100 h-400px"
-                                        style="background-repeat: no-repeat;background-size: contain;background-position:center;background-image: url({{ $product->image ? asset('storage/' . $product->image) : asset('assets/media/svg/files/blank-image.svg') }})">
+                                        style="background-repeat: no-repeat;background-size: contain;background-position:center;background-image: url({{ $product->image ? asset('storage/' . $product->image) : asset(theme()->getMediaUrlPath() . 'svg/files/blank-image.svg') }})">
                                     </div>
                                     @if($product->isOnSale())
                                         <div class="position-absolute top-0 end-0 m-2">
@@ -151,7 +151,7 @@
                                     <div class="card card-stretch shadow card-borderless">
                                         <div class="card-header py-5">
                                             <div class="w-100 h-200px"
-                                                style="background-repeat: no-repeat;background-size: contain;background-position:center;background-image: url({{ $relatedProduct->image ? asset('storage/' . $relatedProduct->image) : asset('assets/media/svg/files/blank-image.svg') }})">
+                                                style="background-repeat: no-repeat;background-size: contain;background-position:center;background-image: url({{ $relatedProduct->image ? asset('storage/' . $relatedProduct->image) : asset(theme()->getMediaUrlPath() . 'svg/files/blank-image.svg') }})">
                                             </div>
                                         </div>
                                         <div class="card-body">
