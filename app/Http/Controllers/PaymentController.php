@@ -33,7 +33,7 @@ class PaymentController extends Controller
             $shippingInfo = session('shipping_info');
             if (!$shippingInfo) {
                 return redirect()->route('cart.checkout')
-                    ->with('error', 'Shipping information not found. Please fill in the shipping details.');
+                    ->with('error', 'Versandinformationen wurden nicht gefunden. Bitte die Versandinformationen eingeben');
             }
 
             // Create PayPal order
@@ -105,17 +105,17 @@ class PaymentController extends Controller
                 }
                 return redirect()
                     ->route('cart.checkout')
-                    ->with('error', 'Something went wrong with PayPal.');
+                    ->with('error', 'Etwas lief schief mit PayPal.');
             } else {
                 return redirect()
                     ->route('cart.checkout')
-                    ->with('error', $response['message'] ?? 'Something went wrong with PayPal.');
+                    ->with('error', $response['message'] ?? 'Etwas lief schief mit PayPal.');
             }
         } catch (\Exception $e) {
             \Log::error('PayPal Payment Error: ' . $e->getMessage());
             return redirect()
                 ->route('cart.checkout')
-                ->with('error', 'Something went wrong with PayPal. Please try again.');
+                ->with('error', 'Etwas lief schief mit PayPal.');
         }
     }
 
@@ -132,7 +132,7 @@ class PaymentController extends Controller
 
             // Redirect to success page
             return redirect()->route('cart.checkout.success', ['order' => $order->id])
-                ->with('success', 'Payment completed successfully.');
+                ->with('success', 'Zahlung war erfolgreich');
         }
         try {
             $provider = $this->paypalProvider;
@@ -147,12 +147,12 @@ class PaymentController extends Controller
 
                 // Redirect to success page
                 return redirect()->route('payment.success')
-                    ->with('success', 'Payment completed successfully.')
+                    ->with('success', 'Zahlung war erfolgreich')
                     ->with('order', $order);
             }
 
             return redirect()->route('cart.checkout')
-                ->with('error', 'Payment was not successful.');
+                ->with('error', 'Zahlung war nicht erfolgreich.');
         } catch (\Exception $e) {
             return redirect()->route('cart.checkout')
                 ->with('error', $e->getMessage());
@@ -162,7 +162,7 @@ class PaymentController extends Controller
     public function handlePayPalCancel()
     {
         return redirect()->route('cart.checkout')
-            ->with('error', 'Payment was cancelled.');
+            ->with('error', 'Zahlung wurde abgebrochen');
     }
 
     public function handleSuccess()
@@ -178,14 +178,14 @@ class PaymentController extends Controller
 
         return view('pages.landing.cart.success', compact('order'))
             ->with('status', 'success')
-            ->with('message', 'Payment completed successfully! Your order has been processed.');
+            ->with('message', 'Die Zahlung war erfolgreich – deine Bestellung ist nun in Bearbeitung.');
     }
 
     public function handleFailed()
     {
         return view('pages.landing.cart.failed')
             ->with('status', 'error')
-            ->with('message', 'Payment failed. Please try again or contact support if the problem persists.');
+            ->with('message', 'Zahlung fehlgeschlagen. Bitte versuche es erneut oder kontaktiere mich');
     }
 
     private function createOrder($paymentMethod, $transactionId, $status = 'pending'): Order

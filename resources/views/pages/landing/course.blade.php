@@ -130,11 +130,11 @@
                                             <div id="stripe-form-1" class="mt-4 w-400px" style="display: none;">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <h5 class="card-title mb-4">Enter Card Details</h5>
+                                                        <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
                                                         <form id="payment-form-1">
                                                             <div class="mb-3">
-                                                                <label for="card-element-1" class="form-label">Credit or
-                                                                    debit card</label>
+                                                                <label for="card-element-1" class="form-label">Kredit-
+                                                                    oder Debitkarte</label>
                                                                 <div id="card-element-1" class="form-control">
                                                                     <!-- Stripe Card Element will be inserted here -->
                                                                 </div>
@@ -144,7 +144,7 @@
                                                             <div class="d-flex gap-2">
                                                                 <button type="submit" class="btn btn-primary"
                                                                     id="submit-button-1">
-                                                                    <span class="indicator-label">Pay Now</span>
+                                                                    <span class="indicator-label">Jetzt zahlen</span>
                                                                     <span class="indicator-progress"
                                                                         style="display: none;">
                                                                         Please wait... <span
@@ -152,7 +152,7 @@
                                                                     </span>
                                                                 </button>
                                                                 <button type="button" class="btn btn-light"
-                                                                    onclick="hideStripeForm(1)">Cancel</button>
+                                                                    onclick="hideStripeForm(1)">Aabbrechen</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -262,11 +262,11 @@
                                         <div id="stripe-form-2" class="mt-4 w-400px" style="display: none;">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h5 class="card-title mb-4">Enter Card Details</h5>
+                                                    <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
                                                     <form id="payment-form-2">
                                                         <div class="mb-3">
-                                                            <label for="card-element-2" class="form-label">Credit or
-                                                                debit card</label>
+                                                            <label for="card-element-2" class="form-label">Kredit-
+                                                                oder Debitkarte</label>
                                                             <div id="card-element-2" class="form-control">
                                                                 <!-- Stripe Card Element will be inserted here -->
                                                             </div>
@@ -276,7 +276,7 @@
                                                         <div class="d-flex gap-2">
                                                             <button type="submit" class="btn btn-primary"
                                                                 id="submit-button-2">
-                                                                <span class="indicator-label">Pay Now</span>
+                                                                <span class="indicator-label">Jetzt zahlen</span>
                                                                 <span class="indicator-progress"
                                                                     style="display: none;">
                                                                     Please wait... <span
@@ -284,7 +284,7 @@
                                                                 </span>
                                                             </button>
                                                             <button type="button" class="btn btn-light"
-                                                                onclick="hideStripeForm(2)">Cancel</button>
+                                                                onclick="hideStripeForm(2)">Aabbrechen</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -478,14 +478,16 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    const stripe = Stripe('{{ config('services.stripe.key') }}');
+    const stripe = Stripe('{{ config('services.stripe.key') }}', {
+        locale: 'de'
+    });
     const elements = stripe.elements();
     let card;
     let currentFormIndex = null;
 
     // Show success/error messages if they exist
     document.addEventListener('DOMContentLoaded', function() {
-        @if(session('success'))
+        @if (session('success'))
             Swal.fire({
                 text: '{{ session('success') }}',
                 icon: "success",
@@ -497,7 +499,7 @@
             });
         @endif
 
-        @if(session('error'))
+        @if (session('error'))
             Swal.fire({
                 text: '{{ session('error') }}',
                 icon: "error",
@@ -512,7 +514,7 @@
 
     // Check if user is logged in
     function checkAuth() {
-        @if(!auth()->check())
+        @if (!auth()->check())
             window.location.href = '{{ route('login') }}';
             return false;
         @endif
@@ -612,7 +614,9 @@
                     throw new Error(data.error);
                 }
 
-                const { error } = await stripe.confirmCardPayment(data.clientSecret, {
+                const {
+                    error
+                } = await stripe.confirmCardPayment(data.clientSecret, {
                     payment_method: {
                         card: card,
                         billing_details: {
@@ -626,10 +630,13 @@
                     throw new Error(error.message);
                 }
 
-                window.location.href = '{{ route('course.payment.success') }}?payment_method=stripe&course_id=' + courseId + '&paymentIntentId=' + data.paymentIntentId;
+                window.location.href =
+                    '{{ route('course.payment.success') }}?payment_method=stripe&course_id=' +
+                    courseId + '&paymentIntentId=' + data.paymentIntentId;
             } catch (error) {
                 Swal.fire({
-                    text: error.message || 'An error occurred while processing your payment',
+                    text: error.message ||
+                        'An error occurred while processing your payment',
                     icon: "error",
                     buttonsStyling: false,
                     confirmButtonText: "Weiter!",

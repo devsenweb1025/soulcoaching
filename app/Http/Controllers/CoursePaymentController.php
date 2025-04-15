@@ -91,7 +91,7 @@ class CoursePaymentController extends Controller
                     }
                 }
 
-                return response()->json(['error' => 'Failed to create PayPal order'], 500);
+                return response()->json(['error' => 'Erstellung der PayPal-Bestellung fehlgeschlagen'], 500);
             }
         } catch (\Exception $e) {
             Log::error('Course Payment Error: ' . $e->getMessage());
@@ -112,7 +112,7 @@ class CoursePaymentController extends Controller
 
                 if ($paymentIntent->status !== 'succeeded') {
                     return redirect()->route('course', ['id' => $courseId])
-                        ->with('error', 'Payment was not successful');
+                        ->with('error', 'Zahlung war nicht erfolgreich');
                 }
 
                 $this->createCourseOrder($courseId, 'stripe', $paymentIntent->id);
@@ -125,23 +125,23 @@ class CoursePaymentController extends Controller
                     $this->createCourseOrder($courseId, 'paypal', $response['id']);
                 } else {
                     return redirect()->route('course', ['id' => $courseId])
-                        ->with('error', 'Payment was not successful');
+                        ->with('error', 'Zahlung war nicht erfolgreich');
                 }
             }
 
             return redirect()->route('course', ['id' => $courseId])
-                ->with('success', 'Payment successful! You will receive an email with your course access details shortly.');
+                ->with('success', 'Zahlung war erfolgreich. Du erhältst demnächst eine Mail mit dem weiteren Vorgehen.');
         } catch (\Exception $e) {
             Log::error('Course Payment Success Error: ' . $e->getMessage());
             return redirect()->route('course', ['id' => $courseId])
-                ->with('error', 'An error occurred while processing your payment. Please contact support.');
+                ->with('error', 'AEs kam zu einem Fehler während der Verarbeitung deiner Zahlung. Bitte kontaktiere mich.  ');
         }
     }
 
     public function handleCancel()
     {
         return redirect()->route('course')
-            ->with('error', 'Payment was cancelled.');
+            ->with('error', 'Zahlung wurde abgebrochen');
     }
 
     private function createCourseOrder($courseId, $paymentMethod, $transactionId)
@@ -198,7 +198,7 @@ class CoursePaymentController extends Controller
                     $paymentMethod
                 ));
             } catch (\Exception $e) {
-                \Log::error('Failed to send course purchase email: ' . $e->getMessage());
+                \Log::error('Fehler beim Versand der E-Mail zum Kurskauf: ' . $e->getMessage());
             }
 
             DB::commit();
@@ -225,7 +225,7 @@ class CoursePaymentController extends Controller
             // Get the course materials
             $materials = $course->materials;
             if (empty($materials)) {
-                return redirect()->back()->with('error', 'No course materials available for download.');
+                return redirect()->back()->with('error', 'Keine Kursmaterialien zum herunterladen verfügbar');
             }
 
             // Create a zip file containing all course materials
@@ -245,7 +245,7 @@ class CoursePaymentController extends Controller
             return response()->download($zipName, $course->slug . '_materials.zip')->deleteFileAfterSend(true);
         } catch (\Exception $e) {
             Log::error('Course Download Error: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'An error occurred while downloading the course materials.');
+            return redirect()->back()->with('error', 'Ein Fehler kam zustande beim herunterladen der Kursmaterialien');
         }
     }
 

@@ -10,8 +10,7 @@
             <div class="container">
 
                 <!--begin::Heading-->
-                <div
-                    class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
+                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
                     <!--begin::Title-->
                     <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Bezahlung
                         <span
@@ -70,7 +69,8 @@
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Versand:</span>
-                                    <span class="text-dark fw-bold fs-5">CHF {{ number_format(session('shipping_cost', 11.50), 2) }}</span>
+                                    <span class="text-dark fw-bold fs-5">CHF
+                                        {{ number_format(session('shipping_cost', 11.5), 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Total:</span>
@@ -86,7 +86,7 @@
                     <div class="col-lg-8">
                         <div class="card shadow card-borderless mb-5">
                             <div class="card-header">
-                                <h3 class="card-title">Shipping & Payment Information</h3>
+                                <h3 class="card-title">Versand- & Zahlungsinformationen</h3>
                             </div>
                             <div class="card-body">
                                 @if (session('status'))
@@ -100,9 +100,9 @@
 
                                 <form id="payment-form" action="{{ route('payment.paypal.create') }}" method="POST">
                                     @csrf
-                                    <!--begin::Shipping Information-->
+                                    <!--begin::Versandinformationen-->
                                     <div class="mb-10">
-                                        <h4 class="mb-5">Shipping Information</h4>
+                                        <h4 class="mb-5">Versandinformationen</h4>
                                         <div class="row g-5">
                                             <div class="col-md-6">
                                                 <label class="required fw-semibold fs-6 mb-2">Vorname</label>
@@ -149,7 +149,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end::Shipping Information-->
+                                    <!--end::Versandinformationen-->
 
                                     <!--begin::Payment Information-->
                                     <div class="mb-10">
@@ -157,7 +157,7 @@
 
                                         <!--begin::Payment Methods-->
                                         <div class="mb-10">
-                                            <label class="required fw-semibold fs-6 mb-4">Select Payment Method</label>
+                                            <label class="required fw-semibold fs-6 mb-4">Zahlungsmethode auswählen</label>
                                             <div class="row g-5">
                                                 <!--begin::Stripe-->
                                                 <div class="col-md-4">
@@ -171,7 +171,8 @@
                                                                     {!! get_svg_icon('svg/card-logos/visa.svg') !!}
                                                                     {!! get_svg_icon('svg/card-logos/mastercard.svg') !!}
                                                                 </span>
-                                                                <span class="fw-semibold">Credit Card</span>
+                                                                <span class="fw-semibold">Kredit- oder
+                                                                    Debitkarte</span>
                                                             </div>
                                                         </label>
                                                     </div>
@@ -231,7 +232,8 @@
 
                                     <!--begin::Actions-->
                                     <div class="d-flex justify-content-end">
-                                        <a href="{{ route('cart.index') }}" class="btn btn-light me-3">Zurück zum Warenkorb</a>
+                                        <a href="{{ route('cart.index') }}" class="btn btn-light me-3">Zurück zum
+                                            Warenkorb</a>
                                         <button type="submit" class="btn btn-primary" id="submit-button">
                                             <span class="indicator-label">Bestellung abschliessen</span>
                                             <span class="indicator-progress">Please wait...
@@ -260,7 +262,9 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         // Initialize Stripe
-        const stripe = Stripe('{{ config('services.stripe.key') }}');
+        const stripe = Stripe('{{ config('services.stripe.key') }}', {
+            locale: 'de'
+        });
         const elements = stripe.elements();
 
         // Create card element
@@ -342,7 +346,7 @@
             });
 
             if (!shippingResponse.ok) {
-                throw new Error('Failed to store shipping information');
+                throw new Error('Failed to store Versandinformationen');
             }
 
             if (paymentMethod === 'stripe') {
@@ -357,14 +361,20 @@
                         }
                     });
 
-                    const { clientSecret } = await response.json();
+                    const {
+                        clientSecret
+                    } = await response.json();
 
                     // Confirm payment
-                    const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
+                    const {
+                        paymentIntent,
+                        error
+                    } = await stripe.confirmCardPayment(clientSecret, {
                         payment_method: {
                             card: card,
                             billing_details: {
-                                name: form.querySelector('[name="first_name"]').value + ' ' + form.querySelector('[name="last_name"]').value,
+                                name: form.querySelector('[name="first_name"]').value + ' ' + form
+                                    .querySelector('[name="last_name"]').value,
                                 email: form.querySelector('[name="email"]').value,
                                 phone: form.querySelector('[name="phone"]').value,
                                 address: {
@@ -404,7 +414,10 @@
                         }
                     });
 
-                    const { orderId, approvalUrl } = await response.json();
+                    const {
+                        orderId,
+                        approvalUrl
+                    } = await response.json();
                     console.log(response.json());
 
                     if (orderId && approvalUrl) {
@@ -414,7 +427,7 @@
                         // Redirect to PayPal approval URL
                         window.location.href = approvalUrl;
                     } else {
-                        throw new Error('Failed to create PayPal order');
+                        throw new Error('Erstellung der PayPal-Bestellung fehlgeschlagen');
                     }
                 } catch (error) {
                     console.log(error);
