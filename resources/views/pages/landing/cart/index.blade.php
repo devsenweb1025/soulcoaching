@@ -160,10 +160,10 @@
                                     <span class="path1"></span>
                                     <span class="path2"></span>
                                 </i>
-                                <h4>Your cart is empty</h4>
-                                <p class="text-muted">Looks like you haven't added any items to your cart yet.</p>
+                                <h4>Dein Warenkorb ist leer</h4>
+                                <p class="text-muted">Sieht so aus als hättest du noch keine Produkte im Warenkorb.</p>
                                 <a href="{{ route('shop.index') }}" class="btn btn-primary">
-                                    Start Shopping
+                                    Einkauf starten
                                 </a>
                             </div>
                         @endif
@@ -387,13 +387,13 @@
                                 // Update total
                                 document.querySelector('.cart-total').textContent =
                                     `Total: CHF ${(parseFloat(data.total) + parseFloat(data.shipping_cost)).toFixed(2)}`;
-                                showToast('Shipping option updated successfully');
+                                showToast('Versandoption aktualisiert erfolgreich');
                             } else {
                                 showToast(data.message, 'error');
                             }
                         })
                         .catch(error => {
-                            showToast('An error occurred while updating shipping option', 'error');
+                            showToast('Fehler beim Aktualisieren der Versandoption. Bitte versuchen Sie es erneut.', 'error');
                         });
                 });
             });

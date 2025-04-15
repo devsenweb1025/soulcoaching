@@ -26,10 +26,10 @@ class CartController extends Controller
                     return response()->json([
                         'success' => false,
                         'message' => 'Produkt nicht gefunden.',
-                        'error' => 'Product not found'
+                        'error' => 'Produkt nicht gefunden'
                     ], 404);
                 }
-                return redirect()->back()->with('error', 'Product not found.');
+                return redirect()->back()->with('error', 'Produkt nicht gefunden.');
             }
 
             $quantity = $request->input('quantity', 1);
@@ -61,7 +61,7 @@ class CartController extends Controller
                 ]);
             }
 
-            return redirect()->route('cart.index')->with('success', 'Product added to cart successfully!');
+            return redirect()->route('cart.index')->with('success', 'Produkt wurde erfolgreich zum Warenkorb hinzugefügt!');
         } catch (\Exception $e) {
             \Log::error('Cart Add Error: ' . $e->getMessage());
 
@@ -73,7 +73,7 @@ class CartController extends Controller
                 ], 500);
             }
 
-            return redirect()->back()->with('error', 'Failed to add product to cart.');
+            return redirect()->back()->with('error', 'Fehler beim Hinzufügen zum Warenkorb. Bitte versuchen Sie es erneut.');
         }
     }
 
@@ -91,7 +91,7 @@ class CartController extends Controller
                         'error' => 'Invalid quantity'
                     ], 400);
                 }
-                return redirect()->back()->with('error', 'Quantity must be at least 1.');
+                return redirect()->back()->with('error', 'Die Menge muss mindestens 1 betragen.');
             }
 
             // Update cart item
@@ -110,7 +110,7 @@ class CartController extends Controller
                 ]);
             }
 
-            return redirect()->route('cart.index')->with('success', 'Cart updated successfully!');
+            return redirect()->route('cart.index')->with('success', 'Warenkorb wurde aktualisiert!');
         } catch (\Exception $e) {
             \Log::error('Cart Update Error: ' . $e->getMessage());
 
@@ -122,7 +122,7 @@ class CartController extends Controller
                 ], 500);
             }
 
-            return redirect()->back()->with('error', 'Failed to update cart.');
+            return redirect()->back()->with('error', 'Fehler beim Aktualisieren des Warenkorbs. Bitte versuchen Sie es erneut.');
         }
     }
 
@@ -139,7 +139,7 @@ class CartController extends Controller
                         'error' => 'Item not found in cart'
                     ], 404);
                 }
-                return redirect()->back()->with('error', 'Item not found in cart.');
+                return redirect()->back()->with('error', 'Artikel nicht im Warenkorb gefunden.');
             }
 
             // Remove item from cart
@@ -156,7 +156,7 @@ class CartController extends Controller
                 ]);
             }
 
-            return redirect()->route('cart.index')->with('success', 'Item removed from cart successfully!');
+            return redirect()->route('cart.index')->with('success', 'Artikel wurde aus dem Warenkorb entfernt!');
         } catch (\Exception $e) {
             \Log::error('Cart Remove Error: ' . $e->getMessage());
 
@@ -168,7 +168,7 @@ class CartController extends Controller
                 ], 500);
             }
 
-            return redirect()->back()->with('error', 'Failed to remove item from cart.');
+            return redirect()->back()->with('error', 'Fehler beim Entfernen des Artikels. Bitte versuchen Sie es erneut.');
         }
     }
 
@@ -187,7 +187,7 @@ class CartController extends Controller
                 ]);
             }
 
-            return redirect()->route('cart.index')->with('success', 'Cart cleared successfully!');
+            return redirect()->route('cart.index')->with('success', 'Warenkorb wurde geleert!');
         } catch (\Exception $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -197,14 +197,14 @@ class CartController extends Controller
                 ], 500);
             }
 
-            return redirect()->back()->with('error', 'Failed to clear cart.');
+            return redirect()->back()->with('error', 'Fehler beim Leeren des Warenkorbs. Bitte versuchen Sie es erneut.');
         }
     }
 
     public function checkout()
     {
         if (Cart::count() === 0) {
-            return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
+            return redirect()->route('cart.index')->with('error', 'Dein Warenkorb ist leer.');
         }
 
         return view('pages.landing.cart.checkout');
@@ -303,7 +303,7 @@ class CartController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Shipping option updated successfully',
+            'message' => 'Versandoption aktualisiert erfolgreich',
             'shipping_cost' => $request->shipping_cost,
             'total' => Cart::total()
         ]);

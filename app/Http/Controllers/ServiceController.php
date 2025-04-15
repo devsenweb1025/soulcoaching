@@ -109,7 +109,7 @@ class ServiceController extends Controller
                     }
                 }
 
-                return response()->json(['error' => 'Failed to create PayPal order'], 500);
+                return response()->json(['error' => 'Erstellung der PayPal-Bestellung fehlgeschlagen'], 500);
             }
         } catch (\Exception $e) {
             Log::error('Service Payment Error: ' . $e->getMessage());
@@ -130,7 +130,7 @@ class ServiceController extends Controller
 
                 if ($paymentIntent->status !== 'succeeded') {
                     return redirect()->route('prices')
-                        ->with('error', 'Payment was not successful');
+                        ->with('error', 'Zahlung war nicht erfolgreich');
                 }
 
                 $this->createServiceOrder($serviceId, 'stripe', $paymentIntent->id);
@@ -143,23 +143,23 @@ class ServiceController extends Controller
                     $this->createServiceOrder($serviceId, 'paypal', $response['id']);
                 } else {
                     return redirect()->route('prices')
-                        ->with('error', 'Payment was not successful');
+                        ->with('error', 'Zahlung war nicht erfolgreich');
                 }
             }
 
             return redirect()->route('prices')
-                ->with('success', 'Payment successful! You will receive an email with your service details shortly.');
+                ->with('success', 'Zahlung war erfolgreich. Du erhältst demnächst eine Mail mit dem weiteren Vorgehen.');
         } catch (\Exception $e) {
             Log::error('Service Payment Success Error: ' . $e->getMessage());
             return redirect()->route('prices')
-                ->with('error', 'An error occurred while processing your payment. Please contact support.');
+                ->with('error', 'AEs kam zu einem Fehler während der Verarbeitung deiner Zahlung. Bitte kontaktiere mich.  ');
         }
     }
 
     public function handleCancel()
     {
         return redirect()->route('prices')
-            ->with('error', 'Payment was cancelled.');
+            ->with('error', 'Zahlung wurde abgebrochen');
     }
 
     private function createServiceOrder($serviceId, $paymentMethod, $transactionId)
@@ -219,7 +219,7 @@ class ServiceController extends Controller
                     $paymentMethod
                 ));
             } catch (\Exception $e) {
-                \Log::error('Failed to send service purchase email: ' . $e->getMessage());
+                \Log::error('Fehler beim Versand der E-Mail zum Servicekauf ' . $e->getMessage());
             }
 
             DB::commit();

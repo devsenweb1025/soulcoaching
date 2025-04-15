@@ -23,7 +23,7 @@ class StripeController extends Controller
 
             if (!$shippingInfo) {
                 return response()->json([
-                    'error' => 'Shipping information not found. Please fill in the shipping details.'
+                    'error' => 'Versandinformationen wurden nicht gefunden. Bitte die Versandinformationen eingeben'
                 ], 400);
             }
 
@@ -62,21 +62,21 @@ class StripeController extends Controller
             $paymentIntentId = $request->input('payment_intent');
 
             if (!$paymentIntentId) {
-                return redirect()->route('cart.checkout')->with('error', 'Invalid payment intent');
+                return redirect()->route('cart.checkout')->with('error', 'Zahlungsvorgang ungültig');
             }
 
             Stripe::setApiKey(config('services.stripe.secret'));
             $paymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
             if ($paymentIntent->status !== 'succeeded') {
-                return redirect()->route('cart.checkout')->with('error', 'Payment was not successful');
+                return redirect()->route('cart.checkout')->with('error', 'Zahlung war nicht erfolgreich');
             }
 
             // Get shipping information from session
             $shippingInfo = session()->get('shipping_info');
 
             if (!$shippingInfo) {
-                return redirect()->route('cart.checkout')->with('error', 'Shipping information not found');
+                return redirect()->route('cart.checkout')->with('error', 'Versandinformation nicht gefunden');
             }
 
             // Start transaction
@@ -136,11 +136,11 @@ class StripeController extends Controller
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error('Order Creation Error: ' . $e->getMessage());
-                return redirect()->route('cart.checkout')->with('error', 'Error creating order. Please contact support.');
+                return redirect()->route('cart.checkout')->with('error', 'Fehler beim erstellen der Bestellung. Bitte melde dich bei mir');
             }
         } catch (ApiErrorException $e) {
             Log::error('Stripe Payment Verification Error: ' . $e->getMessage());
-            return redirect()->route('cart.checkout')->with('error', 'Error verifying payment. Please contact support.');
+            return redirect()->route('cart.checkout')->with('error', 'Fehler beim verifizieren der Zahlung. Bitte kontaktiere mich');
         }
     }
 }

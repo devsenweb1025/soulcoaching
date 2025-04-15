@@ -140,12 +140,12 @@
                                                         style="display: none;">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h5 class="card-title mb-4">Enter Card Details</h5>
+                                                                <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
                                                                 <form id="payment-form-{{ $index }}">
                                                                     <div class="mb-3">
                                                                         <label for="card-element-{{ $index }}"
-                                                                            class="form-label">Credit or debit
-                                                                            card</label>
+                                                                            class="form-label">Kredit- oder
+                                                                            Debitkarte</label>
                                                                         <div id="card-element-{{ $index }}"
                                                                             class="form-control">
                                                                             <!-- Stripe Card Element will be inserted here -->
@@ -157,7 +157,7 @@
                                                                     <div class="d-flex gap-2">
                                                                         <button type="submit" class="btn btn-primary"
                                                                             id="submit-button-{{ $index }}">
-                                                                            <span class="indicator-label">Pay Now</span>
+                                                                            <span class="indicator-label">Jetzt zahlen</span>
                                                                             <span class="indicator-progress"
                                                                                 style="display: none;">
                                                                                 Please wait... <span
@@ -165,7 +165,7 @@
                                                                             </span>
                                                                         </button>
                                                                         <button type="button" class="btn btn-light"
-                                                                            onclick="hideStripeForm('{{ $index }}')">Cancel</button>
+                                                                            onclick="hideStripeForm('{{ $index }}')">Aabbrechen</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -284,12 +284,12 @@
                                                         style="display: none;">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h5 class="card-title mb-4">Enter Card Details</h5>
+                                                                <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
                                                                 <form id="payment-form-{{ $index }}">
                                                                     <div class="mb-3">
                                                                         <label for="card-element-{{ $index }}"
-                                                                            class="form-label">Credit or debit
-                                                                            card</label>
+                                                                            class="form-label">Kredit- oder
+                                                                            Debitkarte</label>
                                                                         <div id="card-element-{{ $index }}"
                                                                             class="form-control">
                                                                             <!-- Stripe Card Element will be inserted here -->
@@ -342,14 +342,16 @@
 </x-landing-layout>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    const stripe = Stripe('{{ config('services.stripe.key') }}');
+    const stripe = Stripe('{{ config('services.stripe.key') }}', {
+        locale: 'de'
+    });
     const elements = stripe.elements();
     let card;
     let currentFormIndex = null;
 
     // Show success/error messages if they exist
     document.addEventListener('DOMContentLoaded', function() {
-        @if(session('success'))
+        @if (session('success'))
             Swal.fire({
                 text: '{{ session('success') }}',
                 icon: "success",
@@ -361,7 +363,7 @@
             });
         @endif
 
-        @if(session('error'))
+        @if (session('error'))
             Swal.fire({
                 text: '{{ session('error') }}',
                 icon: "error",
@@ -376,7 +378,7 @@
 
     // Check if user is logged in
     function checkAuth() {
-        @if(!auth()->check())
+        @if (!auth()->check())
             window.location.href = '{{ route('login') }}';
             return false;
         @endif
