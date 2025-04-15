@@ -57,7 +57,7 @@
 
 <body>
     <div class="header">
-        <h1>Vielen Dank für Ihre Buchung!</h1>
+        <h1>Vielen Dank für Deine Buchung!</h1>
     </div>
 
     <div class="content">
