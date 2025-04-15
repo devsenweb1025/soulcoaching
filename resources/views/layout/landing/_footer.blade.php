@@ -125,10 +125,10 @@
             <!--end::Row-->
             <!--begin::Row-->
             <div class="row mb-5">
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <div class="text-gray-600 fs-5">
                         <span class="text-gray-600">Website wurde erstellt von </span>
-                        <a href="https://magentix.ch" target="_blank" class="text-gray-600 text-hover-white">MAGENTIX</a>
+                        <a href="https://magentix.ch" target="_blank" class="text-gray-800 text-hover-white">MAGENTIX</a>
                     </div>
                 </div>
             </div>
