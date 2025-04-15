@@ -67,7 +67,7 @@
 
         <div class="details">
             <h3>Buchungsdetails:</h3>
-            <p><strong>Dienstleistung:</strong> {{ $service->name }}</p>
+            <p><strong>Dienstleistung:</strong> {{ $service->title }}</p>
             <p><strong>Bestellnummer:</strong> {{ $order->order_number }}</p>
             <p><strong>Betrag bezahlt:</strong> CHF {{ number_format($order->total, 2) }}</p>
             <p><strong>Zahlungsmethode:</strong> {{ ucfirst($order->payment_method) }}</p>

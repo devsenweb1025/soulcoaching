@@ -30,7 +30,7 @@ class ServiceAccessEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Buchungsbestätigung - ' . $this->service->name,
+            subject: 'Buchungsbestätigung - ' . $this->service->title,
         );
     }
 
