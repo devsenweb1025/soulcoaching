@@ -5,7 +5,7 @@
         <!--begin::Container-->
         <div class="container">
             <!--begin::Row-->
-            <div class="row py-10 py-lg-20">
+            <div class="row py-10 py-lg-10">
                 <div class="col-lg-2 mb-10 mb-lg-0 p-1 p-md-10">
                     <div class="d-flex align-items-center justify-content-center order-2 order-md-1">
                         <!--begin::Logo-->
@@ -121,6 +121,16 @@
                     <!--end::Block-->
                 </div>
                 <!--end::Col-->
+            </div>
+            <!--end::Row-->
+            <!--begin::Row-->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="text-gray-600 fs-5">
+                        <span class="text-gray-600">Website wurde erstellt von </span>
+                        <a href="https://magentix.ch" target="_blank" class="text-gray-600 text-hover-white">MAGENTIX</a>
+                    </div>
+                </div>
             </div>
             <!--end::Row-->
         </div>
