@@ -54,7 +54,18 @@ class ProductController extends Controller
         ]);
 
         $data = $request->except('image', 'images');
-        $data['slug'] = Str::slug($request->name);
+
+        // Generate unique slug
+        $baseSlug = Str::slug($request->name);
+        $slug = $baseSlug;
+        $counter = 1;
+
+        while (Product::where('slug', $slug)->exists()) {
+            $slug = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+        $data['slug'] = $slug;
         $data['is_featured'] = $request->has('is_featured');
         $data['is_active'] = $request->has('is_active');
 
@@ -100,7 +111,21 @@ class ProductController extends Controller
         ]);
 
         $data = $request->except('image', 'images');
-        $data['slug'] = Str::slug($request->name);
+
+        // Generate unique slug if name has changed
+        if ($request->name !== $product->name) {
+            $baseSlug = Str::slug($request->name);
+            $slug = $baseSlug;
+            $counter = 1;
+
+            while (Product::where('slug', $slug)->where('id', '!=', $product->id)->exists()) {
+                $slug = $baseSlug . '-' . $counter;
+                $counter++;
+            }
+
+            $data['slug'] = $slug;
+        }
+
         $data['is_featured'] = $request->has('is_featured');
         $data['is_active'] = $request->has('is_active');
 
