@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,38 +13,47 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
         }
+
         .header {
             text-align: center;
             padding: 20px 0;
             border-bottom: 1px solid #eee;
         }
+
         .content {
             padding: 20px 0;
         }
+
         .order-details {
             margin: 20px 0;
             padding: 20px;
             background: #f9f9f9;
             border-radius: 5px;
         }
+
         .order-items {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        .order-items th, .order-items td {
+
+        .order-items th,
+        .order-items td {
             padding: 10px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+
         .order-items th {
             background: #f5f5f5;
         }
+
         .footer {
             text-align: center;
             padding: 20px 0;
@@ -53,6 +63,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -63,7 +74,8 @@
         <div class="content">
             <p>Lieber {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }},</p>
 
-            <p>Vielen Dank für Deine Bestellung. Wir haben sie erhalten und bearbeiten sie. Hier sind Deine Bestelldetails:</p>
+            <p>Vielen Dank für Deine Bestellung. Diese ist bei mir eingegangen und wird von mir demnächst bearbeitet.
+                Hier sind die Bestelldetails:</p>
 
             <div class="order-details">
                 <h2>Bestellnummer #{{ $order['id'] }}</h2>
@@ -80,7 +92,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($order['items'] as $item)
+                    @foreach ($order['items'] as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->qty }}</td>
@@ -114,9 +126,11 @@
                 {{ $order['shipping_phone'] }}
             </p>
 
-            <p>Wenn Du Fragen zu Deiner Bestellung hast, bitte kontaktiere uns.</p>
+            <p>Wenn du Fragen zu Deiner Bestellung hast kontaktiere mich nicht direkt per diese Mail, da dies eine
+                automatisch generierte Nachricht ist.</p>
 
-            <p>Mit freundlichen Grüssen,<br>Dein Seelenfluesterin Team</p>
+            <p>Liebe Grüsse,<br>
+                Seelenfluesterin</p>
         </div>
 
         <div class="footer">
@@ -125,4 +139,5 @@
         </div>
     </div>
 </body>
+
 </html>
