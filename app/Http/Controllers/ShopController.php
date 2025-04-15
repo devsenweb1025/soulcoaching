@@ -12,13 +12,16 @@ class ShopController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::query()
-            ->where('is_active', true)
-            ->orderBy('is_featured', 'desc')
-            ->orderBy('created_at', 'desc')
-            ->paginate(12);
+        $query = Product::where('is_active', true)
+            ->orderBy('created_at', 'desc');
+
+        $products = $query->paginate(9);
+
+        if ($request->ajax()) {
+            return view('pages.landing.shop.partials.products', compact('products'))->render();
+        }
 
         return view('pages.landing.shop', compact('products'));
     }
@@ -35,13 +38,7 @@ class ShopController extends Controller
             ->where('is_active', true)
             ->firstOrFail();
 
-        $relatedProducts = Product::where('is_active', true)
-            ->where('id', '!=', $product->id)
-            ->inRandomOrder()
-            ->take(4)
-            ->get();
-
-        return view('pages.landing.product-details', compact('product', 'relatedProducts'));
+        return view('pages.landing.shop.show', compact('product'));
     }
 
     /**

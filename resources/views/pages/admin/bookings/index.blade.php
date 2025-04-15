@@ -153,7 +153,6 @@
                 fetch(`/admin/bookings/invitees?eventUri=${info.event.extendedProps.uri}`)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data);
                         const event = info.event;
                         const props = event.extendedProps;
 
