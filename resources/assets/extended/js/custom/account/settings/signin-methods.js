@@ -61,7 +61,7 @@ var KTAccountSettingsSigninMethods = function () {
                     email: {
                         validators: {
                             notEmpty: {
-                                message: 'Email is required'
+                                message: 'Email ist erforderlich'
                             },
                             emailAddress: {
                                 message: 'Dies ist keine gültige Mailadresse'

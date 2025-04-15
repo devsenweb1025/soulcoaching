@@ -23,7 +23,7 @@ var KTEcommerceUpdateProfile = function () {
 					'gen_email': {
 						validators: {
 							notEmpty: {
-								message: 'General Email is required'
+								message: 'General Email ist erforderlich'
 							}
 						}
 					}

@@ -238,7 +238,7 @@ var KTCreateAccount = function () {
 					'business_email': {
 						validators: {
 							notEmpty: {
-								message: 'Busines email is required'
+								message: 'Busines Email ist erforderlich'
 							},
 							emailAddress: {
 								message: 'Dies ist keine gültige Mailadresse'
