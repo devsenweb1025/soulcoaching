@@ -67,7 +67,7 @@ class ServiceController extends Controller
                     'metadata' => [
                         'user_id' => auth()->id(),
                         'service_id' => $service->id,
-                        'service_name' => $service->name
+                        'service_name' => $service->title
                     ]
                 ]);
 
@@ -86,7 +86,7 @@ class ServiceController extends Controller
                                 "currency_code" => "CHF",
                                 "value" => number_format($service->price, 2, '.', ''),
                             ],
-                            "description" => $service->name
+                            "description" => $service->title
                         ]
                     ],
                     "application_context" => [

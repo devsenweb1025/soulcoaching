@@ -50,14 +50,14 @@
     </div>
 
     <div class="content">
-        <h2>Kurs: {{ $course->name }}</h2>
+        <h2>Kurs: {{ $course->title }}</h2>
         <p>Lieber {{ $order->user->name }},</p>
         <p>vielen Dank, dass du meinen Kurs gekauft hast. Ich freue mich sehr, dass du mit dabei bist!</p>
 
         <p>Deine Bestelldetails:</p>
         <ul>
             <li>Bestellnummer: {{ $order->order_number }}</li>
-            <li>Kurs: {{ $course->name }}</li>
+            <li>Kurs: {{ $course->title }}</li>
             <li>Bezahlt: CHF {{ number_format($order->total, 2) }}</li>
             <li>Zahlungsmethode: {{ ucfirst($order->payment_method) }}</li>
         </ul>
