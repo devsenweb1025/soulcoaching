@@ -123,7 +123,7 @@
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            Pay with Card
+                                                            Mit Karte bezahlen
                                                         </button>
                                                         <button type="button" class="btn btn-primary"
                                                             onclick="initiatePayment('paypal', '{{ $service->id }}')">
@@ -131,7 +131,7 @@
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            Pay with PayPal
+                                                            Mit Paypal bezahlen
                                                         </button>
                                                     </div>
 
@@ -267,7 +267,7 @@
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            Pay with Card
+                                                            Mit Karte bezahlen
                                                         </button>
                                                         <button type="button" class="btn btn-primary"
                                                             onclick="initiatePayment('paypal', '{{ $service->id }}')">
@@ -275,7 +275,7 @@
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            Pay with PayPal
+                                                            Mit Paypal bezahlen
                                                         </button>
                                                     </div>
 
