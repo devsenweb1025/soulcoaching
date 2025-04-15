@@ -25,10 +25,10 @@ var KTAccountSettingsSigninMethods = function () {
     }
 
     // Private functions
-    var initSettings = function () {  
+    var initSettings = function () {
         if (!signInMainEl) {
             return;
-        }        
+        }
 
         // toggle UI
         signInChangeEmail.querySelector('button').addEventListener('click', function () {
@@ -49,7 +49,7 @@ var KTAccountSettingsSigninMethods = function () {
     }
 
     var handleChangeEmail = function (e) {
-        var validation;        
+        var validation;
 
         if (!signInForm) {
             return;
@@ -65,7 +65,7 @@ var KTAccountSettingsSigninMethods = function () {
                                 message: 'Email is required'
                             },
                             emailAddress: {
-                                message: 'The value is not a valid email address'
+                                message: 'Dies ist keine gültige Mailadresse'
                             }
                         }
                     },
@@ -73,7 +73,7 @@ var KTAccountSettingsSigninMethods = function () {
                     confirmemailpassword: {
                         validators: {
                             notEmpty: {
-                                message: 'Password is required'
+                                message: 'Passwort ist erforderlich'
                             }
                         }
                     }
@@ -98,7 +98,7 @@ var KTAccountSettingsSigninMethods = function () {
                         text: "Sent password reset. Please check your email",
                         icon: "success",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn font-weight-bold btn-light-primary"
                         }
@@ -109,10 +109,10 @@ var KTAccountSettingsSigninMethods = function () {
                     });
                 } else {
                     swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn font-weight-bold btn-light-primary"
                         }
@@ -139,7 +139,7 @@ var KTAccountSettingsSigninMethods = function () {
                     currentpassword: {
                         validators: {
                             notEmpty: {
-                                message: 'Current Password is required'
+                                message: 'Aktuelles Passwort ist erforderlich '
                             }
                         }
                     },
@@ -147,7 +147,7 @@ var KTAccountSettingsSigninMethods = function () {
                     newpassword: {
                         validators: {
                             notEmpty: {
-                                message: 'New Password is required'
+                                message: 'Neues Passwort ist erforderlich'
                             }
                         }
                     },
@@ -155,13 +155,13 @@ var KTAccountSettingsSigninMethods = function () {
                     confirmpassword: {
                         validators: {
                             notEmpty: {
-                                message: 'Confirm Password is required'
+                                message: 'Bestätigungs-Passwort ist erforderlich'
                             },
                             identical: {
                                 compare: function() {
                                     return passwordForm.querySelector('[name="newpassword"]').value;
                                 },
-                                message: 'The password and its confirm are not the same'
+                                message: 'Die Passwörter stimmen nicht überein.'
                             }
                         }
                     },
@@ -186,7 +186,7 @@ var KTAccountSettingsSigninMethods = function () {
                         text: "Sent password reset. Please check your email",
                         icon: "success",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn font-weight-bold btn-light-primary"
                         }
@@ -197,10 +197,10 @@ var KTAccountSettingsSigninMethods = function () {
                     });
                 } else {
                     swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn font-weight-bold btn-light-primary"
                         }

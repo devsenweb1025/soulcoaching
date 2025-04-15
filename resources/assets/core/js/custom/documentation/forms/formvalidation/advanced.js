@@ -110,7 +110,7 @@ var KTFormValidationDemoAdvanced = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -121,12 +121,12 @@ var KTFormValidationDemoAdvanced = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -198,7 +198,7 @@ var KTFormValidationDemoAdvanced = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -209,12 +209,12 @@ var KTFormValidationDemoAdvanced = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -279,7 +279,7 @@ var KTFormValidationDemoAdvanced = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -290,12 +290,12 @@ var KTFormValidationDemoAdvanced = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -358,7 +358,7 @@ var KTFormValidationDemoAdvanced = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -369,12 +369,12 @@ var KTFormValidationDemoAdvanced = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -400,14 +400,14 @@ var KTFormValidationDemoAdvanced = function () {
                     'current_password': {
                         validators: {
                             notEmpty: {
-                                message: 'Current password is required'
+                                message: 'Aktuelles Passwort ist erforderlich '
                             }
                         }
                     },
                     'new_password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password is required'
+                                message: 'The Passwort ist erforderlich'
                             },
                             callback: {
                                 message: 'Please enter valid password',
@@ -428,7 +428,7 @@ var KTFormValidationDemoAdvanced = function () {
                                 compare: function () {
                                     return form.querySelector('[name="new_password"]').value;
                                 },
-                                message: 'The password and its confirm are not the same'
+                                message: 'Die Passwörter stimmen nicht überein.'
                             }
                         }
                     },
@@ -460,7 +460,7 @@ var KTFormValidationDemoAdvanced = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -471,12 +471,12 @@ var KTFormValidationDemoAdvanced = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -540,7 +540,7 @@ var KTFormValidationDemoAdvanced = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -551,12 +551,12 @@ var KTFormValidationDemoAdvanced = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -631,7 +631,7 @@ var KTFormValidationDemoAdvanced = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -642,12 +642,12 @@ var KTFormValidationDemoAdvanced = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }

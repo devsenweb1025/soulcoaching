@@ -49,7 +49,7 @@ var KTGeneralFullCalendarSelectDemos = function () {
                             text: "Event creation was declined!.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn btn-primary",
                             }
@@ -79,7 +79,7 @@ var KTGeneralFullCalendarSelectDemos = function () {
                             text: "Event was not deleted!.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn btn-primary",
                             }

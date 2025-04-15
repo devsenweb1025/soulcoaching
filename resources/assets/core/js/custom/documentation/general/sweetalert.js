@@ -13,7 +13,7 @@ var KTGeneralSweetAlertDemos = function() {
                 text: "Here's a basic example of SweetAlert!",
                 icon: "success",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 returnFocus: false, // Set to false if you don't want to return the focus to the element that invoked the modal after the modal is closed.
                 customClass: {
                     confirmButton: "btn btn-primary"
@@ -33,7 +33,7 @@ var KTGeneralSweetAlertDemos = function() {
                 icon: "info",
                 buttonsStyling: false,
                 showCancelButton: true,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 cancelButtonText: 'Nope, cancel it',
                 customClass: {
                     confirmButton: "btn btn-primary",
@@ -59,7 +59,7 @@ var KTGeneralSweetAlertDemos = function() {
                 text: "Here's an example of an info SweetAlert!",
                 icon: "info",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-info"
                 }
@@ -73,7 +73,7 @@ var KTGeneralSweetAlertDemos = function() {
                 text: "Here's an example of a warning SweetAlert!",
                 icon: "warning",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-warning"
                 }
@@ -87,7 +87,7 @@ var KTGeneralSweetAlertDemos = function() {
                 text: "Here's an example of an error SweetAlert!",
                 icon: "error",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-danger"
                 }
@@ -101,7 +101,7 @@ var KTGeneralSweetAlertDemos = function() {
                 text: "Here's an example of a success SweetAlert!",
                 icon: "success",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-success"
                 }
@@ -115,7 +115,7 @@ var KTGeneralSweetAlertDemos = function() {
                 text: "Here's an example of a question SweetAlert!",
                 icon: "question",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-primary"
                 }

@@ -76,7 +76,7 @@ var KTDatatablesServerSide = function () {
                                     </a>
                                 </div>
                                 <!--end::Menu item-->
-                                
+
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-3">
                                     <a href="#" class="menu-link px-3" data-kt-docs-table-filter="delete_row">
@@ -185,7 +185,7 @@ var KTDatatablesServerSide = function () {
                                 text: "You have deleted " + customerName + "!.",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn fw-bold btn-primary",
                                 }
@@ -199,7 +199,7 @@ var KTDatatablesServerSide = function () {
                             text: customerName + " was not deleted.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn fw-bold btn-primary",
                             }
@@ -274,7 +274,7 @@ var KTDatatablesServerSide = function () {
                             text: "You have deleted all selected customers!.",
                             icon: "success",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn fw-bold btn-primary",
                             }
@@ -292,7 +292,7 @@ var KTDatatablesServerSide = function () {
                         text: "Selected customers was not deleted.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-primary",
                         }
@@ -310,7 +310,7 @@ var KTDatatablesServerSide = function () {
         const toolbarSelected = document.querySelector('[data-kt-docs-table-toolbar="selected"]');
         const selectedCount = document.querySelector('[data-kt-docs-table-select="selected_count"]');
 
-        // Select refreshed checkbox DOM elements 
+        // Select refreshed checkbox DOM elements
         const allCheckboxes = container.querySelectorAll('tbody [type="checkbox"]');
 
         // Detect checkboxes state & count

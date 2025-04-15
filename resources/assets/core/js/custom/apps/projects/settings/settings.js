@@ -68,7 +68,7 @@ var KTProjectSettings = function () {
                         text: "Thank you! You've updated your project settings",
                         icon: "success",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-light-primary"
                         }
@@ -76,10 +76,10 @@ var KTProjectSettings = function () {
 
                 } else {
                     swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-light-primary"
                         }

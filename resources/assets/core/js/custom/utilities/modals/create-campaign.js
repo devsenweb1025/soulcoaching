@@ -54,10 +54,10 @@ var KTCreateCampaign = function () {
 					} else {
 						// Show error message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
 						Swal.fire({
-							text: "Sorry, looks like there are some errors detected, please try again.",
+							text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
 							icon: "error",
 							buttonsStyling: false,
-							confirmButtonText: "Ok, got it!",
+							confirmButtonText: "Weiter!",
 							customClass: {
 								confirmButton: "btn btn-light"
 							}
@@ -85,7 +85,7 @@ var KTCreateCampaign = function () {
 			// Prevent default button action
 			e.preventDefault();
 
-			// Disable button to avoid multiple click 
+			// Disable button to avoid multiple click
 			formSubmitButton.disabled = true;
 
 			// Show loading indication

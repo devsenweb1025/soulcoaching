@@ -20,7 +20,7 @@ var KTPasswordResetGeneral = function () {
                                 message: 'Email address is required'
                             },
                             emailAddress: {
-                                message: 'The value is not a valid email address'
+                                message: 'Dies ist keine gültige Mailadresse'
                             }
                         }
                     }
@@ -55,10 +55,10 @@ var KTPasswordResetGeneral = function () {
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary"
                         }

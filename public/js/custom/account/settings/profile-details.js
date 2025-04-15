@@ -106,7 +106,7 @@ var KTAccountSettingsProfileDetails = function () {
                                 text: "Thank you! You've updated your basic info",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -129,7 +129,7 @@ var KTAccountSettingsProfileDetails = function () {
                                     text: dataMessage,
                                     icon: "error",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
+                                    confirmButtonText: "Weiter!",
                                     customClass: {
                                         confirmButton: "btn btn-primary"
                                     }
@@ -147,10 +147,10 @@ var KTAccountSettingsProfileDetails = function () {
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary"
                         }

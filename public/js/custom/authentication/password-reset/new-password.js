@@ -17,7 +17,7 @@ var KTPasswordResetNewPassword = function () {
                     'password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password is required'
+                                message: 'The Passwort ist erforderlich'
                             },
                             callback: {
                                 message: 'Please enter valid password',
@@ -38,7 +38,7 @@ var KTPasswordResetNewPassword = function () {
                                 compare: function () {
                                     return form.querySelector('[name="password"]').value;
                                 },
-                                message: 'The password and its confirm are not the same'
+                                message: 'Die Passwörter stimmen nicht überein.'
                             }
                         }
                     },
@@ -86,7 +86,7 @@ var KTPasswordResetNewPassword = function () {
                                 text: "You have successfully reset your password!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -114,7 +114,7 @@ var KTPasswordResetNewPassword = function () {
                                     text: dataMessage,
                                     icon: "error",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
+                                    confirmButtonText: "Weiter!",
                                     customClass: {
                                         confirmButton: "btn btn-primary"
                                     }
@@ -132,10 +132,10 @@ var KTPasswordResetNewPassword = function () {
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary"
                         }

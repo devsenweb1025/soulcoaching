@@ -12,18 +12,18 @@ var KTAuthResetPassword = function() {
         validator = FormValidation.formValidation(
 			form,
 			{
-				fields: {					
+				fields: {
 					'email': {
                         validators: {
                             regexp: {
                                 regexp: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                message: 'The value is not a valid email address',
+                                message: 'Dies ist keine gültige Mailadresse',
                             },
 							notEmpty: {
 								message: 'Email address is required'
 							}
 						}
-					} 
+					}
 				},
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
@@ -34,7 +34,7 @@ var KTAuthResetPassword = function() {
                     })
 				}
 			}
-		);		
+		);
 
         submitButton.addEventListener('click', function (e) {
             e.preventDefault();
@@ -45,7 +45,7 @@ var KTAuthResetPassword = function() {
                     // Show loading indication
                     submitButton.setAttribute('data-kt-indicator', 'on');
 
-                    // Disable button to avoid multiple click 
+                    // Disable button to avoid multiple click
                     submitButton.disabled = true;
 
                     // Simulate ajax request
@@ -61,13 +61,13 @@ var KTAuthResetPassword = function() {
                             text: "We have send a password reset link to your email.",
                             icon: "success",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Weiter!",
                             customClass: {
                                 confirmButton: "btn btn-primary"
                             }
                         }).then(function (result) {
-                            if (result.isConfirmed) { 
-                                form.querySelector('[name="email"]').value= "";                          
+                            if (result.isConfirmed) {
+                                form.querySelector('[name="email"]').value= "";
                                 //form.submit();
 
                                 var redirectUrl = form.getAttribute('data-kt-redirect-url');
@@ -76,20 +76,20 @@ var KTAuthResetPassword = function() {
                                 }
                             }
                         });
-                    }, 1500);   						
+                    }, 1500);
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn btn-primary"
                         }
                     });
                 }
-            });  
+            });
 		});
     }
 

@@ -354,7 +354,7 @@
                 text: '{{ session('success') }}',
                 icon: "success",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-primary",
                 }
@@ -366,7 +366,7 @@
                 text: '{{ session('error') }}',
                 icon: "error",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-primary",
                 }
@@ -500,7 +500,7 @@
                         'An error occurred while processing your payment',
                     icon: "error",
                     buttonsStyling: false,
-                    confirmButtonText: "Ok, got it!",
+                    confirmButtonText: "Weiter!",
                     customClass: {
                         confirmButton: "btn btn-primary",
                     }
@@ -549,7 +549,7 @@
                 text: error.message || 'An error occurred while processing your payment',
                 icon: "error",
                 buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
+                confirmButtonText: "Weiter!",
                 customClass: {
                     confirmButton: "btn btn-primary",
                 }

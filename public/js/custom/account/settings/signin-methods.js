@@ -64,7 +64,7 @@ var KTAccountSettingsSigninMethods = function () {
                                 message: 'Email is required'
                             },
                             emailAddress: {
-                                message: 'The value is not a valid email address'
+                                message: 'Dies ist keine gültige Mailadresse'
                             }
                         }
                     },
@@ -72,7 +72,7 @@ var KTAccountSettingsSigninMethods = function () {
                     password: {
                         validators: {
                             notEmpty: {
-                                message: 'Password is required'
+                                message: 'Passwort ist erforderlich'
                             }
                         }
                     }
@@ -104,10 +104,10 @@ var KTAccountSettingsSigninMethods = function () {
                         .then(function (response) {
                             // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                             Swal.fire({
-                                text: "Your email has been successfully changed.",
+                                text: "Deine Mailadresse wurde erfolgreich geändert.",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn font-weight-bold btn-light-primary"
                                 }
@@ -127,7 +127,7 @@ var KTAccountSettingsSigninMethods = function () {
                                     text: dataMessage,
                                     icon: "error",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
+                                    confirmButtonText: "Weiter!",
                                     customClass: {
                                         confirmButton: "btn btn-primary"
                                     }
@@ -145,10 +145,10 @@ var KTAccountSettingsSigninMethods = function () {
 
                 } else {
                     Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn font-weight-bold btn-light-primary"
                         }
@@ -172,7 +172,7 @@ var KTAccountSettingsSigninMethods = function () {
                     current_password: {
                         validators: {
                             notEmpty: {
-                                message: 'Current Password is required'
+                                message: 'Aktuelles Passwort ist erforderlich '
                             }
                         }
                     },
@@ -180,7 +180,7 @@ var KTAccountSettingsSigninMethods = function () {
                     password: {
                         validators: {
                             notEmpty: {
-                                message: 'New Password is required'
+                                message: 'Neues Passwort ist erforderlich'
                             }
                         }
                     },
@@ -188,13 +188,13 @@ var KTAccountSettingsSigninMethods = function () {
                     password_confirmation: {
                         validators: {
                             notEmpty: {
-                                message: 'Confirm Password is required'
+                                message: 'Bestätigungs-Passwort ist erforderlich'
                             },
                             identical: {
                                 compare: function () {
                                     return form.querySelector('[name="password"]').value;
                                 },
-                                message: 'The password and its confirm are not the same'
+                                message: 'Die Passwörter stimmen nicht überein.'
                             }
                         }
                     },
@@ -226,10 +226,10 @@ var KTAccountSettingsSigninMethods = function () {
                         .then(function (response) {
                             // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                             Swal.fire({
-                                text: "Your password has been successfully reset.",
+                                text: "Das Passwort wurde erfolgreich zurückgesetzt",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Weiter!",
                                 customClass: {
                                     confirmButton: "btn font-weight-bold btn-light-primary"
                                 }
@@ -249,7 +249,7 @@ var KTAccountSettingsSigninMethods = function () {
                                     text: dataMessage,
                                     icon: "error",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
+                                    confirmButtonText: "Weiter!",
                                     customClass: {
                                         confirmButton: "btn btn-primary"
                                     }
@@ -267,10 +267,10 @@ var KTAccountSettingsSigninMethods = function () {
 
                 } else {
                     Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Es sind Fehler aufgetreten, bitte versuche es erneut.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Weiter!",
                         customClass: {
                             confirmButton: "btn font-weight-bold btn-light-primary"
                         }
