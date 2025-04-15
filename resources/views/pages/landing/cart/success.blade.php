@@ -35,7 +35,7 @@
 
                                 <!--begin::Message-->
                                 <div class="mb-10">
-                                    <h2 class="text-dark mb-5">Danke für deine bestellungè</h2>
+                                    <h2 class="text-dark mb-5">Danke für Deine Bestellung!</h2>
                                     <div class="text-muted fw-semibold fs-5">
                                         {{ session('message') }}
                                     </div>
