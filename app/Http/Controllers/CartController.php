@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderConfirmation;
+use App\Mail\OrderReceiptMail;
 use App\Models\Order;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -235,9 +236,6 @@ class CartController extends Controller
             'shipping' => $request->only(['first_name', 'last_name', 'email', 'phone', 'address', 'city', 'postal_code', 'country'])
         ];
 
-        // Send confirmation email
-        Mail::to($request->email)->send(new OrderConfirmation($order));
-
         // Clear the cart
         Cart::destroy();
 
@@ -251,6 +249,9 @@ class CartController extends Controller
     {
         $input = $request->all();
         $order = Order::find($input['order']);
+        Mail::to(auth()->user()->email)->send(new OrderConfirmation($order));
+
+        Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, auth()->user()));
 
         return view('pages.landing.cart.success', [
             'order' => compact('order')

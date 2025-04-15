@@ -60,7 +60,6 @@ class LandingController extends Controller
                 'message' => 'Ihre Nachricht wurde erfolgreich gesendet!'
             ]);
         } catch (\Exception $e) {
-            dd($e);
             return response()->json([
                 'message' => 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.'
             ], 500);

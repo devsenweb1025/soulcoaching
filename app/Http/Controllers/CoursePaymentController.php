@@ -14,6 +14,7 @@ use Stripe\PaymentIntent;
 use Stripe\Exception\ApiErrorException;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Mail\CourseAccessEmail;
+use App\Mail\CoursePurchaseMail;
 
 class CoursePaymentController extends Controller
 {
@@ -189,9 +190,19 @@ class CoursePaymentController extends Controller
             // Send course access email
             Mail::to($user->email)->send(new CourseAccessEmail($course, $order, $course->download_link));
 
+            try {
+                Mail::to(config('mail.admin_email'))->send(new CoursePurchaseMail(
+                    $course,
+                    auth()->user(),
+                    $transactionId,
+                    $paymentMethod
+                ));
+            } catch (\Exception $e) {
+                \Log::error('Failed to send course purchase email: ' . $e->getMessage());
+            }
+
             DB::commit();
         } catch (\Exception $e) {
-            dd($e);
             DB::rollBack();
             throw $e;
         }

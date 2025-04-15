@@ -134,7 +134,6 @@ class StripeController extends Controller
                 return redirect()->route('cart.checkout.success', ['order' => $order->id])
                     ->with('success', 'Payment successful! Your order has been placed.');
             } catch (\Exception $e) {
-                dd($e);
                 DB::rollBack();
                 Log::error('Order Creation Error: ' . $e->getMessage());
                 return redirect()->route('cart.checkout')->with('error', 'Error creating order. Please contact support.');
