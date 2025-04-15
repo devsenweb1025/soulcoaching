@@ -91,7 +91,7 @@ var KTSigninGeneral = function () {
 
                             if (error.response) {
                                 Swal.fire({
-                                    text: dataMessage,
+                                    text: error.response.data.message,
                                     icon: "error",
                                     buttonsStyling: false,
                                     confirmButtonText: "Weiter!",
