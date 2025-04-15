@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactFormMail;
 
 class LandingController extends Controller
 {
@@ -31,6 +33,38 @@ class LandingController extends Controller
     public function contact()
     {
         return view("pages.landing.contact");
+    }
+
+    public function contactSubmit(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:255',
+            'service' => 'required|string|max:255',
+            'description' => 'required|string',
+            'confirm' => 'required|accepted'
+        ]);
+
+        try {
+            // Send email to admin
+            Mail::to(config('mail.admin_email'))->send(new ContactFormMail([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'service' => $request->service,
+                'description' => $request->description
+            ]));
+
+            return response()->json([
+                'message' => 'Ihre Nachricht wurde erfolgreich gesendet!'
+            ]);
+        } catch (\Exception $e) {
+            dd($e);
+            return response()->json([
+                'message' => 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.'
+            ], 500);
+        }
     }
 
     public function medien()

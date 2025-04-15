@@ -96,44 +96,49 @@
                                     <div class="text-center">Gerne helfe ich Dir weiter!<br />Melde dich bei mir.</div>
                                 </div>
                                 <div class="text-gray-800 fs-2 mb-5">
-                                    <form>
+                                    <form action="{{ route('contact.submit') }}" method="POST" id="contactForm">
+                                        @csrf
                                         <div class="mb-10">
                                             <label for="name_input" class="required form-label">Vor- und
                                                 Nachname</label>
                                             <input type="text" class="form-control form-control-solid"
-                                                placeholder="Max Muster" id="name_input">
+                                                placeholder="Max Muster" id="name_input" name="name" required>
                                         </div>
                                         <div class="mb-10">
                                             <label for="email_input" class="required form-label">Mail Adresse</label>
                                             <input type="email" class="form-control form-control-solid"
-                                                placeholder="maxmuster@hotmail.com" id="email_input">
+                                                placeholder="maxmuster@hotmail.com" id="email_input" name="email" required>
                                         </div>
                                         <div class="mb-10">
                                             <label for="phone_input" class="required form-label">Telefonnummer</label>
                                             <input type="text" class="form-control form-control-solid"
-                                                placeholder="+41" id="phone_input">
+                                                placeholder="+41" id="phone_input" name="phone" required>
                                         </div>
                                         <div class="mb-10">
                                             <label for="reason_input" class="required form-label">Um welche
                                                 Dienstleistung handelt es sich?</label>
-                                            <input type="email" class="form-control form-control-solid"
-                                                placeholder="Dienstleistung und Produkt angeben" id="reason_input">
+                                            <input type="text" class="form-control form-control-solid"
+                                                placeholder="Dienstleistung und Produkt angeben" id="reason_input" name="service" required>
                                         </div>
                                         <div class="mb-10">
                                             <label for="description_input" class="required form-label">Beschreiben Sie
                                                 ihr Anliegen</label>
                                             <textarea class="form-control form-control-solid" placeholder="Ihre Nachricht" id="description_input"
-                                                style="height: 100px"></textarea>
+                                                style="height: 100px" name="description" required></textarea>
                                         </div>
                                         <div class="mb-10">
-                                            <input type="checkbox" id="confirm_input" class="form-check-input">
+                                            <input type="checkbox" id="confirm_input" class="form-check-input" name="confirm" required>
                                             <label for="confirm_input" class="form-check-label fs-6">Hiermit bestätige
                                                 ich,
                                                 dass alle Angaben wahrheitsgetreu gemacht wurden.</label>
                                         </div>
                                         <div>
-                                            <button type="submit" class="form-control btn btn-primary">Nachricht
-                                                senden</button>
+                                            <button type="submit" class="form-control btn btn-primary" id="submitButton">
+                                                <span class="indicator-label">Nachricht senden</span>
+                                                <span class="indicator-progress" style="display: none;">
+                                                    Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                </span>
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
@@ -150,3 +155,63 @@
     @include('pages.landing._partials._faqs')
 
 </x-landing-layout>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const submitButton = document.getElementById('submitButton');
+        const indicatorLabel = submitButton.querySelector('.indicator-label');
+        const indicatorProgress = submitButton.querySelector('.indicator-progress');
+
+        // Disable submit button and show loading state
+        submitButton.disabled = true;
+        indicatorLabel.style.display = 'none';
+        indicatorProgress.style.display = 'inline-block';
+
+        try {
+            const formData = new FormData(this);
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                }
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                Swal.fire({
+                    text: data.message || 'Ihre Nachricht wurde erfolgreich gesendet!',
+                    icon: "success",
+                    buttonsStyling: false,
+                    confirmButtonText: "Ok, got it!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    }
+                }).then(() => {
+                    this.reset();
+                });
+            } else {
+                throw new Error(data.message || 'Ein Fehler ist aufgetreten');
+            }
+        } catch (error) {
+            Swal.fire({
+                text: error.message || 'Ein Fehler ist aufgetreten',
+                icon: "error",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                }
+            });
+        } finally {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            indicatorLabel.style.display = 'inline-block';
+            indicatorProgress.style.display = 'none';
+        }
+    });
+</script>
