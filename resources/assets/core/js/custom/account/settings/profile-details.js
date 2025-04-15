@@ -17,14 +17,14 @@ var KTAccountSettingsProfileDetails = function () {
                     fname: {
                         validators: {
                             notEmpty: {
-                                message: 'First name is required'
+                                message: 'Vorname ist erforderlich'
                             }
                         }
                     },
                     lname: {
                         validators: {
                             notEmpty: {
-                                message: 'Last name is required'
+                                message: 'Name ist erforderlich'
                             }
                         }
                     },

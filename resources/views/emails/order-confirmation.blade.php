@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmation</title>
+    <title>Bestellbestätigung</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,27 +56,27 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Order Confirmation</h1>
-            <p>Thank you for your order!</p>
+            <h1>Bestellbestätigung</h1>
+            <p>Vielen Dank für Deine Bestellung!</p>
         </div>
 
         <div class="content">
-            <p>Dear {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }},</p>
+            <p>Lieber {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }},</p>
 
-            <p>Thank you for your order. We have received it and are processing it. Here are your order details:</p>
+            <p>Vielen Dank für Deine Bestellung. Wir haben sie erhalten und bearbeiten sie. Hier sind Deine Bestelldetails:</p>
 
             <div class="order-details">
-                <h2>Order #{{ $order['id'] }}</h2>
-                <p><strong>Order Date:</strong> {{ now()->format('F j, Y') }}</p>
+                <h2>Bestellnummer #{{ $order['id'] }}</h2>
+                <p><strong>Bestelldatum:</strong> {{ now()->format('F j, Y') }}</p>
             </div>
 
-            <h3>Order Items</h3>
+            <h3>Bestellpositionen</h3>
             <table class="order-items">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
+                        <th>Produkt</th>
+                        <th>Menge</th>
+                        <th>Preis</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -90,21 +90,21 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="2" style="text-align: right;"><strong>Subtotal:</strong></td>
+                        <td colspan="2" style="text-align: right;"><strong>Zwischensumme:</strong></td>
                         <td><strong>CHF {{ number_format($order['subtotal'], 2) }}</strong></td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: right;"><strong>Shipping Cost:</strong></td>
+                        <td colspan="2" style="text-align: right;"><strong>Versandkosten:</strong></td>
                         <td><strong>CHF {{ number_format($order['shipping_cost'], 2) }}</strong></td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: right;"><strong>Total:</strong></td>
+                        <td colspan="2" style="text-align: right;"><strong>Gesamt:</strong></td>
                         <td><strong>CHF {{ number_format($order['total'], 2) }}</strong></td>
                     </tr>
                 </tfoot>
             </table>
 
-            <h3>Shipping Details</h3>
+            <h3>Versanddetails</h3>
             <p>
                 {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }}<br>
                 {{ $order['shipping_address'] }}<br>
@@ -114,13 +114,14 @@
                 {{ $order['shipping_phone'] }}
             </p>
 
-            <p>If you have any questions about your order, please contact us.</p>
+            <p>Wenn Du Fragen zu Deiner Bestellung hast, bitte kontaktiere uns.</p>
 
-            <p>Best regards,<br>Your Store Team</p>
+            <p>Mit freundlichen Grüssen,<br>Dein Seelenfluesterin Team</p>
         </div>
 
         <div class="footer">
-            <p>This is an automated message, please do not reply to this email.</p>
+            <p>Diese ist eine automatisch generierte Nachricht, bitte antworte nicht auf diese Mail.</p>
+            <p>&copy; {{ date('Y') }} Seelenfluesterin. Alle Rechte vorbehalten.</p>
         </div>
     </div>
 </body>

@@ -7,7 +7,7 @@ return array(
             'new' => array(),
 
             'update' => array(
-                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
+                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/magentix/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
                 'Synchronize core assets.',
             ),
 
@@ -22,7 +22,7 @@ return array(
             'new' => array(),
 
             'update' => array(
-                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
+                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/magentix/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
                 'Synchronize core assets.',
             ),
 
@@ -41,7 +41,7 @@ return array(
             'new' => array(),
 
             'update' => array(
-                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
+                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/magentix/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
                 'Synchronize core assets.',
                 'Update the Bootstrap version.',
             ),
@@ -58,17 +58,17 @@ return array(
         'date'      => '22 November, 2022',
         'changelog' => array(
             'new' => array(
-                'Add a feature to remove the demo from the asset path. <a href="https://preview.keenthemes.com/metronic8/laravel/documentation/getting-started/multi-demo/build">See documentation</a>',
+                'Add a feature to remove the demo from the asset path. <a href="https://preview.keenthemes.com/magentix8/laravel/documentation/getting-started/multi-demo/build">See documentation</a>',
             ),
 
             'update' => array(
-                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
+                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/magentix/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
                 'Rename function in <code>app/helpers.php</code> from <code>assetCustom()</code> to <code>getAsset()</code>',
                 'Update the Bootstrap version.',
             ),
 
             'fix' => array(
-                'Fix reset password form action url.',
+                'Fix Passwort zurücksetzen form action url.',
                 'Remove duplicated app.js file.',
                 'Fix missing JS file error <code>init.js</code>',
                 'Fix <code>demo3</code> aside option in the config file.',
@@ -82,10 +82,10 @@ return array(
             'new' => array(),
 
             'update' => array(
-                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
+                'Synchronize the base version update - <a href="https://preview.keenthemes.com/html/magentix/docs/getting-started/changelog" class="fw-bold" target="_blank">Changelog</a>.',
                 'Update plugin <code>yajra/laravel-datatables-buttons</code> version.',
                 'Update plugin <code>yajra/laravel-datatables-oracle</code> version.',
-                'Sync layout with the Metronic HTML version',
+                'Sync layout with the magentix HTML version',
                 'Improve the sidebar light/dark layout initialization.',
             ),
 
@@ -131,10 +131,10 @@ return array(
         'date'      => '18 August, 2022',
         'changelog' => array(
             'new' => array(
-                'New dark sidebar layout for demo1. <a href="https://preview.keenthemes.com/metronic8/laravel">Preview</a>',
-                'New dashboard widgets. <a href="https://preview.keenthemes.com/metronic8/laravel">Preview</a>',
-                'New error page - 404 Not Found page. <a href="https://preview.keenthemes.com/metronic8/laravel/error/error-404">Preview</a>',
-                'New error page - 500 Server Error page. <a href="https://preview.keenthemes.com/metronic8/laravel/error/error-500">Preview</a>',
+                'New dark sidebar layout for demo1. <a href="https://preview.keenthemes.com/magentix8/laravel">Preview</a>',
+                'New dashboard widgets. <a href="https://preview.keenthemes.com/magentix8/laravel">Preview</a>',
+                'New error page - 404 Not Found page. <a href="https://preview.keenthemes.com/magentix8/laravel/error/error-404">Preview</a>',
+                'New error page - 500 Server Error page. <a href="https://preview.keenthemes.com/magentix8/laravel/error/error-500">Preview</a>',
                 'New layout customizer for Theme Mode, RTL demo and Sidebar Layout.',
             ),
 
@@ -142,7 +142,7 @@ return array(
                 'Update and sync core assets from the HTML version.',
                 'Centralize <code>vendors</code> list from config.',
                 'Remove <code>barryvdh/laravel-debugbar</code> plugin.',
-                'Change global <code>Google Font</code> to <code>Inter</code>. <a href="https://preview.keenthemes.com/metronic8/laravel">Preview</a>',
+                'Change global <code>Google Font</code> to <code>Inter</code>. <a href="https://preview.keenthemes.com/magentix8/laravel">Preview</a>',
                 'Documentation improvements.',
             ),
 
@@ -317,7 +317,7 @@ return array(
                 'Fixed undefined <code>select2</code> jquery plugin',
                 'Fixed undefined <code>DataTables</code> jquery plugin when initialized multiple tables.',
                 'Fixed missing <code>flatpickr</code> plugin CSS.',
-                'Fixed missing <code>CSRF token</code> in the reset password page.',
+                'Fixed missing <code>CSRF token</code> in the Passwort zurücksetzen page.',
                 '<code>KTMenu</code> dropdown position issue caused by <code>Popper v2.11.0</code> auto update. Requires packages update with <code>Yarn</code>.',
             ),
         ),
@@ -355,8 +355,8 @@ return array(
         'date'      => '14 October, 2021',
         'changelog' => array(
             'new' => array(
-                'Added new <code>Demo 9</code>. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo9">preview</a>.',
-                'Added new <code>Demo 9 Dark Mode</code>. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo9&mode=dark">preview</a>.',
+                'Added new <code>Demo 9</code>. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo9">preview</a>.',
+                'Added new <code>Demo 9 Dark Mode</code>. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo9&mode=dark">preview</a>.',
             ),
 
             'update' => array(
@@ -375,8 +375,8 @@ return array(
         'date'      => '5 October, 2021',
         'changelog' => array(
             'new' => array(
-                'Added new <code>Demo 8</code>. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo8">preview</a>.',
-                'Added new <code>Demo 8 Dark Mode</code>. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo8&mode=dark">preview</a>.',
+                'Added new <code>Demo 8</code>. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo8">preview</a>.',
+                'Added new <code>Demo 8 Dark Mode</code>. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo8&mode=dark">preview</a>.',
             ),
 
             'update' => array(),
@@ -391,7 +391,7 @@ return array(
         'date'      => '30 September, 2021',
         'changelog' => array(
             'new' => array(
-                'Added new <code>Demo 6</code>. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo6">preview</a>.',
+                'Added new <code>Demo 6</code>. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo6">preview</a>.',
             ),
 
             'update' => array(
@@ -400,7 +400,7 @@ return array(
 
             'fix' => array(
                 'Fixed RTL issue for <code>select2</code> dropdown plugin.',
-                'Fixed token error in reset password page.',
+                'Fixed token error in Passwort zurücksetzen page.',
                 'Fixed demo5 webpack mix build error.',
                 'Fixed demo5 login page missing images.',
             ),
@@ -411,8 +411,8 @@ return array(
         'date'      => '20 September, 2021',
         'changelog' => array(
             'new' => array(
-                'Added new <code>Demo 5</code>. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo5">preview</a>.',
-                'Added new <code>Demo 7 Dark mode</code>. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo7&rtl=1">preview</a>.',
+                'Added new <code>Demo 5</code>. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo5">preview</a>.',
+                'Added new <code>Demo 7 Dark mode</code>. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo7&rtl=1">preview</a>.',
             ),
 
             'update' => array(
@@ -431,7 +431,7 @@ return array(
         'date'      => '1 September, 2021',
         'changelog' => array(
             'new' => array(
-                'Integrated demo dashboard charts (ApexCharts) with demo API calls. See <a href="https://preview.keenthemes.com/metronic8/laravel/index">preview</a>.',
+                'Integrated demo dashboard charts (ApexCharts) with demo API calls. See <a href="https://preview.keenthemes.com/magentix8/laravel/index">preview</a>.',
             ),
 
             'update' => array(
@@ -450,8 +450,8 @@ return array(
         'date'      => '21 August, 2021',
         'changelog' => array(
             'new' => array(
-                'Added new <code>Demo 3</code> layout. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo3">preview</a>.',
-                'Added new <code>Demo 3</code> dark layout. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo3&mode=dark">preview</a>.',
+                'Added new <code>Demo 3</code> layout. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo3">preview</a>.',
+                'Added new <code>Demo 3</code> dark layout. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo3&mode=dark">preview</a>.',
             ),
 
             'update' => array(
@@ -474,11 +474,11 @@ return array(
         'date'      => '06 August, 2021',
         'changelog' => array(
             'new' => array(
-                'Added new <code>Demo 4</code> layout. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo4">preview</a>.',
+                'Added new <code>Demo 4</code> layout. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo4">preview</a>.',
             ),
 
             'update' => array(
-                'Enable dark mode for <code>Demo 2</code>. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo2&mode=dark">preview</a>.',
+                'Enable dark mode for <code>Demo 2</code>. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo2&mode=dark">preview</a>.',
                 'Move <code>Demo 3</code> to <code>Demo 7</code>.',
             ),
 
@@ -495,7 +495,7 @@ return array(
         'date'      => '30 July, 2021',
         'changelog' => array(
             'new' => array(
-                'Added new <code>Demo 3</code> layout. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo3">preview</a>.',
+                'Added new <code>Demo 3</code> layout. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo3">preview</a>.',
             ),
 
             'update' => array(
@@ -542,8 +542,8 @@ return array(
         'date'      => '16 July, 2021',
         'changelog' => array(
             'new' => array(
-                'Added new <code>Demo 2</code> layout. Updated <code>webpack.mix.js</code> to build <code>Demo 2</code> asset files. See <a href="https://preview.keenthemes.com/metronic8/laravel/login?demo=demo2">preview</a>.',
-                'Added <code>Demo 1 Dark Mode</code>. Updated <code>webpack.mix.js</code> to build dark CSS files. See <a href="https://preview.keenthemes.com/metronic8/laravel/index?mode=dark">preview</a>',
+                'Added new <code>Demo 2</code> layout. Updated <code>webpack.mix.js</code> to build <code>Demo 2</code> asset files. See <a href="https://preview.keenthemes.com/magentix8/laravel/login?demo=demo2">preview</a>.',
+                'Added <code>Demo 1 Dark Mode</code>. Updated <code>webpack.mix.js</code> to build dark CSS files. See <a href="https://preview.keenthemes.com/magentix8/laravel/index?mode=dark">preview</a>',
             ),
 
             'update' => array(
@@ -585,7 +585,7 @@ return array(
                 'Added <code>Account Overview</code> demo page.',
                 'Added <code>Change Password</code> feature on profile page.',
                 'Added <code>Change Email</code> feature on profile page.',
-                'Added <code>Audit Log</code> listing page. The logs are automatically created by the user\'s activity in the user Model. Eg. Registering, reset password, update email, update user information, etc.',
+                'Added <code>Audit Log</code> listing page. The logs are automatically created by the user\'s activity in the user Model. Eg. Registering, Passwort zurücksetzen, update email, update user information, etc.',
                 'Added <code>Laravel Socialite</code> plugin package and demo Google login integration.',
             ),
 
@@ -594,7 +594,7 @@ return array(
             ),
 
             'fix' => array(
-                'Fixed page redirect to login page after successfully reset password.',
+                'Fixed page redirect to login page after successfully Passwort zurücksetzen.',
                 'Fixed <code>Datatables</code> loading spinner.',
                 'Fixed avatar image for internal image path and external image path registered by Google login.',
                 'Fixed sample code formatting in the documentation pages.',
@@ -642,7 +642,7 @@ return array(
             ),
 
             'update' => array(
-                'Synced with the latest Metronic 8 HTML version core assets.',
+                'Synced with the latest magentix 8 HTML version core assets.',
             ),
 
             'fix' => array(
@@ -656,7 +656,7 @@ return array(
         'date'      => '31 May, 2021',
         'changelog' => array(
             'new' => array(
-                '<code>Demo 1 Laravel 8</code> version - <a href="https://preview.keenthemes.com/metronic8/laravel/" class="fw-bold" target="_blank">Preview</a>.',
+                '<code>Demo 1 Laravel 8</code> version - <a href="https://preview.keenthemes.com/magentix8/laravel/" class="fw-bold" target="_blank">Preview</a>.',
             ),
 
             'update' => array(),

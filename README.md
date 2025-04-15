@@ -1,15 +1,15 @@
 # Soul Coaching E-Commerce Platform
 
-A modern e-commerce platform built with Laravel and Metronic theme, featuring online courses, product sales, and booking management.
+A modern e-commerce platform built with Laravel and magentix theme, featuring online courses, product sales, and booking management.
 
-## About Metronic Theme
+## About magentix Theme
 
-This project uses the Metronic theme for its admin dashboard and frontend design.
+This project uses the magentix theme for its admin dashboard and frontend design.
 
-- For a quick start please check [Online documentation page](//preview.keenthemes.com/metronic8/laravel/documentation/getting-started/build)
-- All demos assets are included in the package. To switch the demo please check [Switch demo documentation](//https://preview.keenthemes.com/metronic8/laravel/documentation/getting-started/multi-demo/build)
+- For a quick start please check [Online documentation page](//preview.keenthemes.com/magentix8/laravel/documentation/getting-started/build)
+- All demos assets are included in the package. To switch the demo please check [Switch demo documentation](//https://preview.keenthemes.com/magentix8/laravel/documentation/getting-started/multi-demo/build)
 - For any theme related questions please contact our [Theme Support](//keenthemes.com/support/)
-- Using Metronic in a new project or for a new client? Purchase a new license https://1.envato.market/EA4JP
+- Using magentix in a new project or for a new client? Purchase a new license https://1.envato.market/EA4JP
 - Stay tuned for updates via [Twitter](//www.twitter.com/keenthemes) and [Instagram](//www.instagram.com/keenthemes)
 
 ## Project Features
@@ -31,7 +31,7 @@ This project uses the Metronic theme for its admin dashboard and frontend design
 - Chat message management
 
 ### Technical Features
-- Responsive design using Metronic theme
+- Responsive design using magentix theme
 - Real-time cart updates
 - Secure payment processing
 - Image upload and management

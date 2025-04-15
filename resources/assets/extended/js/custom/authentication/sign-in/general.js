@@ -17,7 +17,7 @@ var KTSigninGeneral = function () {
                     'email': {
                         validators: {
                             notEmpty: {
-                                message: 'Email address is required'
+                                message: 'Mailadresse ist erforderlich'
                             },
                             emailAddress: {
                                 message: 'Dies ist keine gültige Mailadresse'
@@ -30,7 +30,7 @@ var KTSigninGeneral = function () {
                                 message: 'The Passwort ist erforderlich'
                             },
                             callback: {
-                                message: 'Please enter valid password',
+                                message: 'Bitte ein gültiges Passwort eingeben.',
                             }
                         }
                     }
@@ -65,7 +65,7 @@ var KTSigninGeneral = function () {
                         .then(function (response) {
                             // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                             Swal.fire({
-                                text: "You have successfully logged in!",
+                                text: "Anmeldung erfolgreich!",
                                 icon: "success",
                                 buttonsStyling: false,
                                 confirmButtonText: "Weiter!",

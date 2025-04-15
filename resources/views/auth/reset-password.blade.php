@@ -1,5 +1,5 @@
 <x-auth-layout>
-    <!--begin::Reset Password Form-->
+    <!--begin::Passwort zurücksetzen Form-->
     <form class="form w-100" novalidate="novalidate" id="kt_password_reset_form" action="{{ route('password.update') }}" method="POST">
         @csrf
 
@@ -81,12 +81,12 @@
         <!--begin::Submit button-->
         <div class="d-grid mb-10">
             <button type="submit" id="kt_password_reset_submit" class="btn btn-primary">
-                @include('partials.general._button-indicator', ['label' => 'Reset Password'])
+                @include('partials.general._button-indicator', ['label' => 'Passwort zurücksetzen'])
             </button>
         </div>
         <!--end::Submit button-->
     </form>
-    <!--end::Reset Password Form-->
+    <!--end::Passwort zurücksetzen Form-->
 
     @push('scripts')
     <script src="{{ asset('js/custom/authentication/password-reset/reset-password.js') }}"></script>

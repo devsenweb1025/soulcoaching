@@ -69,7 +69,7 @@ License: {{ theme()->getOption('product', 'license') }}
 {{-- end::Head --}}
 
 {{-- begin::Body --}}
-<body {!! theme()->printHtmlAttributes('body') !!} {!! theme()->printHtmlClasses('body') !!} {!! theme()->printCssVariables('body') !!} data-kt-name="metronic">
+<body {!! theme()->printHtmlAttributes('body') !!} {!! theme()->printHtmlClasses('body') !!} {!! theme()->printCssVariables('body') !!} data-kt-name="magentix">
 
 @yield('content')
 

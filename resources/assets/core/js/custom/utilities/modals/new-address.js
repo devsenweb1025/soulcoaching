@@ -30,14 +30,14 @@ var KTModalNewAddress = function () {
 					'first-name': {
 						validators: {
 							notEmpty: {
-								message: 'First name is required'
+								message: 'Vorname ist erforderlich'
 							}
 						}
 					},
 					'last-name': {
 						validators: {
 							notEmpty: {
-								message: 'Last name is required'
+								message: 'Name ist erforderlich'
 							}
 						}
 					},

@@ -18,21 +18,21 @@ var KTSignupGeneral = function () {
                     'first_name': {
                         validators: {
                             notEmpty: {
-                                message: 'First Name is required'
+                                message: 'Vorname ist erforderlich'
                             }
                         }
                     },
                     'last_name': {
                         validators: {
                             notEmpty: {
-                                message: 'Last Name is required'
+                                message: 'Name ist erforderlich'
                             }
                         }
                     },
                     'email': {
                         validators: {
                             notEmpty: {
-                                message: 'Email address is required'
+                                message: 'Mailadresse ist erforderlich'
                             },
                             emailAddress: {
                                 message: 'Dies ist keine gültige Mailadresse'
@@ -45,7 +45,7 @@ var KTSignupGeneral = function () {
                                 message: 'The Passwort ist erforderlich'
                             },
                             callback: {
-                                message: 'Please enter valid password',
+                                message: 'Bitte ein gültiges Passwort eingeben.',
                                 callback: function (input) {
                                     if (input.value.length > 0) {
                                         return validatePassword();
@@ -57,7 +57,7 @@ var KTSignupGeneral = function () {
                     'confirm-password': {
                         validators: {
                             notEmpty: {
-                                message: 'The password confirmation is required'
+                                message: 'Bitte bestätige dein Passwort.'
                             },
                             identical: {
                                 compare: function () {
@@ -70,7 +70,7 @@ var KTSignupGeneral = function () {
                     'toc': {
                         validators: {
                             notEmpty: {
-                                message: 'You must accept the terms and conditions'
+                                message: 'Bitte akzeptiere die AGB, um fortzufahren.'
                             }
                         }
                     }

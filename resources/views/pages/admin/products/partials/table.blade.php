@@ -104,7 +104,7 @@
         Showing {{ $products->firstItem() ?? 0 }} to {{ $products->lastItem() ?? 0 }} of {{ $products->total() }}
         entries
     </div>
-    {{ $products->links('vendor.pagination.metronic') }}
+    {{ $products->links('vendor.pagination.index') }}
 </div>
 <!--end::Pagination-->
 

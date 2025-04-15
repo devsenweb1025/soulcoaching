@@ -172,7 +172,7 @@
                 <!--end::Section-->
 
                 <!--begin::Illustration-->
-                <img class="mh-200px" alt="metronic" src="{{ asset(theme()->getIllustrationUrl('1.png')) }}"/>
+                <img class="mh-200px" alt="magentix" src="{{ asset(theme()->getIllustrationUrl('1.png')) }}"/>
                 <!--end::Illustration-->
             </div>
             <!--end::Wrapper-->

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Service Booking Confirmation</title>
+    <title>Dienstleistung Buchung Bestätigung</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,39 +50,39 @@
 </head>
 <body>
     <div class="header">
-        <h1>Thank You for Your Booking!</h1>
+        <h1>Vielen Dank für Ihre Buchung!</h1>
     </div>
 
     <div class="content">
-        <p>Dear {{ auth()->user()->name }},</p>
+        <p>Lieber {{ auth()->user()->name }},</p>
 
-        <p>Thank you for booking our service. Your booking has been confirmed and processed successfully.</p>
+        <p>Vielen Dank für Ihre Buchung. Ihre Buchung wurde bestätigt und erfolgreich verarbeitet.</p>
 
         <div class="details">
-            <h3>Booking Details:</h3>
-            <p><strong>Service:</strong> {{ $service->name }}</p>
-            <p><strong>Order Number:</strong> {{ $order->order_number }}</p>
-            <p><strong>Amount Paid:</strong> CHF {{ number_format($order->total, 2) }}</p>
-            <p><strong>Payment Method:</strong> {{ ucfirst($order->payment_method) }}</p>
+            <h3>Buchungsdetails:</h3>
+            <p><strong>Dienstleistung:</strong> {{ $service->name }}</p>
+            <p><strong>Bestellnummer:</strong> {{ $order->order_number }}</p>
+            <p><strong>Betrag bezahlt:</strong> CHF {{ number_format($order->total, 2) }}</p>
+            <p><strong>Zahlungsmethode:</strong> {{ ucfirst($order->payment_method) }}</p>
             @if($service->duration)
-                <p><strong>Duration:</strong> {{ $service->duration }}</p>
+                <p><strong>Dauer:</strong> {{ $service->duration }}</p>
             @endif
             @if($service->location)
-                <p><strong>Location:</strong> {{ $service->location }}</p>
+                <p><strong>Ort:</strong> {{ $service->location }}</p>
             @endif
         </div>
 
-        <p>We will contact you shortly to schedule your appointment and provide further details about your service.</p>
+        <p>Wir werden uns schnellstmöglich um Ihre Terminplanung kümmern und weitere Details über Ihre Dienstleistung bereitstellen.</p>
 
-        <p>If you have any questions or need to make changes to your booking, please don't hesitate to contact us.</p>
+        <p>Wenn Sie Fragen zu Ihrer Buchung haben oder Änderungen an Ihrer Buchung vornehmen möchten, bitte kontaktieren Sie uns nicht.</p>
 
-        <p>Best regards,<br>
-        {{ config('app.name') }} Team</p>
+        <p>Mit freundlichen Grüssen,<br>
+        Ihr Seelenfluesterin Team</p>
     </div>
 
     <div class="footer">
-        <p>This is an automated message, please do not reply directly to this email.</p>
-        <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
+        <p>Diese ist eine automatisch generierte Nachricht, bitte antworte nicht auf diese Mail.</p>
+        <p>&copy; {{ date('Y') }} Seelenfluesterin. Alle Rechte vorbehalten.</p>
     </div>
 </body>
 </html>

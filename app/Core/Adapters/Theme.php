@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 /**
- * Adapter class to make the Metronic core lib compatible with the Laravel functions
+ * Adapter class to make the magentix core lib compatible with the Laravel functions
  *
  * Class Theme
  *

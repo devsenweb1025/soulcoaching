@@ -6,17 +6,17 @@
     <!--begin::Heading-->
         <div class="text-center mb-10">
             <!--begin::Title-->
-            <h1 class="text-dark fw-bolder mb-3">Confirm Password</h1>
+            <h1 class="text-dark fw-bolder mb-3">Passwort bestätigen</h1>
             <!--end::Title-->
             <!--begin::Link-->
-            <div class="text-gray-500 fw-semibold fs-6">This is a secure area of the application. Please confirm your password before continuing.</div>
+            <div class="text-gray-500 fw-semibold fs-6">Dies ist ein geschützter Bereich der Anwendung. Bitte bestätige dein Passwort, bevor du fortfährst.</div>
             <!--end::Link-->
         </div>
         <!--begin::Heading-->
         <!--begin::Input group=-->
         <div class="fv-row mb-8 fv-plugins-icon-container">
             <!--begin::Email-->
-            <input placeholder="Password" type="password" name="password" autocomplete="current-password" class="form-control bg-transparent">
+            <input placeholder="Passwort" type="password" name="password" autocomplete="current-password" class="form-control bg-transparent">
             <!--end::Email-->
         </div>
         <!--begin::Actions-->

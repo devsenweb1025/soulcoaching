@@ -34,14 +34,14 @@ var KTCareersApply = function () {
 					'first_name': {
 						validators: {
 							notEmpty: {
-								message: 'First name is required'
+								message: 'Vorname ist erforderlich'
 							}
 						}
 					},
 					'last_name': {
 						validators: {
 							notEmpty: {
-								message: 'Last name is required'
+								message: 'Name ist erforderlich'
 							}
 						}
 					},
@@ -62,7 +62,7 @@ var KTCareersApply = function () {
 					'email': {
                         validators: {
 							notEmpty: {
-								message: 'Email address is required'
+								message: 'Mailadresse ist erforderlich'
 							},
                             emailAddress: {
 								message: 'Dies ist keine gültige Mailadresse'

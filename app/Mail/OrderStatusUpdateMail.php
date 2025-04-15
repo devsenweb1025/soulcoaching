@@ -28,14 +28,14 @@ class OrderStatusUpdateMail extends Mailable
     public function envelope(): Envelope
     {
         $subject = match($this->updateType) {
-            'status' => 'Order Status Update',
-            'payment' => 'Payment Status Update',
-            'tracking' => 'Tracking Information Update',
-            default => 'Order Update'
+            'status' => 'Bestellstatus Update',
+            'payment' => 'Zahlungsstatus Update',
+            'tracking' => 'Sendungsnummer Update',
+            default => 'Bestellstatus Update'
         };
 
         return new Envelope(
-            subject: $subject . ' - Order #' . $this->order->id,
+            subject: $subject . ' - Bestellung #' . $this->order->id,
         );
     }
 

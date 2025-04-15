@@ -12,26 +12,26 @@ var KTIntro = function () {
         var time7days = 1000 * 60 * 60 * 24 * 7; // 7 days
         var time15days = 1000 * 60 * 60 * 24 * 15; // 15 days
         var time21days = 1000 * 60 * 60 * 24 * 21; // 21 days
-        var time30days = 1000 * 60 * 60 * 24 * 30; // 30 days        
+        var time30days = 1000 * 60 * 60 * 24 * 30; // 30 days
 
         if (!KTCookie.get(id + '_counter') || parseInt(KTCookie.get(id + '_counter')) < 3) {
             // Initial display
             if (!KTCookie.get(id + '_counter')) {
                 setTimeout(calback, timeout); // Display intro in 5 seconds
-                
+
                 KTCookie.set(id + '_show_1', '1', {expires: new Date(date.getTime() + time2days)});
 
                 KTCookie.set(id + '_counter', '1', {expires: new Date(date.getTime() + time30days)});
 
                 return true;
-            } 
+            }
 
             // 2 display
             if (KTCookie.get(id + '_counter') == '1' && !KTCookie.get(id + '_show_1')) {
                 setTimeout(calback, timeout); // Display intro in 5 seconds
-                
+
                 KTCookie.set(id + '_show_2', '1', {expires: new Date(date.getTime() + time7days)});
-                
+
                 KTCookie.set(id + '_counter', '2', {expires: new Date(date.getTime() + time21days)});
 
                 return true;
@@ -40,9 +40,9 @@ var KTIntro = function () {
             // 3 display
             if (KTCookie.get(id + '_counter') == '2' && !KTCookie.get(id + '_show_2')) {
                 setTimeout(calback, timeout); // Display intro in 5 seconds
-                
+
                 KTCookie.set(id + '_show_3', '1', {expires: new Date(date.getTime() + time15days)});
-                
+
                 KTCookie.set(id + '_counter', '3', {expires: new Date(date.getTime() + time15days)});
 
                 return true;
@@ -79,7 +79,7 @@ var KTIntro = function () {
         setTimeout(function() {
             if (popover) {
                 popover.dispose();
-            } 
+            }
         }, 1000 * 10); // 10 seconds
 
         // Hide popover on element click
@@ -115,7 +115,7 @@ var KTIntro = function () {
         setTimeout(function() {
             if (popover) {
                 popover.dispose();
-            } 
+            }
         }, 1000 * 10); // 10 seconds
 
         // Hide popover on element click
@@ -151,7 +151,7 @@ var KTIntro = function () {
         setTimeout(function() {
             if (popover) {
                 popover.dispose();
-            } 
+            }
         }, 1000 * 10); // 10 seconds
 
         // Hide popover on element click
@@ -162,19 +162,19 @@ var KTIntro = function () {
 
     var initIntro = function(product) {
         // Handle intro popovers displays
-        if (KTUtil.inIframe() === false) {                
+        if (KTUtil.inIframe() === false) {
             if (handleIntro('kt_' + product + '_intro_1', showtIntro1, 1000 * 5)) {
             } else if (handleIntro('kt_' + product + '_intro_2', showtIntro2, 1000 * 5)) {
             } else if (handleIntro('kt_' + product + '_intro_3', showtIntro3, 1000 * 5)) {
             }
-        } 
+        }
     }
 
     // Public methods
     return {
         init: function () {
-            initIntro('metronic');
-        }   
+            initIntro('magentix');
+        }
     }
 }();
 

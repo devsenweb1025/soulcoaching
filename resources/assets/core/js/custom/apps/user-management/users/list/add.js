@@ -25,7 +25,7 @@ var KTUsersAddUser = function () {
                     'user_email': {
                         validators: {
                             notEmpty: {
-                                message: 'Valid email address is required'
+                                message: 'Valid Mailadresse ist erforderlich'
                             }
                         }
                     },

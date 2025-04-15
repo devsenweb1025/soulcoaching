@@ -184,12 +184,12 @@ return array(
 
         array(
             'title' => 'Components',
-            'path' => '//preview.keenthemes.com/metronic8/demo1/documentation/base/utilities.html',
+            'path' => '//preview.keenthemes.com/magentix8/demo1/documentation/base/utilities.html',
         ),
 
         array(
             'title' => 'Documentation',
-            'path' => '//preview.keenthemes.com/metronic8/demo1/documentation/getting-started.html',
+            'path' => '//preview.keenthemes.com/magentix8/demo1/documentation/getting-started.html',
         ),
     ),
 

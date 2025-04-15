@@ -6,7 +6,7 @@
         <div class="d-flex align-items-center mb-9">
             <!--begin::Title-->
             <h1 class="fs-2x fw-bolder text-gray-900 mb-0 me-1">
-                How to use Metronic with Laravel Framework ?
+                How to use magentix with Laravel Framework ?
             </h1>
             <!--end::Title-->
 
@@ -66,7 +66,7 @@
                 </a>
 
                 <a href="{{ theme()->getPageUrl('apps/devs/tag') }}" class="btn btn-sm btn-light px-4 me-2">
-                    Metronic
+                    magentix
                 </a>
 
                 <a href="#" class="btn btn-sm btn-icon btn-light me-2" data-bs-toggle="tooltip" title="Save for your future reference" data-bs-dismiss="click">

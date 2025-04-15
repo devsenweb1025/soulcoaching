@@ -21,7 +21,7 @@ var KTSigninGeneral = function() {
                                 message: 'Dies ist keine gültige Mailadresse',
                             },
 							notEmpty: {
-								message: 'Email address is required'
+								message: 'Mailadresse ist erforderlich'
 							}
 						}
 					},
@@ -71,7 +71,7 @@ var KTSigninGeneral = function() {
 
                         // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                         Swal.fire({
-                            text: "You have successfully logged in!",
+                            text: "Anmeldung erfolgreich!",
                             icon: "success",
                             buttonsStyling: false,
                             confirmButtonText: "Weiter!",
@@ -139,7 +139,7 @@ var KTSigninGeneral = function() {
                         } else {
                             // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                             Swal.fire({
-                                text: "Sorry, the email or password is incorrect, please try again.",
+                                text: "Entschuldigung, die Mailadresse oder das Passwort ist falsch, bitte versuche es erneut.",
                                 icon: "error",
                                 buttonsStyling: false,
                                 confirmButtonText: "Weiter!",

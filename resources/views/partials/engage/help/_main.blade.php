@@ -12,7 +12,7 @@ $items = array(
         'icon'        => 'gift',
         'title'       => 'Plugins & Components',
         'description' => 'Check out our 300+ in-house components and customized 3rd-party plugins.',
-        'link'        => theme()->getPageUrl('https://preview.keenthemes.com/metronic8/demo1/documentation/base/utilities.html'),
+        'link'        => theme()->getPageUrl('https://preview.keenthemes.com/magentix8/demo1/documentation/base/utilities.html'),
         'color'       => 'primary'
     ),
 
@@ -20,7 +20,7 @@ $items = array(
         'icon'        => 'design-frame',
         'title'       => 'Layout Builder',
         'description' => 'Build your layout, preview it and export the HTML for server side integration.',
-        'link'        => 'https://preview.keenthemes.com/metronic8/laravel/demo1/layout-builder.html',
+        'link'        => 'https://preview.keenthemes.com/magentix8/laravel/demo1/layout-builder.html',
         'color'       => 'info'
     ),
 

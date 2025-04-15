@@ -48,7 +48,7 @@ mix.sass(`resources/assets/core/plugins/plugins.scss`, `public/plugins/global/pl
 // Build extended plugin styles
 mix.sass(`resources/assets/${demo}/sass/plugins.scss`, `public/plugins/global/plugins-custom.bundle.css`);
 
-// Build Metronic css/js
+// Build magentix css/js
 mix.sass(`resources/assets/${demo}/sass/style.scss`, `public/css/style.bundle.css`, {sassOptions: {includePaths: ['node_modules']}})
     // .options({processCssUrls: false})
     .scripts(require(`./resources/assets/${demo}/js/scripts.js`), `public/js/scripts.bundle.js`);
@@ -62,7 +62,7 @@ mix.sass(`resources/assets/${demo}/sass/style.scss`, `public/css/style.bundle.cs
     mix.sass(file, `public/${file.replace(`resources/assets/core/`, '').replace('.scss', '.bundle.css')}`);
 });
 
-// Build Metronic css pages (single page use)
+// Build magentix css pages (single page use)
 (glob.sync(`resources/assets/${demo}/sass/pages/**/!(_)*.scss`) || []).forEach(file => {
     file = file.replace(/[\\\/]+/g, '/');
     mix.sass(file, file.replace(`resources/assets/${demo}/sass`, `public/css`).replace(/\.scss$/, '.css'));
@@ -76,7 +76,7 @@ var extendedFiles = [];
     extendedFiles.push(output);
 });
 
-// Metronic js pages (single page use)
+// magentix js pages (single page use)
 (glob.sync('resources/assets/core/js/custom/**/*.js') || []).forEach(file => {
     var output = `public/${file.replace('resources/assets/core/', '')}`;
     if (extendedFiles.indexOf(output) === -1) {
@@ -90,11 +90,11 @@ var extendedFiles = [];
     }
 });
 
-// Metronic media
+// magentix media
 mix.copyDirectory('resources/assets/core/media', `public/media`);
 mix.copyDirectory(`resources/assets/${demo}/media`, `public/media`);
 
-// Metronic theme
+// magentix theme
 (glob.sync(`resources/assets/${demo}/sass/themes/**/!(_)*.scss`) || []).forEach(file => {
     file = file.replace(/[\\\/]+/g, '/');
     mix.sass(file, file.replace(`resources/assets/${demo}/sass`, `public/css`).replace(/\.scss$/, '.css'));

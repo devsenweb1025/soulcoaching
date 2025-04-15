@@ -18,7 +18,7 @@ var KTUsersUpdateEmail = function () {
                     'profile_email': {
                         validators: {
                             notEmpty: {
-                                message: 'Email address is required'
+                                message: 'Mailadresse ist erforderlich'
                             }
                         }
                     },

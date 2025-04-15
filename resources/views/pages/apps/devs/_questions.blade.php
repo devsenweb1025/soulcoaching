@@ -1,7 +1,7 @@
 <?php
     $questions = array(
         array(
-            'title' => 'How to use Metronic with Django Framework ?',
+            'title' => 'How to use magentix with Django Framework ?',
             'summary' => 'I’ve been doing some ajax request, to populate a inside drawer, the content of that drawer has a sub menu, that you are using in list and all card toolbar.',
             'author' => 'James Hunt',
             'date' => '24 minutes ago',
@@ -20,7 +20,7 @@
                     'tooltip' => 'User replied'
                 )
             ),
-            'tags' => array('Metronic')
+            'tags' => array('magentix')
         ),
 
         array(
@@ -43,7 +43,7 @@
 
         array(
             'title' => 'Could not get Demo 7 working',
-            'summary' => 'could not get demo7 working from latest metronic version. Had a lot of issues installing, I had to downgrade my npm to 6.14.4 as someone else recommended here in the comments, this goot it to compile but when I ran it, the browser showed errors TypeErr..',
+            'summary' => 'could not get demo7 working from latest magentix version. Had a lot of issues installing, I had to downgrade my npm to 6.14.4 as someone else recommended here in the comments, this goot it to compile but when I ran it, the browser showed errors TypeErr..',
             'author' => 'Niko Roseberg',
             'date' => '2 days ago',
             'avatar' => false,
@@ -61,7 +61,7 @@
 
         array(
             'title' => 'I want to get refund',
-            'summary' => 'Your Metronic theme is so good but the reactjs version is typescript only. The description did not write any warn about it. Since I only know javascript, I can not do anything with your theme. I want to refund.',
+            'summary' => 'Your magentix theme is so good but the reactjs version is typescript only. The description did not write any warn about it. Since I only know javascript, I can not do anything with your theme. I want to refund.',
             'author' => 'Alex Bold',
             'date' => '1 day ago',
             'avatar' => 'avatars/300-23.jpg',
@@ -78,8 +78,8 @@
         ),
 
         array(
-            'title' => 'How to integrate Metronic with Blazor Server Side ?',
-            'summary' => 'could not get demo7 working from latest metronic version. Had a lot of issues installing, I had to downgrade my npm to 6.14.4 as someone else recommended here in the comments, this goot it to compile but when I ran it, the browser showed errors TypeErr..',
+            'title' => 'How to integrate magentix with Blazor Server Side ?',
+            'summary' => 'could not get demo7 working from latest magentix version. Had a lot of issues installing, I had to downgrade my npm to 6.14.4 as someone else recommended here in the comments, this goot it to compile but when I ran it, the browser showed errors TypeErr..',
             'author' => 'Tim Nilson',
             'date' => '3 days ago',
             'avatar' => false,
@@ -96,7 +96,7 @@
         ),
 
         array(
-            'title' => 'Using Metronic with .NET multi tenant application',
+            'title' => 'Using magentix with .NET multi tenant application',
             'summary' => 'When approx. is the next update for the Laravel version planned? Waiting for the CRUD, 2nd factor etc. features before starting my project. Also can we expect the Laravel + Vue version in the next update ?',
             'author' => 'Ana Quil',
             'date' => '5 days ago',
