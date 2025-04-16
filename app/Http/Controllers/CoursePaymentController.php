@@ -15,6 +15,8 @@ use Stripe\Exception\ApiErrorException;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Mail\CourseAccessEmail;
 use App\Mail\CoursePurchaseMail;
+use App\Notifications\CoursePurchased;
+use Illuminate\Support\Facades\Auth;
 
 class CoursePaymentController extends Controller
 {
@@ -189,6 +191,7 @@ class CoursePaymentController extends Controller
 
             // Send course access email
             Mail::to($user->email)->send(new CourseAccessEmail($course, $order, $course->download_link));
+            Auth::user()->notify(new CoursePurchased($course));
 
             try {
                 Mail::to(config('mail.admin_email'))->send(new CoursePurchaseMail(

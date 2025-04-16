@@ -224,25 +224,14 @@ class ServiceController extends Controller
                 \Log::error('Fehler beim Versand der E-Mail zum Servicekauf ' . $e->getMessage());
             }
 
-            // After successful purchase, send notification
-            Auth::user()->notify(new ServicePurchased($service));
+            // Send notification after successful purchase
+            $user->notify(new ServicePurchased($service));
 
             DB::commit();
         } catch (\Exception $e) {
+            dd($e);
             DB::rollBack();
             throw $e;
         }
-    }
-
-    public function purchase(Service $service)
-    {
-        // Add your purchase logic here
-        // For example, create a service order, process payment, etc.
-
-        // After successful purchase, send notification
-        Auth::user()->notify(new ServicePurchased($service));
-
-        return redirect()->route('services.show', $service)
-            ->with('success', 'Dienstleistung wurde erfolgreich gekauft.');
     }
 }
