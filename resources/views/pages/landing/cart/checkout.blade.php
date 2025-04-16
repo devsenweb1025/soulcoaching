@@ -10,7 +10,7 @@
             <div class="container">
 
                 <!--begin::Heading-->
-                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
+                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 z-index-2 container">
                     <!--begin::Title-->
                     <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Bezahlung
                         <span
@@ -157,7 +157,8 @@
 
                                         <!--begin::Payment Methods-->
                                         <div class="mb-10">
-                                            <label class="required fw-semibold fs-6 mb-4">Zahlungsmethode auswählen</label>
+                                            <label class="required fw-semibold fs-6 mb-4">Zahlungsmethode
+                                                auswählen</label>
                                             <div class="row g-5">
                                                 <!--begin::Stripe-->
                                                 <div class="col-md-4">
@@ -179,7 +180,7 @@
                                                 </div>
                                                 <!--end::Stripe-->
 
-                                                <!--begin::PayPal-->
+                                                {{-- <!--begin::PayPal-->
                                                 <div class="col-md-4">
                                                     <div class="form-check form-check-custom form-check-solid">
                                                         <input class="form-check-input" type="radio"
@@ -195,7 +196,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <!--end::PayPal-->
+                                                <!--end::PayPal--> --}}
                                             </div>
                                         </div>
                                         <!--end::Payment Methods-->
@@ -257,189 +258,188 @@
     <!--end::Checkout Section-->
 </x-landing-layout>
 
-@push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        // Initialize Stripe
-        const stripe = Stripe('{{ config('services.stripe.key') }}', {
-            locale: 'de'
-        });
-        const elements = stripe.elements();
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    // Initialize Stripe
+    const stripe = Stripe('{{ config('services.stripe.key') }}', {
+        locale: 'de'
+    });
+    const elements = stripe.elements();
 
-        // Create card element
-        const card = elements.create('card', {
-            hidePostalCode: true,
-            style: {
-                base: {
-                    fontSize: '16px',
-                    color: '#32325d',
-                    '::placeholder': {
-                        color: '#aab7c4'
+    // Create card element
+    const card = elements.create('card', {
+        hidePostalCode: true,
+        style: {
+            base: {
+                fontSize: '16px',
+                color: '#32325d',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        }
+    });
+
+    // Mount card element
+    card.mount('#card-element');
+
+    // Handle card errors
+    card.addEventListener('change', function(event) {
+        const displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+
+    // Payment method toggle
+    document.querySelectorAll('input[name="payment_method"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            if (this.value === 'stripe') {
+                document.getElementById('credit_card_form').style.display = 'block';
+                document.getElementById('paypal_form').style.display = 'none';
+            } else if (this.value === 'paypal') {
+                document.getElementById('credit_card_form').style.display = 'none';
+                document.getElementById('paypal_form').style.display = 'block';
+            }
+        });
+    });
+
+    // Form submission
+    const form = document.getElementById('payment-form');
+    const submitButton = document.getElementById('submit-button');
+
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        // Disable submit button
+        submitButton.disabled = true;
+        submitButton.querySelector('.indicator-label').style.display = 'none';
+        submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
+
+        const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+
+        // Store shipping info in session
+        const shippingResponse = await fetch('{{ route('cart.store-shipping-info') }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                first_name: form.querySelector('[name="first_name"]').value,
+                last_name: form.querySelector('[name="last_name"]').value,
+                email: form.querySelector('[name="email"]').value,
+                phone: form.querySelector('[name="phone"]').value,
+                address: form.querySelector('[name="address"]').value,
+                city: form.querySelector('[name="city"]').value,
+                postal_code: form.querySelector('[name="postal_code"]').value,
+                country: form.querySelector('[name="country"]').value
+            })
+        });
+
+        if (!shippingResponse.ok) {
+            throw new Error('Failed to store Versandinformationen');
+        }
+
+        if (paymentMethod === 'stripe') {
+            try {
+                // Create payment intent
+                const response = await fetch('{{ route('stripe.create-payment-intent') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
                     }
-                },
-                invalid: {
-                    color: '#fa755a',
-                    iconColor: '#fa755a'
-                }
-            }
-        });
+                });
 
-        // Mount card element
-        card.mount('#card-element');
+                const {
+                    clientSecret
+                } = await response.json();
 
-        // Handle card errors
-        card.addEventListener('change', function(event) {
-            const displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
-
-        // Payment method toggle
-        document.querySelectorAll('input[name="payment_method"]').forEach(function(radio) {
-            radio.addEventListener('change', function() {
-                if (this.value === 'stripe') {
-                    document.getElementById('credit_card_form').style.display = 'block';
-                    document.getElementById('paypal_form').style.display = 'none';
-                } else if (this.value === 'paypal') {
-                    document.getElementById('credit_card_form').style.display = 'none';
-                    document.getElementById('paypal_form').style.display = 'block';
-                }
-            });
-        });
-
-        // Form submission
-        const form = document.getElementById('payment-form');
-        const submitButton = document.getElementById('submit-button');
-
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            // Disable submit button
-            submitButton.disabled = true;
-            submitButton.querySelector('.indicator-label').style.display = 'none';
-            submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
-
-            const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
-
-            // Store shipping info in session
-            const shippingResponse = await fetch('{{ route('cart.store-shipping-info') }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    first_name: form.querySelector('[name="first_name"]').value,
-                    last_name: form.querySelector('[name="last_name"]').value,
-                    email: form.querySelector('[name="email"]').value,
-                    phone: form.querySelector('[name="phone"]').value,
-                    address: form.querySelector('[name="address"]').value,
-                    city: form.querySelector('[name="city"]').value,
-                    postal_code: form.querySelector('[name="postal_code"]').value,
-                    country: form.querySelector('[name="country"]').value
-                })
-            });
-
-            if (!shippingResponse.ok) {
-                throw new Error('Failed to store Versandinformationen');
-            }
-
-            if (paymentMethod === 'stripe') {
-                try {
-                    // Create payment intent
-                    const response = await fetch('{{ route('stripe.create-payment-intent') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    const {
-                        clientSecret
-                    } = await response.json();
-
-                    // Confirm payment
-                    const {
-                        paymentIntent,
-                        error
-                    } = await stripe.confirmCardPayment(clientSecret, {
-                        payment_method: {
-                            card: card,
-                            billing_details: {
-                                name: form.querySelector('[name="first_name"]').value + ' ' + form
-                                    .querySelector('[name="last_name"]').value,
-                                email: form.querySelector('[name="email"]').value,
-                                phone: form.querySelector('[name="phone"]').value,
-                                address: {
-                                    line1: form.querySelector('[name="address"]').value,
-                                    city: form.querySelector('[name="city"]').value,
-                                    postal_code: form.querySelector('[name="postal_code"]').value,
-                                    country: form.querySelector('[name="country"]').value
-                                }
+                // Confirm payment
+                const {
+                    paymentIntent,
+                    error
+                } = await stripe.confirmCardPayment(clientSecret, {
+                    payment_method: {
+                        card: card,
+                        billing_details: {
+                            name: form.querySelector('[name="first_name"]').value + ' ' + form
+                                .querySelector('[name="last_name"]').value,
+                            email: form.querySelector('[name="email"]').value,
+                            phone: form.querySelector('[name="phone"]').value,
+                            address: {
+                                line1: form.querySelector('[name="address"]').value,
+                                city: form.querySelector('[name="city"]').value,
+                                postal_code: form.querySelector('[name="postal_code"]').value,
+                                country: form.querySelector('[name="country"]').value
                             }
                         }
-                    });
-
-                    if (error) {
-                        throw new Error(error.message);
                     }
-                    // Redirect to success page
-                    window.location.href = '{{ route('stripe.success') }}?payment_intent=' + paymentIntent.id;
-                } catch (error) {
-                    // Show error message
-                    const errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = error.message;
+                });
 
-                    // Re-enable submit button
-                    submitButton.disabled = false;
-                    submitButton.querySelector('.indicator-label').style.display = 'inline-block';
-                    submitButton.querySelector('.indicator-progress').style.display = 'none';
+                if (error) {
+                    throw new Error(error.message);
                 }
-            } else if (paymentMethod === 'paypal') {
-                try {
-                    // Create PayPal order
-                    const response = await fetch('{{ route('payment.paypal.create') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Accept': 'application/json'
-                        }
-                    });
+                // Redirect to success page
+                window.location.href = '{{ route('stripe.success') }}?payment_intent=' + paymentIntent.id;
+            } catch (error) {
+                // Show error message
+                const errorElement = document.getElementById('card-errors');
+                errorElement.textContent = error.message;
 
-                    const {
-                        orderId,
-                        approvalUrl
-                    } = await response.json();
-                    console.log(response.json());
-
-                    if (orderId && approvalUrl) {
-                        // Store order ID in session
-
-
-                        // Redirect to PayPal approval URL
-                        window.location.href = approvalUrl;
-                    } else {
-                        throw new Error('Erstellung der PayPal-Bestellung fehlgeschlagen');
-                    }
-                } catch (error) {
-                    console.log(error);
-                    // Show error message
-                    const errorElement = document.getElementById('paypal-errors');
-                    errorElement.textContent = error.message;
-
-                    // Re-enable submit button
-                    submitButton.disabled = false;
-                    submitButton.querySelector('.indicator-label').style.display = 'inline-block';
-                    submitButton.querySelector('.indicator-progress').style.display = 'none';
-                }
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+                submitButton.querySelector('.indicator-progress').style.display = 'none';
             }
-        });
-    </script>
+        } else if (paymentMethod === 'paypal') {
+            try {
+                // Create PayPal order
+                const response = await fetch('{{ route('payment.paypal.create') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    }
+                });
+
+                const {
+                    orderId,
+                    approvalUrl
+                } = await response.json();
+                console.log(response.json());
+
+                if (orderId && approvalUrl) {
+                    // Store order ID in session
+
+
+                    // Redirect to PayPal approval URL
+                    window.location.href = approvalUrl;
+                } else {
+                    throw new Error('Erstellung der PayPal-Bestellung fehlgeschlagen');
+                }
+            } catch (error) {
+                console.log(error);
+                // Show error message
+                const errorElement = document.getElementById('paypal-errors');
+                errorElement.textContent = error.message;
+
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+                submitButton.querySelector('.indicator-progress').style.display = 'none';
+            }
+        }
+    });
+</script>
