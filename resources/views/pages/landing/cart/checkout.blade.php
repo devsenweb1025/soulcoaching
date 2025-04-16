@@ -179,7 +179,7 @@
                                                 </div>
                                                 <!--end::Stripe-->
 
-                                                {{-- <!--begin::PayPal-->
+                                                <!--begin::PayPal-->
                                                 <div class="col-md-4">
                                                     <div class="form-check form-check-custom form-check-solid">
                                                         <input class="form-check-input" type="radio"
@@ -195,7 +195,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <!--end::PayPal--> --}}
+                                                <!--end::PayPal-->
                                             </div>
                                         </div>
                                         <!--end::Payment Methods-->
