@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Mail\OrderStatusUpdateMail;
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\OrderShipped;
 
 class OrderController extends Controller
 {
@@ -52,14 +53,20 @@ class OrderController extends Controller
     public function updateStatus(Request $request, Order $order)
     {
         $request->validate([
-            'status' => 'required|in:pending,processing,shipped,delivered,cancelled,refunded'
+            'status' => 'required|in:pending,processing,shipped,delivered,cancelled',
+            'tracking_number' => 'nullable|string|max:255',
         ]);
 
         $oldStatus = $order->status;
         $order->update([
             'status' => $request->status,
-            'notes' => $request->notes
+            'tracking_number' => $request->tracking_number,
         ]);
+
+        // Send notification when order is shipped
+        if ($request->status === 'shipped') {
+            $order->user->notify(new OrderShipped($order));
+        }
 
         try {
             Mail::to($order->shipping_email)->send(new OrderStatusUpdateMail(

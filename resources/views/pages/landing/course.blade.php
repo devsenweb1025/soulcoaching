@@ -116,14 +116,14 @@
                                                     </i>
                                                     Mit Karte bezahlen
                                                 </button>
-                                                {{-- <button type="button" class="btn btn-primary"
+                                                <button type="button" class="btn btn-primary"
                                                     onclick="initiatePayment('paypal', 1)">
                                                     <i class="ki-duotone ki-paypal fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
                                                     Mit Paypal bezahlen
-                                                </button> --}}
+                                                </button>
                                             </div>
 
                                             <!-- Stripe Card Form -->
@@ -247,14 +247,14 @@
                                                     </i>
                                                     Mit Karte bezahlen
                                                 </button>
-                                                {{-- <button type="button" class="btn btn-primary"
+                                                <button type="button" class="btn btn-primary"
                                                     onclick="initiatePayment('paypal', 2)">
                                                     <i class="ki-duotone ki-paypal fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
                                                     Mit Paypal bezahlen
-                                                </button> --}}
+                                                </button>
                                             </div>
                                         </div>
                                         <!--end::Heading-->

@@ -15,6 +15,8 @@ use Stripe\Exception\ApiErrorException;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Mail\ServiceAccessEmail;
 use App\Mail\ServicePurchaseMail;
+use App\Notifications\ServicePurchased;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -222,10 +224,25 @@ class ServiceController extends Controller
                 \Log::error('Fehler beim Versand der E-Mail zum Servicekauf ' . $e->getMessage());
             }
 
+            // After successful purchase, send notification
+            Auth::user()->notify(new ServicePurchased($service));
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
             throw $e;
         }
+    }
+
+    public function purchase(Service $service)
+    {
+        // Add your purchase logic here
+        // For example, create a service order, process payment, etc.
+
+        // After successful purchase, send notification
+        Auth::user()->notify(new ServicePurchased($service));
+
+        return redirect()->route('services.show', $service)
+            ->with('success', 'Dienstleistung wurde erfolgreich gekauft.');
     }
 }
