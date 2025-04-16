@@ -1,5 +1,16 @@
 @extends('base.base')
 
+@if(config('analytics.enabled') && config('analytics.tracking_id'))
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('analytics.tracking_id') }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ config('analytics.tracking_id') }}');
+    </script>
+@endif
+
 @section('content')
     @if (theme()->getOption('layout', 'main/type') === 'blank')
         <!--begin::Root-->
