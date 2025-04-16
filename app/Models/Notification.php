@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\DatabaseNotification;
 
-class Notification extends Model
+class Notification extends DatabaseNotification
 {
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
         'type',
         'notifiable_type',
@@ -15,8 +19,9 @@ class Notification extends Model
     ];
 
     protected $casts = [
+        'id' => 'string',
         'data' => 'array',
-        'read_at' => 'datetime'
+        'read_at' => 'datetime',
     ];
 
     public function notifiable()
