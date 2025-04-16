@@ -2,25 +2,25 @@
     <div class="card">
         <div class="card-header">
             <div class="card-title">
-                <h3>Order #{{ $order->order_number }}</h3>
-                <span class="text-muted">Placed on {{ $order->created_at->format('F j, Y H:i') }}</span>
+                <h3>Bestellung # {{ $order->order_number }}</h3>
+                <span class="text-muted">Erstellt am {{ $order->created_at->format('F j, Y H:i') }}</span>
             </div>
             <div class="card-toolbar">
                 <div class="d-flex gap-2">
                     <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-light-primary">
-                        <i class="fas fa-arrow-left"></i> Back to Orders
+                        <i class="fas fa-arrow-left"></i> Zurück zu Bestellungen
                     </a>
                     <button type="button" class="btn btn-sm btn-light-primary update-status"
                         data-id="{{ $order->id }}">
-                        <i class="fas fa-sync"></i> Update Status
+                        <i class="fas fa-sync"></i> Status aktualisieren
                     </button>
                     <button type="button" class="btn btn-sm btn-light-primary update-payment-status"
                         data-id="{{ $order->id }}">
-                        <i class="fas fa-credit-card"></i> Update Payment
+                        <i class="fas fa-credit-card"></i> Zahlung aktualisieren
                     </button>
                     <button type="button" class="btn btn-sm btn-light-primary update-tracking"
                         data-id="{{ $order->id }}">
-                        <i class="fas fa-truck"></i> Update Tracking
+                        <i class="fas fa-truck"></i> Sendungsverfolgung aktualisieren
                     </button>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-4">
                     <div class="card card-xl-stretch mb-xl-8">
                         <div class="card-header">
-                            <h3 class="card-title">Order Summary</h3>
+                            <h3 class="card-title">Bestellübersicht</h3>
                         </div>
                         <div class="card-body">
                             <div class="d-flex flex-column mb-5">
@@ -40,25 +40,25 @@
                                     {!! $order->status_badge !!}
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Payment Status:</span>
+                                    <span class="text-muted">Zahlungsstatus:</span>
                                     {!! $order->payment_status_badge !!}
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Payment Method:</span>
+                                    <span class="text-muted">Zahlungsmethode:</span>
                                     <span class="text-gray-800">{{ ucfirst($order->payment_method) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Subtotal:</span>
-                                    <span class="text-gray-800">${{ number_format($order->total, 2) }}</span>
+                                    <span class="text-muted">Zwischensumme:</span>
+                                    <span class="text-gray-800">CHF {{ number_format($order->total, 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Shipping Cost:</span>
-                                    <span class="text-gray-800">${{ number_format($order->shipping_cost, 2) }}</span>
+                                    <span class="text-muted">Versandkosten:</span>
+                                    <span class="text-gray-800">CHF {{ number_format($order->shipping_cost, 2) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <span class="text-muted">Grand Total:</span>
+                                    <span class="text-muted">Gesamtsumme:</span>
                                     <span
-                                        class="text-gray-800 fw-bold">${{ number_format($order->grand_total, 2) }}</span>
+                                        class="text-gray-800 fw-bold">CHF {{ number_format($order->grand_total, 2) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                 <div class="col-xl-4">
                     <div class="card card-xl-stretch mb-xl-8">
                         <div class="card-header">
-                            <h3 class="card-title">Customer Information</h3>
+                            <h3 class="card-title">Kundeninformationen</h3>
                         </div>
                         <div class="card-body">
                             <div class="d-flex flex-column mb-5">
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="separator separator-dashed my-5"></div>
-                                <h4 class="text-gray-800 mb-3">Shipping Address</h4>
+                                <h4 class="text-gray-800 mb-3">Lieferadresse</h4>
                                 <div class="text-gray-600">
                                     {{ $order->shipping_first_name }} {{ $order->shipping_last_name }}<br>
                                     {{ $order->shipping_address }}<br>
@@ -102,17 +102,17 @@
                 <div class="col-xl-4">
                     <div class="card card-xl-stretch mb-xl-8">
                         <div class="card-header">
-                            <h3 class="card-title">Order Items</h3>
+                            <h3 class="card-title">Bestellte Artikel</h3>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table align-middle table-row-dashed fs-6 gy-5">
                                     <thead>
                                         <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                            <th class="min-w-125px">Product</th>
-                                            <th class="min-w-125px">Quantity</th>
-                                            <th class="min-w-125px">Price</th>
-                                            <th class="min-w-125px">Total</th>
+                                            <th class="min-w-125px">Produkt</th>
+                                            <th class="min-w-125px">Menge</th>
+                                            <th class="min-w-125px">Preis</th>
+                                            <th class="min-w-125px">Gesamt</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-gray-600 fw-semibold">
@@ -166,7 +166,7 @@
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Update Order Status</h2>
+                    <h2>Bestellstatus aktualisieren</h2>
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                         aria-label="Close">
                         <i class="fas fa-times"></i>
@@ -178,26 +178,26 @@
                         <div class="mb-5">
                             <label class="form-label required">Status</label>
                             <select name="status" class="form-select" required>
-                                <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>Pending
+                                <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>Ausstehend
                                 </option>
                                 <option value="processing" {{ $order->status === 'processing' ? 'selected' : '' }}>
-                                    Processing</option>
-                                <option value="shipped" {{ $order->status === 'shipped' ? 'selected' : '' }}>Shipped
+                                    In Bearbeitung</option>
+                                <option value="shipped" {{ $order->status === 'shipped' ? 'selected' : '' }}>Versendet
                                 </option>
                                 <option value="delivered" {{ $order->status === 'delivered' ? 'selected' : '' }}>
-                                    Delivered</option>
+                                    Geliefert</option>
                                 <option value="cancelled" {{ $order->status === 'cancelled' ? 'selected' : '' }}>
-                                    Cancelled</option>
+                                    Storniert</option>
                                 <option value="refunded" {{ $order->status === 'refunded' ? 'selected' : '' }}>
-                                    Refunded</option>
+                                    Rückerstattet</option>
                             </select>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Abbrechen</button>
                     <button type="button" class="btn btn-primary" id="updateStatusBtn">
-                        <i class="fas fa-save"></i> Update Status
+                        <i class="fas fa-save"></i> Status aktualisieren
                     </button>
                 </div>
             </div>
@@ -209,7 +209,7 @@
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Update Payment Status</h2>
+                    <h2>Zahlungsstatus aktualisieren</h2>
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                         aria-label="Close">
                         <i class="fas fa-times"></i>
@@ -219,24 +219,24 @@
                     <form id="paymentStatusForm">
                         @csrf
                         <div class="mb-5">
-                            <label class="form-label required">Payment Status</label>
+                            <label class="form-label required">Zahlungsstatus</label>
                             <select name="payment_status" class="form-select" required>
                                 <option value="pending" {{ $order->payment_status === 'pending' ? 'selected' : '' }}>
-                                    Pending</option>
-                                <option value="paid" {{ $order->payment_status === 'paid' ? 'selected' : '' }}>Paid
+                                    Ausstehend</option>
+                                <option value="paid" {{ $order->payment_status === 'paid' ? 'selected' : '' }}>Bezahlt
                                 </option>
                                 <option value="failed" {{ $order->payment_status === 'failed' ? 'selected' : '' }}>
-                                    Failed</option>
+                                    Fehlgeschlagen</option>
                                 <option value="refunded"
-                                    {{ $order->payment_status === 'refunded' ? 'selected' : '' }}>Refunded</option>
+                                    {{ $order->payment_status === 'refunded' ? 'selected' : '' }}>Rückerstattet</option>
                             </select>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Abbrechen</button>
                     <button type="button" class="btn btn-primary" id="updatePaymentStatusBtn">
-                        <i class="fas fa-save"></i> Update Status
+                        <i class="fas fa-save"></i> Status aktualisieren
                     </button>
                 </div>
             </div>
@@ -248,7 +248,7 @@
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Update Tracking Information</h2>
+                    <h2>Sendungsverfolgung aktualisieren</h2>
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                         aria-label="Close">
                         <i class="fas fa-times"></i>
@@ -258,21 +258,21 @@
                     <form id="trackingForm">
                         @csrf
                         <div class="mb-5">
-                            <label class="form-label required">Tracking Number</label>
+                            <label class="form-label required">Sendungsnummer</label>
                             <input type="text" name="tracking_number" class="form-control"
                                 value="{{ $order->tracking_number }}" required>
                         </div>
                         <div class="mb-5">
-                            <label class="form-label">Tracking URL</label>
+                            <label class="form-label">Sendungsverfolgungs-URL</label>
                             <input type="url" name="tracking_url" class="form-control"
                                 value="{{ $order->tracking_url }}">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Abbrechen</button>
                     <button type="button" class="btn btn-primary" id="updateTrackingBtn">
-                        <i class="fas fa-save"></i> Update Tracking
+                        <i class="fas fa-save"></i> Sendungsverfolgung aktualisieren
                     </button>
                 </div>
             </div>

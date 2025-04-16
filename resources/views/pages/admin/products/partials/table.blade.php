@@ -5,14 +5,14 @@
         <!--begin::Table head-->
         <thead>
             <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
-                <th class="p-0 pb-3 min-w-50px text-start">Image</th>
+                <th class="p-0 pb-3 min-w-50px text-start">Bild</th>
                 <th class="p-0 pb-3 min-w-150px text-start">Name</th>
                 <th class="p-0 pb-3 min-w-100px text-start">SKU</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Price</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Quantity</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Preis</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Menge</th>
                 <th class="p-0 pb-3 min-w-100px text-center">Status</th>
-                <th class="p-0 pb-3 min-w-100px text-center">Featured</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Actions</th>
+                <th class="p-0 pb-3 min-w-100px text-center">Hervorgehoben</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Aktionen</th>
             </tr>
         </thead>
         <!--end::Table head-->
@@ -54,13 +54,13 @@
                     </td>
                     <td class="text-center">
                         <span class="badge badge-light-{{ $product->is_active ? 'success' : 'danger' }} fs-7 fw-bold">
-                            {{ $product->is_active ? 'Active' : 'Inactive' }}
+                            {{ $product->is_active ? 'Aktiv' : 'Inaktiv' }}
                         </span>
                     </td>
                     <td class="text-center">
                         <span
                             class="badge badge-light-{{ $product->is_featured ? 'success' : 'warning' }} fs-7 fw-bold">
-                            {{ $product->is_featured ? 'Yes' : 'No' }}
+                            {{ $product->is_featured ? 'Ja' : 'Nein' }}
                         </span>
                     </td>
                     <td class="text-end">
@@ -87,7 +87,7 @@
             @empty
                 <tr>
                     <td colspan="8" class="text-center py-5">
-                        <div class="text-gray-500 fw-semibold fs-6">No products found.</div>
+                        <div class="text-gray-500 fw-semibold fs-6">Keine Produkte gefunden.</div>
                     </td>
                 </tr>
             @endforelse
@@ -101,8 +101,8 @@
 <!--begin::Pagination-->
 <div class="d-flex flex-stack flex-wrap pt-10">
     <div class="fs-6 fw-semibold text-gray-700">
-        Showing {{ $products->firstItem() ?? 0 }} to {{ $products->lastItem() ?? 0 }} of {{ $products->total() }}
-        entries
+        Zeige {{ $products->firstItem() ?? 0 }} bis {{ $products->lastItem() ?? 0 }} von {{ $products->total() }}
+        Einträgen
     </div>
     {{ $products->links('vendor.pagination.index') }}
 </div>
@@ -114,13 +114,13 @@
         $('.delete-product').click(function() {
             const productId = $(this).data('id');
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Sind Sie sicher?',
+                text: "Diese Aktion kann nicht rückgängig gemacht werden!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Ja, löschen!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     fetch(`/admin/products/${productId}`, {
@@ -134,8 +134,8 @@
                     .then(data => {
                         if (data.success) {
                             Swal.fire(
-                                'Deleted!',
-                                'Product has been deleted.',
+                                'Gelöscht!',
+                                'Produkt wurde erfolgreich gelöscht.',
                                 'success'
                             ).then(() => {
                                 location.reload();
@@ -144,8 +144,8 @@
                     })
                     .catch(error => {
                         Swal.fire(
-                            'Error!',
-                            'Something went wrong.',
+                            'Fehler!',
+                            'Etwas ist schief gelaufen.',
                             'error'
                         );
                     });

@@ -1,4 +1,4 @@
 
 @extends('pages.admin.products.form')
 
-@section('title', 'Create Product')
+@section('title', 'Neues Produkt erstellen')

@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
     <div class="d-flex flex-stack flex-wrap pt-10">
         <div class="fs-6 fw-semibold text-gray-700">
-            Showing {{ $paginator->firstItem() ?? 0 }} to {{ $paginator->lastItem() ?? 0 }} of {{ $paginator->total() }} entries
+            Zeige {{ $paginator->firstItem() ?? 0 }} bis {{ $paginator->lastItem() ?? 0 }} von {{ $paginator->total() }} Einträgen
         </div>
         <ul class="pagination">
             {{-- Previous Page Link --}}

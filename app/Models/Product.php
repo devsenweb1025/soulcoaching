@@ -212,4 +212,9 @@ class Product extends Model
             ->unique('id')
             ->take(4);
     }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

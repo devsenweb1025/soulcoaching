@@ -59,6 +59,7 @@ class Order extends Model
             'processing' => '<span class="badge badge-light-primary">Processing</span>',
             'shipped' => '<span class="badge badge-light-info">Shipped</span>',
             'delivered' => '<span class="badge badge-light-success">Delivered</span>',
+            'completed' => '<span class="badge badge-light-success">Completed</span>',
             'cancelled' => '<span class="badge badge-light-danger">Cancelled</span>',
             'refunded' => '<span class="badge badge-light-info">Refunded</span>',
             default => '<span class="badge badge-light-dark">Unknown</span>',

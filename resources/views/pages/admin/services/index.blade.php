@@ -5,8 +5,8 @@
         <div class="card-header pt-5">
             <!--begin::Title-->
             <h3 class="card-title align-items-start flex-column">
-                <span class="card-label fw-bold text-gray-800">Services Management</span>
-                <span class="text-gray-400 mt-1 fw-semibold fs-6">Total {{ $services->total() }} Services</span>
+                <span class="card-label fw-bold text-gray-800">Dienstleistungsverwaltung</span>
+                <span class="text-gray-400 mt-1 fw-semibold fs-6">Insgesamt {{ $services->total() }} Dienstleistungen</span>
             </h3>
             <!--end::Title-->
             <!--begin::Toolbar-->
@@ -18,11 +18,11 @@
                         <span class="path2"></span>
                     </i>
                     <input type="text" id="searchInput" class="form-control form-control-solid w-250px ps-12"
-                        placeholder="Search services..." />
+                        placeholder="Dienstleistungen suchen..." />
                 </div>
                 <!--end::Search-->
                 <a href="{{ route('admin.services.create') }}" class="btn btn-sm btn-light-primary ms-3">
-                    <i class="ki-duotone ki-plus fs-2"></i>Add New Service
+                    <i class="ki-duotone ki-plus fs-2"></i>Neue Dienstleistung hinzufügen
                 </a>
             </div>
             <!--end::Toolbar-->
@@ -66,7 +66,7 @@
                     .then(html => {
                         document.getElementById('servicesTable').innerHTML = html;
                     })
-                    .catch(error => console.error('Error:', error));
+                    .catch(error => console.error('Fehler:', error));
             }, 500); // 500ms delay
         });
     });

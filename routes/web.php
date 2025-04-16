@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\CoursePaymentController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\ServiceController as ServiceManagementController;
+use App\Http\Controllers\Admin\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -105,7 +106,14 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->names('products');
-    // ... existing code ...
+
+    // Notification Routes
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('/notifications/{notification}/mark-as-read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-as-read');
+    Route::post('/notifications/mark-all-as-read', [NotificationController::class, 'markAllAsRead'])->name('notifications.mark-all-as-read');
+    Route::get('/notifications/unread-count', [NotificationController::class, 'getUnreadCount'])->name('notifications.unread-count');
+    Route::get('/notifications/recent', [NotificationController::class, 'getRecentNotifications'])->name('notifications.recent');
+
     // Order Management Routes
     Route::get('/orders', [OrderManagementController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}', [OrderManagementController::class, 'show'])->name('orders.show');

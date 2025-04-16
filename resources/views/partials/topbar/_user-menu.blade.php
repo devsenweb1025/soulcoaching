@@ -28,83 +28,48 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-        <a href="#" class="menu-link px-5" data-bs-toggle="tooltip" data-bs-placement="left" title="{{ __('Coming soon') }}">
-            <span class="menu-text">{{ __('My Projects') }}</span>
-            <span class="menu-badge">
-                <span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
-            </span>
+        <a href="{{ route('admin.products.index') }}" class="menu-link px-5">
+            <i class="ki-duotone ki-basket fs-2 me-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            <span class="menu-text">Produkte</span>
         </a>
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
-    <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
-        <a href="#" class="menu-link px-5">
-            <span class="menu-title">{{ __('My Subscription') }}</span>
-            <span class="menu-arrow"></span>
+    <div class="menu-item px-5">
+        <a href="{{ route('admin.orders.index') }}" class="menu-link px-5">
+            <i class="ki-duotone ki-handcart fs-2 me-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            <span class="menu-text">Bestellungen</span>
         </a>
-
-        <!--begin::Menu sub-->
-        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link px-5">
-                    {{ __('Referrals') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link px-5">
-                    {{ __('Billing') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link px-5">
-                    {{ __('Payments') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link d-flex flex-stack px-5">
-                    {{ __('Statements') }}
-
-                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="View your statements"></i>
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu separator-->
-            <div class="separator my-2"></div>
-            <!--end::Menu separator-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <div class="menu-content px-3">
-                    <label class="form-check form-switch form-check-custom form-check-solid">
-                        <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications"/>
-                        <span class="form-check-label text-muted fs-7">
-                            {{ __('Notifications') }}
-                        </span>
-                    </label>
-                </div>
-            </div>
-            <!--end::Menu item-->
-        </div>
-        <!--end::Menu sub-->
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
-    <div class="menu-item px-5" data-bs-toggle="tooltip" data-bs-placement="left" title="{{ __('Coming soon') }}">
-        <a href="#" class="menu-link px-5">
-            {{ __('My Statements') }}
+    <div class="menu-item px-5">
+        <a href="{{ route('admin.bookings.index') }}" class="menu-link px-5">
+            <i class="ki-duotone ki-calendar fs-2 me-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            <span class="menu-text">Buchungen</span>
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-5">
+        <a href="{{ route('admin.services.index') }}" class="menu-link px-5">
+            <i class="ki-duotone ki-gear fs-2 me-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            <span class="menu-text">Dienstleistungen</span>
         </a>
     </div>
     <!--end::Menu item-->
@@ -114,82 +79,13 @@
     <!--end::Menu separator-->
 
     <!--begin::Menu item-->
-    <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
-        <a href="#" class="menu-link px-5">
-            <span class="menu-title position-relative">
-                {{ __('Language') }}
-
-                <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">
-                    {{ __('English') }} <img class="w-15px h-15px rounded-1 ms-2" src="{{ asset(theme()->getMediaUrlPath() . 'flags/united-states.svg') }}" alt="magentix"/>
-                </span>
-            </span>
-        </a>
-
-        <!--begin::Menu sub-->
-        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link d-flex px-5 active">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset(theme()->getMediaUrlPath() . 'flags/united-states.svg') }}" alt="magentix"/>
-                    </span>
-                    {{ __('English') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link d-flex px-5">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset(theme()->getMediaUrlPath() . 'flags/spain.svg') }}" alt="magentix"/>
-                    </span>
-                    {{ __('Spanish') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link d-flex px-5">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset(theme()->getMediaUrlPath() . 'flags/germany.svg') }}" alt="magentix"/>
-                    </span>
-                    {{ __('German') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link d-flex px-5">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset(theme()->getMediaUrlPath() . 'flags/japan.svg') }}" alt="magentix"/>
-                    </span>
-                    {{ __('Japanese') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="#" class="menu-link d-flex px-5">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset(theme()->getMediaUrlPath() . 'flags/france.svg') }}" alt="magentix"/>
-                    </span>
-                    {{ __('French') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-        </div>
-        <!--end::Menu sub-->
-    </div>
-    <!--end::Menu item-->
-
-    <!--begin::Menu item-->
     <div class="menu-item px-5">
         <a href="#" data-action="{{ route('logout') }}" data-method="post" data-csrf="{{ csrf_token() }}" data-reload="true" class="button-ajax menu-link px-5">
-            {{ __('Sign Out') }}
+            <i class="ki-duotone ki-exit fs-2 me-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            <span class="menu-text">Abmelden</span>
         </a>
     </div>
     <!--end::Menu item-->

@@ -27,7 +27,7 @@
                     {{ theme()->getView('partials/topbar/_notifications-menu') }}
                 </div>
 
-                <!--begin::Chat App item-->
+                {{-- <!--begin::Chat App item-->
                 <div class="me-3">
                     <a href="#" class="btn btn-icon btn-custom btn-active-color-primary position-relative"
                         id="kt_drawer_chat_toggle">
@@ -36,7 +36,7 @@
                             class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
                     </a>
                 </div>
-                <!--end::Chat App item-->
+                <!--end::Chat App item--> --}}
 
                 <div class="me-3">
                     <a href="#" class="btn btn-icon btn-custom btn-active-color-primary"

@@ -11,6 +11,7 @@ use App\Models\ChatMessage;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -25,21 +26,27 @@ class AdminController extends Controller
         // Calculate total benefits
         $totalBenefits = Order::where('status', 'delivered')->sum('total');
 
-        // Get recent orders
-        $recentOrders = Order::with('user')
+        // Get recent orders with user and order items
+        $recentOrders = Order::with(['user', 'items'])
             ->latest()
             ->take(5)
             ->get();
 
-        // Get recent chat messages
-        $recentChats = ChatMessage::with('user')
-            ->latest()
-            ->take(5)
-            ->get();
-
-        // Get recent bookings
+        // Get recent bookings with user
         $recentBookings = Booking::with('user')
             ->latest()
+            ->take(5)
+            ->get();
+
+        // Get top selling products
+        $topProducts = Product::select('products.*')
+            ->selectRaw('COUNT(order_items.id) as sales_count')
+            ->selectRaw('SUM(order_items.quantity * order_items.price) as total_revenue')
+            ->leftJoin('order_items', 'products.id', '=', 'order_items.product_id')
+            ->leftJoin('orders', 'order_items.order_id', '=', 'orders.id')
+            ->where('orders.status', 'delivered')
+            ->groupBy('products.id')
+            ->orderBy('sales_count', 'desc')
             ->take(5)
             ->get();
 
@@ -87,9 +94,9 @@ class AdminController extends Controller
             'bookingCount',
             'totalBenefits',
             'recentOrders',
-            'recentChats',
             'recentBookings',
-            'salesData'
+            'salesData',
+            'topProducts'
         ));
     }
 }
