@@ -5,13 +5,13 @@
         <!--begin::Table head-->
         <thead>
             <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
-                <th class="p-0 pb-3 min-w-50px text-start">Order #</th>
-                <th class="p-0 pb-3 min-w-150px text-start">Customer</th>
+                <th class="p-0 pb-3 min-w-50px text-start">Bestellnummer</th>
+                <th class="p-0 pb-3 min-w-150px text-start">Kunde</th>
                 <th class="p-0 pb-3 min-w-100px text-center">Status</th>
-                <th class="p-0 pb-3 min-w-100px text-center">Payment</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Total</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Date</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Actions</th>
+                <th class="p-0 pb-3 min-w-100px text-center">Zahlung</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Gesamt</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Datum</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Aktionen</th>
             </tr>
         </thead>
         <!--end::Table head-->
@@ -75,7 +75,7 @@
             @empty
                 <tr>
                     <td colspan="7" class="text-center py-5">
-                        <div class="text-gray-500 fw-semibold fs-6">No orders found.</div>
+                        <div class="text-gray-500 fw-semibold fs-6">Keine Bestellungen gefunden</div>
                     </td>
                 </tr>
             @endforelse
@@ -89,7 +89,7 @@
 <!--begin::Pagination-->
 <div class="d-flex flex-stack flex-wrap pt-10">
     <div class="fs-6 fw-semibold text-gray-700">
-        Showing {{ $orders->firstItem() ?? 0 }} to {{ $orders->lastItem() ?? 0 }} of {{ $orders->total() }} entries
+        Zeige {{ $orders->firstItem() ?? 0 }} bis {{ $orders->lastItem() ?? 0 }} von {{ $orders->total() }} Einträgen
     </div>
     {{ $orders->links('vendor.pagination.index') }}
 </div>
@@ -101,13 +101,14 @@
         $('.delete-order').click(function() {
             const orderId = $(this).data('id');
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Sind Sie sicher?',
+                text: "Diese Aktion kann nicht rückgängig gemacht werden!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Ja, löschen!',
+                cancelButtonText: 'Abbrechen'
             }).then((result) => {
                 if (result.isConfirmed) {
                     fetch(`/admin/orders/${orderId}`, {
@@ -121,8 +122,8 @@
                     .then(data => {
                         if (data.success) {
                             Swal.fire(
-                                'Deleted!',
-                                'Order has been deleted.',
+                                'Gelöscht!',
+                                'Die Bestellung wurde gelöscht.',
                                 'success'
                             ).then(() => {
                                 location.reload();
@@ -131,8 +132,8 @@
                     })
                     .catch(error => {
                         Swal.fire(
-                            'Error!',
-                            'Something went wrong.',
+                            'Fehler!',
+                            'Etwas ist schief gelaufen.',
                             'error'
                         );
                     });

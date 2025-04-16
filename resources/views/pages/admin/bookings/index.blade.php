@@ -1,7 +1,7 @@
 <x-base-layout>
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Booking Calendar</h3>
+            <h3 class="card-title">Buchungskalender</h3>
         </div>
         <div class="card-body">
             <div class="row">
@@ -19,9 +19,9 @@
                 <div class="modal-header">
                     <h5 class="modal-title">
                         <i class="bi bi-calendar-check me-2"></i>
-                        <span id="eventName">Booking Details</span>
+                        <span id="eventName">Buchungsdetails</span>
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -29,41 +29,41 @@
                         <div class="col-md-6">
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <h6 class="card-title mb-0">Event Information</h6>
+                                    <h6 class="card-title mb-0">Veranstaltungsinformationen</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex align-items-center mb-3">
                                         <i class="bi bi-calendar-event me-2 text-primary"></i>
                                         <div>
-                                            <small class="text-muted">Event Type</small>
+                                            <small class="text-muted">Veranstaltungstyp</small>
                                             <p class="mb-0" id="eventType"></p>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center mb-3">
                                         <i class="bi bi-clock me-2 text-primary"></i>
                                         <div>
-                                            <small class="text-muted">Start Time</small>
+                                            <small class="text-muted">Startzeit</small>
                                             <p class="mb-0" id="eventStart"></p>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center mb-3">
                                         <i class="bi bi-clock-fill me-2 text-primary"></i>
                                         <div>
-                                            <small class="text-muted">End Time</small>
+                                            <small class="text-muted">Endzeit</small>
                                             <p class="mb-0" id="eventEnd"></p>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center mb-3">
                                         <i class="bi bi-globe me-2 text-primary"></i>
                                         <div>
-                                            <small class="text-muted">Timezone</small>
+                                            <small class="text-muted">Zeitzone</small>
                                             <p class="mb-0" id="eventTimezone"></p>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-geo-alt me-2 text-primary"></i>
                                         <div>
-                                            <small class="text-muted">Location</small>
+                                            <small class="text-muted">Ort</small>
                                             <p class="mb-0" id="eventLocation"></p>
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                         <div class="col-md-6">
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <h6 class="card-title mb-0">Invitees</h6>
+                                    <h6 class="card-title mb-0">Eingeladene</h6>
                                 </div>
                                 <div class="card-body">
                                     <div id="inviteesList" class="list-group list-group-flush">
@@ -86,7 +86,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h6 class="card-title mb-0">Questions & Answers</h6>
+                                    <h6 class="card-title mb-0">Fragen & Antworten</h6>
                                 </div>
                                 <div class="card-body">
                                     <div id="questionsAnswers" class="list-group list-group-flush">
@@ -98,9 +98,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Schließen</button>
                     <a href="#" id="joinMeetingBtn" class="btn btn-primary" target="_blank">
-                        <i class="bi bi-camera-video me-2"></i>Join Meeting
+                        <i class="bi bi-camera-video me-2"></i>Meeting beitreten
                     </a>
                 </div>
             </div>
@@ -125,6 +125,13 @@
                 left: 'prev,next today',
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            locale: 'de',
+            buttonText: {
+                today: 'Heute',
+                month: 'Monat',
+                week: 'Woche',
+                day: 'Tag'
             },
             events: {
                 url: '{{ route('admin.bookings.events') }}',
@@ -159,8 +166,8 @@
                         // Set basic event info
                         $('#eventName').text(event.title);
                         $('#eventType').text(props.eventType || 'N/A');
-                        $('#eventStart').text(event.start.toLocaleString());
-                        $('#eventEnd').text(event.end.toLocaleString());
+                        $('#eventStart').text(event.start.toLocaleString('de-DE'));
+                        $('#eventEnd').text(event.end.toLocaleString('de-DE'));
 
                         // Get timezone from first invitee
                         const timezone = data.collection?.[0]?.timezone || 'N/A';
@@ -171,7 +178,7 @@
                         if (location?.join_url) {
                             $('#eventLocation').html(`
                                 <a href="${location.join_url}" target="_blank" class="text-primary">
-                                    <i class="bi bi-link-45deg me-1"></i>Join Meeting
+                                    <i class="bi bi-link-45deg me-1"></i>Meeting beitreten
                                 </a>
                             `);
                             $('#joinMeetingBtn').attr('href', location.join_url).show();
@@ -200,7 +207,7 @@
                                             </div>
                                             <div class="flex-shrink-0">
                                                 <span class="badge bg-${invitee.status === 'active' ? 'success' : 'danger'}">
-                                                    ${invitee.status}
+                                                    ${invitee.status === 'active' ? 'Aktiv' : 'Storniert'}
                                                 </span>
                                             </div>
                                         </div>
@@ -210,7 +217,7 @@
                         } else {
                             inviteesList.append(`
                                 <div class="list-group-item text-center text-muted">
-                                    No invitees found
+                                    Keine Eingeladenen gefunden
                                 </div>
                             `);
                         }
@@ -223,14 +230,14 @@
                                 qaContainer.append(`
                                     <div class="list-group-item">
                                         <h6 class="mb-1">${qa.question}</h6>
-                                        <p class="mb-0 text-muted">${qa.answer || 'No answer provided'}</p>
+                                        <p class="mb-0 text-muted">${qa.answer || 'Keine Antwort vorhanden'}</p>
                                     </div>
                                 `);
                             });
                         } else {
                             qaContainer.append(`
                                 <div class="list-group-item text-center text-muted">
-                                    No questions and answers
+                                    Keine Fragen und Antworten
                                 </div>
                             `);
                         }
@@ -241,7 +248,7 @@
             eventDidMount: function(info) {
                 // Add tooltips to events
                 $(info.el).tooltip({
-                    title: `${info.event.title}\nStatus: ${info.event.extendedProps.status}`,
+                    title: `${info.event.title}\nStatus: ${info.event.extendedProps.status === 'active' ? 'Aktiv' : 'Storniert'}`,
                     placement: 'top',
                     trigger: 'hover',
                     container: 'body'

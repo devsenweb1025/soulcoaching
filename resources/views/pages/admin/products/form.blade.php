@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label">{{ isset($product) ? 'Edit Product' : 'Create Product' }}</h3>
+                <h3 class="card-label">{{ isset($product) ? 'Produkt bearbeiten' : 'Produkt erstellen' }}</h3>
             </div>
         </div>
         <div class="card-body">
@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="mb-5">
-                            <label for="name" class="required form-label">Product Name</label>
+                            <label for="name" class="required form-label">Produktname</label>
                             <input type="text"
                                 class="form-control form-control-solid @error('name') is-invalid @enderror"
                                 id="name" name="name" value="{{ old('name', $product->name ?? '') }}" required>
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="mb-5">
-                            <label for="description" class="form-label">Description</label>
+                            <label for="description" class="form-label">Beschreibung</label>
                             <textarea class="form-control form-control-solid @error('description') is-invalid @enderror" id="description"
                                 name="description" rows="4">{{ old('description', $product->description ?? '') }}</textarea>
                             @error('description')
@@ -38,7 +38,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-5">
-                                    <label for="price" class="required form-label">Price (CHF)</label>
+                                    <label for="price" class="required form-label">Preis (CHF)</label>
                                     <input type="number" step="0.01"
                                         class="form-control form-control-solid @error('price') is-invalid @enderror"
                                         id="price" name="price" value="{{ old('price', $product->price ?? '') }}"
@@ -50,7 +50,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-5">
-                                    <label for="compare_price" class="form-label">Compare Price (CHF)</label>
+                                    <label for="compare_price" class="form-label">Vergleichspreis (CHF)</label>
                                     <input type="number" step="0.01"
                                         class="form-control form-control-solid @error('compare_price') is-invalid @enderror"
                                         id="compare_price" name="compare_price"
@@ -65,7 +65,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-5">
-                                    <label for="quantity" class="required form-label">Quantity</label>
+                                    <label for="quantity" class="required form-label">Menge</label>
                                     <input type="number"
                                         class="form-control form-control-solid @error('quantity') is-invalid @enderror"
                                         id="quantity" name="quantity"
@@ -101,14 +101,14 @@
 
                     <div class="col-md-4">
                         <div class="mb-5">
-                            <label for="image" class="form-label">Main Image</label>
+                            <label for="image" class="form-label">Hauptbild</label>
                             <div class="image-input image-input-outline" data-kt-image-input="true">
                                 <div class="image-input-wrapper w-125px h-125px"
                                     style="background-image: url({{ isset($product) && $product->image ? asset('storage/' . $product->image) : asset(theme()->getMediaUrlPath() . 'svg/files/blank-image.svg') }})">
                                 </div>
                                 <label
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change image">
+                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Bild ändern">
                                     <i class="ki-duotone ki-pencil fs-7">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -119,7 +119,7 @@
                                 <span
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
                                     data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
-                                    title="Cancel image">
+                                    title="Bild abbrechen">
                                     <i class="ki-duotone ki-cross fs-2">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -128,7 +128,7 @@
                                 <span
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
                                     data-kt-image-input-action="remove" data-bs-toggle="tooltip"
-                                    title="Remove image">
+                                    title="Bild entfernen">
                                     <i class="ki-duotone ki-cross fs-2">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -141,7 +141,7 @@
                         </div>
 
                         <div class="mb-5">
-                            <label for="images" class="form-label">Additional Images</label>
+                            <label for="images" class="form-label">Zusätzliche Bilder</label>
                             <div class="dropzone" id="kt_dropzonejs_example_1">
                                 <div class="dz-message needsclick">
                                     <i class="ki-duotone ki-file-up fs-3hx text-primary">
@@ -149,9 +149,8 @@
                                         <span class="path2"></span>
                                     </i>
                                     <div class="ms-4">
-                                        <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or click to upload.
-                                        </h3>
-                                        <span class="fs-7 fw-semibold text-gray-400">Upload up to 10 files</span>
+                                        <h3 class="fs-5 fw-bold text-gray-900 mb-1">Dateien hier ablegen oder zum Hochladen klicken.</h3>
+                                        <span class="fs-7 fw-semibold text-gray-400">Bis zu 10 Dateien hochladen</span>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +164,7 @@
                                 <input class="form-check-input" type="checkbox" id="is_featured" name="is_featured"
                                     value="1"
                                     {{ old('is_featured', $product->is_featured ?? false) ? 'checked' : '' }} />
-                                <label class="form-check-label" for="is_featured">Featured Product</label>
+                                <label class="form-check-label" for="is_featured">Hervorgehobenes Produkt</label>
                             </div>
                         </div>
 
@@ -174,16 +173,16 @@
                                 <input class="form-check-input" type="checkbox" id="is_active" name="is_active"
                                     value="1"
                                     {{ old('is_active', $product->is_active ?? true) ? 'checked' : '' }} />
-                                <label class="form-check-label" for="is_active">Active</label>
+                                <label class="form-check-label" for="is_active">Aktiv</label>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-end mt-5">
-                    <a href="{{ route('admin.products.index') }}" class="btn btn-light me-3">Cancel</a>
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-light me-3">Abbrechen</a>
                     <button type="submit" class="btn btn-primary">
-                        {{ isset($product) ? 'Update Product' : 'Create Product' }}
+                        {{ isset($product) ? 'Produkt aktualisieren' : 'Produkt erstellen' }}
                     </button>
                 </div>
             </form>
@@ -209,21 +208,21 @@
         autoProcessQueue: false,
         uploadMultiple: true,
         parallelUploads: 10,
-        dictDefaultMessage: "Drop files here or click to upload",
-        dictRemoveFile: "Remove file",
-        dictInvalidFileType: "You can't upload files of this type.",
-        dictMaxFilesExceeded: "You can not upload any more files.",
-        dictCancelUpload: "Cancel upload",
-        dictUploadCanceled: "Upload canceled.",
-        dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
-        dictRemoveFileConfirmation: "Are you sure you want to remove this file?",
-        dictMaxFilesExceeded: "You can not upload any more files.",
+        dictDefaultMessage: "Dateien hier ablegen oder zum Hochladen klicken",
+        dictRemoveFile: "Datei entfernen",
+        dictInvalidFileType: "Sie können keine Dateien dieses Typs hochladen.",
+        dictMaxFilesExceeded: "Sie können keine weiteren Dateien hochladen.",
+        dictCancelUpload: "Hochladen abbrechen",
+        dictUploadCanceled: "Hochladen abgebrochen.",
+        dictCancelUploadConfirmation: "Sind Sie sicher, dass Sie diesen Upload abbrechen möchten?",
+        dictRemoveFileConfirmation: "Sind Sie sicher, dass Sie diese Datei entfernen möchten?",
+        dictMaxFilesExceeded: "Sie können keine weiteren Dateien hochladen.",
         init: function() {
             this.on("addedfile", function(file) {
-                console.log("Added file: " + file.name);
+                console.log("Datei hinzugefügt: " + file.name);
             });
             this.on("removedfile", function(file) {
-                console.log("Removed file: " + file.name);
+                console.log("Datei entfernt: " + file.name);
             });
         }
     });

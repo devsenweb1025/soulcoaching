@@ -5,17 +5,17 @@
         <!--begin::Table head-->
         <thead>
             <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
-                <th class="p-0 pb-3 min-w-50px text-start">Image</th>
-                <th class="p-0 pb-3 min-w-150px text-start">Title</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Price</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Duration</th>
-                <th class="p-0 pb-3 min-w-100px text-center">Method</th>
-                <th class="p-0 pb-3 min-w-100px text-center">Service Option</th>
-                <th class="p-0 pb-3 min-w-100px text-center">Benefit Option</th>
+                <th class="p-0 pb-3 min-w-50px text-start">Bild</th>
+                <th class="p-0 pb-3 min-w-150px text-start">Titel</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Preis</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Dauer</th>
+                <th class="p-0 pb-3 min-w-100px text-center">Methode</th>
+                <th class="p-0 pb-3 min-w-100px text-center">Dienstleistungsoption</th>
+                <th class="p-0 pb-3 min-w-100px text-center">Vorteilsoption</th>
                 <th class="p-0 pb-3 min-w-100px text-center">Status</th>
-                <th class="p-0 pb-3 min-w-100px text-center">Featured</th>
+                <th class="p-0 pb-3 min-w-100px text-center">Hervorgehoben</th>
                 <th class="p-0 pb-3 min-w-100px text-center">Hotline</th>
-                <th class="p-0 pb-3 min-w-100px text-end">Actions</th>
+                <th class="p-0 pb-3 min-w-100px text-end">Aktionen</th>
             </tr>
         </thead>
         <!--end::Table head-->
@@ -73,7 +73,7 @@
                         <form action="{{ route('admin.services.toggle-active', $service) }}" method="POST" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-{{ $service->is_active ? 'success' : 'danger' }}">
-                                {{ $service->is_active ? 'Active' : 'Inactive' }}
+                                {{ $service->is_active ? 'Aktiv' : 'Inaktiv' }}
                             </button>
                         </form>
                     </td>
@@ -81,13 +81,13 @@
                         <form action="{{ route('admin.services.toggle-featured', $service) }}" method="POST" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-{{ $service->is_featured ? 'primary' : 'secondary' }}">
-                                {{ $service->is_featured ? 'Featured' : 'Not Featured' }}
+                                {{ $service->is_featured ? 'Hervorgehoben' : 'Nicht hervorgehoben' }}
                             </button>
                         </form>
                     </td>
                     <td class="text-center">
                         <span class="badge badge-light-{{ $service->hotline_active ? 'success' : 'danger' }} fs-7 fw-bold">
-                            {{ $service->hotline_active ? 'Active' : 'Inactive' }}
+                            {{ $service->hotline_active ? 'Aktiv' : 'Inaktiv' }}
                         </span>
                     </td>
                     <td class="text-end">
@@ -103,7 +103,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm"
-                                    onclick="return confirm('Are you sure you want to delete this service?')">
+                                    onclick="return confirm('Sind Sie sicher, dass Sie diese Dienstleistung löschen möchten?')">
                                     <i class="ki-duotone ki-trash fs-2">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -119,7 +119,7 @@
             @empty
                 <tr>
                     <td colspan="8" class="text-center py-5">
-                        <div class="text-gray-500 fw-semibold fs-6">No services found.</div>
+                        <div class="text-gray-500 fw-semibold fs-6">Keine Dienstleistungen gefunden.</div>
                     </td>
                 </tr>
             @endforelse
@@ -133,8 +133,8 @@
 <!--begin::Pagination-->
 <div class="d-flex flex-stack flex-wrap pt-10">
     <div class="fs-6 fw-semibold text-gray-700">
-        Showing {{ $services->firstItem() ?? 0 }} to {{ $services->lastItem() ?? 0 }} of {{ $services->total() }}
-        entries
+        Zeige {{ $services->firstItem() ?? 0 }} bis {{ $services->lastItem() ?? 0 }} von {{ $services->total() }}
+        Einträgen
     </div>
     {{ $services->links('vendor.pagination.index') }}
 </div>

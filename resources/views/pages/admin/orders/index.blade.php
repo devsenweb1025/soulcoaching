@@ -5,8 +5,8 @@
         <div class="card-header pt-5">
             <!--begin::Title-->
             <h3 class="card-title align-items-start flex-column">
-                <span class="card-label fw-bold text-gray-800">Orders Management</span>
-                <span class="text-gray-400 mt-1 fw-semibold fs-6">Total {{ $orders->total() }} Orders</span>
+                <span class="card-label fw-bold text-gray-800">Bestellungen verwalten</span>
+                <span class="text-gray-400 mt-1 fw-semibold fs-6">Gesamt {{ $orders->total() }} Bestellungen</span>
             </h3>
             <!--end::Title-->
             <!--begin::Toolbar-->
@@ -18,7 +18,7 @@
                         <span class="path2"></span>
                     </i>
                     <input type="text" id="searchInput" class="form-control form-control-solid w-250px ps-12"
-                        placeholder="Search orders..." />
+                        placeholder="Bestellungen suchen..." />
                 </div>
             </div>
             <!--end::Toolbar-->
@@ -63,7 +63,7 @@
                     .then(html => {
                         document.getElementById('ordersTable').innerHTML = html;
                     })
-                    .catch(error => console.error('Error:', error));
+                    .catch(error => console.error('Fehler:', error));
             }, 500); // 500ms delay
         });
     });

@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
             <div class="card-title">
-                <h3 class="card-label">{{ isset($service) ? 'Edit Service' : 'Create Service' }}</h3>
+                <h3 class="card-label">{{ isset($service) ? 'Dienstleistung bearbeiten' : 'Dienstleistung erstellen' }}</h3>
             </div>
         </div>
         <div class="card-body">
@@ -17,20 +17,19 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="mb-5">
-                            <label for="title" class="required form-label">Service Title</label>
+                            <label for="title" class="required form-label">Titel</label>
                             <input type="text"
                                 class="form-control form-control-solid @error('title') is-invalid @enderror"
-                                id="title" name="title" value="{{ old('title', $service->title ?? '') }}"
-                                required>
+                                id="title" name="title" value="{{ old('title', $service->title ?? '') }}" required>
                             @error('title')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="mb-5">
-                            <label for="description" class="required form-label">Description</label>
+                            <label for="description" class="form-label">Beschreibung</label>
                             <textarea class="form-control form-control-solid @error('description') is-invalid @enderror" id="description"
-                                name="description" rows="4" required>{{ old('description', $service->description ?? '') }}</textarea>
+                                name="description" rows="4">{{ old('description', $service->description ?? '') }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -73,7 +72,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-5">
-                                    <label for="price" class="required form-label">Price (CHF)</label>
+                                    <label for="price" class="required form-label">Preis (CHF)</label>
                                     <input type="number" step="0.01"
                                         class="form-control form-control-solid @error('price') is-invalid @enderror"
                                         id="price" name="price" value="{{ old('price', $service->price ?? '') }}"
@@ -85,7 +84,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-5">
-                                    <label for="duration" class="required form-label">Duration (minutes)</label>
+                                    <label for="duration" class="required form-label">Dauer (Minuten)</label>
                                     <input type="number"
                                         class="form-control form-control-solid @error('duration') is-invalid @enderror"
                                         id="duration" name="duration"
@@ -157,15 +156,14 @@
 
                     <div class="col-md-4">
                         <div class="mb-5">
-                            <label for="image" class="form-label">Service Image</label>
+                            <label for="image" class="form-label">Hauptbild</label>
                             <div class="image-input image-input-outline" data-kt-image-input="true">
                                 <div class="image-input-wrapper w-125px h-125px"
                                     style="background-image: url({{ isset($service) && $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'svg/files/blank-image.svg') }})">
                                 </div>
                                 <label
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="change" data-bs-toggle="tooltip"
-                                    title="Change image">
+                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Bild ändern">
                                     <i class="ki-duotone ki-pencil fs-7">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -173,6 +171,24 @@
                                     <input type="file" name="image" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="image_remove" />
                                 </label>
+                                <span
+                                    class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                    data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
+                                    title="Bild abbrechen">
+                                    <i class="ki-duotone ki-cross fs-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                                <span
+                                    class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                    data-kt-image-input-action="remove" data-bs-toggle="tooltip"
+                                    title="Bild entfernen">
+                                    <i class="ki-duotone ki-cross fs-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
                             </div>
                             @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -212,7 +228,7 @@
                                 <input class="form-check-input" type="checkbox" id="is_featured" name="is_featured"
                                     value="1"
                                     {{ old('is_featured', $service->is_featured ?? false) ? 'checked' : '' }} />
-                                <label class="form-check-label" for="is_featured">Featured Service</label>
+                                <label class="form-check-label" for="is_featured">Hervorgehobene Dienstleistung</label>
                             </div>
                         </div>
 
@@ -221,7 +237,7 @@
                                 <input class="form-check-input" type="checkbox" id="is_active" name="is_active"
                                     value="1"
                                     {{ old('is_active', $service->is_active ?? true) ? 'checked' : '' }} />
-                                <label class="form-check-label" for="is_active">Active</label>
+                                <label class="form-check-label" for="is_active">Aktiv</label>
                             </div>
                         </div>
 
@@ -237,9 +253,9 @@
                 </div>
 
                 <div class="d-flex justify-content-end mt-5">
-                    <a href="{{ route('admin.services.index') }}" class="btn btn-light me-3">Cancel</a>
+                    <a href="{{ route('admin.services.index') }}" class="btn btn-light me-3">Abbrechen</a>
                     <button type="submit" class="btn btn-primary">
-                        {{ isset($service) ? 'Update Service' : 'Create Service' }}
+                        {{ isset($service) ? 'Dienstleistung aktualisieren' : 'Dienstleistung erstellen' }}
                     </button>
                 </div>
             </form>
@@ -277,4 +293,10 @@
             }
         });
     });
+
+    // Initialize image input
+    var imageInputElement = document.querySelector("[data-kt-image-input='true']");
+    if (imageInputElement) {
+        var imageInput = new KTImageInput(imageInputElement);
+    }
 </script>

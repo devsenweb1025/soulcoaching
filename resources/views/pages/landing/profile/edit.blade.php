@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Profile Settings</h3>
+                        <h3 class="card-title">Profil-Einstellungen</h3>
                     </div>
 
                     <div class="card-body">
@@ -19,7 +19,7 @@
                             @method('PUT')
 
                             <div class="mb-3">
-                                <label for="first_name" class="form-label">First Name</label>
+                                <label for="first_name" class="form-label">Vorname</label>
                                 <input type="text" class="form-control @error('first_name') is-invalid @enderror"
                                     id="first_name" name="first_name"
                                     value="{{ old('first_name', auth()->user()->first_name) }}" required>
@@ -29,7 +29,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="last_name" class="form-label">Last Name</label>
+                                <label for="last_name" class="form-label">Nachname</label>
                                 <input type="text" class="form-control @error('last_name') is-invalid @enderror"
                                     id="last_name" name="last_name"
                                     value="{{ old('last_name', auth()->user()->last_name) }}" required>
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="email" class="form-label">E-Mail</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror"
                                     id="email" name="email" value="{{ old('email', auth()->user()->email) }}"
                                     required readonly>
@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="current_password" class="form-label">Current Password</label>
+                                <label for="current_password" class="form-label">Aktuelles Passwort</label>
                                 <input type="password"
                                     class="form-control @error('current_password') is-invalid @enderror"
                                     id="current_password" name="current_password">
@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">New Password</label>
+                                <label for="password" class="form-label">Neues Passwort</label>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
                                     id="password" name="password">
                                 @error('password')
@@ -68,13 +68,13 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="password_confirmation" class="form-label">Confirm New Password</label>
+                                <label for="password_confirmation" class="form-label">Neues Passwort bestätigen</label>
                                 <input type="password" class="form-control" id="password_confirmation"
                                     name="password_confirmation">
                             </div>
 
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                                <button type="submit" class="btn btn-primary">Profil aktualisieren</button>
                             </div>
                         </form>
                     </div>

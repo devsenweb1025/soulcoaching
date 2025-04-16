@@ -176,4 +176,40 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index')
             ->with('success', 'Product deleted successfully.');
     }
+
+    public function show(Product $product)
+    {
+        // Load related data
+        $product->load([
+            'orderItems' => function($query) {
+                $query->with('order')
+                    ->whereHas('order', function($q) {
+                        $q->where('status', 'delivered');
+                    });
+            }
+        ]);
+
+        // Calculate sales statistics
+        $totalSales = $product->orderItems->sum('quantity');
+        $totalRevenue = $product->orderItems->sum(function($item) {
+            return $item->quantity * $item->price;
+        });
+
+        // Get recent orders
+        $recentOrders = $product->orderItems()
+            ->with('order.user')
+            ->whereHas('order', function($q) {
+                $q->where('status', 'delivered');
+            })
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('pages.admin.products.show', compact(
+            'product',
+            'totalSales',
+            'totalRevenue',
+            'recentOrders'
+        ));
+    }
 }
