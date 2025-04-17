@@ -28,6 +28,19 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
+        <a href="{{ route('admin.profile.index') }}" class="menu-link px-5">
+            <i class="ki-duotone ki-profile-user fs-2 me-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+            </i>
+            <span class="menu-text">Profil-Einstellungen</span>
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-5">
         <a href="{{ route('admin.products.index') }}" class="menu-link px-5">
             <i class="ki-duotone ki-basket fs-2 me-2">
                 <span class="path1"></span>

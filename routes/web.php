@@ -5,6 +5,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\OrderController as OrderManagementController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\Admin\ProductController;
@@ -139,6 +140,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('services', ServiceManagementController::class)->names('services');
     Route::post('services/{service}/toggle-active', [ServiceManagementController::class, 'toggleActive'])->name('services.toggle-active');
     Route::post('services/{service}/toggle-featured', [ServiceManagementController::class, 'toggleFeatured'])->name('services.toggle-featured');
+
+    // Admin Profile Routes
+    Route::get('/profile', [AdminProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
 });
 
 // Service Routes
