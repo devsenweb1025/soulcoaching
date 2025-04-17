@@ -125,14 +125,14 @@
                                                             </i>
                                                             Mit Karte bezahlen
                                                         </button>
-                                                        {{-- <button type="button" class="btn btn-primary"
-                                                            onclick="initiatePayment('paypal', '{{ $service->id }}')">
-                                                            <i class="ki-duotone ki-paypal fs-2 me-2">
+                                                        <button type="button" class="btn btn-primary"
+                                                            onclick="initiatePayment('twint', '{{ $service->id }}')">
+                                                            <i class="ki-duotone ki-wallet fs-2 me-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            Mit Paypal bezahlen
-                                                        </button> --}}
+                                                            Mit TWINT bezahlen
+                                                        </button>
                                                     </div>
 
                                                     <!-- Stripe Card Form -->
@@ -157,7 +157,8 @@
                                                                     <div class="d-flex gap-2">
                                                                         <button type="submit" class="btn btn-primary"
                                                                             id="submit-button-{{ $index }}">
-                                                                            <span class="indicator-label">Jetzt zahlen</span>
+                                                                            <span class="indicator-label">Jetzt
+                                                                                zahlen</span>
                                                                             <span class="indicator-progress"
                                                                                 style="display: none;">
                                                                                 Please wait... <span
@@ -269,14 +270,14 @@
                                                             </i>
                                                             Mit Karte bezahlen
                                                         </button>
-                                                        {{-- <button type="button" class="btn btn-primary"
-                                                            onclick="initiatePayment('paypal', '{{ $service->id }}')">
-                                                            <i class="ki-duotone ki-paypal fs-2 me-2">
+                                                        <button type="button" class="btn btn-primary"
+                                                            onclick="initiatePayment('twint', '{{ $service->id }}')">
+                                                            <i class="ki-duotone ki-wallet fs-2 me-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            Mit Paypal bezahlen
-                                                        </button> --}}
+                                                            Mit TWINT bezahlen
+                                                        </button>
                                                     </div>
 
                                                     <!-- Stripe Card Form -->
@@ -301,7 +302,8 @@
                                                                     <div class="d-flex gap-2">
                                                                         <button type="submit" class="btn btn-primary"
                                                                             id="submit-button-{{ $index }}">
-                                                                            <span class="indicator-label">Jetzt bezahlen</span>
+                                                                            <span class="indicator-label">Jetzt
+                                                                                bezahlen</span>
                                                                             <span class="indicator-progress"
                                                                                 style="display: none;">
                                                                                 Please wait... <span
@@ -344,6 +346,7 @@
     const stripe = Stripe('{{ config('services.stripe.key') }}', {
         locale: 'de'
     });
+
     const elements = stripe.elements();
     let card;
     let currentFormIndex = null;
@@ -515,7 +518,7 @@
         });
     });
 
-    // Handle PayPal payment
+    // Handle TWINT payment
     async function initiatePayment(paymentMethod, serviceId) {
         if (!checkAuth()) return;
 
@@ -544,10 +547,18 @@
                 throw new Error(data.error);
             }
 
-            window.location.href = data.approvalUrl;
+            if (paymentMethod === 'twint') {
+                // For TWINT, we'll show a QR code or redirect to TWINT app
+                if (data.redirectUrl) {
+                    // Redirect to TWINT app
+                    window.location.href = data.redirectUrl;
+                }
+            } else {
+                window.location.href = data.approvalUrl;
+            }
         } catch (error) {
             Swal.fire({
-                text: error.message || 'An error occurred while processing your payment',
+                text: error.message || 'Ein Fehler ist beim Bezahlvorgang aufgetreten',
                 icon: "error",
                 buttonsStyling: false,
                 confirmButtonText: "Weiter!",

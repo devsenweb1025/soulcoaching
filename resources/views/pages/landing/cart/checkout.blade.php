@@ -180,23 +180,22 @@
                                                 </div>
                                                 <!--end::Stripe-->
 
-                                                {{-- <!--begin::PayPal-->
+                                                <!--begin::TWINT-->
                                                 <div class="col-md-4">
                                                     <div class="form-check form-check-custom form-check-solid">
                                                         <input class="form-check-input" type="radio"
-                                                            name="payment_method" value="paypal"
-                                                            id="paypal_payment" />
-                                                        <label class="form-check-label" for="paypal_payment">
+                                                            name="payment_method" value="twint" id="twint_payment" />
+                                                        <label class="form-check-label" for="twint_payment">
                                                             <div class="d-flex align-items-center">
                                                                 <span class="svg-icon svg-icon-2hx me-3">
-                                                                    {!! get_svg_icon('svg/brand-logos/paypal.svg') !!}
+                                                                    {!! get_svg_icon('svg/brand-logos/twint.svg') !!}
                                                                 </span>
-                                                                <span class="fw-semibold">PayPal</span>
+                                                                <span class="fw-semibold">TWINT</span>
                                                             </div>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <!--end::PayPal--> --}}
+                                                <!--end::TWINT-->
                                             </div>
                                         </div>
                                         <!--end::Payment Methods-->
@@ -228,6 +227,25 @@
                                             <div id="paypal-errors" class="text-danger mt-2"></div>
                                         </div>
                                         <!--end::PayPal Form-->
+
+                                        <!--begin::TWINT Form-->
+                                        <div id="twint_form" style="display: none;">
+                                            <div class="alert alert-info">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="ki-duotone ki-information-5 fs-2hx text-info me-4">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                    </i>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="fw-bold">Sie werden zu TWINT weitergeleitet, um Ihre Zahlung abzuschliessen.</span>
+                                                        <span class="text-muted">Nach erfolgreicher Zahlung werden Sie zurück zu unserer Website geleitet.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="twint-errors" class="text-danger mt-2"></div>
+                                        </div>
+                                        <!--end::TWINT Form-->
                                     </div>
                                     <!--end::Payment Information-->
 
@@ -304,9 +322,15 @@
             if (this.value === 'stripe') {
                 document.getElementById('credit_card_form').style.display = 'block';
                 document.getElementById('paypal_form').style.display = 'none';
+                document.getElementById('twint_form').style.display = 'none';
             } else if (this.value === 'paypal') {
                 document.getElementById('credit_card_form').style.display = 'none';
                 document.getElementById('paypal_form').style.display = 'block';
+                document.getElementById('twint_form').style.display = 'none';
+            } else if (this.value === 'twint') {
+                document.getElementById('credit_card_form').style.display = 'none';
+                document.getElementById('paypal_form').style.display = 'none';
+                document.getElementById('twint_form').style.display = 'block';
             }
         });
     });
@@ -418,24 +442,48 @@
                     orderId,
                     approvalUrl
                 } = await response.json();
-                console.log(response.json());
 
                 if (orderId && approvalUrl) {
-                    // Store order ID in session
-
-
-                    // Redirect to PayPal approval URL
                     window.location.href = approvalUrl;
                 } else {
                     throw new Error('Erstellung der PayPal-Bestellung fehlgeschlagen');
                 }
             } catch (error) {
-                console.log(error);
-                // Show error message
                 const errorElement = document.getElementById('paypal-errors');
                 errorElement.textContent = error.message;
+                submitButton.disabled = false;
+                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+                submitButton.querySelector('.indicator-progress').style.display = 'none';
+            }
+        } else if (paymentMethod === 'twint') {
+            try {
+                // Create TWINT payment intent
+                const response = await fetch('{{ route('cart.payment.create-intent') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        payment_method: 'twint'
+                    })
+                });
 
-                // Re-enable submit button
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                if (data.redirectUrl) {
+                    window.location.href = data.redirectUrl;
+                } else {
+                    throw new Error('TWINT Zahlung konnte nicht initialisiert werden');
+                }
+            } catch (error) {
+                const errorElement = document.getElementById('twint-errors');
+                errorElement.textContent = error.message;
                 submitButton.disabled = false;
                 submitButton.querySelector('.indicator-label').style.display = 'inline-block';
                 submitButton.querySelector('.indicator-progress').style.display = 'none';
