@@ -15,6 +15,7 @@ use App\Http\Controllers\CoursePaymentController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\ServiceController as ServiceManagementController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\CartPaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -98,6 +99,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/course/payment/success', [CoursePaymentController::class, 'handleSuccess'])->name('course.payment.success');
     Route::get('/course/payment/cancel', [CoursePaymentController::class, 'handleCancel'])->name('course.payment.cancel');
     Route::get('/course/{id}/download', [CoursePaymentController::class, 'download'])->name('course.download');
+
+    // Cart Payment Routes
+    Route::post('/cart/payment/create-intent', [CartPaymentController::class, 'createPaymentIntent'])->name('cart.payment.create-intent');
+    Route::get('/cart/payment/success', [CartPaymentController::class, 'handleSuccess'])->name('cart.payment.success');
+    Route::get('/cart/payment/cancel', [CartPaymentController::class, 'handleCancel'])->name('cart.payment.cancel');
 });
 
 // --------------------------------------------- Online Shop End---------------------------------------------

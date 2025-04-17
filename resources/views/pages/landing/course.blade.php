@@ -116,14 +116,14 @@
                                                     </i>
                                                     Mit Karte bezahlen
                                                 </button>
-                                                {{-- <button type="button" class="btn btn-primary"
-                                                    onclick="initiatePayment('paypal', 1)">
-                                                    <i class="ki-duotone ki-paypal fs-2 me-2">
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="initiatePayment('twint', 1)">
+                                                    <i class="ki-duotone ki-wallet fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    Mit Paypal bezahlen
-                                                </button> --}}
+                                                    Mit TWINT bezahlen
+                                                </button>
                                             </div>
 
                                             <!-- Stripe Card Form -->
@@ -247,14 +247,14 @@
                                                     </i>
                                                     Mit Karte bezahlen
                                                 </button>
-                                                {{-- <button type="button" class="btn btn-primary"
-                                                    onclick="initiatePayment('paypal', 2)">
-                                                    <i class="ki-duotone ki-paypal fs-2 me-2">
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="initiatePayment('twint', 2)">
+                                                    <i class="ki-duotone ki-wallet fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    Mit Paypal bezahlen
-                                                </button> --}}
+                                                    Mit TWINT bezahlen
+                                                </button>
                                             </div>
                                         </div>
                                         <!--end::Heading-->
@@ -653,7 +653,7 @@
         });
     });
 
-    // Handle PayPal payment
+    // Handle TWINT payment
     async function initiatePayment(paymentMethod, courseId) {
         if (!checkAuth()) return;
 
@@ -682,10 +682,18 @@
                 throw new Error(data.error);
             }
 
-            window.location.href = data.approvalUrl;
+            if (paymentMethod === 'twint') {
+                // For TWINT, we'll show a QR code or redirect to TWINT app
+                if (data.redirectUrl) {
+                    // Redirect to TWINT app
+                    window.location.href = data.redirectUrl;
+                }
+            } else {
+                window.location.href = data.approvalUrl;
+            }
         } catch (error) {
             Swal.fire({
-                text: error.message || 'An error occurred while processing your payment',
+                text: error.message || 'Ein Fehler ist beim Bezahlvorgang aufgetreten',
                 icon: "error",
                 buttonsStyling: false,
                 confirmButtonText: "Weiter!",

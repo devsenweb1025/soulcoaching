@@ -53,7 +53,7 @@ class ServiceController extends Controller
         try {
             $request->validate([
                 'service_id' => 'required',
-                'payment_method' => 'required|in:stripe,paypal'
+                'payment_method' => 'required|in:stripe,paypal,twint'
             ]);
 
             $service = Service::findOrFail($request->service_id);
@@ -77,6 +77,62 @@ class ServiceController extends Controller
                     'clientSecret' => $paymentIntent->client_secret,
                     'paymentIntentId' => $paymentIntent->id
                 ]);
+            } elseif ($request->payment_method === 'twint') {
+                Stripe::setApiKey(config('services.stripe.secret'));
+
+                // Create a payment intent with TWINT as the payment method
+                $paymentIntent = PaymentIntent::create([
+                    'amount' => $amount,
+                    'currency' => 'chf',
+                    'payment_method_types' => ['twint'],
+                    'metadata' => [
+                        'user_id' => auth()->id(),
+                        'service_id' => $service->id,
+                        'service_name' => $service->title
+                    ]
+                ]);
+
+                // Create a payment method for TWINT
+                $paymentMethod = \Stripe\PaymentMethod::create([
+                    'type' => 'twint',
+                    'billing_details' => [
+                        'name' => auth()->user()->name,
+                        'email' => auth()->user()->email
+                    ]
+                ]);
+
+                // Attach the payment method to the payment intent
+                $paymentIntent = PaymentIntent::update($paymentIntent->id, [
+                    'payment_method' => $paymentMethod->id
+                ]);
+
+                // Confirm the payment intent to get the QR code
+                $paymentIntent = \Stripe\PaymentIntent::retrieve($paymentIntent->id);
+                $paymentIntent->confirm([
+                    'return_url' => route('service.payment.success') . '?service_id=' . $service->id . '&payment_method=twint'
+                ]);
+
+                // Check if the payment intent requires action and has a QR code
+                if ($paymentIntent->status === 'requires_action' &&
+                    isset($paymentIntent->next_action) &&
+                    isset($paymentIntent->next_action->redirect_to_url) &&
+                    isset($paymentIntent->next_action->redirect_to_url->url)) {
+
+                    $redirectUrl = $paymentIntent->next_action->redirect_to_url->url;
+
+                    return response()->json([
+                        'redirectUrl' => $redirectUrl,
+                        'paymentIntentId' => $paymentIntent->id,
+                        'clientSecret' => $paymentIntent->client_secret,
+                        'status' => 'requires_action'
+                    ]);
+                }
+
+                // If no QR code is available, return an error
+                return response()->json([
+                    'error' => 'QR-Code konnte nicht generiert werden. Bitte versuchen Sie es später erneut.',
+                    'status' => 'error'
+                ], 400);
             } else {
                 // PayPal payment
                 $order = [
@@ -136,6 +192,17 @@ class ServiceController extends Controller
                 }
 
                 $this->createServiceOrder($serviceId, 'stripe', $paymentIntent->id);
+            } elseif ($paymentMethod === 'twint') {
+                $paymentIntentId = $request->input('payment_intent');
+                Stripe::setApiKey(config('services.stripe.secret'));
+                $paymentIntent = PaymentIntent::retrieve($paymentIntentId);
+
+                if ($paymentIntent->status !== 'succeeded') {
+                    return redirect()->route('prices')
+                        ->with('error', 'TWINT Zahlung war nicht erfolgreich');
+                }
+
+                $this->createServiceOrder($serviceId, 'twint', $paymentIntent->id);
             } else {
                 // PayPal success handling
                 $provider = $this->paypalProvider;
@@ -154,7 +221,7 @@ class ServiceController extends Controller
         } catch (\Exception $e) {
             Log::error('Service Payment Success Error: ' . $e->getMessage());
             return redirect()->route('prices')
-                ->with('error', 'AEs kam zu einem Fehler während der Verarbeitung deiner Zahlung. Bitte kontaktiere mich.  ');
+                ->with('error', 'Es kam zu einem Fehler während der Verarbeitung deiner Zahlung. Bitte kontaktiere mich.');
         }
     }
 

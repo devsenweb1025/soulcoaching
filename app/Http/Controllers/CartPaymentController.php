@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
@@ -13,12 +12,13 @@ use Stripe\Stripe;
 use Stripe\PaymentIntent;
 use Stripe\Exception\ApiErrorException;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
-use App\Mail\CourseAccessEmail;
-use App\Mail\CoursePurchaseMail;
-use App\Notifications\CoursePurchased;
+use App\Mail\OrderConfirmationEmail;
+use App\Mail\OrderReceivedEmail;
+use App\Notifications\OrderPlaced;
 use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
-class CoursePaymentController extends Controller
+class CartPaymentController extends Controller
 {
     protected $paypalProvider;
 
@@ -34,12 +34,11 @@ class CoursePaymentController extends Controller
     {
         try {
             $request->validate([
-                'course_id' => 'required|exists:courses,id',
                 'payment_method' => 'required|in:stripe,paypal,twint'
             ]);
 
-            $course = Course::findOrFail($request->course_id);
-            $amount = $course->price * 100; // Convert to cents
+            $total = (float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5);
+            $amount = $total * 100; // Convert to cents
 
             if ($request->payment_method === 'stripe') {
                 Stripe::setApiKey(config('services.stripe.secret'));
@@ -50,8 +49,7 @@ class CoursePaymentController extends Controller
                     'payment_method_types' => ['card'],
                     'metadata' => [
                         'user_id' => auth()->id(),
-                        'course_id' => $course->id,
-                        'course_name' => $course->title
+                        'order_type' => 'cart'
                     ]
                 ]);
 
@@ -69,8 +67,7 @@ class CoursePaymentController extends Controller
                     'payment_method_types' => ['twint'],
                     'metadata' => [
                         'user_id' => auth()->id(),
-                        'course_id' => $course->id,
-                        'course_name' => $course->title
+                        'order_type' => 'cart'
                     ]
                 ]);
 
@@ -91,7 +88,7 @@ class CoursePaymentController extends Controller
                 // Confirm the payment intent to get the QR code
                 $paymentIntent = \Stripe\PaymentIntent::retrieve($paymentIntent->id);
                 $paymentIntent->confirm([
-                    'return_url' => route('course.payment.success') . '?course_id=' . $course->id . '&payment_method=twint'
+                    'return_url' => route('cart.payment.success') . '?payment_method=twint'
                 ]);
 
                 // Check if the payment intent requires action and has a QR code
@@ -121,17 +118,17 @@ class CoursePaymentController extends Controller
                     "intent" => "CAPTURE",
                     "purchase_units" => [
                         [
-                            "invoice_id" => uniqid('COURSE-'),
+                            "invoice_id" => uniqid('CART-'),
                             "amount" => [
                                 "currency_code" => "CHF",
-                                "value" => number_format($course->price, 2, '.', ''),
+                                "value" => number_format($total, 2, '.', ''),
                             ],
-                            "description" => $course->title
+                            "description" => "Warenkorb Bestellung"
                         ]
                     ],
                     "application_context" => [
-                        "return_url" => route('course.payment.success') . '?course_id=' . $course->id,
-                        "cancel_url" => route('course.payment.cancel'),
+                        "return_url" => route('cart.payment.success'),
+                        "cancel_url" => route('cart.payment.cancel'),
                         "user_action" => "PAY_NOW"
                     ]
                 ];
@@ -152,7 +149,7 @@ class CoursePaymentController extends Controller
                 return response()->json(['error' => 'Erstellung der PayPal-Bestellung fehlgeschlagen'], 500);
             }
         } catch (\Exception $e) {
-            Log::error('Course Payment Error: ' . $e->getMessage());
+            Log::error('Cart Payment Error: ' . $e->getMessage());
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
@@ -161,115 +158,110 @@ class CoursePaymentController extends Controller
     {
         try {
             $paymentMethod = $request->input('payment_method');
-            $courseId = $request->input('course_id');
 
             if ($paymentMethod === 'stripe') {
-                $paymentIntentId = $request->input('paymentIntentId');
+                $paymentIntentId = $request->input('payment_intent');
                 Stripe::setApiKey(config('services.stripe.secret'));
                 $paymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
                 if ($paymentIntent->status !== 'succeeded') {
-                    return redirect()->route('course', ['id' => $courseId])
+                    return redirect()->route('cart.checkout')
                         ->with('error', 'Zahlung war nicht erfolgreich');
                 }
 
-                $this->createCourseOrder($courseId, 'stripe', $paymentIntent->id);
+                $this->createOrder('stripe', $paymentIntent->id);
             } elseif ($paymentMethod === 'twint') {
                 $paymentIntentId = $request->input('payment_intent');
                 Stripe::setApiKey(config('services.stripe.secret'));
                 $paymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
                 if ($paymentIntent->status !== 'succeeded') {
-                    return redirect()->route('course', ['id' => $courseId])
+                    return redirect()->route('cart.checkout')
                         ->with('error', 'TWINT Zahlung war nicht erfolgreich');
                 }
 
-                $this->createCourseOrder($courseId, 'twint', $paymentIntent->id);
+                $this->createOrder('twint', $paymentIntent->id);
             } else {
                 // PayPal success handling
                 $provider = $this->paypalProvider;
                 $response = $provider->capturePaymentOrder($request->token);
 
                 if (isset($response['status']) && $response['status'] === 'COMPLETED') {
-                    $this->createCourseOrder($courseId, 'paypal', $response['id']);
+                    $this->createOrder('paypal', $response['id']);
                 } else {
-                    return redirect()->route('course', ['id' => $courseId])
+                    return redirect()->route('cart.checkout')
                         ->with('error', 'Zahlung war nicht erfolgreich');
                 }
             }
 
-            return redirect()->route('course', ['id' => $courseId])
-                ->with('success', 'Zahlung war erfolgreich. Du erhältst demnächst eine Mail mit dem weiteren Vorgehen.');
+            return redirect()->route('cart.success')
+                ->with('success', 'Zahlung war erfolgreich. Sie erhalten demnächst eine Bestätigungsmail.');
         } catch (\Exception $e) {
-            Log::error('Course Payment Success Error: ' . $e->getMessage());
-            return redirect()->route('course', ['id' => $courseId])
-                ->with('error', 'Es kam zu einem Fehler während der Verarbeitung deiner Zahlung. Bitte kontaktiere mich.');
+            Log::error('Cart Payment Success Error: ' . $e->getMessage());
+            return redirect()->route('cart.checkout')
+                ->with('error', 'Es kam zu einem Fehler während der Verarbeitung Ihrer Zahlung. Bitte kontaktieren Sie uns.');
         }
     }
 
-    public function handleCancel()
-    {
-        return redirect()->route('course')
-            ->with('error', 'Zahlung wurde abgebrochen');
-    }
-
-    private function createCourseOrder($courseId, $paymentMethod, $transactionId)
+    private function createOrder($paymentMethod, $transactionId)
     {
         try {
             DB::beginTransaction();
 
-            $course = Course::findOrFail($courseId);
             $user = auth()->user();
+            $total = (float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5);
 
             // Create order
             $order = Order::create([
                 'user_id' => $user->id,
-                'order_number' => 'COURSE-' . strtoupper(uniqid()),
+                'order_number' => 'CART-' . strtoupper(uniqid()),
                 'status' => 'completed',
                 'payment_status' => 'completed',
                 'payment_method' => $paymentMethod,
                 'payment_id' => $transactionId,
-                'total' => $course->price,
-                'subtotal' => $course->price,
-                'tax' => 0,
-                'shipping_cost' => 0,
-                'shipping_first_name' => $user->first_name,
-                'shipping_last_name' => $user->last_name,
-                'shipping_email' => $user->email,
-                'shipping_phone' => '',
-                'shipping_address' => '',
-                'shipping_city' => '',
-                'shipping_state' => '',
-                'shipping_postal_code' => '',
-                'shipping_country' => '',
+                'total' => $total,
+                'subtotal' => Cart::subtotal(null, '.', ''),
+                'tax' => Cart::tax(null, '.', ''),
+                'shipping_cost' => session('shipping_cost', 11.5),
+                'shipping_first_name' => session('shipping_info.first_name'),
+                'shipping_last_name' => session('shipping_info.last_name'),
+                'shipping_email' => session('shipping_info.email'),
+                'shipping_phone' => session('shipping_info.phone'),
+                'shipping_address' => session('shipping_info.address'),
+                'shipping_city' => session('shipping_info.city'),
+                'shipping_postal_code' => session('shipping_info.postal_code'),
+                'shipping_country' => session('shipping_info.country'),
             ]);
 
-            // Create order item with download link in options
-            OrderItem::create([
-                'order_id' => $order->id,
-                'product_id' => $course->id,
-                'quantity' => 1,
-                'price' => $course->price,
-                'name' => $course->title,
-                'options' => [
-                    'download_link' => $course->download_link
-                ]
-            ]);
-
-            // Send course access email
-            Mail::to($user->email)->send(new CourseAccessEmail($course, $order, $course->download_link));
-            Auth::user()->notify(new CoursePurchased($course));
-
-            try {
-                Mail::to(config('mail.admin_email'))->send(new CoursePurchaseMail(
-                    $course,
-                    auth()->user(),
-                    $transactionId,
-                    $paymentMethod
-                ));
-            } catch (\Exception $e) {
-                \Log::error('Fehler beim Versand der E-Mail zum Kurskauf: ' . $e->getMessage());
+            // Create order items
+            foreach (Cart::content() as $item) {
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'product_id' => $item->id,
+                    'product_type' => $item->options->type ?? 'product',
+                    'quantity' => $item->qty,
+                    'price' => $item->price,
+                    'name' => $item->name,
+                    'options' => $item->options->toArray()
+                ]);
             }
+
+            // Send order confirmation email
+            Mail::to($user->email)->send(new OrderConfirmationEmail($order));
+
+            // Send order received email to admin
+            try {
+                Mail::to(config('mail.admin_email'))->send(new OrderReceivedEmail($order));
+            } catch (\Exception $e) {
+                Log::error('Error sending order received email: ' . $e->getMessage());
+            }
+
+            // Send notification
+            $user->notify(new OrderPlaced($order));
+
+            // Clear cart
+            Cart::destroy();
+            session()->forget('shipping_info');
 
             DB::commit();
         } catch (\Exception $e) {
@@ -278,56 +270,9 @@ class CoursePaymentController extends Controller
         }
     }
 
-    public function download(Request $request, $id)
+    public function handleCancel()
     {
-        try {
-            $course = Course::findOrFail($id);
-            $order = Order::where('id', $request->order)
-                ->where('user_id', auth()->id())
-                ->where('status', 'completed')
-                ->firstOrFail();
-
-            // Verify that the order contains this course
-            $orderItem = OrderItem::where('order_id', $order->id)
-                ->where('product_id', $course->id)
-                ->firstOrFail();
-
-            // Get the course materials
-            $materials = $course->materials;
-            if (empty($materials)) {
-                return redirect()->back()->with('error', 'Keine Kursmaterialien zum herunterladen verfügbar');
-            }
-
-            // Create a zip file containing all course materials
-            $zip = new \ZipArchive();
-            $zipName = storage_path('app/public/courses/' . $course->slug . '_materials.zip');
-
-            if ($zip->open($zipName, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
-                foreach ($materials as $material) {
-                    $filePath = storage_path('app/public/courses/' . $material);
-                    if (file_exists($filePath)) {
-                        $zip->addFile($filePath, basename($material));
-                    }
-                }
-                $zip->close();
-            }
-
-            return response()->download($zipName, $course->slug . '_materials.zip')->deleteFileAfterSend(true);
-        } catch (\Exception $e) {
-            Log::error('Course Download Error: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Ein Fehler kam zustande beim herunterladen der Kursmaterialien');
-        }
-    }
-
-    public function index()
-    {
-        $courses = Course::active()->get();
-        return view('pages.landing.course', compact('courses'));
-    }
-
-    public function show($id)
-    {
-        $course = Course::findOrFail($id);
-        return view('pages.landing.course', compact('course'));
+        return redirect()->route('cart.checkout')
+            ->with('error', 'Zahlung wurde abgebrochen');
     }
 }
