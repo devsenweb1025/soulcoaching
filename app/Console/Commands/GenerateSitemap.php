@@ -34,7 +34,7 @@ class GenerateSitemap extends Command
                 ->add(Url::create('/shop/search')->setPriority(0.7));
 
         // Add all products
-        Product::where('active', true)->get()->each(function ($product) use ($sitemap) {
+        Product::where('is_active', true)->get()->each(function ($product) use ($sitemap) {
             $sitemap->add(Url::create("/shop/{$product->slug}")
                 ->setPriority(0.8)
                 ->setLastModificationDate($product->updated_at));
@@ -45,7 +45,7 @@ class GenerateSitemap extends Command
                 ->add(Url::create('/prices')->setPriority(0.8));
 
         // Add all services
-        Service::where('active', true)->get()->each(function ($service) use ($sitemap) {
+        Service::where('is_active', true)->get()->each(function ($service) use ($sitemap) {
             $sitemap->add(Url::create("/service/{$service->id}")
                 ->setPriority(0.8)
                 ->setLastModificationDate($service->updated_at));
@@ -55,7 +55,7 @@ class GenerateSitemap extends Command
         $sitemap->add(Url::create('/course')->setPriority(0.9));
 
         // Add all courses
-        Course::where('active', true)->get()->each(function ($course) use ($sitemap) {
+        Course::where('is_active', true)->get()->each(function ($course) use ($sitemap) {
             $sitemap->add(Url::create("/course/{$course->id}")
                 ->setPriority(0.8)
                 ->setLastModificationDate($course->updated_at));
