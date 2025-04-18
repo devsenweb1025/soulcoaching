@@ -205,7 +205,7 @@ return array(
         'description' => 'Ich heile energetisch Mensch und Hund. Tierkommunikation und Spirituelles Coaching sind Teil meiner Arbeit, um Verbindung, Balance und Heilung zu fördern.',
         'keywords' => 'Seelenfluesterin, Energetisches Heilen, Startseite',
         // 'canonical' => 'https://soulcoaching.solipos.ch/',
-        'google-site-verification' => 'd_dTpj5FZETVNthfEZbIpP9lZ4_IP7GV8zTsw_9jkTQ',
+        'google-site-verification' => 'ozaS8erUyrGWoguBbd-ZObH5Yd9d4bUP0hpqnc0JQc0',
     ),
 
     // General
