@@ -31,155 +31,161 @@
     <div class="d-flex w-100 px-9 z-index-1 position-relative">
         <div class="clouds-1"></div>
         <div class="w-100 container z-index-2">
-            <!--begin::Row-->
-            <div class="row">
-                <!--begin::Col-->
-                <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                    <div class="card shadow h-100" data-aos="fade-down-right" data-aos-easing="linear"
-                        data-aos-duration="500" data-aos-delay="500">
-                        <div class="card-body h-100">
-                            <div class="row h-100">
-                                <div class="col-12 col-md-12 col-lg-6 h-md-50 h-lg-100 mb-5">
-                                    <!--begin::Testimonial-->
-                                    <div class="mb-2 w-100 h-100">
-                                        <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-right.jpg') }}"
-                                            class="w-100 h-100 object-fit-cover rounded" alt="">
+            <div class="d-flex flex-column flex-center text-center z-index-2">
+                <!--begin::Row-->
+                <div class="row">
+                    <!--begin::Col-->
+                    <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
+                        <div class="card shadow" data-aos="fade-down-right" data-aos-easing="linear"
+                            data-aos-duration="500" data-aos-delay="500">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <!--begin::Testimonial-->
+                                        <div class="mb-2 w-100 h-md-50 h-lg-100">
+                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-right.jpg') }}"
+                                                class="w-100 h-100 object-fit-cover rounded" alt="">
+                                        </div>
+                                        <!--end::Testimonial-->
                                     </div>
-                                    <!--end::Testimonial-->
-                                </div>
-                                <div class="col-12 col-md-12 col-lg-6">
-                                    <!--begin::Testimonial-->
-                                    <div class="p-lg-10 p-md-5">
-                                        <!--begin::Wrapper-->
-                                        <div class="mb-2">
-                                            <h1 class="fs-2 mb-5 font-cinzel">
-                                                Seelenflüsterin Sarah
-                                            </h1>
-                                            <div data-aos="fade-up">
-                                                <div class="text-gray-600 fs-4 mb-5">
-                                                    Ich bin Sarah – spiritueller Coach und Heilerin aus der Schweiz.
-                                                </div>
-                                                <div class="text-gray-600 fs-4 mb-5">
-                                                    Mein Weg ist geprägt von tiefem Wissen, persönlicher Transformation
-                                                    und der Verbindung zur feinstofflichen Welt.
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <!--begin::Testimonial-->
+                                        <div class="p-lg-10 p-md-5">
+                                            <!--begin::Wrapper-->
+                                            <div class="mb-2 mt-5">
+                                                <h1 class="fs-2 mb-5 font-cinzel">
+                                                    Seelenflüsterin Sarah
+                                                </h1>
+                                                <div data-aos="fade-up">
+                                                    <div class="text-gray-600 fs-4 mb-5">
+                                                        Ich bin Sarah – spiritueller Coach und Heilerin aus der Schweiz.
+                                                    </div>
+                                                    <div class="text-gray-600 fs-4 mb-5">
+                                                        Mein Weg ist geprägt von tiefem Wissen, persönlicher
+                                                        Transformation
+                                                        und der Verbindung zur feinstofflichen Welt.
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!--end::Wrapper-->
                                         </div>
-                                        <!--end::Wrapper-->
+                                        <!--end::Testimonial-->
                                     </div>
-                                    <!--end::Testimonial-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--end::Col-->
+                    <!--end::Col-->
 
-                <!--begin::Col-->
-                <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                    <div class="card shadow h-100" data-aos="fade-down-left" data-aos-easing="linear"
-                        data-aos-duration="500" data-aos-delay="500">
-                        <div class="card-body h-100">
-                            <div class="row h-100">
-                                <div class="col-12 col-md-12 col-lg-6 h-md-50 h-lg-100 mb-5">
-                                    <!--begin::Testimonial-->
-                                    <div class="mb-2 w-100 h-100">
-                                        <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sulana-high.webp') }}"
-                                            class="w-100 h-100 object-fit-cover rounded" alt="">
+                    <!--begin::Col-->
+                    <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
+                        <div class="card shadow" data-aos="fade-down-left" data-aos-easing="linear"
+                            data-aos-duration="500" data-aos-delay="500">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <!--begin::Testimonial-->
+                                        <div class="mb-2 w-100 h-md-50 h-lg-100">
+                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sulana-high.webp') }}"
+                                                class="w-100 h-100 object-fit-cover rounded" alt="">
+                                        </div>
+                                        <!--end::Testimonial-->
                                     </div>
-                                    <!--end::Testimonial-->
-                                </div>
-                                <div class="col-12 col-md-12 col-lg-6 h-100">
-                                    <!--begin::Testimonial-->
-                                    <div class="p-lg-10 p-md-5">
-                                        <!--begin::Wrapper-->
-                                        <div class="mb-2">
-                                            <h1 class="fs-2 mb-5 font-cinzel">
-                                                Sulana
-                                            </h1>
-                                            <div data-aos="fade-up">
-                                                <div class="text-gray-600 fs-4 mb-5">
-                                                    Seit über 16 Jahren ist Sulana meine treue Weggefährtin – und eine
-                                                    wundervolle Begleiterin.
-                                                </div>
-                                                <div class="text-gray-600 fs-4 mb-5">
-                                                    Paddington begleitet Sulana mit einer speziellen Energie aus der
-                                                    Londoner Medialitätsschule.
-                                                    Sulana hat mich viel gelehrt, und viele meiner Erkenntnisse verdanke
-                                                    ich ihr.
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <!--begin::Testimonial-->
+                                        <div class="p-lg-10 p-md-5">
+                                            <!--begin::Wrapper-->
+                                            <div class="mb-2 mt-5">
+                                                <h1 class="fs-2 mb-5 font-cinzel">
+                                                    Sulana
+                                                </h1>
+                                                <div data-aos="fade-up">
+                                                    <div class="text-gray-600 fs-4 mb-5">
+                                                        Seit über 16 Jahren ist Sulana meine treue Weggefährtin – und
+                                                        eine
+                                                        wundervolle Begleiterin.
+                                                    </div>
+                                                    <div class="text-gray-600 fs-4 mb-5">
+                                                        Paddington begleitet Sulana mit einer speziellen Energie aus der
+                                                        Londoner Medialitätsschule.
+                                                        Sulana hat mich viel gelehrt, und viele meiner Erkenntnisse
+                                                        verdanke
+                                                        ich ihr.
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!--end::Wrapper-->
                                         </div>
-                                        <!--end::Wrapper-->
+                                        <!--end::Testimonial-->
                                     </div>
-                                    <!--end::Testimonial-->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--end::Col-->
                 </div>
-                <!--end::Col-->
-            </div>
-            <!--end::Row-->
+                <!--end::Row-->
 
-            <!--begin::Row-->
-            <div class="row">
-                <!--begin::Col-->
-                <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                    <div class="card shadow w-100 h-100" data-aos="fade-up-right" data-aos-easing="linear"
-                        data-aos-duration="500" data-aos-delay="500">
-                        <div class="card-body h-100">
-                            <!--begin::Wrapper-->
-                            <div class="">
-                                <h1 class="fs-2 mb-5 font-cinzel">
-                                    Meine Grundhaltung
-                                </h1>
-                                <div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Ehrlichkeit, Liebe und Mitgefühl sind die Säulen meiner Arbeit. Ich glaube an
-                                        die Kraft der Verbindung – zwischen Menschen, Tieren und der geistigen Welt.
-                                        «Wir sind alle verbunden – alles ist eins.“
+                <!--begin::Row-->
+                <div class="row">
+                    <!--begin::Col-->
+                    <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
+                        <div class="card shadow w-100" data-aos="fade-up-right" data-aos-easing="linear"
+                            data-aos-duration="500" data-aos-delay="500">
+                            <div class="card-body">
+                                <!--begin::Wrapper-->
+                                <div class="row">
+                                    <h1 class="fs-2 mb-5 font-cinzel">
+                                        Meine Grundhaltung
+                                    </h1>
+                                    <div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Ehrlichkeit, Liebe und Mitgefühl sind die Säulen meiner Arbeit. Ich glaube
+                                            an
+                                            die Kraft der Verbindung – zwischen Menschen, Tieren und der geistigen Welt.
+                                            «Wir sind alle verbunden – alles ist eins.“
+                                        </div>
                                     </div>
                                 </div>
+                                <!--end::Wrapper-->
                             </div>
-                            <!--end::Wrapper-->
                         </div>
                     </div>
-                </div>
-                <!--end::Col-->
+                    <!--end::Col-->
 
-                <!--begin::Col-->
-                <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                    <div class="card shadow w-100 h-100" data-aos="fade-up-left" data-aos-easing="linear"
-                        data-aos-duration="500" data-aos-delay="500">
-                        <div class="card-body">
-                            <!--begin::Wrapper-->
-                            <div class="">
-                                <h1 class="fs-2 mb-5 font-cinzel">
-                                    Berufliche Ausbildung & Qualifikationen
-                                </h1>
-                                <div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Ausbildungen EFZ als Restaurationsfachfrau & Kauffrau
-                                    </div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Dipl. Versicherungs- und Vorsorgeberaterin VBV
-                                    </div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Studium in Sozialpädagogik HF
-                                    </div>
-                                    <div class="text-gray-600 fs-4">
-                                        Sprachen: DE, FR, EN und IT
+                    <!--begin::Col-->
+                    <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
+                        <div class="card shadow w-100" data-aos="fade-up-left" data-aos-easing="linear"
+                            data-aos-duration="500" data-aos-delay="500">
+                            <div class="card-body">
+                                <!--begin::Wrapper-->
+                                <div class="">
+                                    <h1 class="fs-2 mb-5 font-cinzel">
+                                        Berufliche Ausbildung & Qualifikationen
+                                    </h1>
+                                    <div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Ausbildungen EFZ als Restaurationsfachfrau & Kauffrau
+                                        </div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Dipl. Versicherungs- und Vorsorgeberaterin VBV
+                                        </div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Studium in Sozialpädagogik HF
+                                        </div>
+                                        <div class="text-gray-600 fs-4">
+                                            Sprachen: DE, FR, EN und IT
+                                        </div>
                                     </div>
                                 </div>
+                                <!--end::Wrapper-->
                             </div>
-                            <!--end::Wrapper-->
                         </div>
                     </div>
+                    <!--end::Col-->
                 </div>
-                <!--end::Col-->
+                <!--end::Row-->
             </div>
-            <!--end::Row-->
         </div>
     </div>
 
@@ -188,9 +194,9 @@
         <div class="clouds-2"></div>
         <div class="w-100 container z-index-2">
             <!--begin::Heading-->
-            <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2">
+            <div class="d-flex flex-column flex-center text-center z-index-2">
                 <!--begin::Title-->
-                <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Meine Aus- und</h1>
+                <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel mt-10">Meine Aus- und</h1>
                 <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Weiterbildungen</h1>
                 <!--end::Title-->
 
@@ -199,7 +205,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                         data-aos-delay="500">
-                        <div class="card shadow h-100">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Medialität
@@ -232,7 +238,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                         data-aos-delay="500">
-                        <div class="card shadow h-100">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Quantenheilung
@@ -249,7 +255,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                         data-aos-delay="500">
-                        <div class="card shadow h-100">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Heiler Ausbildung
@@ -287,11 +293,11 @@
                 </div>
                 <!--end::Row-->
                 <!--begin::Row-->
-                <div class="row w-100">
+                <div class="row w-100 mb-5">
                     <!--begin::Col-->
                     <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                         data-aos-delay="500">
-                        <div class="card shadow h-100">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Tierkommunikation Tierenergetik
@@ -313,7 +319,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                         data-aos-delay="500">
-                        <div class="card shadow h-100">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Chakren, Reiki & Channeling
@@ -340,7 +346,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                         data-aos-delay="500">
-                        <div class="card shadow h-100">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Sonstiges
