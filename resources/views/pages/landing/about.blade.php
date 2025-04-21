@@ -44,7 +44,7 @@
                                         <!--begin::Testimonial-->
                                         <div class="mb-2">
                                             <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-right.jpg') }}"
-                                                class="w-100 h-100 object-fit-contain rounded" alt="">
+                                                class="w-100 object-fit-contain rounded" alt="">
                                         </div>
                                         <!--end::Testimonial-->
                                     </div>
@@ -87,7 +87,7 @@
                                         <!--begin::Testimonial-->
                                         <div class="mb-2 position-relative">
                                             <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sulana-high.webp') }}"
-                                                class="w-100 h-100 object-fit-contain rounded" alt="">
+                                                class="w-100 object-fit-contain rounded" alt="">
                                         </div>
                                         <!--end::Testimonial-->
                                     </div>
