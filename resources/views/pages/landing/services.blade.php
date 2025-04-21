@@ -157,6 +157,7 @@
                                     Händen!<br /><br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
+                                    Zeiten:<br />
                                     Dienstag: 18:00 – 23:00 Uhr<br />
                                     Mittwoch: 15:00 – 23:00 Uhr<br />
                                     Freitag: 08:00 – 23:00 Uhr<br />
