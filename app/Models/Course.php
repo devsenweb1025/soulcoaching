@@ -66,12 +66,12 @@ class Course extends Model
 
     public function getFormattedPriceAttribute()
     {
-        return 'CHF ' . number_format($this->price, 2, ',', '.');
+        return '@chf(' . $this->price . ')';
     }
 
     public function getFormattedComparePriceAttribute()
     {
-        return 'CHF ' . number_format($this->compare_price, 2, ',', '.');
+        return '@chf(' . $this->compare_price . ')';
     }
 
     public function getDiscountPercentageAttribute()

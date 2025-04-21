@@ -49,7 +49,7 @@
                         </div>
                     </td>
                     <td class="text-end">
-                        <span class="text-gray-800 fw-bold fs-6">CHF {{ number_format($service->price, 2) }}</span>
+                        <span class="text-gray-800 fw-bold fs-6">@chf($service->price)</span>
                     </td>
                     <td class="text-end">
                         <span class="text-gray-800 fw-bold fs-6">{{ $service->duration }} min</span>

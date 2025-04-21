@@ -40,7 +40,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>CHF {{ number_format($item->price, 2) }}</td>
+                                                <td>@chf($item->price)</td>
                                                 <td>
                                                     <div class="input-group">
                                                         <button class="btn btn-outline-secondary" type="button"
@@ -52,7 +52,7 @@
                                                             onclick="incrementQuantity('{{ $item->rowId }}')">+</button>
                                                     </div>
                                                 </td>
-                                                <td>CHF {{ number_format($item->subtotal, 2) }}</td>
+                                                <td>@chf($item->subtotal)</td>
                                                 <td>
                                                     <button class="btn btn-danger btn-sm"
                                                         onclick="removeItem('{{ $item->rowId }}')">
@@ -134,13 +134,10 @@
                                             </div>
                                             <div class="d-flex flex-column align-items-end">
                                                 <div class="mb-2">
-                                                    <h5 class="mb-0 shipping-cost">Versand: CHF
-                                                        {{ number_format(session('shipping_cost', 11.5), 2) }}</h5>
+                                                    <h5 class="mb-0 shipping-cost">Versand: @chf(session('shipping_cost', 11.5))</h5>
                                                 </div>
                                                 <div class="mb-2">
-                                                    <h5 class="mb-0 cart-total">Total: CHF
-                                                        {{ number_format((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5), 2) }}
-                                                    </h5>
+                                                    <h5 class="mb-0 cart-total">Total: @chf((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5))</h5>
                                                 </div>
                                                 <a href="{{ route('cart.checkout') }}" class="btn btn-primary">
                                                     Weiter zur Zahlung

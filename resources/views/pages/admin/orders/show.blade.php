@@ -49,16 +49,15 @@
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
                                     <span class="text-muted">Zwischensumme:</span>
-                                    <span class="text-gray-800">CHF {{ number_format($order->total, 2) }}</span>
+                                    <span class="text-gray-800">@chf($order->total)</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
                                     <span class="text-muted">Versandkosten:</span>
-                                    <span class="text-gray-800">CHF {{ number_format($order->shipping_cost, 2) }}</span>
+                                    <span class="text-gray-800">@chf($order->shipping_cost)</span>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-muted">Gesamtsumme:</span>
-                                    <span
-                                        class="text-gray-800 fw-bold">CHF {{ number_format($order->grand_total, 2) }}</span>
+                                    <span class="text-gray-800 fw-bold">@chf($order->grand_total)</span>
                                 </div>
                             </div>
                         </div>
@@ -147,8 +146,8 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $item->quantity }}</td>
-                                                <td>CHF {{ number_format($item->price, 2) }}</td>
-                                                <td>CHF {{ number_format($item->quantity * $item->price, 2) }}</td>
+                                                <td>@chf($item->price)</td>
+                                                <td>@chf($item->quantity * $item->price)</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

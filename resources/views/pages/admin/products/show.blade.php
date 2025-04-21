@@ -24,11 +24,11 @@
                             <span class="fw-bold">Barcode:</span> {{ $product->barcode ?? 'N/A' }}
                         </div>
                         <div class="fs-6 text-gray-600 mb-3">
-                            <span class="fw-bold">Preis:</span> CHF {{ number_format($product->price, 2, ',', '.') }}
+                            <span class="fw-bold">Preis:</span> @chf($product->price)
                         </div>
                         @if($product->compare_price)
                             <div class="fs-6 text-gray-600 mb-3">
-                                <span class="fw-bold">Vergleichspreis:</span> CHF {{ number_format($product->compare_price, 2, ',', '.') }}
+                                <span class="fw-bold">Vergleichspreis:</span> @chf($product->compare_price)
                             </div>
                         @endif
                         <div class="fs-6 text-gray-600 mb-3">
@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="d-flex flex-column">
                                         <span class="text-gray-600 fs-6">Gesamtumsatz</span>
-                                        <span class="text-dark fs-2 fw-bold">CHF {{ number_format($totalRevenue, 2, ',', '.') }}</span>
+                                        <span class="text-dark fs-2 fw-bold">@chf($totalRevenue)</span>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                                     Bestellung #{{ $orderItem->order->order_number }}
                                 </a>
                                 <span class="text-muted fw-semibold">
-                                    {{ $orderItem->order->user->name }} - {{ $orderItem->quantity }} Stück - CHF {{ number_format($orderItem->price * $orderItem->quantity, 2, ',', '.') }}
+                                    {{ $orderItem->order->user->name }} - {{ $orderItem->quantity }} Stück - @chf($orderItem->price * $orderItem->quantity)
                                 </span>
                             </div>
                             <!--end::Text-->

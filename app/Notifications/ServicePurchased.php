@@ -30,7 +30,7 @@ class ServicePurchased extends Notification implements ShouldQueue
             ->subject('Dienstleistung gekauft')
             ->greeting('Hallo ' . $notifiable->first_name . '!')
             ->line('Sie haben die Dienstleistung "' . $this->service->title . '" gekauft.')
-            ->line('Preis: CHF ' . number_format($this->service->price, 2))
+            ->line('Preis: @chf(' . $this->service->price . ')')
             ->action('Dienstleistung anzeigen', url('/services/' . $this->service->id))
             ->line('Vielen Dank für Ihren Kauf!');
     }

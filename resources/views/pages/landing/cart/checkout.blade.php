@@ -55,7 +55,7 @@
                                                         </div>
                                                     </td>
                                                     <td>{{ $item->qty }}</td>
-                                                    <td>CHF {{ number_format($item->price, 2) }}</td>
+                                                    <td>@chf($item->price)</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -64,18 +64,15 @@
                                 <div class="separator separator-dashed my-5"></div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Zwischensumme:</span>
-                                    <span class="text-dark fw-bold fs-5">CHF
-                                        {{ number_format(Cart::subtotal(null, '.', ''), 2) }}</span>
+                                    <span class="text-dark fw-bold fs-5">@chf(Cart::subtotal(null, '.', ''))</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Versand:</span>
-                                    <span class="text-dark fw-bold fs-5">CHF
-                                        {{ number_format(session('shipping_cost', 11.5), 2) }}</span>
+                                    <span class="text-dark fw-bold fs-5">@chf(session('shipping_cost', 11.5))</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Total:</span>
-                                    <span class="text-dark fw-bold fs-5">CHF
-                                        {{ number_format((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5), 2) }}
+                                    <span class="text-dark fw-bold fs-5">@chf((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5))</span>
                                 </div>
                             </div>
                         </div>

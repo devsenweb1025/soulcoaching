@@ -96,22 +96,22 @@
                         <tr>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->qty }}</td>
-                            <td>CHF {{ number_format($item->price, 2) }}</td>
+                            <td>@chf($item->price)</td>
                         </tr>
                     @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="2" style="text-align: right;"><strong>Zwischensumme:</strong></td>
-                        <td><strong>CHF {{ number_format($order['subtotal'], 2) }}</strong></td>
+                        <td><strong>@chf($order['subtotal'])</strong></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: right;"><strong>Versandkosten:</strong></td>
-                        <td><strong>CHF {{ number_format($order['shipping_cost'], 2) }}</strong></td>
+                        <td><strong>@chf($order['shipping_cost'])</strong></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: right;"><strong>Gesamt:</strong></td>
-                        <td><strong>CHF {{ number_format($order['total'], 2) }}</strong></td>
+                        <td><strong>@chf($order['total'])</strong></td>
                     </tr>
                 </tfoot>
             </table>

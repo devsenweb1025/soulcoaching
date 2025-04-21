@@ -88,7 +88,7 @@ class Service extends Model
      */
     public function getFormattedPriceAttribute(): string
     {
-        return 'CHF ' . number_format($this->price, 2, '.', '\'');
+        return '@chf(' . $this->price . ')';
     }
 
     /**
