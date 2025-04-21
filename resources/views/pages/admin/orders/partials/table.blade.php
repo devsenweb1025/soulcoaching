@@ -46,7 +46,7 @@
                         {!! $order->payment_status_badge !!}
                     </td>
                     <td class="text-end">
-                        <span class="text-gray-800 fw-bold fs-6">CHF {{ number_format($order->grand_total, 2) }}</span>
+                        <span class="text-gray-800 fw-bold fs-6">@chf($order->grand_total)</span>
                     </td>
                     <td class="text-end">
                         <span class="text-gray-400 fw-semibold d-block fs-7">{{ $order->created_at->format('d M Y H:i') }}</span>

@@ -13,7 +13,7 @@
     <h3>Dienstleistung Details:</h3>
     <p><strong>Titel:</strong> {{ $service->title }}</p>
     <p><strong>Beschreibung:</strong> {{ $service->description }}</p>
-    <p><strong>Preis:</strong> CHF {{ number_format($service->price, 2, '.', "'") }}</p>
+    <p><strong>Preis:</strong> @chf($service->price)</p>
 
     <h3>Zahlungsdetails:</h3>
     <p><strong>Zahlungsmethode:</strong> {{ $paymentMethod }}</p>

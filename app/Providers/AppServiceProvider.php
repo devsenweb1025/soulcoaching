@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Core\Adapters\Theme;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
+use App\Helpers\CurrencyHelper;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -47,5 +49,14 @@ class AppServiceProvider extends ServiceProvider
             Theme::addHtmlAttribute('html', 'style', 'direction:rtl;');
             Theme::addHtmlAttribute('body', 'direction', 'rtl');
         }
+
+        // Currency formatting directive
+        Blade::directive('chf', function ($expression) {
+            return "<?php echo App\Helpers\CurrencyHelper::formatCHF($expression); ?>";
+        });
+
+        Blade::directive('chfNoSymbol', function ($expression) {
+            return "<?php echo App\Helpers\CurrencyHelper::formatCHFWithoutSymbol($expression); ?>";
+        });
     }
 }

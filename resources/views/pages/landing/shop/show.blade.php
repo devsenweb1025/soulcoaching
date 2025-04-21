@@ -48,11 +48,11 @@
                                     <!--begin::Price-->
                                     <div class="mb-5">
                                         <span class="fs-2 fw-bold text-primary">
-                                            CHF {{ number_format($product->price, 2, ',', '.') }}
+                                            @chf($product->price)
                                         </span>
                                         @if ($product->compare_price)
                                             <span class="text-muted text-decoration-line-through ms-2">
-                                                CHF {{ number_format($product->compare_price, 2, ',', '.') }}
+                                                @chf($product->compare_price)
                                             </span>
                                         @endif
                                     </div>

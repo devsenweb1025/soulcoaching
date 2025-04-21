@@ -68,8 +68,7 @@
                                                     <!--begin::Price-->
                                                     <div class="text-start">
                                                         <span class="fs-2x fw-bold text-primary">
-                                                            CHF
-                                                            {{ rtrim(rtrim(number_format($service->price, 2, '.', "'"), '0'), '.') }}.-
+                                                            @chf($service->price).-
                                                             @if ($service->benefit_option === 'month')
                                                                 / Monat
                                                             @elseif($service->benefit_option === 'hour')
@@ -213,8 +212,7 @@
                                                     <!--begin::Price-->
                                                     <div class="text-start">
                                                         <span class="fs-2x fw-bold text-primary">
-                                                            CHF
-                                                            {{ rtrim(rtrim(number_format($service->price, 2, '.', "'"), '0'), '.') }}.-
+                                                            @chf($service->price).-
                                                             @if ($service->benefit_option === 'month')
                                                                 / Monat
                                                             @elseif($service->benefit_option === 'hour')

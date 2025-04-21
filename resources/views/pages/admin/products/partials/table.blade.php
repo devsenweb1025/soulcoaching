@@ -47,7 +47,7 @@
                         <span class="text-gray-800 fw-bold d-block mb-1 fs-6">{{ $product->sku ?? 'N/A' }}</span>
                     </td>
                     <td class="text-end">
-                        <span class="text-gray-800 fw-bold fs-6">CHF {{ number_format($product->price, 2) }}</span>
+                        <span class="text-gray-800 fw-bold fs-6">@chf($product->price)</span>
                     </td>
                     <td class="text-end">
                         <span class="text-gray-800 fw-bold fs-6">{{ $product->quantity }}</span>

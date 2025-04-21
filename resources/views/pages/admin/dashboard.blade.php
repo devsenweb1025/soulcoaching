@@ -123,7 +123,7 @@
                     <!--begin::Title-->
                     <div class="d-flex flex-column flex-grow-1 text-end">
                         <span class="text-dark fs-2 fw-bold mb-1">
-                            CHF {{ number_format($totalBenefits, 2, ',', '.') }}
+                            @chf($totalBenefits)
                         </span>
                         <span class="text-muted fw-semibold">Gesamter Umsatz</span>
                     </div>
@@ -171,8 +171,7 @@
                                     Bestellung #{{ $order->order_number }}
                                 </a>
                                 <span class="text-muted fw-semibold">
-                                    {{ $order->user->name }} - CHF
-                                    {{ number_format($order->total, 2, ',', '.') }}
+                                    {{ $order->user->name }} - @chf($order->total)
                                 </span>
                             </div>
                             <!--end::Text-->
@@ -277,8 +276,7 @@
                             <div class="text-gray-500 flex-grow-1 me-4">Kurse</div>
                             <!--end::Label-->
                             <!--begin::Stats-->
-                            <div class="fw-bolder text-gray-700 text-xxl-end">CHF
-                                {{ number_format($salesData->sum('course'), 0, ',', '.') }}</div>
+                            <div class="fw-bolder text-gray-700 text-xxl-end">@chf($salesData->sum('course'))</div>
                             <!--end::Stats-->
                         </div>
                         <!--end::Label-->
@@ -291,8 +289,7 @@
                             <div class="text-gray-500 flex-grow-1 me-4">Produkte</div>
                             <!--end::Label-->
                             <!--begin::Stats-->
-                            <div class="fw-bolder text-gray-700 text-xxl-end">CHF
-                                {{ number_format($salesData->sum('product'), 0, ',', '.') }}</div>
+                            <div class="fw-bolder text-gray-700 text-xxl-end">@chf($salesData->sum('product'))</div>
                             <!--end::Stats-->
                         </div>
                         <!--end::Label-->
@@ -305,8 +302,7 @@
                             <div class="text-gray-500 flex-grow-1 me-4">Sonstiges</div>
                             <!--end::Label-->
                             <!--begin::Stats-->
-                            <div class="fw-bolder text-gray-700 text-xxl-end">CHF
-                                {{ number_format($salesData->sum('other'), 0, ',', '.') }}</div>
+                            <div class="fw-bolder text-gray-700 text-xxl-end">@chf($salesData->sum('other'))</div>
                             <!--end::Stats-->
                         </div>
                         <!--end::Label-->
@@ -349,8 +345,7 @@
                                     {{ $product->name }}
                                 </a>
                                 <span class="text-muted fw-semibold">
-                                    {{ $product->sales_count }} Verkäufe - CHF
-                                    {{ number_format($product->total_revenue, 2, ',', '.') }}
+                                    {{ $product->sales_count }} Verkäufe - @chf($product->total_revenue)
                                 </span>
                             </div>
                             <!--end::Text-->

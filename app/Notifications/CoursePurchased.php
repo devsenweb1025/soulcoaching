@@ -30,7 +30,7 @@ class CoursePurchased extends Notification implements ShouldQueue
             ->subject('Kurs gekauft')
             ->greeting('Hallo ' . $notifiable->first_name . '!')
             ->line('Sie haben den Kurs "' . $this->course->title . '" gekauft.')
-            ->line('Preis: CHF ' . number_format($this->course->price, 2))
+            ->line('Preis: @chf(' . $this->course->price . ')')
             ->action('Kurs anzeigen', url('/courses/' . $this->course->id))
             ->line('Vielen Dank für Ihren Kauf!');
     }

@@ -67,8 +67,7 @@
                                                         class="text-gray-600 fw-semibold">{{ $order->items->count() }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark fw-bold">CHF
-                                                        {{ number_format($order->total, 2) }}</span>
+                                                    <span class="text-dark fw-bold">@chf($order->total)</span>
                                                 </td>
                                                 <td>
                                                     <span

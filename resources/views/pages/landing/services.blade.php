@@ -157,13 +157,14 @@
                                     Händen!<br /><br />
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    Zeiten:<br />
-                                    MO, DI, MI und FR: 08:00 Uhr - 10 Uhr / 14:30 Uhr - 18:00 Uhr <br />
-                                    DO & SA: 08:00 Uhr - 23:00 Uhr<br />
-                                    SO: 18:00 Uhr - 23:00 Uhr
+                                    Dienstag: 18:00 – 23:00 Uhr<br />
+                                    Mittwoch: 15:00 – 23:00 Uhr<br />
+                                    Freitag: 08:00 – 23:00 Uhr<br />
+                                    Samstag: 08:00 – 23:00 Uhr<br />
+                                    Sonntag: 10:00 – 17:30 Uhr
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    CHF 2.50.- / min
+                                    @chf(2.5).- / min
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     Diese Hotline eignet sich ideal für:<br />

@@ -39,7 +39,7 @@ class Booking extends Model
 
     public function getFormattedAmountAttribute()
     {
-        return 'CHF ' . number_format($this->amount, 2, ',', '.');
+        return '@chf(' . $this->amount . ')';
     }
 
     public function scopePending($query)
