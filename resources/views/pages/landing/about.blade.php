@@ -40,6 +40,14 @@
                             data-aos-duration="500" data-aos-delay="500">
                             <div class="card-body">
                                 <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-6 position-relative">
+                                        <!--begin::Testimonial-->
+                                        <div class="mb-2">
+                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-right.jpg') }}"
+                                                class="w-100 h-100 object-fit-cover rounded" alt="">
+                                        </div>
+                                        <!--end::Testimonial-->
+                                    </div>
                                     <div class="col-12 col-md-12 col-lg-6">
                                         <!--begin::Testimonial-->
                                         <div class="p-lg-10 p-md-5">
@@ -75,6 +83,14 @@
                             data-aos-duration="500" data-aos-delay="500">
                             <div class="card-body">
                                 <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-6 position-relative">
+                                        <!--begin::Testimonial-->
+                                        <div class="mb-2 position-relative">
+                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sulana-high.webp') }}"
+                                                class="w-100 h-100 object-fit-cover rounded" alt="">
+                                        </div>
+                                        <!--end::Testimonial-->
+                                    </div>
                                     <div class="col-12 col-md-12 col-lg-6">
                                         <!--begin::Testimonial-->
                                         <div class="p-lg-10 p-md-5">
