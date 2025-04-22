@@ -39,16 +39,16 @@
                         <div class="card shadow w-100 h-100" data-aos="fade-down-right" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
                             <div class="card-body p-0 h-100">
                                 <div class="row g-0 h-100">
-                                    <!-- Image Column - Mobile: Full Width Fixed Height, Desktop: Half Width Full Height -->
-                                    <div class="col-12 col-lg-6 h-50 h-lg-100">
-                                        <div class="w-100 h-100">
+                                    <!-- Image Column -->
+                                    <div class="col-12 col-lg-6">
+                                        <div class="image-container">
                                             <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-right.jpg') }}"
                                                 class="w-100 h-100 object-fit-cover rounded-start rounded-0 rounded-lg-start" alt="">
                                         </div>
                                     </div>
-                                    <!-- Content Column - Mobile: Full Width, Desktop: Half Width -->
-                                    <div class="col-12 col-lg-6 h-50 h-lg-100">
-                                        <div class="p-10 h-100 d-flex flex-column justify-content-center">
+                                    <!-- Content Column -->
+                                    <div class="col-12 col-lg-6">
+                                        <div class="content-container">
                                             <h1 class="fs-2 mb-5 font-cinzel">
                                                 Seelenflüsterin Sarah
                                             </h1>
@@ -76,16 +76,16 @@
                             data-aos-duration="500" data-aos-delay="500">
                             <div class="card-body p-0 h-100">
                                 <div class="row g-0 h-100">
-                                    <!-- Image Column - Mobile: Full Width Fixed Height, Desktop: Half Width Full Height -->
-                                    <div class="col-12 col-lg-6 h-50 h-lg-100">
-                                        <div class="w-100 h-100">
+                                    <!-- Image Column -->
+                                    <div class="col-12 col-lg-6">
+                                        <div class="image-container">
                                             <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sulana-high.webp') }}"
                                                 class="w-100 h-100 object-fit-cover rounded-start rounded-0 rounded-lg-start" alt="">
                                         </div>
                                     </div>
-                                    <!-- Content Column - Mobile: Full Width, Desktop: Half Width -->
-                                    <div class="col-12 col-lg-6 h-50 h-lg-100">
-                                        <div class="p-10 h-100 d-flex flex-column justify-content-center">
+                                    <!-- Content Column -->
+                                    <div class="col-12 col-lg-6">
+                                        <div class="content-container">
                                             <h1 class="fs-2 mb-5 font-cinzel">
                                                 Sulana
                                             </h1>
@@ -354,3 +354,30 @@
     </div>
     <!--end::About me-->
 </x-landing-layout>
+
+<style>
+    /* Mobile view */
+    .image-container {
+        height: 50vh;
+    }
+
+    .content-container {
+        padding: 2rem;
+        height: auto;
+    }
+
+    /* Desktop view */
+    @media (min-width: 992px) {
+        .image-container {
+            height: 100%;
+        }
+
+        .content-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+        }
+    }
+</style>
