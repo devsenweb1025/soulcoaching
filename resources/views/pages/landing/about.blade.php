@@ -117,8 +117,7 @@
                 <div class="row">
                     <!--begin::Col-->
                     <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                        <div class="card shadow w-100 h-100" data-aos="fade-up-right" data-aos-easing="linear"
-                            data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow w-100 h-100" data-aos="fade-up-right" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
                             <div class="card-body p-10 h-100 d-flex flex-column justify-content-center">
                                 <h1 class="fs-2 mb-5 font-cinzel">
                                     Meine Grundhaltung
@@ -127,7 +126,7 @@
                                     Ehrlichkeit, Liebe und Mitgefühl sind die Säulen meiner Arbeit. Ich glaube
                                     an
                                     die Kraft der Verbindung – zwischen Menschen, Tieren und der geistigen Welt.
-                                    «Wir sind alle verbunden – alles ist eins.“
+                                    «Wir sind alle verbunden – alles ist eins."
                                 </div>
                             </div>
                         </div>
@@ -136,13 +135,12 @@
 
                     <!--begin::Col-->
                     <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                        <div class="card shadow w-100 h-100" data-aos="fade-up-left" data-aos-easing="linear"
-                            data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow w-100 h-100" data-aos="fade-up-left" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
                             <div class="card-body p-10 h-100 d-flex flex-column justify-content-center">
                                 <h1 class="fs-2 mb-5 font-cinzel">
                                     Berufliche Ausbildung & Qualifikationen
                                 </h1>
-                                <div>
+                                <div class="d-flex flex-column h-100 justify-content-center">
                                     <div class="text-gray-600 fs-4 mb-5">
                                         Ausbildungen EFZ als Restaurationsfachfrau & Kauffrau
                                     </div>
@@ -180,10 +178,9 @@
                 <!--begin::Row-->
                 <div class="row w-100">
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
-                        <div class="card shadow">
-                            <div class="card-body">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow h-100">
+                            <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Medialität
                                 </h1>
@@ -213,10 +210,9 @@
                     </div>
                     <!--end::Col-->
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
-                        <div class="card shadow">
-                            <div class="card-body">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow h-100">
+                            <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Quantenheilung
                                 </h1>
@@ -230,17 +226,15 @@
                     </div>
                     <!--end::Col-->
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
-                        <div class="card shadow">
-                            <div class="card-body">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow h-100">
+                            <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Heiler Ausbildung
                                 </h1>
                                 <div class="mb-5">
                                     <div class="text-gray-800 fs-2">
-                                        Masterclass Geistiges Heilen &
-                                        Energetisches Heilen
+                                        Masterclass Geistiges Heilen & Energetisches Heilen
                                     </div>
                                 </div>
                                 <div class="mb-5">
@@ -272,10 +266,9 @@
                 <!--begin::Row-->
                 <div class="row w-100 mb-5">
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
-                        <div class="card shadow">
-                            <div class="card-body">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow h-100">
+                            <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Tierkommunikation Tierenergetik
                                 </h1>
@@ -294,10 +287,9 @@
                     </div>
                     <!--end::Col-->
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
-                        <div class="card shadow">
-                            <div class="card-body">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow h-100">
+                            <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Chakren, Reiki & Channeling
                                 </h1>
@@ -321,10 +313,9 @@
                     </div>
                     <!--end::Col-->
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
-                        <div class="card shadow">
-                            <div class="card-body">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow h-100">
+                            <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Sonstiges
                                 </h1>
@@ -341,7 +332,7 @@
                                         Tarot
                                     </div>
                                 </div>
-                                <div class="mb-5">
+                                <div class="mb-5"></div>
                                     <div class="text-gray-800 fs-2">
                                         Pendelkurs
                                     </div>
