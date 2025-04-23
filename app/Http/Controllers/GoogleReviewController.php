@@ -33,7 +33,8 @@ class GoogleReviewController extends Controller
                     'key' => $this->apiKey,
                     'place_id' => $this->placeId,
                     'fields' => 'reviews,rating,user_ratings_total',
-                    'language' => 'de'
+                    'language' => 'de',
+                    'reviews_sort' => 'newest'
                 ]
             ]);
 
