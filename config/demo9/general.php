@@ -2,7 +2,7 @@
 return array(
     // Assets
     'assets' => array(
-        'favicon' => 'media/logos/landing.png',
+        'favicon' => 'media/logos/favicon.ico',
         'fonts' => array(
             'google' => array(
                 'Inter:300,400,500,600,700'
