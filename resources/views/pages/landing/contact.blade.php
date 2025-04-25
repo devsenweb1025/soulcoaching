@@ -156,6 +156,13 @@
 
 </x-landing-layout>
 
+<style>
+    .grecaptcha-badge {
+        z-index: 500;
+        bottom: 50vh!important;
+        transform: translateY(50%);
+    }
+</style>
 <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
 <script>
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
