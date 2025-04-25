@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Service;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactFormMail;
+use App\Rules\Recaptcha;
 
 class LandingController extends Controller
 {
@@ -43,7 +44,8 @@ class LandingController extends Controller
             'phone' => 'required|string|max:255',
             'service' => 'required|string|max:255',
             'description' => 'required|string',
-            'confirm' => 'required|accepted'
+            'confirm' => 'required|accepted',
+            'g-recaptcha-response' => ['required', new Recaptcha]
         ]);
 
         try {
