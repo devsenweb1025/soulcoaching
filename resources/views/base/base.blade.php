@@ -26,8 +26,8 @@ License: {{ theme()->getOption('product', 'license') }}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="{{ theme()->getOption('meta', 'google-site-verification') }}" />
     <meta property="org:title" content="{{ ucfirst(theme()->getOption('meta', 'title')) }}" />
-    <meta property="org:url" content="https://https://www.seelen-fluesterin.ch/"/>
-    <base href="https://www.seelen-fluesterin.ch/">
+    {{-- <meta property="org:url" content="https://https://www.seelen-fluesterin.ch/"/> --}}
+    {{-- <base href="https://www.seelen-fluesterin.ch/"> --}}
     <link rel="alternate" hreflang="de-AT" href="https://www.seelenfluesterin.net/">
 
 
