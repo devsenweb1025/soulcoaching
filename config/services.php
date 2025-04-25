@@ -59,11 +59,6 @@ return [
         'mode' => env('PAYPAL_MODE', 'sandbox'), // 'sandbox' or 'live'
     ],
 
-    'crisp' => [
-        'website_id' => env('CRISP_WEBSITE_ID'),
-        'api_key' => env('CRISP_API_KEY'),
-    ],
-
     'calendly' => [
         'api_key' => env('CALENDLY_API_KEY'),
         'scheduling_url' => env('CALENDLY_SCHEDULING_URL'),
