@@ -30,7 +30,7 @@
                         <!--begin::User menu-->
                         <div class="d-flex align-items-center">
                             <div class="position-relative">
-                                <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdownMobile"
+                                <button class="btn btn-sm btn-gradient-dark dropdown-toggle" type="button" id="userDropdownMobile"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="display-none">
                                         {!! theme()->getIcon('user', 'fs-1 text-white') !!}
@@ -199,7 +199,7 @@
                     <!--begin::User menu-->
                     <div class="d-flex align-items-center">
                         <div class="position-relative">
-                            <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdown"
+                            <button class="btn btn-sm btn-gradient-dark dropdown-toggle" type="button" id="userDropdown"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="display-none">
                                     {!! theme()->getIcon('user', 'fs-1 text-white') !!}
