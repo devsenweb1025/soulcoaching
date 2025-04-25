@@ -23,44 +23,6 @@ return array(
             "path" => "admin/dashboard",
         ),
 
-        // Notifications
-        'notifications' => array(
-            "breadcrumb-title" => "Benachrichtigungen",
-            "icon" => '<i class="bi bi-bell fs-2x"></i>',
-            "classes" => array(
-                "item" => "py-2",
-                "link" => "menu-center",
-                "icon" => "me-0",
-            ),
-            "attributes" => array(
-                "item" => array(
-                    "data-kt-menu-trigger" => "click",
-                    "data-kt-menu-placement" => Theme::isRTL() ? "left-start" : "right-start",
-                ),
-                'link' => array(
-                    "data-bs-trigger" => "hover",
-                    "data-bs-dismiss" => "click",
-                    "data-bs-placement" => "right",
-                ),
-            ),
-            "arrow" => false,
-            "sub" => array(
-                "class" => "menu-sub-dropdown w-225px px-1 py-4",
-                "items" => array(
-                    array(
-                        'classes' => array('content' => ''),
-                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Benachrichtigungen</span>',
-                    ),
-
-                    array(
-                        'title' => 'Übersicht',
-                        'path' => 'admin/notifications',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
-                ),
-            ),
-        ),
-
         // Products
         'products' => array(
             "breadcrumb-title" => "Produkte",

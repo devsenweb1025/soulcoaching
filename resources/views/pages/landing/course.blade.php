@@ -54,7 +54,7 @@
                         <div class="row g-10 flex-column-reverse flex-md-row">
                             <!--begin::Col-->
                             <div class="col-xl-5 col-md-6" data-aos="flip-left" data-aos-easing="linear"
-                                data-aos-duration="500" data-aos-delay="500">
+                                data-aos-duration="500" data-aos-delay="0">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -170,9 +170,9 @@
                             <!--end::Col-->
                             <!--begin::Col-->
                             <div class="col-xl-7 col-md-6" data-aos="flip-right" data-aos-easing="linear"
-                                data-aos-duration="500" data-aos-delay="500">
+                                data-aos-duration="500" data-aos-delay="0">
                                 <div class="w-100 h-300px h-md-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/chakra.png') }})">
+                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/chakra-kurs-schmerzen-heilung-herzchakra-seelenfluesterin.webp') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
@@ -210,7 +210,7 @@
                         <div class="row g-10">
                             <!--begin::Col-->
                             <div class="col-12" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                                data-aos-delay="500">
+                                data-aos-delay="0">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -336,7 +336,7 @@
                         <div class="row g-10 flex-column-reverse flex-md-row">
                             <!--begin::Col-->
                             <div class="col-xl-5 col-md-6" data-aos="fade-right" data-aos-easing="linear"
-                                data-aos-duration="500" data-aos-delay="500">
+                                data-aos-duration="500" data-aos-delay="0">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
@@ -378,9 +378,9 @@
                             <!--end::Col-->
                             <!--begin::Col-->
                             <div class="col-xl-7 col-md-6" data-aos="fade-left" data-aos-easing="linear"
-                                data-aos-duration="500" data-aos-delay="500">
+                                data-aos-duration="500" data-aos-delay="0">
                                 <div class="w-100 h-300px h-md-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/theorie.jpg') }})">
+                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/energetisches-heilen-theorie-kurs-lernen-seelenfluesterin.webp') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
@@ -418,15 +418,15 @@
                         <div class="row g-10 flex-column flex-md-row">
                             <!--begin::Col-->
                             <div class="col-xl-7 col-md-6" data-aos="zoom-in-right" data-aos-easing="linear"
-                                data-aos-duration="500" data-aos-delay="500">
+                                data-aos-duration="500" data-aos-delay="0">
                                 <div class="w-100 h-300px h-md-100 object-fit-cover"
-                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/praxis.jpg') }})">
+                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/courses/energetisches-heilen-praxis-anwendung-seelenarbeit-seelenfluesterin.webp') }})">
                                 </div>
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
                             <div class="col-xl-5 col-md-6" data-aos="zoom-in-left" data-aos-easing="linear"
-                                data-aos-duration="500" data-aos-delay="500">
+                                data-aos-duration="500" data-aos-delay="0">
                                 <div class="d-flex h-100 align-items-center">
                                     <!--begin::Option-->
                                     <div class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">

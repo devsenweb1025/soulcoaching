@@ -46,7 +46,7 @@
 
                 @foreach ($services as $service)
                     <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                        data-aos-delay="500">
+                        data-aos-delay="0">
                         <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
                             <div class="card-header">
                                 <h2 class="card-title fs-2 fw-bold">
@@ -101,19 +101,21 @@
             <div class="container z-index-2">
                 <div class="row h-100 z-index-2">
                     <div class="col-12 col-md-6 col-lg-5 d-flex flex-column" data-aos="zoom-in" data-aos-easing="linear"
-                        data-aos-duration="500" data-aos-delay="500">
+                        data-aos-duration="500" data-aos-delay="0">
                         <!--begin::Image input-->
                         <div class="w-100 h-100 py-lg-10 py-md-5 d-flex flex-column justify-content-center align-items-center"
                             data-kt-image-input="true">
 
                             <!--begin::Image preview wrapper-->
-                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/customer.jpeg') }}" alt=""
+                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/elisabeth-kartenlegerin-telefonberatung-seelenfluesterin.webp') }}"
+                                alt="Elisabeth, Kartenlegerin der 4. Generation, sitzt lächelnd vor einem ausgebreiteten Set an Kipper-Karten in einem hellen Raum"
                                 class="w-50 mb-5">
                             <!--end::Image preview wrapper-->
 
                             <!--begin::Image preview wrapper-->
-                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/customer-temp.png') }}"
-                                alt="" class="w-50 d-none d-md-block">
+                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/beraterprofil-platzhalter-hotline-seelenfluesterin.webp') }}"
+                                alt="Platzhalterbild für künftiges Beraterprofil auf der spirituellen Hotline der Seelenflüsterin"
+                                class="w-50 d-none d-md-block">
                             <!--end::Image preview wrapper-->
 
                             <div class="text-center d-md-flex d-none justify-content-center align-items-center mt-10">
@@ -125,7 +127,7 @@
                         <!--end::Image input-->
                     </div>
                     <div class="col-12 col-md-6 col-lg-7 h-100" data-aos="fade-up" data-aos-easing="linear"
-                        data-aos-duration="500" data-aos-delay="500">
+                        data-aos-duration="500" data-aos-delay="0">
                         <!--begin::Testimonial-->
                         <div class="p-lg-10 p-md-5">
                             <!--begin::Wrapper-->

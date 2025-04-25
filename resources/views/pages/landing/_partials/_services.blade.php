@@ -31,7 +31,7 @@
                     <div class="row g-5">
                         @foreach ($services as $service)
                             <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                                data-aos-delay="500">
+                                data-aos-delay="0">
                                 <div class="card card-shadow card-borderless mb-5 bg-gray-300">
                                     <div class="card-header">
                                         <h2 class="card-title fs-2 fw-bold">

@@ -54,10 +54,10 @@
                                     'image' => 'partner4.png',
                                 ],
                                 2 => [
-                                    'name' => 'Bericht',
-                                    'description' =>
-                                        'Auf gesund.ch findest du alles rund um einen bewussten Lebensstil. Die Plattform bringt Themen wie Gesundheit, Achtsamkeit und ganzheitliches Wohlbefinden auf den Punkt – verständlich, inspirierend und lebensnah. Für uns ist gesund.ch ein wertvoller Ort, um Menschen genau dort zu erreichen, wo Interesse für Gesundheit auf echtes Wissen trifft.',
-                                    'domain' => 'https://www.gesund.ch/',
+                                    'name' => 'Eingetragene Therapeutin',
+                                    'description' => 'Auf gesund.ch bin ich als Therapeutin gelistet – einer Plattform, die sich ganz dem bewussten Lebensstil widmet. Hier treffen Themen wie Gesundheit, Achtsamkeit und ganzheitliches Wohlbefinden auf echtes Wissen – verständlich, inspirierend und lebensnah. Ich freue mich, Teil dieser wertvollen Community zu
+                                        sein und Menschen genau dort zu erreichen, wo Interesse an Gesundheit auf fundierte Begleitung trifft.',
+                                    'domain' => 'https://www.gesund.ch/therapeutinnen-suche/therapeutinnen-praxen#q=Seelenfluesterin',
                                     'image' => 'partner3.png',
                                 ],
                                 3 => [
@@ -92,8 +92,8 @@
                         @endphp
 
                         @foreach ($partners as $id => $partner)
-                            <div class="col-lg-12 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                                data-aos-delay="500">
+                            <div class="col-lg-12 mt-10" data-aos="fade-up" data-aos-easing="linear"
+                                data-aos-duration="500" data-aos-delay="0">
                                 <div class="card shadow h-100">
                                     <div class="card-body position-relative">
                                         <div class="position-absolute top-10 left-10 text-gray-600 fs-4 mb-10">

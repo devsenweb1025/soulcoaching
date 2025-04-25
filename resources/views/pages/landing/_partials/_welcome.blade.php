@@ -13,9 +13,9 @@
                         <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
                             <!--begin::Testimonial-->
                             <div class="mb-2 w-100" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
-                                data-aos-delay="500">
-                                <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-left.jpg') }}"
-                                    class="w-100 h-auto rounded" alt="">
+                                data-aos-delay="0">
+                                <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sarah-barone-seelenfluesterin-businessportrait-am-see.webp') }}"
+                                    class="w-100 h-auto rounded" alt="Sarah, die Seelenflüsterin, im Business-Outfit am Seeufer – Porträtaufnahme in natürlicher Umgebung">
                             </div>
                             <!--end::Testimonial-->
                         </div>
@@ -28,11 +28,11 @@
                                 <div class="mb-2">
                                     <h1 class="mb-10 mb-md-10 mb-sm-5 text-md-center fs-3x font-cinzel"
                                         data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                                        data-aos-delay="1000">
+                                        data-aos-delay="0">
                                         Willkommen liebe Seele
                                     </h1>
                                     <div data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
-                                        data-aos-delay="1000">
+                                        data-aos-delay="0">
                                         <div class="text-gray-600 fs-4 mb-5">
                                             Deine Reise zu mehr Bewusstsein beginnt hier.
                                         </div>
@@ -84,16 +84,18 @@
                 data-tns-controls="false" data-tns-nav="false" data-tns-items="1" data-tns-slide-by="1"
                 data-tns-responsive="{768:{items:3},992:{items:5},1200:{items:5}}">
                 @for ($i = 1; $i <= 6; $i++)
-                    <!--begin::Item-->
-                    <div class="px-5 py-5">
-                        <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
+                    @if ($i !== 3)
+                        <!--begin::Item-->
+                        <div class="px-5 py-5">
+                            <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
                             <a href="{{ route('medien') }}">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/partners/partner' . $i . '.png') }}"
                                     alt="Partner {{ $i }}" class="img-fluid" style="max-height: 100px; width: auto;">
                             </a>
                         </div>
-                    </div>
-                    <!--end::Item-->
+                        </div>
+                        <!--end::Item-->
+                    @endif
                 @endfor
             </div>
             <!--end::Slider-->

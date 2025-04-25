@@ -28,11 +28,11 @@
                                     <div class="mb-2">
                                         <h1 class="mb-15 mb-md-10 mb-sm-5 text-md-center mt-10 fs-3x font-cinzel"
                                             data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                                            data-aos-delay="500">
+                                            data-aos-delay="0">
                                             Über mich
                                         </h1>
                                         <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
-                                            data-aos-delay="1000">
+                                            data-aos-delay="0">
                                             <div class="text-gray-600 fs-4 mb-5">
                                                 "Wer seine Schattenseiten nicht erfahren hat, wird sein Licht nicht erkennen." Seelenfluesterin Sarah.<br /><br/>
                                                 Mein Name ist Sarah – ich bin mediale Lebensbegleiterin, spiritueller Coach und fühle mich berufen, Menschen und Tiere auf ihrem Weg zu Heilung, Klarheit und innerem Wachstum zu unterstützen.
@@ -57,9 +57,9 @@
                             <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
                                 <!--begin::Testimonial-->
                                 <div class="mb-2 w-100" data-aos="zoom-in" data-aos-easing="linear"
-                                    data-aos-duration="500" data-aos-delay="500">
-                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-right.jpg') }}"
-                                        class="w-100 h-auto rounded" alt="">
+                                    data-aos-duration="500" data-aos-delay="0">
+                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sarah-barone-seelenfluesterin-businessportrait.webp') }}"
+                                        class="w-100 h-auto rounded" alt="Sarah, die Seelenflüsterin, im Business-Outfit– Porträtaufnahme">
                                 </div>
                                 <!--end::Testimonial-->
                             </div>
