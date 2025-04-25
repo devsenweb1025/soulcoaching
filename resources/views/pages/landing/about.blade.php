@@ -36,14 +36,16 @@
                 <div class="row">
                     <!--begin::Col-->
                     <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                        <div class="card shadow w-100 h-100" data-aos="fade-down-right" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow w-100 h-100" data-aos="fade-down-right" data-aos-easing="linear"
+                            data-aos-duration="500" data-aos-delay="0">
                             <div class="card-body p-0 h-100">
                                 <div class="row g-0 h-100">
                                     <!-- Image Column -->
                                     <div class="col-12 col-lg-6">
                                         <div class="image-container">
-                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/person-right.jpg') }}"
-                                                class="w-100 h-100 object-fit-cover rounded-start rounded-0 rounded-lg-start" alt="">
+                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sarah-barone-seelenfluesterin-businessportrait.webp') }}"
+                                                class="w-100 h-100 object-fit-cover rounded-start rounded-0 rounded-lg-start"
+                                                alt="Sarah, die Seelenflüsterin, im Business-Outfit – Porträtaufnahme">
                                         </div>
                                     </div>
                                     <!-- Content Column -->
@@ -73,14 +75,15 @@
                     <!--begin::Col-->
                     <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
                         <div class="card shadow w-100 h-100" data-aos="fade-down-left" data-aos-easing="linear"
-                            data-aos-duration="500" data-aos-delay="500">
+                            data-aos-duration="500" data-aos-delay="0">
                             <div class="card-body p-0 h-100">
                                 <div class="row g-0 h-100">
                                     <!-- Image Column -->
                                     <div class="col-12 col-lg-6">
                                         <div class="image-container">
-                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sulana-high.webp') }}"
-                                                class="w-100 h-100 object-fit-cover rounded-start rounded-0 rounded-lg-start" alt="">
+                                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sulana-hund-seelenfluesterin-paddington-begleiterin.webp') }}"
+                                                class="w-100 h-100 object-fit-cover rounded-start rounded-0 rounded-lg-start"
+                                                alt="Sulana, die treue Begleiterin von Seelenflüsterin Sarah, liegt mit einem Paddington-Stofftier auf einer Decke">
                                         </div>
                                     </div>
                                     <!-- Content Column -->
@@ -117,7 +120,8 @@
                 <div class="row">
                     <!--begin::Col-->
                     <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                        <div class="card shadow w-100 h-100" data-aos="fade-up-right" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow w-100 h-100" data-aos="fade-up-right" data-aos-easing="linear"
+                            data-aos-duration="500" data-aos-delay="0">
                             <div class="card-body p-10 h-100 d-flex flex-column justify-content-center">
                                 <h1 class="fs-2 mb-5 font-cinzel">
                                     Meine Grundhaltung
@@ -135,7 +139,8 @@
 
                     <!--begin::Col-->
                     <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-10">
-                        <div class="card shadow w-100 h-100" data-aos="fade-up-left" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        <div class="card shadow w-100 h-100" data-aos="fade-up-left" data-aos-easing="linear"
+                            data-aos-duration="500" data-aos-delay="0">
                             <div class="card-body p-10 h-100 d-flex flex-column justify-content-center">
                                 <h1 class="fs-2 mb-5 font-cinzel">
                                     Berufliche Ausbildung & Qualifikationen
@@ -178,7 +183,8 @@
                 <!--begin::Row-->
                 <div class="row w-100">
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                        data-aos-delay="0">
                         <div class="card shadow h-100">
                             <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
@@ -205,12 +211,18 @@
                                         Spiritueller Coach
                                     </div>
                                 </div>
+                                <div class="mb-5">
+                                    <div class="text-gray-800 fs-2">
+                                        Dipl. heilstein Trainerin
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!--end::Col-->
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                        data-aos-delay="0">
                         <div class="card shadow h-100">
                             <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
@@ -226,7 +238,8 @@
                     </div>
                     <!--end::Col-->
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                        data-aos-delay="0">
                         <div class="card shadow h-100">
                             <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
@@ -266,7 +279,8 @@
                 <!--begin::Row-->
                 <div class="row w-100 mb-5">
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                        data-aos-delay="0">
                         <div class="card shadow h-100">
                             <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
@@ -287,7 +301,8 @@
                     </div>
                     <!--end::Col-->
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                        data-aos-delay="0">
                         <div class="card shadow h-100">
                             <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
@@ -313,7 +328,8 @@
                     </div>
                     <!--end::Col-->
                     <!--begin::Col-->
-                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                    <div class="col-lg-4 mt-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                        data-aos-delay="0">
                         <div class="card shadow h-100">
                             <div class="card-body h-100 d-flex flex-column">
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
@@ -333,24 +349,29 @@
                                     </div>
                                 </div>
                                 <div class="mb-5"></div>
-                                    <div class="text-gray-800 fs-2">
-                                        Pendelkurs
-                                    </div>
+                                <div class="text-gray-800 fs-2">
+                                    Pendelkurs
                                 </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Mitochondrien & TCM
-                                    </div>
+                            </div>
+                            <div class="mb-5">
+                                <div class="text-gray-800 fs-2">
+                                    Mitochondrien & TCM
+                                </div>
+                            </div>
+                            <div class="mb-5">
+                                <div class="text-gray-800 fs-2">
+                                    Toxizitätskurs Suzanne Grieger-Langer
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--end::Col-->
                 </div>
-                <!--end::Row-->
+                <!--end::Col-->
             </div>
-            <!--end::Heading-->
+            <!--end::Row-->
         </div>
+        <!--end::Heading-->
+    </div>
     </div>
     <!--end::About me-->
 </x-landing-layout>

@@ -376,10 +376,7 @@
     }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
     $(document).ready(function() {
         // Initialize FullCalendar

@@ -1,6 +1,6 @@
 <!--begin::Landing hero-->
 <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-800px px-9 z-index-1"
-    style="    background-image: url(/media/landing/hero.jpg);
+    style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'landing/startseite-transformation-5-bewusstseinsebenen-seelenfluesterin.webp') }});
     background-repeat: no-repeat;
     mix-blend-mode: normal;
     background-size: cover;">

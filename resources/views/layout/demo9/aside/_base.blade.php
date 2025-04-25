@@ -6,7 +6,7 @@
     <!--begin::Logo-->
     <div class="aside-logo flex-column-auto pt-10 pt-lg-20" id="kt_aside_logo">
         <a href="{{ theme()->getPageUrl('') }}">
-            <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/demo9.svg') }}" class="h-40px" />
+            <img alt="Logo" src="{{ asset(theme()->getMediaUrlPath() . 'logos/landing.png') }}" class="h-40px" />
         </a>
     </div>
     <!--end::Logo-->

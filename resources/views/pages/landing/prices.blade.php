@@ -55,7 +55,7 @@
                                 @if ($service->image_direction === 'right')
                                     <!--begin::Col-->
                                     <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear"
-                                        data-aos-duration="500" data-aos-delay="500">
+                                        data-aos-duration="500" data-aos-delay="0">
                                         <div class="d-flex h-100 align-items-center">
                                             <!--begin::Option-->
                                             <div
@@ -184,7 +184,7 @@
                                     <!--end::Col-->
                                     <!--begin::Col-->
                                     <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear"
-                                        data-aos-duration="500" data-aos-delay="500">
+                                        data-aos-duration="500" data-aos-delay="0">
                                         <div class="w-100 h-300px h-md-100 object-fit-cover"
                                             style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'landing/prices/default.jpg') }})">
                                         </div>
@@ -193,7 +193,7 @@
                                 @else
                                     <!--begin::Col-->
                                     <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear"
-                                        data-aos-duration="500" data-aos-delay="500">
+                                        data-aos-duration="500" data-aos-delay="0">
                                         <div class="w-100 h-300px h-md-100 object-fit-cover"
                                             style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'landing/prices/default.jpg') }})">
                                         </div>
@@ -201,7 +201,7 @@
                                     <!--end::Col-->
                                     <!--begin::Col-->
                                     <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear"
-                                        data-aos-duration="500" data-aos-delay="500">
+                                        data-aos-duration="500" data-aos-delay="0">
                                         <div class="d-flex h-100 align-items-center">
                                             <!--begin::Option-->
                                             <div

@@ -201,7 +201,9 @@
                         <div class="position-relative">
                             <button class="btn btn-gradient-dark dropdown-toggle" type="button" id="userDropdown"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <span>{{ Auth::user()->name }}</span>
+                                <span class="display-none">
+                                    {!! theme()->getIcon('user', 'fs-1 text-white') !!}
+                                </span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 @if (Auth::user()->role === 'admin')

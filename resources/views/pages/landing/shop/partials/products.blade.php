@@ -1,6 +1,6 @@
 <div id="products-container">
     @forelse ($products as $product)
-        <div class="col-lg-4 p-5" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+        <div class="col-lg-4 p-5" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="0">
             <div class="card card-stretch shadow card-borderless mb-5">
                 <div class="card-header py-5">
                     <div class="w-100 h-200px"

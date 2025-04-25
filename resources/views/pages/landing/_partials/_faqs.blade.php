@@ -9,7 +9,7 @@
                 <div class="card-body">
 
                     <div class="card-title d-flex flex-column align-items-center text-center mt-20 mb-10"
-                        data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="500">
+                        data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="0">
                         <div class="header-title fs-4x font-cinzel">Meist gestellte Fragen</div>
                         <div class="header-sub fs-2 text-gray-700">Finde schnell Antworten zu deinen Fragen</div>
                     </div>
@@ -18,7 +18,7 @@
 
                         <!--begin::Accordion-->
                         <div class="accordion accordion-solid accordion-icon-collapse" id="kt_accordion_3"
-                            data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="1000">
+                            data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="0">
                             @php
                                 $faqs = [
                                     [
