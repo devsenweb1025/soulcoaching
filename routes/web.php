@@ -48,10 +48,10 @@ Route::get('zahlung', [LandingController::class, 'payment'])->name('payment');
 
 // ------------------------ Online Shop Start------------------------
 // Shop routes
-Route::get('/einkaufen', [App\Http\Controllers\ShopController::class, 'index'])->name('shop.index');
-Route::get('/einkaufen/suchen', [App\Http\Controllers\ShopController::class, 'search'])->name('shop.search');
-Route::get('/einkaufen/kategorie/{category}', [App\Http\Controllers\ShopController::class, 'category'])->name('shop.category');
-Route::get('/einkaufen/{slug}', [App\Http\Controllers\ShopController::class, 'show'])->name('shop.show');
+Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop.index');
+Route::get('/shop/suchen', [App\Http\Controllers\ShopController::class, 'search'])->name('shop.search');
+Route::get('/shop/kategorie/{category}', [App\Http\Controllers\ShopController::class, 'category'])->name('shop.category');
+Route::get('/shop/{slug}', [App\Http\Controllers\ShopController::class, 'show'])->name('shop.show');
 
 Route::get('/kurs', [CoursePaymentController::class, 'index'])->name('course');
 
