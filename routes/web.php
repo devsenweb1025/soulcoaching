@@ -34,127 +34,126 @@ use Illuminate\Support\Facades\Route;
 
 // Landing
 Route::get('', [LandingController::class, 'index'])->name('home');
-Route::get('about', [LandingController::class, 'about'])->name('about');
-Route::get('online-course', [LandingController::class, 'course'])->name('course');
-Route::get('contact', [LandingController::class, 'contact'])->name('contact');
-Route::post('contact', [LandingController::class, 'contactSubmit'])->name('contact.submit');
+Route::get('ueber-mich', [LandingController::class, 'about'])->name('about');
+Route::get('kontakt', [LandingController::class, 'contact'])->name('contact');
+Route::post('kontakt', [LandingController::class, 'contactSubmit'])->name('contact.submit');
 Route::get('medien', [LandingController::class, 'medien'])->name('medien');
 Route::get('impressum', [LandingController::class, 'impressum'])->name('impressum');
 Route::get('datenschutz', [LandingController::class, 'datenschutz'])->name('datenschutz');
 Route::get('agb', [LandingController::class, 'agb'])->name('agb');
 
 // Booking
-Route::get('booking', [LandingController::class, 'booking'])->name('booking');
-Route::get('payment', [LandingController::class, 'payment'])->name('payment');
+Route::get('buchung', [LandingController::class, 'booking'])->name('booking');
+Route::get('zahlung', [LandingController::class, 'payment'])->name('payment');
 
 // ------------------------ Online Shop Start------------------------
 // Shop routes
-Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop.index');
-Route::get('/shop/search', [App\Http\Controllers\ShopController::class, 'search'])->name('shop.search');
-Route::get('/shop/category/{category}', [App\Http\Controllers\ShopController::class, 'category'])->name('shop.category');
-Route::get('/shop/{slug}', [App\Http\Controllers\ShopController::class, 'show'])->name('shop.show');
+Route::get('/einkaufen', [App\Http\Controllers\ShopController::class, 'index'])->name('shop.index');
+Route::get('/einkaufen/suchen', [App\Http\Controllers\ShopController::class, 'search'])->name('shop.search');
+Route::get('/einkaufen/kategorie/{category}', [App\Http\Controllers\ShopController::class, 'category'])->name('shop.category');
+Route::get('/einkaufen/{slug}', [App\Http\Controllers\ShopController::class, 'show'])->name('shop.show');
 
-Route::get('/course', [CoursePaymentController::class, 'index'])->name('course');
+Route::get('/kurs', [CoursePaymentController::class, 'index'])->name('course');
 
 // require auth
 Route::middleware('auth')->group(function () {
     // Profile
-    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-    Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('profil', [ProfileController::class, 'index'])->name('profile');
+    Route::get('profil/bearbeiten', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('profil/aktualisieren', [ProfileController::class, 'update'])->name('profile.update');
     // Cart routes
-    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-    Route::post('/cart/add/{productId}', [CartController::class, 'add'])->name('cart.add');
-    Route::post('/cart/update/{rowId}', [CartController::class, 'update'])->name('cart.update');
-    Route::post('/cart/remove/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
-    Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
-    Route::post('/cart/store-shipping-info', [CartController::class, 'storeShippingInfo'])->name('cart.store-shipping-info');
-    Route::post('/cart/update-shipping', [CartController::class, 'updateShipping'])->name('cart.update-shipping');
+    Route::get('/warenkorb', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/warenkorb/hinzufügen/{productId}', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/warenkorb/aktualisieren/{rowId}', [CartController::class, 'update'])->name('cart.update');
+    Route::post('/warenkorb/entfernen/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/warenkorb/leeren', [CartController::class, 'clear'])->name('cart.clear');
+    Route::post('/warenkorb/versandinformationen-speichern', [CartController::class, 'storeShippingInfo'])->name('cart.store-shipping-info');
+    Route::post('/warenkorb/versandinformationen-aktualisieren', [CartController::class, 'updateShipping'])->name('cart.update-shipping');
 
     // Checkout routes
-    Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-    Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
-    Route::get('/cart/checkout/success', [CartController::class, 'checkoutSuccess'])->name('cart.checkout.success');
+    Route::get('/warenkorb/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::post('/warenkorb/checkout/verarbeiten', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
+    Route::get('/warenkorb/checkout/erfolg', [CartController::class, 'checkoutSuccess'])->name('cart.checkout.success');
 
     // Payment routes
-    Route::prefix('payment')->group(function () {
+    Route::prefix('zahlung')->group(function () {
         // PayPal routes
-        Route::post('/paypal/create', [PaymentController::class, 'createPayPalPayment'])->name('payment.paypal.create');
-        Route::get('/paypal/success', [PaymentController::class, 'handlePayPalSuccess'])->name('payment.paypal.success');
-        Route::get('/paypal/cancel', [PaymentController::class, 'handlePayPalCancel'])->name('payment.paypal.cancel');
+        Route::post('/paypal/erstellen', [PaymentController::class, 'createPayPalPayment'])->name('payment.paypal.create');
+        Route::get('/paypal/erfolg', [PaymentController::class, 'handlePayPalSuccess'])->name('payment.paypal.success');
+        Route::get('/paypal/stornieren', [PaymentController::class, 'handlePayPalCancel'])->name('payment.paypal.cancel');
 
         // Stripe routes
-        Route::post('/stripe/create-payment-intent', [StripeController::class, 'createPaymentIntent'])->name('stripe.create-payment-intent');
-        Route::get('/stripe/success', [StripeController::class, 'handleSuccess'])->name('stripe.success');
-        Route::get('/stripe/cancel', [StripeController::class, 'handleCancel'])->name('stripe.cancel');
+        Route::post('/stripe/erstellen', [StripeController::class, 'createPaymentIntent'])->name('stripe.create-payment-intent');
+        Route::get('/stripe/erfolg', [StripeController::class, 'handleSuccess'])->name('stripe.success');
+        Route::get('/stripe/stornieren', [StripeController::class, 'handleCancel'])->name('stripe.cancel');
     });
 
     // Order Routes
-    Route::get('/account/orders', [OrderController::class, 'index'])->name('account.orders');
-    Route::get('/account/orders/{order}', [OrderController::class, 'show'])->name('account.orders.show');
-    Route::post('/account/orders/track', [OrderController::class, 'track'])->name('account.orders.track');
+    Route::get('/konto/bestellungen', [OrderController::class, 'index'])->name('account.orders');
+    Route::get('/konto/bestellungen/{order}', [OrderController::class, 'show'])->name('account.orders.show');
+    Route::post('/konto/bestellungen/verfolgen', [OrderController::class, 'track'])->name('account.orders.track');
 
     // Course Payment Routes
-    Route::get('/course/{id}', [CoursePaymentController::class, 'show'])->name('course.show');
-    Route::post('/course/payment/create', [CoursePaymentController::class, 'createPaymentIntent'])->name('course.payment.create');
-    Route::get('/course/payment/success', [CoursePaymentController::class, 'handleSuccess'])->name('course.payment.success');
-    Route::get('/course/payment/cancel', [CoursePaymentController::class, 'handleCancel'])->name('course.payment.cancel');
-    Route::get('/course/{id}/download', [CoursePaymentController::class, 'download'])->name('course.download');
+    Route::get('/kurs/{id}', [CoursePaymentController::class, 'show'])->name('course.show');
+    Route::post('/kurs/zahlung/erstellen', [CoursePaymentController::class, 'createPaymentIntent'])->name('course.payment.create');
+    Route::get('/kurs/zahlung/erfolg', [CoursePaymentController::class, 'handleSuccess'])->name('course.payment.success');
+    Route::get('/kurs/zahlung/stornieren', [CoursePaymentController::class, 'handleCancel'])->name('course.payment.cancel');
+    Route::get('/kurs/{id}/download', [CoursePaymentController::class, 'download'])->name('course.download');
 
     // Cart Payment Routes
-    Route::post('/cart/payment/create-intent', [CartPaymentController::class, 'createPaymentIntent'])->name('cart.payment.create-intent');
-    Route::get('/cart/payment/success', [CartPaymentController::class, 'handleSuccess'])->name('cart.payment.success');
-    Route::get('/cart/payment/cancel', [CartPaymentController::class, 'handleCancel'])->name('cart.payment.cancel');
+    Route::post('/warenkorb/zahlung/erstellen', [CartPaymentController::class, 'createPaymentIntent'])->name('cart.payment.create-intent');
+    Route::get('/warenkorb/zahlung/erfolg', [CartPaymentController::class, 'handleSuccess'])->name('cart.payment.success');
+    Route::get('/warenkorb/zahlung/stornieren', [CartPaymentController::class, 'handleCancel'])->name('cart.payment.cancel');
 });
 
 // --------------------------------------------- Online Shop End---------------------------------------------
 
 // Admin Product Routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-    Route::resource('products', ProductController::class)->names('products');
+    Route::get('/armaturenbrett', [AdminController::class, 'index'])->name('dashboard');
+    Route::resource('produkte', ProductController::class)->names('products');
 
     // Notification Routes
-    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
-    Route::post('/notifications/{notification}/mark-as-read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-as-read');
-    Route::post('/notifications/mark-all-as-read', [NotificationController::class, 'markAllAsRead'])->name('notifications.mark-all-as-read');
-    Route::get('/notifications/unread-count', [NotificationController::class, 'getUnreadCount'])->name('notifications.unread-count');
-    Route::get('/notifications/recent', [NotificationController::class, 'getRecentNotifications'])->name('notifications.recent');
+    Route::get('/benachrichtigungen', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('/benachrichtigungen/{notification}/mark-als-gelesen', [NotificationController::class, 'markAsRead'])->name('notifications.mark-as-read');
+    Route::post('/benachrichtigungen/alle-als-gelesen-markieren', [NotificationController::class, 'markAllAsRead'])->name('notifications.mark-all-as-read');
+    Route::get('/benachrichtigungen/ungelesene-anzahl', [NotificationController::class, 'getUnreadCount'])->name('notifications.unread-count');
+    Route::get('/benachrichtigungen/neueste', [NotificationController::class, 'getRecentNotifications'])->name('notifications.recent');
 
     // Order Management Routes
-    Route::get('/orders', [OrderManagementController::class, 'index'])->name('orders.index');
-    Route::get('/orders/{order}', [OrderManagementController::class, 'show'])->name('orders.show');
-    Route::post('/orders/{order}/status', [OrderManagementController::class, 'updateStatus'])->name('orders.status');
-    Route::post('/orders/{order}/payment-status', [OrderManagementController::class, 'updatePaymentStatus'])->name('orders.payment-status');
-    Route::post('/orders/{order}/tracking', [OrderManagementController::class, 'updateTracking'])->name('orders.tracking');
-    Route::delete('/orders/{order}', [OrderManagementController::class, 'destroy'])->name('orders.destroy');
+    Route::get('/bestellungen', [OrderManagementController::class, 'index'])->name('orders.index');
+    Route::get('/bestellungen/{order}', [OrderManagementController::class, 'show'])->name('orders.show');
+    Route::post('/bestellungen/{order}/status', [OrderManagementController::class, 'updateStatus'])->name('orders.status');
+    Route::post('/bestellungen/{order}/zahlungsstatus', [OrderManagementController::class, 'updatePaymentStatus'])->name('orders.payment-status');
+    Route::post('/bestellungen/{order}/verfolgung', [OrderManagementController::class, 'updateTracking'])->name('orders.tracking');
+    Route::delete('/bestellungen/{order}', [OrderManagementController::class, 'destroy'])->name('orders.destroy');
 
     // Booking Management Routes
-    Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
-    Route::get('/bookings/events', [BookingController::class, 'getEvents'])->name('bookings.events');
-    Route::get('/bookings/invitees', [BookingController::class, 'getInvitees'])->name('bookings.invitees');
-    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
-    Route::put('/bookings/{booking}', [BookingController::class, 'update'])->name('bookings.update');
-    Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+    Route::get('/buchungen', [BookingController::class, 'index'])->name('bookings.index');
+    Route::get('/buchungen/events', [BookingController::class, 'getEvents'])->name('bookings.events');
+    Route::get('/buchungen/einladungen', [BookingController::class, 'getInvitees'])->name('bookings.invitees');
+    Route::post('/buchungen', [BookingController::class, 'store'])->name('bookings.store');
+    Route::put('/buchungen/{booking}', [BookingController::class, 'update'])->name('bookings.update');
+    Route::delete('/buchungen/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
     Route::resource('services', ServiceManagementController::class)->names('services');
-    Route::post('services/{service}/toggle-active', [ServiceManagementController::class, 'toggleActive'])->name('services.toggle-active');
-    Route::post('services/{service}/toggle-featured', [ServiceManagementController::class, 'toggleFeatured'])->name('services.toggle-featured');
+    Route::post('services/{service}/aktivieren', [ServiceManagementController::class, 'toggleActive'])->name('services.toggle-active');
+    Route::post('services/{service}/hervorheben', [ServiceManagementController::class, 'toggleFeatured'])->name('services.toggle-featured');
 
     // Admin Profile Routes
-    Route::get('/profile', [AdminProfileController::class, 'index'])->name('profile.index');
-    Route::put('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profil', [AdminProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profil', [AdminProfileController::class, 'update'])->name('profile.update');
 });
 
 // Service Routes
-Route::get('/services', [ServiceController::class, 'index'])->name('services');
-Route::get('/prices', [ServiceController::class, 'prices'])->name('prices');
-Route::get('/service/{id}', [ServiceController::class, 'show'])->name('service.show');
+Route::get('/dienstleistungen', [ServiceController::class, 'index'])->name('services');
+Route::get('/preise', [ServiceController::class, 'prices'])->name('prices');
+Route::get('/dienstleistungen/{id}', [ServiceController::class, 'show'])->name('service.show');
 
 // Service Payment Routes
-Route::post('/service/payment/create', [ServiceController::class, 'createPaymentIntent'])->name('service.payment.create');
-Route::get('/service/payment/success', [ServiceController::class, 'handleSuccess'])->name('service.payment.success');
-Route::get('/service/payment/cancel', [ServiceController::class, 'handleCancel'])->name('service.payment.cancel');
+Route::post('/dienstleistungen/zahlung/erstellen', [ServiceController::class, 'createPaymentIntent'])->name('service.payment.create');
+Route::get('/dienstleistungen/zahlung/erfolg', [ServiceController::class, 'handleSuccess'])->name('service.payment.success');
+Route::get('/dienstleistungen/zahlung/stornieren', [ServiceController::class, 'handleCancel'])->name('service.payment.cancel');
 
 
 
