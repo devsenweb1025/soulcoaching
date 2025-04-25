@@ -126,12 +126,15 @@
                                                             Mit Karte bezahlen
                                                         </button>
                                                         <button type="button" class="btn btn-primary"
-                                                            onclick="initiatePayment('twint', '{{ $service->id }}')">
+                                                            onclick="initiatePayment('twint', '{{ $service->id }}')" id="twint-button-{{ $service->id }}">
                                                             <i class="ki-duotone ki-wallet fs-2 me-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            Mit TWINT bezahlen
+                                                            <span class="indicator-label">Mit TWINT bezahlen</span>
+                                                            <span class="indicator-progress" style="display: none;">
+                                                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                            </span>
                                                         </button>
                                                     </div>
 
@@ -271,12 +274,15 @@
                                                             Mit Karte bezahlen
                                                         </button>
                                                         <button type="button" class="btn btn-primary"
-                                                            onclick="initiatePayment('twint', '{{ $service->id }}')">
+                                                            onclick="initiatePayment('twint', '{{ $service->id }}')" id="twint-button-{{ $service->id }}">
                                                             <i class="ki-duotone ki-wallet fs-2 me-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            Mit TWINT bezahlen
+                                                            <span class="indicator-label">Mit TWINT bezahlen</span>
+                                                            <span class="indicator-progress" style="display: none;">
+                                                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                            </span>
                                                         </button>
                                                     </div>
 
@@ -527,6 +533,13 @@
             return;
         }
 
+        const twintButton = document.getElementById(`twint-button-${serviceId}`);
+        if (twintButton) {
+            twintButton.disabled = true;
+            twintButton.querySelector('.indicator-label').style.display = 'none';
+            twintButton.querySelector('.indicator-progress').style.display = 'inline-block';
+        }
+
         try {
             const response = await fetch('{{ route('service.payment.create') }}', {
                 method: 'POST',
@@ -566,6 +579,12 @@
                     confirmButton: "btn btn-primary",
                 }
             });
+        } finally {
+            if (twintButton) {
+                twintButton.disabled = false;
+                twintButton.querySelector('.indicator-label').style.display = 'inline-block';
+                twintButton.querySelector('.indicator-progress').style.display = 'none';
+            }
         }
     }
 

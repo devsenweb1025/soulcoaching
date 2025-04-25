@@ -252,9 +252,8 @@
                                             Warenkorb</a>
                                         <button type="submit" class="btn btn-primary" id="submit-button">
                                             <span class="indicator-label">Bestellung abschliessen</span>
-                                            <span class="indicator-progress">Please wait...
-                                                <span
-                                                    class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                            <span class="indicator-progress" style="display: none;">
+                                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                             </span>
                                         </button>
                                     </div>
@@ -339,152 +338,165 @@
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        // Disable submit button
+        // Disable submit button and show loading state
         submitButton.disabled = true;
         submitButton.querySelector('.indicator-label').style.display = 'none';
         submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
 
         const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
 
-        // Store shipping info in session
-        const shippingResponse = await fetch('{{ route('cart.store-shipping-info') }}', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                first_name: form.querySelector('[name="first_name"]').value,
-                last_name: form.querySelector('[name="last_name"]').value,
-                email: form.querySelector('[name="email"]').value,
-                phone: form.querySelector('[name="phone"]').value,
-                address: form.querySelector('[name="address"]').value,
-                city: form.querySelector('[name="city"]').value,
-                postal_code: form.querySelector('[name="postal_code"]').value,
-                country: form.querySelector('[name="country"]').value
-            })
-        });
+        try {
+            // Store shipping info in session
+            const shippingResponse = await fetch('{{ route('cart.store-shipping-info') }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    first_name: form.querySelector('[name="first_name"]').value,
+                    last_name: form.querySelector('[name="last_name"]').value,
+                    email: form.querySelector('[name="email"]').value,
+                    phone: form.querySelector('[name="phone"]').value,
+                    address: form.querySelector('[name="address"]').value,
+                    city: form.querySelector('[name="city"]').value,
+                    postal_code: form.querySelector('[name="postal_code"]').value,
+                    country: form.querySelector('[name="country"]').value
+                })
+            });
 
-        if (!shippingResponse.ok) {
-            throw new Error('Failed to store Versandinformationen');
-        }
+            if (!shippingResponse.ok) {
+                throw new Error('Failed to store Versandinformationen');
+            }
 
-        if (paymentMethod === 'stripe') {
-            try {
-                // Create payment intent
-                const response = await fetch('{{ route('stripe.create-payment-intent') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
-                    }
-                });
+            if (paymentMethod === 'stripe') {
+                try {
+                    // Create payment intent
+                    const response = await fetch('{{ route('stripe.create-payment-intent') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        }
+                    });
 
-                const {
-                    clientSecret
-                } = await response.json();
+                    const {
+                        clientSecret
+                    } = await response.json();
 
-                // Confirm payment
-                const {
-                    paymentIntent,
-                    error
-                } = await stripe.confirmCardPayment(clientSecret, {
-                    payment_method: {
-                        card: card,
-                        billing_details: {
-                            name: form.querySelector('[name="first_name"]').value + ' ' + form
-                                .querySelector('[name="last_name"]').value,
-                            email: form.querySelector('[name="email"]').value,
-                            phone: form.querySelector('[name="phone"]').value,
-                            address: {
-                                line1: form.querySelector('[name="address"]').value,
-                                city: form.querySelector('[name="city"]').value,
-                                postal_code: form.querySelector('[name="postal_code"]').value,
-                                country: form.querySelector('[name="country"]').value
+                    // Confirm payment
+                    const {
+                        paymentIntent,
+                        error
+                    } = await stripe.confirmCardPayment(clientSecret, {
+                        payment_method: {
+                            card: card,
+                            billing_details: {
+                                name: form.querySelector('[name="first_name"]').value + ' ' + form
+                                    .querySelector('[name="last_name"]').value,
+                                email: form.querySelector('[name="email"]').value,
+                                phone: form.querySelector('[name="phone"]').value,
+                                address: {
+                                    line1: form.querySelector('[name="address"]').value,
+                                    city: form.querySelector('[name="city"]').value,
+                                    postal_code: form.querySelector('[name="postal_code"]').value,
+                                    country: form.querySelector('[name="country"]').value
+                                }
                             }
                         }
+                    });
+
+                    if (error) {
+                        throw new Error(error.message);
+                    }
+                    // Redirect to success page
+                    window.location.href = '{{ route('stripe.success') }}?payment_intent=' + paymentIntent.id;
+                } catch (error) {
+                    // Show error message
+                    const errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = error.message;
+                }
+            } else if (paymentMethod === 'paypal') {
+                try {
+                    // Create PayPal order
+                    const response = await fetch('{{ route('payment.paypal.create') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    const {
+                        orderId,
+                        approvalUrl
+                    } = await response.json();
+
+                    if (orderId && approvalUrl) {
+                        window.location.href = approvalUrl;
+                    } else {
+                        throw new Error('Erstellung der PayPal-Bestellung fehlgeschlagen');
+                    }
+                } catch (error) {
+                    const errorElement = document.getElementById('paypal-errors');
+                    errorElement.textContent = error.message;
+                }
+            } else if (paymentMethod === 'twint') {
+                try {
+                    // Create TWINT payment intent
+                    const response = await fetch('{{ route('cart.payment.create-intent') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            payment_method: 'twint'
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+
+                    if (data.redirectUrl) {
+                        window.location.href = data.redirectUrl;
+                    } else {
+                        throw new Error('TWINT Zahlung konnte nicht initialisiert werden');
+                    }
+                } catch (error) {
+                    const errorElement = document.getElementById('twint-errors');
+                    errorElement.textContent = error.message;
+                }
+            }
+        } catch (error) {
+            // Show error message in appropriate error element based on payment method
+            const errorElement = document.getElementById(`${paymentMethod}-errors`);
+            if (errorElement) {
+                errorElement.textContent = error.message;
+            } else {
+                // If no specific error element found, show in a general alert
+                Swal.fire({
+                    text: error.message || 'Ein Fehler ist beim Bezahlvorgang aufgetreten',
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Weiter!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
                     }
                 });
-
-                if (error) {
-                    throw new Error(error.message);
-                }
-                // Redirect to success page
-                window.location.href = '{{ route('stripe.success') }}?payment_intent=' + paymentIntent.id;
-            } catch (error) {
-                // Show error message
-                const errorElement = document.getElementById('card-errors');
-                errorElement.textContent = error.message;
-
-                // Re-enable submit button
-                submitButton.disabled = false;
-                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
-                submitButton.querySelector('.indicator-progress').style.display = 'none';
             }
-        } else if (paymentMethod === 'paypal') {
-            try {
-                // Create PayPal order
-                const response = await fetch('{{ route('payment.paypal.create') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
-                    }
-                });
-
-                const {
-                    orderId,
-                    approvalUrl
-                } = await response.json();
-
-                if (orderId && approvalUrl) {
-                    window.location.href = approvalUrl;
-                } else {
-                    throw new Error('Erstellung der PayPal-Bestellung fehlgeschlagen');
-                }
-            } catch (error) {
-                const errorElement = document.getElementById('paypal-errors');
-                errorElement.textContent = error.message;
-                submitButton.disabled = false;
-                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
-                submitButton.querySelector('.indicator-progress').style.display = 'none';
-            }
-        } else if (paymentMethod === 'twint') {
-            try {
-                // Create TWINT payment intent
-                const response = await fetch('{{ route('cart.payment.create-intent') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        payment_method: 'twint'
-                    })
-                });
-
-                const data = await response.json();
-
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-
-                if (data.redirectUrl) {
-                    window.location.href = data.redirectUrl;
-                } else {
-                    throw new Error('TWINT Zahlung konnte nicht initialisiert werden');
-                }
-            } catch (error) {
-                const errorElement = document.getElementById('twint-errors');
-                errorElement.textContent = error.message;
-                submitButton.disabled = false;
-                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
-                submitButton.querySelector('.indicator-progress').style.display = 'none';
-            }
+        } finally {
+            // Re-enable submit button and hide loading state
+            submitButton.disabled = false;
+            submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+            submitButton.querySelector('.indicator-progress').style.display = 'none';
         }
     });
 </script>
