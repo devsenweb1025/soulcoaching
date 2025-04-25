@@ -7,6 +7,7 @@ use App\Models\Service;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactFormMail;
 use App\Rules\Recaptcha;
+use Illuminate\Support\Facades\Log;
 
 class LandingController extends Controller
 {
@@ -62,6 +63,7 @@ class LandingController extends Controller
                 'message' => 'Ihre Nachricht wurde erfolgreich gesendet!'
             ]);
         } catch (\Exception $e) {
+            Log::error('Contact form submission failed: ' . $e->getMessage());
             return response()->json([
                 'message' => 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.'
             ], 500);

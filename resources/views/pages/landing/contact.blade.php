@@ -132,10 +132,6 @@
                                                 ich,
                                                 dass alle Angaben wahrheitsgetreu gemacht wurden.</label>
                                         </div>
-                                        <div class="mb-10">
-                                            <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
-                                            <div id="recaptcha-error" class="text-danger mt-2" style="display: none;"></div>
-                                        </div>
                                         <div>
                                             <button type="submit" class="form-control btn btn-primary" id="submitButton">
                                                 <span class="indicator-label">Nachricht senden</span>
@@ -160,7 +156,7 @@
 
 </x-landing-layout>
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
 <script>
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -168,18 +164,6 @@
         const submitButton = document.getElementById('submitButton');
         const indicatorLabel = submitButton.querySelector('.indicator-label');
         const indicatorProgress = submitButton.querySelector('.indicator-progress');
-        const recaptchaError = document.getElementById('recaptcha-error');
-
-        // Reset recaptcha error
-        recaptchaError.style.display = 'none';
-
-        // Check if reCAPTCHA is completed
-        const recaptchaResponse = grecaptcha.getResponse();
-        if (!recaptchaResponse) {
-            recaptchaError.textContent = 'Bitte bestätigen Sie, dass Sie kein Roboter sind.';
-            recaptchaError.style.display = 'block';
-            return;
-        }
 
         // Disable submit button and show loading state
         submitButton.disabled = true;
@@ -187,8 +171,11 @@
         indicatorProgress.style.display = 'inline-block';
 
         try {
+            // Execute reCAPTCHA v3
+            const token = await grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'contact'});
+
             const formData = new FormData(this);
-            formData.append('g-recaptcha-response', recaptchaResponse);
+            formData.append('g-recaptcha-response', token);
 
             const response = await fetch(this.action, {
                 method: 'POST',
@@ -212,7 +199,6 @@
                     }
                 }).then(() => {
                     this.reset();
-                    grecaptcha.reset(); // Reset reCAPTCHA after successful submission
                 });
             } else {
                 throw new Error(data.message || 'Ein Fehler ist aufgetreten');
