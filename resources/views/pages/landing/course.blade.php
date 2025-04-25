@@ -117,12 +117,15 @@
                                                     Mit Karte bezahlen
                                                 </button>
                                                 <button type="button" class="btn btn-primary"
-                                                    onclick="initiatePayment('twint', 1)">
+                                                    onclick="initiatePayment('twint', 1)" id="twint-button-1">
                                                     <i class="ki-duotone ki-wallet fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    Mit TWINT bezahlen
+                                                    <span class="indicator-label">Mit TWINT bezahlen</span>
+                                                    <span class="indicator-progress" style="display: none;">
+                                                        Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                    </span>
                                                 </button>
                                             </div>
 
@@ -248,12 +251,15 @@
                                                     Mit Karte bezahlen
                                                 </button>
                                                 <button type="button" class="btn btn-primary"
-                                                    onclick="initiatePayment('twint', 2)">
+                                                    onclick="initiatePayment('twint', 2)" id="twint-button-2">
                                                     <i class="ki-duotone ki-wallet fs-2 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    Mit TWINT bezahlen
+                                                    <span class="indicator-label">Mit TWINT bezahlen</span>
+                                                    <span class="indicator-progress" style="display: none;">
+                                                        Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                    </span>
                                                 </button>
                                             </div>
                                         </div>
@@ -662,6 +668,13 @@
             return;
         }
 
+        const twintButton = document.getElementById(`twint-button-${courseId}`);
+        if (twintButton) {
+            twintButton.disabled = true;
+            twintButton.querySelector('.indicator-label').style.display = 'none';
+            twintButton.querySelector('.indicator-progress').style.display = 'inline-block';
+        }
+
         try {
             const response = await fetch('{{ route('course.payment.create') }}', {
                 method: 'POST',
@@ -701,6 +714,12 @@
                     confirmButton: "btn btn-primary",
                 }
             });
+        } finally {
+            if (twintButton) {
+                twintButton.disabled = false;
+                twintButton.querySelector('.indicator-label').style.display = 'inline-block';
+                twintButton.querySelector('.indicator-progress').style.display = 'none';
+            }
         }
     }
 </script>
