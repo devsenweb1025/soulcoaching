@@ -3,19 +3,19 @@
     <!-- Live Chat Box -->
     <div id="liveChatBox" class="card shadow-lg mb-5 me-5 d-none" style="width: 350px;">
         <div class="card-header">
-            <div class="d-flex align-items-center">
-                <div class="symbol symbol-40px me-3" data-bs-toggle="tooltip" title="Seelenflüsterin Sarah">
-                    @php
-                        $service = \App\Models\Service::where('is_live_chat', true)->first();
-                    @endphp
-                    <img src="{{ asset('storage/' . $service->image) }}" class="rounded-circle"
-                        alt="Seelenflüsterin Sarah">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <div class="symbol symbol-40px me-3" data-bs-toggle="tooltip" title="Seelenflüsterin Sarah">
+                        @php
+                            $service = \App\Models\Service::where('is_live_chat', true)->first();
+                        @endphp
+                        <img src="{{ asset('storage/' . $service->image) }}" class="rounded-circle"
+                            alt="Seelenflüsterin Sarah">
+                    </div>
+                    <div class="card-title">
+                        <h3 class="fw-bold text-gray-800">{{ $service->title }}</h3>
+                    </div>
                 </div>
-                <div class="card-title">
-                    <h3 class="fw-bold text-gray-800">{{ $service->title }}</h3>
-                </div>
-            </div>
-            <div class="card-toolbar">
                 <button type="button" class="btn btn-sm btn-icon btn-active-color-primary" id="closeChatBox">
                     <i class="ki-duotone ki-cross fs-1">
                         <span class="path1"></span>
@@ -30,61 +30,63 @@
                 <div class="service-description">
                     <p class="text-gray-600 fs-6" id="liveChatDescription">
                         @if ($service)
-                            {{ Str::limit($service->description, 150) }}
+                            {{ $service->description }}
                         @else
                             Live Chat Beratung mit Seelenflüsterin Sarah
                         @endif
                     </p>
-                </div>
 
-                <!-- Payment Buttons -->
-                <div class="d-flex flex-column gap-3">
-                    <button type="button" class="btn btn-light-primary w-100" id="showStripeFormBtn">
-                        <i class="ki-duotone ki-credit-cart fs-2 me-2">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                        Mit Karte bezahlen
-                    </button>
 
-                    <button type="button" class="btn btn-light-primary w-100" id="twintPaymentBtn">
-                        <i class="ki-duotone ki-abstract-26 fs-2 me-2">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                        <span class="indicator-label">Mit TWINT bezahlen</span>
-                        <span class="indicator-progress" style="display: none;">
-                            Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                        </span>
-                    </button>
-                </div>
+                    <!-- Payment Buttons -->
+                    <div class="d-flex flex-column gap-3">
+                        <button type="button" class="btn btn-light-primary w-100" id="showStripeFormBtn">
+                            <i class="ki-duotone ki-credit-cart fs-2 me-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            Mit Karte bezahlen
+                        </button>
 
-                <!-- Stripe Card Form -->
-                <div id="stripeForm" class="mt-4 w-100" style="display: none;">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
-                            <form id="paymentForm">
-                                <div class="mb-3">
-                                    <label for="cardElement" class="form-label">Kredit- oder Debitkarte</label>
-                                    <div id="cardElement" class="form-control">
-                                        <!-- Stripe Card Element will be inserted here -->
-                                    </div>
-                                    <div id="cardErrors" class="text-danger mt-2" role="alert"></div>
+
+                        <!-- Stripe Card Form -->
+                        <div id="stripeForm" class="mt-4 w-100" style="display: none;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
+                                    <form id="paymentForm">
+                                        <div class="mb-3">
+                                            <label for="cardElement" class="form-label">Kredit- oder Debitkarte</label>
+                                            <div id="cardElement" class="form-control">
+                                                <!-- Stripe Card Element will be inserted here -->
+                                            </div>
+                                            <div id="cardErrors" class="text-danger mt-2" role="alert"></div>
+                                        </div>
+                                        <div class="d-flex gap-2">
+                                            <button type="submit" class="btn btn-primary" id="submitButton">
+                                                <span class="indicator-label">Jetzt bezahlen</span>
+                                                <span class="indicator-progress" style="display: none;">
+                                                    Bitte warten... <span
+                                                        class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                </span>
+                                            </button>
+                                            <button type="button" class="btn btn-light"
+                                                id="cancelStripeForm">Abbrechen</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="d-flex gap-2">
-                                    <button type="submit" class="btn btn-primary" id="submitButton">
-                                        <span class="indicator-label">Jetzt bezahlen</span>
-                                        <span class="indicator-progress" style="display: none;">
-                                            Bitte warten... <span
-                                                class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                        </span>
-                                    </button>
-                                    <button type="button" class="btn btn-light"
-                                        id="cancelStripeForm">Abbrechen</button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
+
+                        <button type="button" class="btn btn-light-primary w-100" id="twintPaymentBtn">
+                            <i class="ki-duotone ki-abstract-26 fs-2 me-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            <span class="indicator-label">Mit TWINT bezahlen</span>
+                            <span class="indicator-progress" style="display: none;">
+                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -143,8 +145,27 @@
     }
 
     .service-description {
-        max-height: 100px;
+        max-height: 350px;
         overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    .service-description::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .service-description::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+
+    .service-description::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+
+    .service-description::-webkit-scrollbar-thumb:hover {
+        background: #555;
     }
 </style>
 <script src="https://js.stripe.com/v3/"></script>
@@ -292,6 +313,11 @@
             const closeIcon = document.querySelector('.live-chat-close');
             openIcon.classList.toggle('d-none');
             closeIcon.classList.toggle('d-none');
+
+            // Prevent body scroll when chat is open on mobile
+            if (window.innerWidth < 768) {
+                document.body.style.overflow = chatBox.classList.contains('show') ? 'hidden' : '';
+            }
         });
 
         // Close chat box
@@ -302,6 +328,11 @@
             // Reset icons
             document.querySelector('.live-chat-open').classList.remove('d-none');
             document.querySelector('.live-chat-close').classList.add('d-none');
+
+            // Re-enable body scroll on mobile
+            if (window.innerWidth < 768) {
+                document.body.style.overflow = '';
+            }
         });
 
         // Handle TWINT payment
@@ -386,7 +417,7 @@
                     // Reset button state
                     twintPaymentBtn.disabled = false;
                     twintPaymentBtn.querySelector('.indicator-label').style.display =
-                    'inline-block';
+                        'inline-block';
                     twintPaymentBtn.querySelector('.indicator-progress').style.display = 'none';
                 });
         });
