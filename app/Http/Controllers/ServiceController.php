@@ -32,14 +32,33 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $services = Service::where('is_active', true)->orderBy('sort_order', 'asc')->get();
+        $services = Service::where('is_active', true)
+            ->where('is_live_chat', false)
+            ->orderBy('sort_order', 'asc')
+            ->get();
         return view('pages.landing.services', compact('services'));
     }
 
     public function prices()
     {
-        $services = Service::where('is_active', true)->orderBy('sort_order', 'asc')->get();
+        $services = Service::where('is_active', true)
+            ->where('is_live_chat', false)
+            ->orderBy('sort_order', 'asc')
+            ->get();
         return view('pages.landing.prices', compact('services'));
+    }
+
+    public function getLiveChatService()
+    {
+        $services = Service::where('is_active', true)
+            ->where('is_live_chat', true)
+            ->orderBy('sort_order', 'asc')
+            ->first();
+
+        return response()->json([
+            'success' => true,
+            'data' => $services
+        ]);
     }
 
     public function show($id)
@@ -180,6 +199,7 @@ class ServiceController extends Controller
         try {
             $paymentMethod = $request->input('payment_method');
             $serviceId = $request->input('service_id');
+            $service = Service::findOrFail($serviceId);
 
             if ($paymentMethod === 'stripe') {
                 $paymentIntentId = $request->input('paymentIntentId');
@@ -214,6 +234,19 @@ class ServiceController extends Controller
                     return redirect()->route('prices')
                         ->with('error', 'Zahlung war nicht erfolgreich');
                 }
+            }
+
+            // Check if the service is a live chat service
+            if ($service->is_live_chat) {
+                // Get user's phone number from the order
+                $order = Order::where('payment_id', $paymentIntentId ?? $response['id'])->first();
+                $user = $order->user;
+
+                // Create WhatsApp message with order details
+                $message = urlencode("Hallo! Ich habe gerade die Live Chat Beratung gebucht. Meine Bestellnummer ist: {$order->order_number}");
+
+                // Redirect to WhatsApp
+                return redirect()->away("https://api.whatsapp.com/send?phone=41791234567&text={$message}");
             }
 
             return redirect()->route('prices')

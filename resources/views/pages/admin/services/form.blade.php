@@ -249,6 +249,15 @@
                                 <label class="form-check-label" for="hotline_active">Hotline Active</label>
                             </div>
                         </div>
+
+                        <div class="mb-5">
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" id="is_live_chat"
+                                    name="is_live_chat" value="1"
+                                    {{ old('is_live_chat', $service->is_live_chat ?? false) ? 'checked' : '' }} />
+                                <label class="form-check-label" for="is_live_chat">Live Chat Active</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

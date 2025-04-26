@@ -58,7 +58,7 @@
         <ul>
             <li>Bestellnummer: {{ $order->order_number }}</li>
             <li>Kurs: {{ $course->title }}</li>
-            <li>Bezahlt: @chf($order->total)</li>
+            <li>Bezahlt: CHF {{ $order->total }}</li>
             <li>Zahlungsmethode: {{ ucfirst($order->payment_method) }}</li>
         </ul>
 

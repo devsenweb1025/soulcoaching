@@ -13,7 +13,7 @@
     <h3>Dienstleistung Details:</h3>
     <p><strong>Titel:</strong> {{ $service->title }}</p>
     <p><strong>Beschreibung:</strong> {{ $service->description }}</p>
-    <p><strong>Preis:</strong> @chf($service->price)</p>
+    <p><strong>Preis:</strong> CHF {{ $service->price }}</p>
 
     <h3>Zahlungsdetails:</h3>
     <p><strong>Zahlungsmethode:</strong> {{ $paymentMethod }}</p>

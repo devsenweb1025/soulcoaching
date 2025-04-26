@@ -28,6 +28,7 @@ class Service extends Model
         'is_active',
         'is_featured',
         'hotline_active',
+        'is_live_chat',
         'image_direction',
         'service_option',
         'benefit_option'
@@ -41,6 +42,7 @@ class Service extends Model
         'is_active' => 'boolean',
         'is_featured' => 'boolean',
         'hotline_active' => 'boolean',
+        'is_live_chat' => 'boolean',
         'image_direction' => 'string',
         'service_option' => 'string',
         'benefit_option' => 'string'

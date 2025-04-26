@@ -15,6 +15,7 @@
                 <th class="p-0 pb-3 min-w-100px text-center">Status</th>
                 <th class="p-0 pb-3 min-w-100px text-center">Hervorgehoben</th>
                 <th class="p-0 pb-3 min-w-100px text-center">Hotline</th>
+                <th class="p-0 pb-3 min-w-100px text-center">Live Chat</th>
                 <th class="p-0 pb-3 min-w-100px text-end">Aktionen</th>
             </tr>
         </thead>
@@ -88,6 +89,11 @@
                     <td class="text-center">
                         <span class="badge badge-light-{{ $service->hotline_active ? 'success' : 'danger' }} fs-7 fw-bold">
                             {{ $service->hotline_active ? 'Aktiv' : 'Inaktiv' }}
+                        </span>
+                    </td>
+                    <td class="text-center">
+                        <span class="badge badge-light-{{ $service->is_live_chat ? 'success' : 'danger' }} fs-7 fw-bold">
+                            {{ $service->is_live_chat ? 'Aktiv' : 'Inaktiv' }}
                         </span>
                     </td>
                     <td class="text-end">

@@ -178,7 +178,7 @@
                                     🔮 Spirituelle Lebensfragen (Liebe, Beruf, Klarheit)
                                 </div>
                                 <div class="d-flex flex-column justify-content-center align-items-center mb-10">
-                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/customer-temp.png') }}"
+                                    <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/beraterprofil-platzhalter-hotline-seelenfluesterin.webp') }}"
                                         alt="" class="w-50 d-md-none d-block">
                                     <div
                                         class="text-center d-flex justify-content-center align-items-center mt-10 d-md-none d-block">

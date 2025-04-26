@@ -13,7 +13,7 @@ class LandingController extends Controller
 {
     public function index()
     {
-        $services = Service::where('is_active', true)->orderBy('sort_order', 'asc')->get();
+        $services = Service::where('is_active', true)->where('is_live_chat', false)->orderBy('sort_order', 'asc')->get();
         return view("pages.landing.index", compact("services"));
     }
 
