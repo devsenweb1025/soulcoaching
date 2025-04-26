@@ -13,7 +13,7 @@
     <h3>Kurs Details:</h3>
     <p><strong>Titel:</strong> {{ $course->title }}</p>
     <p><strong>Beschreibung:</strong> {{ $course->description }}</p>
-    <p><strong>Preis:</strong> @chf($course->price)</p>
+    <p><strong>Preis:</strong> CHF {{ $course->price }}</p>
 
     <h3>Zahlungsdetails:</h3>
     <p><strong>Zahlungsmethode:</strong> {{ $paymentMethod }}</p>

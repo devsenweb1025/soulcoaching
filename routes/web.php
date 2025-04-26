@@ -30,8 +30,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 // Landing
 Route::get('', [LandingController::class, 'index'])->name('home');
 Route::get('ueber-mich', [LandingController::class, 'about'])->name('about');
@@ -148,7 +146,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 // Service Routes
 Route::get('/dienstleistungen', [ServiceController::class, 'index'])->name('services');
 Route::get('/preise', [ServiceController::class, 'prices'])->name('prices');
+Route::get('/dienstleistungen/live-chat', [ServiceController::class, 'getLiveChatService'])->name('services.live-chat');
 Route::get('/dienstleistungen/{id}', [ServiceController::class, 'show'])->name('service.show');
+
 
 // Service Payment Routes
 Route::post('/dienstleistungen/zahlung/erstellen', [ServiceController::class, 'createPaymentIntent'])->name('service.payment.create');

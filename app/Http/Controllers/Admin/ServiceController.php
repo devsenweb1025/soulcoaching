@@ -56,6 +56,7 @@ class ServiceController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
+            'is_live_chat' => 'boolean',
             'sort_order' => 'nullable|integer|min:0',
             'hotline_active' => 'boolean',
             'image_direction' => 'required|in:left,right',
@@ -70,6 +71,7 @@ class ServiceController extends Controller
         $data['is_featured'] = $request->has('is_featured');
         $data['is_active'] = $request->has('is_active');
         $data['hotline_active'] = $request->has('hotline_active');
+        $data['is_live_chat'] = $request->has('is_live_chat');
         $data['features'] = array_filter($request->input('features', []));
 
         if ($request->hasFile('image')) {
@@ -104,6 +106,7 @@ class ServiceController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
+            'is_live_chat' => 'boolean',
             'sort_order' => 'nullable|integer|min:0',
             'hotline_active' => 'boolean',
             'image_direction' => 'required|in:left,right',
@@ -118,6 +121,7 @@ class ServiceController extends Controller
         $data['is_featured'] = $request->has('is_featured');
         $data['is_active'] = $request->has('is_active');
         $data['hotline_active'] = $request->has('hotline_active');
+        $data['is_live_chat'] = $request->has('is_live_chat');
         $data['features'] = array_filter($request->input('features', []));
 
         if ($request->hasFile('image')) {

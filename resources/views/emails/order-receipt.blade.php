@@ -25,22 +25,22 @@
             <tr>
                 <td style="border: 1px solid #ddd; padding: 8px;">{{ $item->product->name }}</td>
                 <td style="border: 1px solid #ddd; padding: 8px;">{{ $item->quantity }}</td>
-                <td style="border: 1px solid #ddd; padding: 8px;">@chf($item->price)</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">CHF {{ $item->price }}</td>
             </tr>
             @endforeach
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: right;"><strong>Zwischensumme:</strong></td>
-                <td style="border: 1px solid #ddd; padding: 8px;"><strong>@chf($order->subtotal)</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>CHF {{ $order->subtotal }}</strong></td>
             </tr>
             <tr>
                 <td colspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: right;"><strong>Versandkosten:</strong></td>
-                <td style="border: 1px solid #ddd; padding: 8px;"><strong>@chf($order->shipping_cost)</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>CHF {{ $order->shipping_cost }}</strong></td>
             </tr>
             <tr>
                 <td colspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: right;"><strong>Total:</strong></td>
-                <td style="border: 1px solid #ddd; padding: 8px;"><strong>@chf($order->total)</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>CHF {{ $order->total }}</strong></td>
             </tr>
         </tfoot>
     </table>
