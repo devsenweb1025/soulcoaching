@@ -160,11 +160,13 @@
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     Zeiten:<br />
-                                    Dienstag: 18:00 – 23:00 Uhr<br />
-                                    Mittwoch: 15:00 – 23:00 Uhr<br />
-                                    Freitag: 08:00 – 23:00 Uhr<br />
-                                    Samstag: 08:00 – 23:00 Uhr<br />
-                                    Sonntag: 10:00 – 17:30 Uhr
+                                    Montag: 08:00 – 10:30 Uhr & 14:30 – 18:00 Uhr<br />
+                                    Dienstag: 08:00 – 10:30 Uhr & 14:30 – 18:00 Uhr<br />
+                                    Mittwoch: 08:00 – 23:00 Uhr<br />
+                                    Donnerstag: 08:00 – 23:00 Uhr<br />
+                                    Freitag: 08:00 – 10:30 Uhr & 14:30 – 18:00 Uhr<br />
+                                    Samstag: 08:00 – 10:30 Uhr & 14:30 – 18:00 Uhr<br />
+                                    Sonntag: 17:30 – 23:00 Uhr
                                 </div>
                                 <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
                                     @chf(2.5).- / min
