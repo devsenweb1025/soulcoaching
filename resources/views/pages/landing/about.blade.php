@@ -150,6 +150,9 @@
                                         Ausbildungen EFZ als Restaurationsfachfrau & Kauffrau
                                     </div>
                                     <div class="text-gray-600 fs-4 mb-5">
+                                        Kreditvermittlerin
+                                    </div>
+                                    <div class="text-gray-600 fs-4 mb-5">
                                         Dipl. Versicherungs- und Vorsorgeberaterin VBV
                                     </div>
                                     <div class="text-gray-600 fs-4 mb-5">
