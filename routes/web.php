@@ -17,6 +17,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\ServiceController as ServiceManagementController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\CartPaymentController;
+use App\Http\Controllers\Admin\PageContentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -133,6 +134,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/buchungen', [BookingController::class, 'store'])->name('bookings.store');
     Route::put('/buchungen/{booking}', [BookingController::class, 'update'])->name('bookings.update');
     Route::delete('/buchungen/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+    Route::prefix('contents')->name('contents.')->group(function () {
+        Route::get('/', [PageContentController::class, 'index'])->name('index');
+        Route::get('/{id}/edit', [PageContentController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [PageContentController::class, 'update'])->name('update');
+    });
 
     Route::resource('services', ServiceManagementController::class)->names('services');
     Route::post('services/{service}/aktivieren', [ServiceManagementController::class, 'toggleActive'])->name('services.toggle-active');
