@@ -22,7 +22,7 @@ License: {{ theme()->getOption('product', 'license') }}
     <meta name="keywords" content="{{ theme()->getOption('meta', 'keywords') }}" />
     <link rel="canonical" href="{{ url()->current() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="{{ getAsset(theme()->getOption('assets', 'favicon')) }}" />
+    <link rel="icon" href="{{ getAsset(theme()->getOption('assets', 'favicon')) }}" type="image/x-icon" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="{{ theme()->getOption('meta', 'google-site-verification') }}" />
     <meta property="org:title" content="{{ ucfirst(theme()->getOption('meta', 'title')) }}" />
