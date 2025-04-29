@@ -11,12 +11,12 @@ class PageContentSeeder extends Seeder
     {
         $contents = [
             [
-                'page' => 'home',
+                'page' => 'services',
                 'section' => 'hero_description',
                 'content' => 'Entdecke mein vielseitiges Angebot rund um spirituelles Coaching, energetisches Heilen, Tierkommunikation, Kartenlegen und meine spirituelle Hotline.<br /><br />Ob du dich in einer Lebenskrise befindest, deine Chakren reinigen möchtest oder Hilfe bei der Verbindung zu deinem Tier suchst – ich begleite dich mit Herz und Intuition auf deinem Weg zu mehr Klarheit, Energie und Selbstheilung.'
             ],
             [
-                'page' => 'hotline',
+                'page' => 'services',
                 'section' => 'hotline_content',
                 'content' => '<h1 class="text-primary fw-bolder lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">
                     NEU!
