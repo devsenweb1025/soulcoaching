@@ -16,4 +16,20 @@ class PageContent extends Model
         'section',
         'content'
     ];
+
+    /**
+     * Get content by page and section
+     *
+     * @param string $page
+     * @param string $section
+     * @return string|null
+     */
+    public static function getContent(string $page, string $section): ?string
+    {
+        $content = self::where('page', $page)
+            ->where('section', $section)
+            ->first();
+
+        return $content ? $content->content : null;
+    }
 }
