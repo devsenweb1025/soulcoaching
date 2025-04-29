@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CourseSeeder::class,
             BookingSeeder::class,
             ChatMessageSeeder::class,
+            PageContentSeeder::class,
         ]);
     }
 }

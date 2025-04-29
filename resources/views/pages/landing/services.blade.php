@@ -19,17 +19,10 @@
                     {{-- <span id="kt_landing_hero_text"></span> --}}
                 </span>
             </h1>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
-                Entdecke mein vielseitiges Angebot rund um spirituelles Coaching, energetisches Heilen,
-                Tierkommunikation, Kartenlegen und meine spirituelle Hotline.<br /><br />
-                Ob du dich in einer Lebenskrise befindest, deine Chakren reinigen möchtest oder Hilfe bei der
-                Verbindung
-                zu deinem Tier suchst – ich begleite dich mit Herz und Intuition auf deinem Weg zu mehr Klarheit,
-                Energie und Selbstheilung.
-            </p>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">
-
-            </p>
+            <div class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
+                {!! App\Models\PageContent::where(['page' => 'services', 'section' => 'hero_description'])->first()->content ??
+                    'Entdecke mein vielseitiges Angebot rund um spirituelles Coaching, energetisches Heilen, Tierkommunikation, Kartenlegen und meine spirituelle Hotline.' !!}
+            </div>
             <!--end::Title-->
         </div>
         <!--end::Heading-->
@@ -42,8 +35,6 @@
         <div class="container z-index-2">
             <!--begin::Pricing-->
             <div class="row g-5 z-index-2">
-
-
                 @foreach ($services as $service)
                     <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                         data-aos-delay="0">
@@ -105,7 +96,6 @@
                         <!--begin::Image input-->
                         <div class="w-100 h-100 py-lg-10 py-md-5 d-flex flex-column justify-content-center align-items-center"
                             data-kt-image-input="true">
-
                             <!--begin::Image preview wrapper-->
                             <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/elisabeth-kartenlegerin-telefonberatung-seelenfluesterin.webp') }}"
                                 alt="Elisabeth, Kartenlegerin der 4. Generation, sitzt lächelnd vor einem ausgebreiteten Set an Kipper-Karten in einem hellen Raum"
@@ -132,53 +122,11 @@
                         <div class="p-lg-10 p-md-5">
                             <!--begin::Wrapper-->
                             <div class="mb-2 text-start">
-                                <h1 class="text-primary fw-bolder lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">
-                                    NEU!
-                                </h1>
                                 <div class="text-gray-600 fs-2 mb-5">
-                                    Brauchst du schnelle und kompetente Unterstützung?
+                                    {!! App\Models\PageContent::where(['page' => 'services', 'section' => 'hotline_content'])->first()->content ??
+                                        '' !!}
                                 </div>
-                                <div class="text-gray-600 fs-2 mb-5">
-                                    Dann ruf jetzt die Seelenflüsterin-Hotline unter 0901 881 881 an und erhalte deine
-                                    intuitive Kartenlegung bequem über das Telefon – ganz ohne Wartezeit, vertrauensvoll
-                                    und direkt auf deine Frage abgestimmt.
-                                </div>
-                                <div class="text-gray-600 fw-bold fs-2 fw-bolder">
-                                    Ruf die liebenswürdige Elisabeth an:
-                                </div>
-                                <div class="text-gray-600 fs-2 mb-5">
-                                    Ich möchte mit meinen Fähigkeiten Menschen helfen, die Probleme haben oder denen der
-                                    gegenwärtige klare Blick für das Wesentliche verloren gegangen ist. Ich verfüge über
-                                    eine sehr ausgeprägte Feinfühligkeit und habe seit 17 Jahren eine starke Bindung zu
-                                    meinen Kipper - Karten.
-                                    Sei nicht ängstlich. Jeder Mensch hat mal Probleme. Aber die können wir gemeinsam
-                                    lösen.<br />
-                                </div>
-                                <div class="text-gray-600 fw-bold fs-2 fw-bolder">
-                                    Elisabeth ist Kartenlegerin in der 4. Generation du bist also in den Besten
-                                    Händen!<br /><br />
-                                </div>
-                                <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    Zeiten:<br />
-                                    Montag: 08:00 – 10:30 Uhr & 14:30 – 18:00 Uhr<br />
-                                    Dienstag: 08:00 – 10:30 Uhr & 14:30 – 18:00 Uhr<br />
-                                    Mittwoch: 08:00 – 23:00 Uhr<br />
-                                    Donnerstag: 08:00 – 23:00 Uhr<br />
-                                    Freitag: 08:00 – 10:30 Uhr & 14:30 – 18:00 Uhr<br />
-                                    Samstag: 08:00 – 10:30 Uhr & 14:30 – 18:00 Uhr<br />
-                                    Sonntag: 17:30 – 23:00 Uhr
-                                </div>
-                                <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    @chf(2.5).- / min
-                                </div>
-                                <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    Diese Hotline eignet sich ideal für:<br />
-                                </div>
-                                <div class="text-gray-600 fw-bold fs-2 fw-bolder mb-5">
-                                    🔮 Lenormand-Kartenlegung <br />
-                                    🔮 Hellsehen per Telefon<br />
-                                    🔮 Spirituelle Lebensfragen (Liebe, Beruf, Klarheit)
-                                </div>
+
                                 <div class="d-flex flex-column justify-content-center align-items-center mb-10">
                                     <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/beraterprofil-platzhalter-hotline-seelenfluesterin.webp') }}"
                                         alt="" class="w-50 d-md-none d-block">
@@ -205,15 +153,12 @@
                         <!--end::Testimonial-->
                     </div>
                 </div>
-
             </div>
             <!--end::Container-->
         </div>
     </div>
     <!--end::Wrapper-->
-
 </x-landing-layout>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
