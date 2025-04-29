@@ -20,7 +20,14 @@ return array(
                 "link" => "menu-center",
                 "icon" => "me-0",
             ),
-            "path" => "admin/dashboard",
+            "path" => "admin/armaturenbrett",
+        ),
+
+        // Page Content
+        'page-content' => array(
+            "breadcrumb-title" => "Seiteninhalte",
+            "icon" => '<i class="bi bi-file-text fs-2x"></i>',
+            "path" => "admin/contents",
         ),
 
         // Products
