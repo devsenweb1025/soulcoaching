@@ -13,15 +13,13 @@
         <!--begin::Heading-->
         <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2">
             <!--begin::Title-->
-            <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Über mich
-                <span
-                    style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
+            <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">{!! \App\Models\PageContent::getContent('ueber-mich', 'hero') !!}
+                <span style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                     {{-- <span id="kt_landing_hero_text"></span> --}}
                 </span>
             </h1>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">"Wer seine Schattenseiten nicht erfahren hat, wird sein Licht
-                nicht erkennen." </p>
-            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">Seelenflüsterin Sarah</p>
+            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">{!! \App\Models\PageContent::getContent('ueber-mich', 'quote') !!}</p>
+            <p class="fs-1 fs-md-1x fs-lg-2x font-archivo">{!! \App\Models\PageContent::getContent('ueber-mich', 'signature') !!}</p>
             <!--end::Title-->
         </div>
         <!--end::Heading-->
@@ -52,16 +50,14 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="content-container">
                                             <h1 class="fs-2 mb-5 font-cinzel">
-                                                Seelenflüsterin Sarah
+                                                {!! \App\Models\PageContent::getContent('ueber-mich', 'signature') !!}
                                             </h1>
                                             <div data-aos="fade-up">
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Ich bin Sarah – spiritueller Coach und Heilerin aus der Schweiz.
+                                                    {!! \App\Models\PageContent::getContent('ueber-mich', 'sarah_intro') !!}
                                                 </div>
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Mein Weg ist geprägt von tiefem Wissen, persönlicher
-                                                    Transformation
-                                                    und der Verbindung zur feinstofflichen Welt.
+                                                    {!! \App\Models\PageContent::getContent('ueber-mich', 'sarah_description') !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -94,16 +90,10 @@
                                             </h1>
                                             <div data-aos="fade-up">
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Seit über 16 Jahren ist Sulana meine treue Weggefährtin – und
-                                                    eine
-                                                    wundervolle Begleiterin.
+                                                    {!! \App\Models\PageContent::getContent('ueber-mich', 'sulana_intro') !!}
                                                 </div>
                                                 <div class="text-gray-600 fs-4 mb-5">
-                                                    Paddington begleitet Sulana mit einer speziellen Energie aus der
-                                                    Londoner Medialitätsschule.
-                                                    Sulana hat mich viel gelehrt, und viele meiner Erkenntnisse
-                                                    verdanke
-                                                    ich ihr.
+                                                    {!! \App\Models\PageContent::getContent('ueber-mich', 'sulana_description') !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -124,13 +114,10 @@
                             data-aos-duration="500" data-aos-delay="0">
                             <div class="card-body p-10 h-100 d-flex flex-column justify-content-center">
                                 <h1 class="fs-2 mb-5 font-cinzel">
-                                    Meine Grundhaltung
+                                    {!! \App\Models\PageContent::getContent('ueber-mich', 'attitude') !!}
                                 </h1>
                                 <div class="text-gray-600 fs-4 mb-5">
-                                    Ehrlichkeit, Liebe und Mitgefühl sind die Säulen meiner Arbeit. Ich glaube
-                                    an
-                                    die Kraft der Verbindung – zwischen Menschen, Tieren und der geistigen Welt.
-                                    «Wir sind alle verbunden – alles ist eins."
+                                    {!! \App\Models\PageContent::getContent('ueber-mich', 'attitude_description') !!}
                                 </div>
                             </div>
                         </div>
@@ -146,21 +133,11 @@
                                     Berufliche Ausbildung & Qualifikationen
                                 </h1>
                                 <div class="d-flex flex-column h-100 justify-content-center">
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Ausbildungen EFZ als Restaurationsfachfrau & Kauffrau
-                                    </div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Kreditvermittlerin
-                                    </div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Dipl. Versicherungs- und Vorsorgeberaterin VBV
-                                    </div>
-                                    <div class="text-gray-600 fs-4 mb-5">
-                                        Studium in Sozialpädagogik HF
-                                    </div>
-                                    <div class="text-gray-600 fs-4">
-                                        Sprachen: DE, FR, EN und IT
-                                    </div>
+                                    @foreach(json_decode(\App\Models\PageContent::getContent('ueber-mich', 'qualifications')) as $qualification)
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            {!! $qualification !!}
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -193,32 +170,16 @@
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Medialität
                                 </h1>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Medialer Berater Kurs
+                                @php
+                                    $trainings = json_decode(\App\Models\PageContent::getContent('ueber-mich', 'trainings'), true);
+                                @endphp
+                                @foreach($trainings['mediumship'] as $training)
+                                    <div class="mb-5">
+                                        <div class="text-gray-800 fs-2">
+                                            {!! $training !!}
+                                        </div>
                                     </div>
-                                    <div class="text-gray-800 fs-4">
-                                        (Pascal Voggenhuber)
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Medium-Weiterbildungen
-                                    </div>
-                                    <div class="text-gray-800 fs-4">
-                                        (Arthur Findlay College, 2024 & 2025)
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Spiritueller Coach
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Dipl. heilstein Trainerin
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -231,11 +192,13 @@
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Quantenheilung
                                 </h1>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Quantenheilung & Spontanheilung
+                                @foreach($trainings['quantum_healing'] as $training)
+                                    <div class="mb-5">
+                                        <div class="text-gray-800 fs-2">
+                                            {!! $training !!}
+                                        </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -248,31 +211,13 @@
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Heiler Ausbildung
                                 </h1>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Masterclass Geistiges Heilen & Energetisches Heilen
+                                @foreach($trainings['healer_training'] as $training)
+                                    <div class="mb-5">
+                                        <div class="text-gray-800 fs-2">
+                                            {!! $training !!}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Ausbildung kleiner Heiler
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Schamanismus und die 4 Elemente
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Heilen mit Symbolen und Zeichen
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Reinigungen (Körper, Geist, Räumen)
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -289,16 +234,13 @@
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Tierkommunikation Tierenergetik
                                 </h1>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Tierkommunikation 1.0 & 2.0
+                                @foreach($trainings['animal_communication'] as $training)
+                                    <div class="mb-5">
+                                        <div class="text-gray-800 fs-2">
+                                            {!! $training !!}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Tierenergetik
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -311,21 +253,13 @@
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Chakren, Reiki & Channeling
                                 </h1>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Chakren Harmonisierung
+                                @foreach($trainings['chakras_reiki'] as $training)
+                                    <div class="mb-5">
+                                        <div class="text-gray-800 fs-2">
+                                            {!! $training !!}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Reiki 1. Grad
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Channeling
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -338,33 +272,13 @@
                                 <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                     Sonstiges
                                 </h1>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Kartenlegen
+                                @foreach($trainings['other'] as $training)
+                                    <div class="mb-5">
+                                        <div class="text-gray-800 fs-2">
+                                            {!! $training !!}
+                                        </div>
                                     </div>
-                                    <div class="text-gray-800 fs-4">
-                                        (Leonormand)
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="text-gray-800 fs-2">
-                                        Tarot
-                                    </div>
-                                </div>
-                                <div class="mb-5"></div>
-                                <div class="text-gray-800 fs-2">
-                                    Pendelkurs
-                                </div>
-                            </div>
-                            <div class="mb-5">
-                                <div class="text-gray-800 fs-2">
-                                    Mitochondrien & TCM
-                                </div>
-                            </div>
-                            <div class="mb-5">
-                                <div class="text-gray-800 fs-2">
-                                    Toxizitätskurs Suzanne Grieger-Langer
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
