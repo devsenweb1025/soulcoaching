@@ -140,9 +140,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         Route::put('/{id}', [PageContentController::class, 'update'])->name('update');
     });
 
-    Route::resource('services', ServiceManagementController::class)->names('services');
-    Route::post('services/{service}/aktivieren', [ServiceManagementController::class, 'toggleActive'])->name('services.toggle-active');
-    Route::post('services/{service}/hervorheben', [ServiceManagementController::class, 'toggleFeatured'])->name('services.toggle-featured');
+    Route::resource('dienstleistungen', ServiceManagementController::class)->names('services');
+    Route::post('dienstleistungen/{service}/aktivieren', [ServiceManagementController::class, 'toggleActive'])->name('services.toggle-active');
+    Route::post('dienstleistungen/{service}/hervorheben', [ServiceManagementController::class, 'toggleFeatured'])->name('services.toggle-featured');
 
     // Admin Profile Routes
     Route::get('/profil', [AdminProfileController::class, 'index'])->name('profile.index');
