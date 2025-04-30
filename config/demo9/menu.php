@@ -61,7 +61,7 @@ return array(
 
                     array(
                         'title' => 'Übersicht',
-                        'path' => 'admin/products',
+                        'path' => 'admin/produkte',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                 ),
@@ -99,7 +99,7 @@ return array(
 
                     array(
                         'title' => 'Übersicht',
-                        'path' => 'admin/orders',
+                        'path' => 'admin/bestellungen',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                 ),
@@ -137,7 +137,7 @@ return array(
 
                     array(
                         'title' => 'Kalender',
-                        'path' => 'admin/bookings',
+                        'path' => 'admin/buchungen',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                 ),
@@ -175,12 +175,12 @@ return array(
 
                     array(
                         'title' => 'Übersicht',
-                        'path' => 'admin/services',
+                        'path' => 'admin/dienstleistungen',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                     array(
                         'title' => 'Neu erstellen',
-                        'path' => 'admin/services/create',
+                        'path' => 'admin/dienstleistungen/create',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                 ),
