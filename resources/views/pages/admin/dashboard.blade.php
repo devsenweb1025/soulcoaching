@@ -412,7 +412,7 @@
                     }
                 },
                 eventClick: function(info) {
-                    fetch(`/admin/bookings/invitees?eventUri=${info.event.extendedProps.uri}`)
+                    fetch(`{{ route('admin.bookings.invitees') }}?eventUri=${info.event.extendedProps.uri}`)
                         .then(response => response.json())
                         .then(data => {
                             const event = info.event;

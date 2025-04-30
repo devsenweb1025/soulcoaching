@@ -110,7 +110,9 @@ Route::middleware('auth')->group(function () {
 // Admin Product Routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/armaturenbrett', [AdminController::class, 'index'])->name('dashboard');
-    Route::resource('produkte', ProductController::class)->names('products');
+    Route::resource('produkte', ProductController::class)->names('products')->parameters([
+        'produkte' => 'product'
+    ]);
 
     // Notification Routes
     Route::get('/benachrichtigungen', [NotificationController::class, 'index'])->name('notifications.index');
@@ -140,7 +142,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         Route::put('/{id}', [PageContentController::class, 'update'])->name('update');
     });
 
-    Route::resource('dienstleistungen', ServiceManagementController::class)->names('services');
+    Route::resource('dienstleistungen', ServiceManagementController::class)->names('services')->parameters([
+        'dienstleistungen' => 'service'
+    ]);
     Route::post('dienstleistungen/{service}/aktivieren', [ServiceManagementController::class, 'toggleActive'])->name('services.toggle-active');
     Route::post('dienstleistungen/{service}/hervorheben', [ServiceManagementController::class, 'toggleFeatured'])->name('services.toggle-featured');
 
