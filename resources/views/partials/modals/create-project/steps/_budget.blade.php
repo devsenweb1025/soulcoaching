@@ -110,7 +110,7 @@
 			<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="budget-previous">Project Settings</button>
 			<button type="button" class="btn btn-lg btn-primary" data-kt-element="budget-next">
 				<span class="indicator-label">Build Team</span>
-				<span class="indicator-progress">Please wait...
+				<span class="indicator-progress">Bitte warten...
 				<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 			</button>
 		</div>

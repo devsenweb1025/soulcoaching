@@ -30,7 +30,7 @@
 						<h1 class="mb-3">Set First Target</h1>
 						<!--end::Title-->
 						<!--begin::Description-->
-						<div class="text-muted fw-semibold fs-5">If you need more info, please check 
+						<div class="text-muted fw-semibold fs-5">If you need more info, please check
 						<a href="#" class="fw-bold link-primary">Project Guidelines</a>.</div>
 						<!--end::Description-->
 					</div>
@@ -154,7 +154,7 @@
 						<button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancel</button>
 						<button type="submit" id="kt_modal_new_target_submit" class="btn btn-primary">
 							<span class="indicator-label">Submit</span>
-							<span class="indicator-progress">Please wait... 
+							<span class="indicator-progress">Bitte warten...
 							<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 						</button>
 					</div>
@@ -168,4 +168,4 @@
 	</div>
 	<!--end::Modal dialog-->
 </div>
-<!--end::Modal - New Target-->
+<!--end::Modal - New Target-->
