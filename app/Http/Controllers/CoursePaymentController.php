@@ -258,7 +258,6 @@ class CoursePaymentController extends Controller
 
             // Send course access email
             Mail::to($user->email)->send(new CourseAccessEmail($course, $order, $course->download_link));
-            Auth::user()->notify(new CoursePurchased($course));
 
             try {
                 Mail::to(config('mail.admin_email'))->send(new CoursePurchaseMail(
