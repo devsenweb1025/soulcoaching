@@ -27,17 +27,17 @@ class VerifyEmailController extends Controller
 
         if (!$user) {
             return redirect()->route('verification.notice')
-                ->with('error', 'Invalid verification link. User not found.');
+                ->with('error', 'Ungültiger Bestätigungslink. Benutzer nicht gefunden.');
         }
 
         if (!hash_equals((string) $hash, sha1($user->email))) {
             return redirect()->route('verification.notice')
-                ->with('error', 'Invalid verification link.');
+                ->with('error', 'Ungültiger Bestätigungslink.');
         }
 
         if ($user->hasVerifiedEmail()) {
             return redirect()->route('verification.notice')
-                ->with('message', 'Email already verified.');
+                ->with('message', 'E-Mail-Adresse wurde bereits bestätigt.');
         }
 
         if ($user->markEmailAsVerified()) {
@@ -50,7 +50,7 @@ class VerifyEmailController extends Controller
         }
 
         return redirect()->route('verification.notice')
-            ->with('error', 'Unable to verify email. Please try again or request a new verification link.');
+            ->with('error', 'E-Mail-Adresse konnte nicht bestätigt werden. Bitte versuchen Sie es erneut oder fordern Sie einen neuen Bestätigungslink an.');
     }
 
     /**

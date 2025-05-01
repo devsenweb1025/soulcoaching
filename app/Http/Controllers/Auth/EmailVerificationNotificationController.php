@@ -27,14 +27,14 @@ class EmailVerificationNotificationController extends Controller
 
         if (!$user) {
             throw ValidationException::withMessages([
-                'email' => ['We can\'t find a user with that email address.']
+                'email' => ['Wir können keinen Benutzer mit dieser E-Mail-Adresse finden.']
             ]);
         }
 
         if ($user->hasVerifiedEmail()) {
             return new JsonResponse([
                 'status' => 'success',
-                'message' => 'Email already verified',
+                'message' => 'E-Mail-Adresse wurde bereits bestätigt',
                 'data' => [
                     'verified' => true
                 ]
@@ -45,7 +45,7 @@ class EmailVerificationNotificationController extends Controller
 
         return new JsonResponse([
             'status' => 'success',
-            'message' => 'Verification link sent! Please check your email.',
+            'message' => 'Bestätigungslink wurde gesendet! Bitte überprüfen Sie Ihre E-Mails.',
             'data' => [
                 'verified' => false
             ]
