@@ -10,7 +10,7 @@ var KTAuthI18nDemo = function() {
 	var translationStrings = {
 		// General
 		"general-progress" : {
-			"English" : "Please wait...",
+			"English" : "Bitte warten...",
 			"Spanish" : "Iniciar Sesión",
 			"German" : "Registrarse",
 			"Japanese" : "ログイン",

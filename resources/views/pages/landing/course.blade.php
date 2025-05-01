@@ -150,7 +150,7 @@
                                                                     <span class="indicator-label">Jetzt zahlen</span>
                                                                     <span class="indicator-progress"
                                                                         style="display: none;">
-                                                                        Please wait... <span
+                                                                        Bitte warten... <span
                                                                             class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                                                     </span>
                                                                 </button>
@@ -285,7 +285,7 @@
                                                                 <span class="indicator-label">Jetzt zahlen</span>
                                                                 <span class="indicator-progress"
                                                                     style="display: none;">
-                                                                    Please wait... <span
+                                                                    Bitte warten... <span
                                                                         class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                                                 </span>
                                                             </button>
