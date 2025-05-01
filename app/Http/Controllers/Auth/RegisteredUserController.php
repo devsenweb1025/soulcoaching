@@ -49,7 +49,6 @@ class RegisteredUserController extends Controller
             'role' => 'user',
         ]);
 
-        event(new Registered($user));
         $user->notify(new UserRegistered($user));
 
         // Auth::login($user);
