@@ -128,7 +128,7 @@
 			<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="settings-previous">Project Type</button>
 			<button type="button" class="btn btn-lg btn-primary" data-kt-element="settings-next">
 				<span class="indicator-label">Budget</span>
-				<span class="indicator-progress">Please wait...
+				<span class="indicator-progress">Bitte warten...
 				<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 			</button>
 		</div>

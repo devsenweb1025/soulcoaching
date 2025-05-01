@@ -158,7 +158,7 @@
 								<div>
 									<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
 										<span class="indicator-label">Submit {!! theme()->getIcon('arrow-right', 'fs-3 ms-2 me-0') !!}</span>
-										<span class="indicator-progress">Please wait...
+										<span class="indicator-progress">Bitte warten...
 										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 									</button>
 									<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue {!! theme()->getIcon('arrow-right', 'fs-3 ms-1 me-0') !!}</button>
