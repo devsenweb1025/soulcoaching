@@ -21,7 +21,7 @@
                         <!--begin::Heading-->
                         <div class="mb-13 text-center">
                             <div class="mb-7">
-                                <img src="{{ asset(theme()->getMediaUrlPath() . 'misc/google-logo.png') }}" alt="Google"
+                                <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/google-logo.png') }}" alt="Google"
                                     height="50">
                             </div>
                             <div class="d-flex flex-center mb-5">
