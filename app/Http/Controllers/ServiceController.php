@@ -324,9 +324,6 @@ class ServiceController extends Controller
                 \Log::error('Fehler beim Versand der E-Mail zum Servicekauf ' . $e->getMessage());
             }
 
-            // Send notification after successful purchase
-            $user->notify(new ServicePurchased($service));
-
             DB::commit();
         } catch (\Exception $e) {
             dd($e);
