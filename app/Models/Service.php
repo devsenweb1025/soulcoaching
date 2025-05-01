@@ -102,7 +102,7 @@ class Service extends Model
             return asset('storage/' . $this->image);
         }
 
-        return asset('assets/media/misc/blank.png');
+        return asset(theme()->getMediaUrlPath().'landing/blank.png');
     }
 
     /**

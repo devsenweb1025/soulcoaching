@@ -3,7 +3,7 @@
     <div class="w-100">
         <div class="text-center mb-11">
             <!--begin::Title-->
-            <h1 class="text-dark fw-bolder mb-3">Verify Email</h1>
+            <h1 class="text-dark fw-bolder mb-3">E-Mail-Verifizierung</h1>
             <!--end::Title-->
             <!--begin::Subtitle-->
             <div class="text-gray-500 fw-semibold fs-6">
@@ -13,14 +13,14 @@
                     </div>
                 @elseif (session('status') === 'verification-link-sent')
                     <div class="alert alert-success">
-                        {{ __('Ein neuer Bestätigungslink wurde an deine E-Mail-Adresse gesendet.') }}
+                        Ein neuer Bestätigungslink wurde an deine E-Mail-Adresse gesendet.
                     </div>
                 @elseif (request()->has('verified') && request()->verified == 1)
                     <div class="alert alert-success">
-                        {{ __('Your email has been verified successfully! You are now signed in.') }}
+                        Ihre E-Mail-Adresse wurde erfolgreich bestätigt! Sie sind jetzt angemeldet.
                     </div>
                 @else
-                    Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+                    Vielen Dank für Ihre Registrierung! Bevor Sie beginnen, bestätigen Sie bitte Ihre E-Mail-Adresse, indem Sie auf den Link klicken, den wir Ihnen gerade per E-Mail gesendet haben. Wenn Sie die E-Mail nicht erhalten haben, senden wir Ihnen gerne eine neue.
                 @endif
             </div>
             <!--end::Subtitle-->
@@ -32,14 +32,14 @@
                 <form method="POST" action="{{ route('verification.send') }}">
                     @csrf
                     <button type="submit" class="btn btn-lg btn-primary fw-bolder me-4">
-                        {{ __('Resend Verification Email') }}
+                        Bestätigungs-E-Mail erneut senden
                     </button>
                 </form>
 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="btn btn-lg btn-light-primary fw-bolder">
-                        {{ __('Log out') }}
+                        Abmelden
                     </button>
                 </form>
             @endif

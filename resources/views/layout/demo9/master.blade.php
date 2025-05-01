@@ -35,7 +35,7 @@
         <!--end::Root-->
 
         <!--begin::Drawers-->
-        {{ theme()->getView('partials/_drawers') }}
+        {{-- {{ theme()->getView('partials/_drawers') }} --}}
         <!--end::Drawers-->
 
         <!--begin::Engage-->
