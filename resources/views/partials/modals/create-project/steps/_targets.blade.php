@@ -123,7 +123,7 @@
 			<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="targets-previous">Build a Team</button>
 			<button type="button" class="btn btn-lg btn-primary" data-kt-element="targets-next">
 				<span class="indicator-label">Upload Files</span>
-				<span class="indicator-progress">Please wait...
+				<span class="indicator-progress">Bitte warten...
 				<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 			</button>
 		</div>

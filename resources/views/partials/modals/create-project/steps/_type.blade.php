@@ -59,7 +59,7 @@
 		<div class="d-flex justify-content-end">
 			<button type="button" class="btn btn-lg btn-primary" data-kt-element="type-next">
 				<span class="indicator-label">Project Settings</span>
-				<span class="indicator-progress">Please wait...
+				<span class="indicator-progress">Bitte warten...
 				<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 			</button>
 		</div>
