@@ -246,7 +246,7 @@ class ServiceController extends Controller
                 $message = urlencode("Hallo! Ich habe gerade die Live Chat Beratung gebucht. Meine Bestellnummer ist: {$order->order_number}");
 
                 // Redirect to WhatsApp
-                return redirect()->away("https://api.whatsapp.com/send?phone=41791234567&text={$message}");
+                return redirect()->away("https://api.whatsapp.com/send?phone=41798227602&text={$message}");
             }
 
             return redirect()->route('prices')
