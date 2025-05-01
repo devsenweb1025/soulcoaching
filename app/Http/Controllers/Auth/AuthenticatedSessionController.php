@@ -39,7 +39,7 @@ class AuthenticatedSessionController extends Controller
         if ($user && !$user->hasVerifiedEmail()) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Bitte bestätige deine E-Mail-Adresse, bevor du dich anmeldest. Wenn du einen neuen Bestätigungslink benötigst, klicke bitte auf den Button unten.',
+                'message' => 'Bitte bestätigen Sie Ihre E-Mail-Adresse, bevor Sie sich anmelden. Wenn Sie einen neuen Bestätigungslink benötigen, klicken Sie unten auf die Schaltfläche „Passwort vergessen“.',
                 'data' => [
                     'email' => $request->email,
                     'verified' => false
