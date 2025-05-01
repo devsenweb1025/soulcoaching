@@ -1,7 +1,7 @@
 <!--begin::Live Chat Section-->
 <div class="position-fixed bottom-0 end-0 z-index-3">
     <!-- Live Chat Box -->
-    <div id="liveChatBox" class="card shadow-lg mb-5 me-5 d-none" style="width: 350px;">
+    <div id="liveChatBox" class="card shadow-lg mb-5 me-5 d-none" style="width: 400px;">
         <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
