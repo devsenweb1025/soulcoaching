@@ -107,74 +107,15 @@
                                                 </div>
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
-                                                @if ($service->service_option === 'booking')
-                                                    <button type="button" class="btn btn-primary"
-                                                        onclick="handleBooking({{ $index }}, '{{ $service->slug }}')">
-                                                        Termin buchen
-                                                    </button>
-                                                @elseif ($service->hotline_active)
+                                                @if ($service->hotline_active)
                                                     <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
                                                         class="btn btn-primary">Hotline anrufen</a>
-                                                @elseif ($service->service_option === 'payment')
-                                                    <div class="d-flex flex-column gap-3">
-                                                        <button type="button" class="btn btn-primary"
-                                                            onclick="showStripeForm('{{ $service->id }}', '{{ $index }}')">
-                                                            <i class="ki-duotone ki-credit-cart fs-2 me-2">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                            Mit Karte bezahlen
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary"
-                                                            onclick="initiatePayment('twint', '{{ $service->id }}')" id="twint-button-{{ $service->id }}">
-                                                            <i class="ki-duotone ki-wallet fs-2 me-2">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                            <span class="indicator-label">Mit TWINT bezahlen</span>
-                                                            <span class="indicator-progress" style="display: none;">
-                                                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-
-                                                    <!-- Stripe Card Form -->
-                                                    <div id="stripe-form-{{ $index }}" class="mt-4 w-100"
-                                                        style="display: none;">
-                                                        <div class="card">
-                                                            <div class="card-body">
-                                                                <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
-                                                                <form id="payment-form-{{ $index }}">
-                                                                    <div class="mb-3">
-                                                                        <label for="card-element-{{ $index }}"
-                                                                            class="form-label">Kredit- oder
-                                                                            Debitkarte</label>
-                                                                        <div id="card-element-{{ $index }}"
-                                                                            class="form-control">
-                                                                            <!-- Stripe Card Element will be inserted here -->
-                                                                        </div>
-                                                                        <div id="card-errors-{{ $index }}"
-                                                                            class="text-danger mt-2" role="alert">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="d-flex gap-2">
-                                                                        <button type="submit" class="btn btn-primary"
-                                                                            id="submit-button-{{ $index }}">
-                                                                            <span class="indicator-label">Jetzt
-                                                                                zahlen</span>
-                                                                            <span class="indicator-progress"
-                                                                                style="display: none;">
-                                                                                Bitte warten... <span
-                                                                                    class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                                                            </span>
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-light"
-                                                                            onclick="hideStripeForm('{{ $index }}')">Aabbrechen</button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                @else
+                                                    <a href="https://calendly.com/seelen-fluesterin-info"
+                                                       target="_blank"
+                                                       class="btn btn-primary">
+                                                        Termin buchen
+                                                    </a>
                                                 @endif
                                                 <!--end::Select-->
                                             </div>
@@ -255,74 +196,15 @@
                                                 </div>
                                                 <!--end::Features-->
                                                 <!--begin::Select-->
-                                                @if ($service->service_option === 'booking')
-                                                    <button type="button" class="btn btn-primary"
-                                                        onclick="handleBooking({{ $index }}, '{{ $service->slug }}')">
-                                                        Termin buchen
-                                                    </button>
-                                                @elseif ($service->hotline_active)
+                                                @if ($service->hotline_active)
                                                     <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
                                                         class="btn btn-primary">Hotline anrufen</a>
-                                                @elseif ($service->service_option === 'payment')
-                                                    <div class="d-flex flex-column gap-3">
-                                                        <button type="button" class="btn btn-primary"
-                                                            onclick="showStripeForm('{{ $service->id }}', '{{ $index }}')">
-                                                            <i class="ki-duotone ki-credit-cart fs-2 me-2">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                            Mit Karte bezahlen
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary"
-                                                            onclick="initiatePayment('twint', '{{ $service->id }}')" id="twint-button-{{ $service->id }}">
-                                                            <i class="ki-duotone ki-wallet fs-2 me-2">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                            <span class="indicator-label">Mit TWINT bezahlen</span>
-                                                            <span class="indicator-progress" style="display: none;">
-                                                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-
-                                                    <!-- Stripe Card Form -->
-                                                    <div id="stripe-form-{{ $index }}" class="mt-4 w-100"
-                                                        style="display: none;">
-                                                        <div class="card">
-                                                            <div class="card-body">
-                                                                <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
-                                                                <form id="payment-form-{{ $index }}">
-                                                                    <div class="mb-3">
-                                                                        <label for="card-element-{{ $index }}"
-                                                                            class="form-label">Kredit- oder
-                                                                            Debitkarte</label>
-                                                                        <div id="card-element-{{ $index }}"
-                                                                            class="form-control">
-                                                                            <!-- Stripe Card Element will be inserted here -->
-                                                                        </div>
-                                                                        <div id="card-errors-{{ $index }}"
-                                                                            class="text-danger mt-2" role="alert">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="d-flex gap-2">
-                                                                        <button type="submit" class="btn btn-primary"
-                                                                            id="submit-button-{{ $index }}">
-                                                                            <span class="indicator-label">Jetzt
-                                                                                bezahlen</span>
-                                                                            <span class="indicator-progress"
-                                                                                style="display: none;">
-                                                                                Bitte warten... <span
-                                                                                    class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                                                            </span>
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-light"
-                                                                            onclick="hideStripeForm('{{ $index }}')">abbrechen</button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                @else
+                                                    <a href="https://calendly.com/seelen-fluesterin-info"
+                                                       target="_blank"
+                                                       class="btn btn-primary">
+                                                        Termin buchen
+                                                    </a>
                                                 @endif
                                                 <!--end::Select-->
                                             </div>

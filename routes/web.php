@@ -103,6 +103,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/warenkorb/zahlung/erstellen', [CartPaymentController::class, 'createPaymentIntent'])->name('cart.payment.create-intent');
     Route::get('/warenkorb/zahlung/erfolg', [CartPaymentController::class, 'handleSuccess'])->name('cart.payment.success');
     Route::get('/warenkorb/zahlung/stornieren', [CartPaymentController::class, 'handleCancel'])->name('cart.payment.cancel');
+
+    Route::get('/konto/zahlungen', [LandingController::class, 'payments'])->name('account.payments');
 });
 
 // --------------------------------------------- Online Shop End---------------------------------------------

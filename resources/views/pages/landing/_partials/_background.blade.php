@@ -1,6 +1,6 @@
 <div class="overlay"></div>
 <div class="bg"></div>
-<div class="rays">
+<div class="rays h-100">
     <div class="ray"
         style="transform: skewX(45deg); width:591px; left: calc(33.58333333333336% - min(960px,591px) / 2); mask: linear-gradient(90deg,rgba(0,0,0,0) 0%,rgb(0,0,0) 20.036247184684683%,rgba(0,0,0,0) 36.17504222972973%,rgb(0,0,0) 55.4054054054054%,rgba(0,0,0,.13) 67.11711711711712%,rgba(0,0,0,1) 78.23057432432432%,rgba(0,0,0,0) 97.2972972972973%) add">
     </div>

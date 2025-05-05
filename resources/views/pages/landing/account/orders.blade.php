@@ -2,14 +2,14 @@
     @include('pages.landing._partials._background')
 
     <!--begin::Orders Section-->
-    <div class="position-relative mt-20 mb-20">
+    <div class="mt-20 mb-20">
         <div class="clouds-4"></div>
         <!--begin::Wrapper-->
         <div class="landing-light-bg position-relative z-index-2">
             <!--begin::Container-->
             <div class="container">
                 <!--begin::Heading-->
-                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
+                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 z-index-2 container">
                     <!--begin::Title-->
                     <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Meine Bestellungen
                         <span
