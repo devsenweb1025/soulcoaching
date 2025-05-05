@@ -70,6 +70,15 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a class="dropdown-item" href="{{ route('account.payments') }}">
+                                            <i class="ki-duotone ki-credit-cart fs-2 me-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <span>Zahlung vornehmen</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
@@ -236,6 +245,15 @@
                                             <span class="path2"></span>
                                         </i>
                                         <span>Meine Bestellungen</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('account.payments') }}">
+                                        <i class="ki-duotone ki-credit-cart fs-2 me-2">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        <span>Zahlung vornehmen</span>
                                     </a>
                                 </li>
                                 <li>

@@ -99,4 +99,10 @@ class LandingController extends Controller
     {
         return view('pages.landing.agb');
     }
+
+    public function payments()
+    {
+        $services = Service::where('is_active', true)->where('is_live_chat', false)->orderBy('sort_order', 'asc')->get();
+        return view('pages.landing.account.payments', compact('services'));
+    }
 }
