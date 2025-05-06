@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -17,6 +18,8 @@ use App\Mail\ServiceAccessEmail;
 use App\Mail\ServicePurchaseMail;
 use App\Notifications\ServicePurchased;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
@@ -72,11 +75,25 @@ class ServiceController extends Controller
         try {
             $request->validate([
                 'service_id' => 'required',
-                'payment_method' => 'required|in:stripe,paypal,twint'
+                'payment_method' => 'required|in:stripe,paypal,twint',
+                'email' => 'required_if:is_guest,true|email'
             ]);
 
             $service = Service::findOrFail($request->service_id);
             $amount = $service->price * 100; // Convert to cents
+
+            // Get or create guest user if not authenticated
+            $user = auth()->user();
+            if (!$user && $request->email) {
+                $user = User::firstOrCreate(
+                    ['email' => $request->email],
+                    [
+                        'first_name' => 'Guest',
+                        'last_name' => 'User',
+                        'password' => Hash::make(Str::random(24)),
+                    ]
+                );
+            }
 
             if ($request->payment_method === 'stripe') {
                 Stripe::setApiKey(config('services.stripe.secret'));
@@ -86,9 +103,10 @@ class ServiceController extends Controller
                     'currency' => 'chf',
                     'payment_method_types' => ['card'],
                     'metadata' => [
-                        'user_id' => auth()->id(),
+                        'user_id' => $user->id,
                         'service_id' => $service->id,
-                        'service_name' => $service->title
+                        'service_name' => $service->title,
+                        'is_guest' => !auth()->check()
                     ]
                 ]);
 
@@ -105,9 +123,10 @@ class ServiceController extends Controller
                     'currency' => 'chf',
                     'payment_method_types' => ['twint'],
                     'metadata' => [
-                        'user_id' => auth()->id(),
+                        'user_id' => $user->id,
                         'service_id' => $service->id,
-                        'service_name' => $service->title
+                        'service_name' => $service->title,
+                        'is_guest' => !auth()->check()
                     ]
                 ]);
 
@@ -115,8 +134,8 @@ class ServiceController extends Controller
                 $paymentMethod = \Stripe\PaymentMethod::create([
                     'type' => 'twint',
                     'billing_details' => [
-                        'name' => auth()->user()->name,
-                        'email' => auth()->user()->email
+                        'name' => $user->first_name . ' ' . $user->last_name,
+                        'email' => $user->email
                     ]
                 ]);
 
@@ -211,7 +230,7 @@ class ServiceController extends Controller
                         ->with('error', 'Zahlung war nicht erfolgreich');
                 }
 
-                $this->createServiceOrder($serviceId, 'stripe', $paymentIntent->id);
+                $this->createServiceOrder($serviceId, 'stripe', $paymentIntent->id, $paymentIntent->metadata->is_guest ?? false, $paymentIntent->metadata->user_id ?? null);
             } elseif ($paymentMethod === 'twint') {
                 $paymentIntentId = $request->input('payment_intent');
                 Stripe::setApiKey(config('services.stripe.secret'));
@@ -222,14 +241,14 @@ class ServiceController extends Controller
                         ->with('error', 'TWINT Zahlung war nicht erfolgreich');
                 }
 
-                $this->createServiceOrder($serviceId, 'twint', $paymentIntent->id);
+                $this->createServiceOrder($serviceId, 'twint', $paymentIntent->id, $paymentIntent->metadata->is_guest ?? false, $paymentIntent->metadata->user_id ?? null);
             } else {
                 // PayPal success handling
                 $provider = $this->paypalProvider;
                 $response = $provider->capturePaymentOrder($request->token);
 
                 if (isset($response['status']) && $response['status'] === 'COMPLETED') {
-                    $this->createServiceOrder($serviceId, 'paypal', $response['id']);
+                    $this->createServiceOrder($serviceId, 'paypal', $response['id'], false, null);
                 } else {
                     return redirect()->route('prices')
                         ->with('error', 'Zahlung war nicht erfolgreich');
@@ -264,13 +283,18 @@ class ServiceController extends Controller
             ->with('error', 'Zahlung wurde abgebrochen');
     }
 
-    private function createServiceOrder($serviceId, $paymentMethod, $transactionId)
+    private function createServiceOrder($serviceId, $paymentMethod, $transactionId, $isGuest = false, $userId = null)
     {
         try {
             DB::beginTransaction();
 
             $service = Service::findOrFail($serviceId);
             $user = auth()->user();
+
+            if ($isGuest) {
+                // Get the guest user from the payment intent metadata
+                $user = User::find($userId);
+            }
 
             // Create order
             $order = Order::create([
@@ -284,8 +308,8 @@ class ServiceController extends Controller
                 'subtotal' => $service->price,
                 'tax' => 0,
                 'shipping_cost' => 0,
-                'shipping_first_name' => $user->first_name,
-                'shipping_last_name' => $user->last_name,
+                'shipping_first_name' => $user->first_name ?? 'Guest',
+                'shipping_last_name' => $user->last_name ?? 'User',
                 'shipping_email' => $user->email,
                 'shipping_phone' => '',
                 'shipping_address' => '',
@@ -311,12 +335,12 @@ class ServiceController extends Controller
             ]);
 
             // Send service access email
-            Mail::to($user->email)->send(new ServiceAccessEmail($service, $order));
+            Mail::to($user->email)->send(new ServiceAccessEmail($service, $order, $user));
 
             try {
                 Mail::to(config('mail.admin_email'))->send(new ServicePurchaseMail(
                     $service,
-                    auth()->user(),
+                    $user,
                     $transactionId,
                     $paymentMethod
                 ));
