@@ -23,6 +23,49 @@ return array(
             "path" => "admin/armaturenbrett",
         ),
 
+        // Users
+        'users' => array(
+            "breadcrumb-title" => "Benutzer",
+            "icon" => '<i class="bi bi-people fs-2x"></i>',
+            "classes" => array(
+                "item" => "py-2",
+                "link" => "menu-center",
+                "icon" => "me-0",
+            ),
+            "attributes" => array(
+                "item" => array(
+                    "data-kt-menu-trigger" => "click",
+                    "data-kt-menu-placement" => Theme::isRTL() ? "left-start" : "right-start",
+                ),
+                'link' => array(
+                    "data-bs-trigger" => "hover",
+                    "data-bs-dismiss" => "click",
+                    "data-bs-placement" => "right",
+                ),
+            ),
+            "arrow" => false,
+            "sub" => array(
+                "class" => "menu-sub-dropdown w-225px px-1 py-4",
+                "items" => array(
+                    array(
+                        'classes' => array('content' => ''),
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Benutzer</span>',
+                    ),
+
+                    array(
+                        'title' => 'Übersicht',
+                        'path' => 'admin/benutzer',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'title' => 'Neu erstellen',
+                        'path' => 'admin/benutzer/create',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                ),
+            ),
+        ),
+
         // Page Content
         'page-content' => array(
             "breadcrumb-title" => "Seiteninhalte",
@@ -62,6 +105,11 @@ return array(
                     array(
                         'title' => 'Übersicht',
                         'path' => 'admin/produkte',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'title' => 'Neu erstellen',
+                        'path' => 'admin/produkte/create',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                 ),
