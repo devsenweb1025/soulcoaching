@@ -134,7 +134,7 @@
                                                     <!-- Single buy button for guests -->
                                                     <button type="button" class="btn btn-primary"
                                                         onclick="handlePurchase(1)">
-                                                        <i class="ki-duotone ki-purchase fs-2 me-2">
+                                                        <i class="ki-duotone ki-purchase fs-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
@@ -283,7 +283,7 @@
                                                     <!-- Single buy button for guests -->
                                                     <button type="button" class="btn btn-primary"
                                                         onclick="handlePurchase(2)">
-                                                        <i class="ki-duotone ki-purchase fs-2 me-2">
+                                                        <i class="ki-duotone ki-purchase fs-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
@@ -624,13 +624,13 @@
                         <div class="col-md-6">
                             <div class="card card-custom card-borderless">
                                 <div class="card-body text-center">
-                                    <i class="ki-duotone ki-user-tick fs-2hx text-warning mb-5">
+                                    <i class="ki-duotone ki-user-tick fs-2hx text-info mb-5">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
                                     <h3 class="card-title">Als Gast kaufen</h3>
                                     <p class="text-muted mb-5">Kaufen Sie den Kurs ohne Registrierung</p>
-                                    <button type="button" class="btn btn-warning w-100"
+                                    <button type="button" class="btn btn-info w-100"
                                         onclick="showGuestPurchaseForm()">Als Gast fortfahren</button>
                                 </div>
                             </div>
