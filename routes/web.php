@@ -81,6 +81,20 @@ Route::prefix('zahlung')->group(function () {
     Route::get('/stripe/stornieren', [StripeController::class, 'handleCancel'])->name('stripe.cancel');
 });
 
+
+
+// Course Payment Routes
+Route::get('/kurs/{id}', [CoursePaymentController::class, 'show'])->name('course.show');
+Route::post('/kurs/zahlung/erstellen', [CoursePaymentController::class, 'createPaymentIntent'])->name('course.payment.create');
+Route::get('/kurs/zahlung/erfolg', [CoursePaymentController::class, 'handleSuccess'])->name('course.payment.success');
+Route::get('/kurs/zahlung/stornieren', [CoursePaymentController::class, 'handleCancel'])->name('course.payment.cancel');
+Route::get('/kurs/{id}/download', [CoursePaymentController::class, 'download'])->name('course.download');
+
+// Cart Payment Routes
+Route::post('/warenkorb/zahlung/erstellen', [CartPaymentController::class, 'createPaymentIntent'])->name('cart.payment.create-intent');
+Route::get('/warenkorb/zahlung/erfolg', [CartPaymentController::class, 'handleSuccess'])->name('cart.payment.success');
+Route::get('/warenkorb/zahlung/stornieren', [CartPaymentController::class, 'handleCancel'])->name('cart.payment.cancel');
+
 // require auth
 Route::middleware('auth')->group(function () {
     // Profile
@@ -93,18 +107,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/konto/bestellungen', [OrderController::class, 'index'])->name('account.orders');
     Route::get('/konto/bestellungen/{order}', [OrderController::class, 'show'])->name('account.orders.show');
     Route::post('/konto/bestellungen/verfolgen', [OrderController::class, 'track'])->name('account.orders.track');
-
-    // Course Payment Routes
-    Route::get('/kurs/{id}', [CoursePaymentController::class, 'show'])->name('course.show');
-    Route::post('/kurs/zahlung/erstellen', [CoursePaymentController::class, 'createPaymentIntent'])->name('course.payment.create');
-    Route::get('/kurs/zahlung/erfolg', [CoursePaymentController::class, 'handleSuccess'])->name('course.payment.success');
-    Route::get('/kurs/zahlung/stornieren', [CoursePaymentController::class, 'handleCancel'])->name('course.payment.cancel');
-    Route::get('/kurs/{id}/download', [CoursePaymentController::class, 'download'])->name('course.download');
-
-    // Cart Payment Routes
-    Route::post('/warenkorb/zahlung/erstellen', [CartPaymentController::class, 'createPaymentIntent'])->name('cart.payment.create-intent');
-    Route::get('/warenkorb/zahlung/erfolg', [CartPaymentController::class, 'handleSuccess'])->name('cart.payment.success');
-    Route::get('/warenkorb/zahlung/stornieren', [CartPaymentController::class, 'handleCancel'])->name('cart.payment.cancel');
 
     Route::get('/konto/zahlungen', [LandingController::class, 'payments'])->name('account.payments');
 });

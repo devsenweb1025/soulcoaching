@@ -8,6 +8,7 @@ use App\Mail\OrderConfirmation;
 use App\Mail\OrderReceiptMail;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
@@ -255,17 +256,22 @@ class CartController extends Controller
         return redirect()->route('cart.checkout.success');
     }
 
-    public function checkoutSuccess()
+    public function checkoutSuccess(Request $request)
     {
-        $order = session('order');
+        $order_id = $request->get('order');
 
-        if (!$order) {
+        if (!$order_id) {
             return redirect()->route('shop.index');
         }
+
+        $order = Order::findOrFail($order_id);
 
         if (auth()->check()) {
             Mail::to(auth()->user()->email)->send(new OrderConfirmation($order));
             Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, auth()->user()));
+        } else {
+            Mail::to($order->shipping_email)->send(new OrderConfirmation($order));
+            Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, new User((['first_name' => 'Guest', 'last_name' => 'User', 'email' => $order->shipping_email]))));
         }
 
         return view('pages.landing.cart.success', [
