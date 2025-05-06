@@ -542,7 +542,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="text-start">
+                        <div class="text-start payment-buttons" style="display: none;">
                             <div class="d-flex gap-2">
                                 <button type="button" class="btn btn-primary"
                                     onclick="showStripeForm(currentCourseId, currentCourseId)">
@@ -973,7 +973,15 @@
         guestPurchaseModal.show();
     }
 
-    // Handle guest purchase form submission
+    // Add checkbox change event listener
+    document.getElementById('termsCheckbox')?.addEventListener('change', function() {
+        const paymentButtons = document.querySelector('.payment-buttons');
+        if (paymentButtons) {
+            paymentButtons.style.display = this.checked ? 'block' : 'none';
+        }
+    });
+
+    // Update guest purchase form submission
     document.getElementById('guestPurchaseForm')?.addEventListener('submit', async function(e) {
         e.preventDefault();
 

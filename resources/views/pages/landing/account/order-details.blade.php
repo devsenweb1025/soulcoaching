@@ -11,7 +11,7 @@
                 <!--begin::Heading-->
                 <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 z-index-2 container">
                     <!--begin::Title-->
-                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Order Details
+                    <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Bestelldetails
                         <span
                             style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                         </span>
@@ -22,19 +22,19 @@
 
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
-                        <div class="card shadow card-borderless">
+                        <div class="card shadow">
                             <div class="card-body p-10">
                                 <!--begin::Order Header-->
                                 <div class="d-flex justify-content-between align-items-center mb-10">
                                     <div>
-                                        <h2 class="text-dark mb-1">Order #{{ $order->order_number }}</h2>
-                                        <span class="text-muted">Placed on
-                                            {{ $order->created_at->format('F d, Y') }}</span>
+                                        <h2 class="text-dark mb-1">Bestellung #{{ $order->order_number }}</h2>
+                                        <span class="text-muted">Bestellt am
+                                            {{ $order->created_at->format('d.m.Y') }}</span>
                                     </div>
                                     <div class="text-end">
                                         <span
                                             class="badge badge-light-{{ $order->status === 'completed' ? 'success' : ($order->status === 'processing' ? 'warning' : 'danger') }} fs-6">
-                                            {{ ucfirst($order->status) }}
+                                            {{ $order->status === 'completed' ? 'Abgeschlossen' : ($order->status === 'processing' ? 'In Bearbeitung' : 'Storniert') }}
                                         </span>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                     <div class="col-lg-8">
                                         <div class="card shadow-sm">
                                             <div class="card-header">
-                                                <h3 class="card-title">Order Items</h3>
+                                                <h3 class="card-title">Bestellte Artikel</h3>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive">
@@ -53,10 +53,10 @@
                                                         class="table align-middle table-row-bordered table-row-gray-100 gy-3 gs-7">
                                                         <thead>
                                                             <tr class="fw-bold text-muted bg-light">
-                                                                <th class="min-w-200px">Product</th>
-                                                                <th class="min-w-100px">Price</th>
-                                                                <th class="min-w-100px">Quantity</th>
-                                                                <th class="min-w-100px">Total</th>
+                                                                <th class="min-w-200px">Produkt</th>
+                                                                <th class="min-w-100px">Preis</th>
+                                                                <th class="min-w-100px">Menge</th>
+                                                                <th class="min-w-100px">Gesamt</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -66,7 +66,7 @@
                                                                         <div class="d-flex align-items-center">
                                                                             @if ($item->product_type === 'course')
                                                                                 <a href="{{ $item->options['download_link'] }}"
-                                                                                    class="btn btn-primary">Download</a>
+                                                                                    class="btn btn-primary">Herunterladen</a>
                                                                             @elseif ($item->product_type === 'service')
                                                                                 <div class="symbol symbol-50px me-5">
                                                                                     <img src="{{ asset('storage/' . $item->service->image) }}"
@@ -105,7 +105,7 @@
                                     </div>
                                     <!--end::Order Items-->
 
-                                    <!--begin::Bestellübersicht-->
+                                    <!--begin::Order Summary-->
                                     <div class="col-lg-4">
                                         <div class="card shadow-sm">
                                             <div class="card-header">
@@ -113,33 +113,33 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between mb-5">
-                                                    <span class="fw-bold">Subtotal:</span>
+                                                    <span class="fw-bold">Zwischensumme:</span>
                                                     <span class="text-dark fw-bold">@chf($order->subtotal)</span>
                                                 </div>
                                                 <div class="d-flex justify-content-between mb-5">
-                                                    <span class="fw-bold">Tax:</span>
+                                                    <span class="fw-bold">MwSt:</span>
                                                     <span class="text-dark fw-bold">@chf($order->tax)</span>
                                                 </div>
                                                 <div class="d-flex justify-content-between mb-5">
-                                                    <span class="fw-bold">Shipping:</span>
-                                                    <span class="text-dark fw-bold">Free</span>
+                                                    <span class="fw-bold">Versand:</span>
+                                                    <span class="text-dark fw-bold">Kostenlos</span>
                                                 </div>
                                                 <div class="separator separator-dashed my-5"></div>
                                                 <div class="d-flex justify-content-between mb-5">
-                                                    <span class="fw-bold fs-5">Total:</span>
+                                                    <span class="fw-bold fs-5">Gesamtbetrag:</span>
                                                     <span class="text-dark fw-bold fs-5">@chf($order->total)</span>
                                                 </div>
                                                 <div class="separator separator-dashed my-5"></div>
                                                 <div class="d-flex justify-content-between mb-5">
-                                                    <span class="fw-bold">Payment Method:</span>
+                                                    <span class="fw-bold">Zahlungsmethode:</span>
                                                     <span
                                                         class="text-dark fw-bold">{{ ucfirst($order->payment_method) }}</span>
                                                 </div>
                                                 <div class="d-flex justify-content-between">
-                                                    <span class="fw-bold">Payment Status:</span>
+                                                    <span class="fw-bold">Zahlungsstatus:</span>
                                                     <span
                                                         class="badge badge-light-{{ (strtolower($order->payment_status) === 'completed' or strtolower($order->payment_status) === 'succeeded') ? 'success' : (strtolower($order->payment_status) === 'pending' ? 'warning' : 'danger') }}">
-                                                        {{ ucfirst($order->payment_status) }}
+                                                        {{ strtolower($order->payment_status) === 'completed' ? 'Bezahlt' : (strtolower($order->payment_status) === 'pending' ? 'Ausstehend' : 'Fehlgeschlagen') }}
                                                     </span>
                                                 </div>
                                             </div>
@@ -148,7 +148,7 @@
                                         <!--begin::Shipping Details-->
                                         <div class="card shadow-sm mt-5">
                                             <div class="card-header">
-                                                <h3 class="card-title">Shipping Details</h3>
+                                                <h3 class="card-title">Lieferdetails</h3>
                                             </div>
                                             <div class="card-body">
                                                 <div class="d-flex flex-column">
@@ -179,7 +179,7 @@
                                                             </i>
                                                         </div>
                                                         <div class="d-flex flex-column">
-                                                            <span class="fw-bold fs-5">Contact Information</span>
+                                                            <span class="fw-bold fs-5">Kontaktinformationen</span>
                                                             <span
                                                                 class="text-muted">{{ $order->shipping_email }}</span>
                                                             <span
@@ -191,7 +191,7 @@
                                         </div>
                                         <!--end::Shipping Details-->
                                     </div>
-                                    <!--end::Bestellübersicht-->
+                                    <!--end::Order Summary-->
                                 </div>
 
                                 <!--begin::Actions-->
@@ -201,12 +201,12 @@
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                         </i>
-                                        Back to Orders
+                                        Zurück zu Bestellungen
                                     </a>
                                     @if ($order->status === 'processing')
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#trackOrderModal">
-                                            Track Order
+                                            Sendung verfolgen
                                         </button>
                                     @endif
                                 </div>
@@ -227,7 +227,7 @@
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Track Order #{{ $order->order_number }}</h2>
+                    <h2>Sendung verfolgen #{{ $order->order_number }}</h2>
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                         aria-label="Close">
                         <i class="ki-duotone ki-cross fs-1">
@@ -241,12 +241,12 @@
                         @csrf
                         <input type="hidden" name="order_id" value="{{ $order->id }}">
                         <div class="mb-5">
-                            <label class="required fw-semibold fs-6 mb-2">Tracking Number</label>
+                            <label class="required fw-semibold fs-6 mb-2">Sendungsnummer</label>
                             <input type="text" name="tracking_number" class="form-control form-control-solid"
-                                placeholder="Enter tracking number" required />
+                                placeholder="Sendungsnummer eingeben" required />
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Track Order</button>
+                            <button type="submit" class="btn btn-primary">Sendung verfolgen</button>
                         </div>
                     </form>
                 </div>
