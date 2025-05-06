@@ -36,57 +36,66 @@
                         @endif
                     </p>
 
-
                     <!-- Payment Buttons -->
                     <div class="d-flex flex-column gap-3">
-                        <button type="button" class="btn btn-light-primary w-100" id="showStripeFormBtn">
-                            <i class="ki-duotone ki-credit-cart fs-2 me-2">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                            Mit Karte bezahlen
-                        </button>
+                        @auth
+                            <button type="button" class="btn btn-light-primary w-100" id="showStripeFormBtn">
+                                <i class="ki-duotone ki-credit-cart fs-2 me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                Mit Karte bezahlen
+                            </button>
 
-
-                        <!-- Stripe Card Form -->
-                        <div id="stripeForm" class="mt-4 w-100" style="display: none;">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
-                                    <form id="paymentForm">
-                                        <div class="mb-3">
-                                            <label for="cardElement" class="form-label">Kredit- oder Debitkarte</label>
-                                            <div id="cardElement" class="form-control">
-                                                <!-- Stripe Card Element will be inserted here -->
+                            <!-- Stripe Card Form -->
+                            <div id="stripeForm" class="mt-4 w-100" style="display: none;">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
+                                        <form id="paymentForm">
+                                            <div class="mb-3">
+                                                <label for="cardElement" class="form-label">Kredit- oder Debitkarte</label>
+                                                <div id="cardElement" class="form-control">
+                                                    <!-- Stripe Card Element will be inserted here -->
+                                                </div>
+                                                <div id="cardErrors" class="text-danger mt-2" role="alert"></div>
                                             </div>
-                                            <div id="cardErrors" class="text-danger mt-2" role="alert"></div>
-                                        </div>
-                                        <div class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-primary" id="submitButton">
-                                                <span class="indicator-label">Jetzt bezahlen</span>
-                                                <span class="indicator-progress" style="display: none;">
-                                                    Bitte warten... <span
-                                                        class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                                </span>
-                                            </button>
-                                            <button type="button" class="btn btn-light"
-                                                id="cancelStripeForm">Abbrechen</button>
-                                        </div>
-                                    </form>
+                                            <div class="d-flex gap-2">
+                                                <button type="submit" class="btn btn-primary" id="submitButton">
+                                                    <span class="indicator-label">Jetzt bezahlen</span>
+                                                    <span class="indicator-progress" style="display: none;">
+                                                        Bitte warten... <span
+                                                            class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                    </span>
+                                                </button>
+                                                <button type="button" class="btn btn-light"
+                                                    id="cancelStripeForm">Abbrechen</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <button type="button" class="btn btn-light-primary w-100" id="twintPaymentBtn">
-                            <i class="ki-duotone ki-abstract-26 fs-2 me-2">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                            <span class="indicator-label">Mit TWINT bezahlen</span>
-                            <span class="indicator-progress" style="display: none;">
-                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                            </span>
-                        </button>
+                            <button type="button" class="btn btn-light-primary w-100" id="twintPaymentBtn">
+                                <i class="ki-duotone ki-abstract-26 fs-2 me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <span class="indicator-label">Mit TWINT bezahlen</span>
+                                <span class="indicator-progress" style="display: none;">
+                                    Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                        @else
+                            <!-- Single buy button for guests -->
+                            <button type="button" class="btn btn-primary w-100" onclick="handleLiveChatPurchase()">
+                                <i class="ki-duotone ki-purchase fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                Jetzt kaufen
+                            </button>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -101,7 +110,86 @@
         {!! theme()->getIcon('cross', 'fs-2tx text-white live-chat-close d-none', 'solid') !!}
     </button>
 </div>
-<!--end::Live Chat Section-->
+
+<!-- Guest Purchase Modal -->
+<div class="modal fade" id="guestLiveChatModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mw-650px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Als Gast kaufen</h2>
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form id="guestLiveChatForm">
+                    <div class="mb-5">
+                        <label class="form-label required">Email Adresse</label>
+                        <input type="email" class="form-control" name="email" required />
+                    </div>
+                    <div class="mb-5">
+                        <div class="form-check form-check-custom form-check-solid">
+                            <input class="form-check-input" type="checkbox" id="liveChatTermsCheckbox" required />
+                            <label class="form-check-label" for="liveChatTermsCheckbox">
+                                Ich verstehe, dass ich bei Weitergabe des Inhalts an andere mit einer Geldstrafe rechnen muss
+                            </label>
+                        </div>
+                    </div>
+                    <div class="text-start payment-buttons" style="display: none;">
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" onclick="showLiveChatStripeForm()">
+                                <i class="ki-duotone ki-credit-cart fs-2 me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                Mit Karte bezahlen
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="initiateLiveChatPayment('twint')" id="liveChatTwintButton">
+                                <i class="ki-duotone ki-wallet fs-2 me-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <span class="indicator-label">Mit TWINT bezahlen</span>
+                                <span class="indicator-progress" style="display: none;">
+                                    Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Stripe Form for Guest -->
+                <div id="liveChatStripeForm" class="mt-4 w-100" style="display: none;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
+                            <form id="liveChatPaymentForm">
+                                <div class="mb-3">
+                                    <label for="liveChatCardElement" class="form-label">Kredit- oder Debitkarte</label>
+                                    <div id="liveChatCardElement" class="form-control">
+                                        <!-- Stripe Card Element will be inserted here -->
+                                    </div>
+                                    <div id="liveChatCardErrors" class="text-danger mt-2" role="alert"></div>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-primary" id="liveChatSubmitButton">
+                                        <span class="indicator-label">Jetzt bezahlen</span>
+                                        <span class="indicator-progress" style="display: none;">
+                                            Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="btn btn-light" onclick="hideLiveChatStripeForm()">Abbrechen</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
     #liveChatToggle {
@@ -182,16 +270,18 @@
         const submitButton = document.getElementById('submitButton');
 
         // Initialize Stripe
-        const stripe = Stripe('{{ config('services.stripe.key') }}', {
-            locale: 'de'
-        });
-        const elements = stripe.elements();
-        let card;
+        if (typeof window.liveChatStripe === 'undefined') {
+            window.liveChatStripe = Stripe('{{ config('services.stripe.key') }}', {
+                locale: 'de'
+            });
+            window.liveChatElements = window.liveChatStripe.elements();
+            window.liveChatCard = null;
+        }
 
         // Initialize card element
-        function initializeCard() {
-            if (!card) {
-                card = elements.create('card', {
+        function initializeLiveChatCard() {
+            if (!window.liveChatCard) {
+                window.liveChatCard = window.liveChatElements.create('card', {
                     style: {
                         base: {
                             fontSize: '16px',
@@ -207,28 +297,28 @@
                     },
                     hidePostalCode: true
                 });
-                card.mount('#cardElement');
             }
+            return window.liveChatCard;
         }
 
         // Show Stripe form
-        showStripeFormBtn.addEventListener('click', function() {
+        showStripeFormBtn?.addEventListener('click', function() {
             if (!checkAuth()) return;
             stripeForm.style.display = 'block';
-            initializeCard();
+            initializeLiveChatCard();
+            window.liveChatCard.mount('#cardElement');
         });
 
         // Hide Stripe form
-        cancelStripeForm.addEventListener('click', function() {
+        cancelStripeForm?.addEventListener('click', function() {
             stripeForm.style.display = 'none';
-            if (card) {
-                card.unmount();
-                card = null;
+            if (window.liveChatCard) {
+                window.liveChatCard.unmount();
             }
         });
 
         // Handle form submission
-        paymentForm.addEventListener('submit', async function(e) {
+        paymentForm?.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             // Disable submit button
@@ -264,11 +354,9 @@
                         throw new Error(paymentData.error);
                     }
 
-                    const {
-                        error
-                    } = await stripe.confirmCardPayment(paymentData.clientSecret, {
+                    const { error } = await window.liveChatStripe.confirmCardPayment(paymentData.clientSecret, {
                         payment_method: {
-                            card: card,
+                            card: window.liveChatCard,
                             billing_details: {
                                 name: '{{ isset(auth()->user()->name) ? auth()->user()->name : '' }}',
                                 email: '{{ isset(auth()->user()->email) ? auth()->user()->email : '' }}'
@@ -280,14 +368,12 @@
                         throw new Error(error.message);
                     }
 
-                    window.location.href =
-                        '{{ route('service.payment.success') }}?payment_method=stripe&service_id=' +
+                    window.location.href = '{{ route('service.payment.success') }}?payment_method=stripe&service_id=' +
                         service.id + '&paymentIntentId=' + paymentData.paymentIntentId;
                 }
             } catch (error) {
                 Swal.fire({
-                    text: error.message ||
-                        'An error occurred while processing your payment',
+                    text: error.message || 'An error occurred while processing your payment',
                     icon: "error",
                     buttonsStyling: false,
                     confirmButtonText: "Weiter!",
@@ -336,7 +422,7 @@
         });
 
         // Handle TWINT payment
-        twintPaymentBtn.addEventListener('click', function() {
+        twintPaymentBtn?.addEventListener('click', function() {
             if (!checkAuth()) return;
 
             // Show loading state
@@ -396,10 +482,8 @@
                             .finally(() => {
                                 // Reset button state
                                 twintPaymentBtn.disabled = false;
-                                twintPaymentBtn.querySelector('.indicator-label').style
-                                    .display = 'inline-block';
-                                twintPaymentBtn.querySelector('.indicator-progress').style
-                                    .display = 'none';
+                                twintPaymentBtn.querySelector('.indicator-label').style.display = 'inline-block';
+                                twintPaymentBtn.querySelector('.indicator-progress').style.display = 'none';
                             });
                     }
                 })
@@ -416,8 +500,7 @@
                     });
                     // Reset button state
                     twintPaymentBtn.disabled = false;
-                    twintPaymentBtn.querySelector('.indicator-label').style.display =
-                        'inline-block';
+                    twintPaymentBtn.querySelector('.indicator-label').style.display = 'inline-block';
                     twintPaymentBtn.querySelector('.indicator-progress').style.display = 'none';
                 });
         });
@@ -430,5 +513,234 @@
             @endif
             return true;
         }
+
+        // Guest purchase handling
+        window.handleLiveChatPurchase = function() {
+            const modal = new bootstrap.Modal(document.getElementById('guestLiveChatModal'));
+            modal.show();
+        };
+
+        // Show Stripe form for guest
+        window.showLiveChatStripeForm = function() {
+            const form = document.getElementById('liveChatStripeForm');
+            if (form) {
+                form.style.display = 'block';
+                const cardElement = initializeLiveChatCard();
+                cardElement.mount('#liveChatCardElement');
+            }
+        };
+
+        // Hide Stripe form for guest
+        window.hideLiveChatStripeForm = function() {
+            const form = document.getElementById('liveChatStripeForm');
+            if (form) {
+                form.style.display = 'none';
+                if (window.liveChatCard) {
+                    window.liveChatCard.unmount();
+                }
+            }
+        };
+
+        // Handle guest form submission
+        document.getElementById('guestLiveChatForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const email = this.querySelector('[name="email"]').value;
+            const termsAccepted = this.querySelector('#liveChatTermsCheckbox').checked;
+
+            if (!termsAccepted) {
+                Swal.fire({
+                    text: 'Bitte akzeptieren Sie die Bedingungen',
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Weiter!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    }
+                });
+                return;
+            }
+
+            // Store guest email in session
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to store email');
+                }
+
+                // Show payment options
+                const paymentButtons = document.querySelector('#guestLiveChatForm .payment-buttons');
+                if (paymentButtons) {
+                    paymentButtons.style.display = 'block';
+                }
+            } catch (error) {
+                Swal.fire({
+                    text: error.message || 'Ein Fehler ist aufgetreten',
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Weiter!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    }
+                });
+            }
+        });
+
+        // Handle guest payment form submission
+        document.getElementById('liveChatPaymentForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitButton = document.getElementById('liveChatSubmitButton');
+            const email = document.querySelector('#guestLiveChatForm [name="email"]').value;
+
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.querySelector('.indicator-label').style.display = 'none';
+            submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
+
+            try {
+                // Get the live chat service
+                const response = await fetch('{{ route('services.live-chat') }}');
+                const data = await response.json();
+
+                if (data.success && data.data) {
+                    const service = data.data;
+
+                    // Create payment intent
+                    const paymentResponse = await fetch('{{ route('service.payment.create') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            service_id: service.id,
+                            payment_method: 'stripe',
+                            email: email
+                        })
+                    });
+
+                    const paymentData = await paymentResponse.json();
+
+                    if (paymentData.error) {
+                        throw new Error(paymentData.error);
+                    }
+
+                    const { error } = await window.liveChatStripe.confirmCardPayment(paymentData.clientSecret, {
+                        payment_method: {
+                            card: window.liveChatCard,
+                            billing_details: {
+                                email: email
+                            }
+                        }
+                    });
+
+                    if (error) {
+                        throw new Error(error.message);
+                    }
+
+                    window.location.href = '{{ route('service.payment.success') }}?payment_method=stripe&service_id=' +
+                        service.id + '&paymentIntentId=' + paymentData.paymentIntentId;
+                }
+            } catch (error) {
+                Swal.fire({
+                    text: error.message || 'An error occurred while processing your payment',
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Weiter!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    }
+                });
+            } finally {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.querySelector('.indicator-label').style.display = 'inline-block';
+                submitButton.querySelector('.indicator-progress').style.display = 'none';
+            }
+        });
+
+        // Handle TWINT payment for guest
+        window.initiateLiveChatPayment = async function(paymentMethod) {
+            const twintButton = document.getElementById('liveChatTwintButton');
+            const email = document.querySelector('#guestLiveChatForm [name="email"]').value;
+
+            if (twintButton) {
+                twintButton.disabled = true;
+                twintButton.querySelector('.indicator-label').style.display = 'none';
+                twintButton.querySelector('.indicator-progress').style.display = 'inline-block';
+            }
+
+            try {
+                // Get the live chat service
+                const response = await fetch('{{ route('services.live-chat') }}');
+                const data = await response.json();
+
+                if (data.success && data.data) {
+                    const service = data.data;
+
+                    // Create payment intent
+                    const paymentResponse = await fetch('{{ route('service.payment.create') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            service_id: service.id,
+                            payment_method: paymentMethod,
+                            email: email
+                        })
+                    });
+
+                    const paymentData = await paymentResponse.json();
+
+                    if (paymentData.error) {
+                        throw new Error(paymentData.error);
+                    }
+
+                    if (paymentData.redirectUrl) {
+                        window.location.href = paymentData.redirectUrl;
+                    }
+                }
+            } catch (error) {
+                Swal.fire({
+                    text: error.message || 'Ein Fehler ist beim Bezahlvorgang aufgetreten',
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Weiter!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    }
+                });
+            } finally {
+                if (twintButton) {
+                    twintButton.disabled = false;
+                    twintButton.querySelector('.indicator-label').style.display = 'inline-block';
+                    twintButton.querySelector('.indicator-progress').style.display = 'none';
+                }
+            }
+        };
+
+        // Add checkbox change event listener
+        document.getElementById('liveChatTermsCheckbox')?.addEventListener('change', function() {
+            const paymentButtons = document.querySelector('#guestLiveChatForm .payment-buttons');
+            if (paymentButtons) {
+                paymentButtons.style.display = this.checked ? 'block' : 'none';
+            }
+        });
     });
 </script>

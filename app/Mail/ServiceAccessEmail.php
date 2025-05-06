@@ -14,14 +14,16 @@ class ServiceAccessEmail extends Mailable
 
     public $service;
     public $order;
+    public $user;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($service, $order)
+    public function __construct($service, $order, $user)
     {
         $this->service = $service;
         $this->order = $order;
+        $this->user = $user;
     }
 
     /**
@@ -43,7 +45,8 @@ class ServiceAccessEmail extends Mailable
             view: 'emails.service-access',
             with: [
                 'service' => $this->service,
-                'order' => $this->order
+                'order' => $this->order,
+                'user' => $this->user
             ],
         );
     }
