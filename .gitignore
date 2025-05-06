@@ -13,6 +13,9 @@
 /public/demo11
 /public/demo12
 /public/demo13
+/public/storage
+
+/database/database.sqlite
 
 /storage/*.key
 /storage/app/public/
