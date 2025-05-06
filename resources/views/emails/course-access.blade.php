@@ -46,7 +46,7 @@
 
 <body>
     <div class="header">
-        <h1>VIelen Dank für deinen EInkauf!</h1>
+        <h1>Vielen Dank für deinen Einkauf!</h1>
     </div>
 
     <div class="content">
