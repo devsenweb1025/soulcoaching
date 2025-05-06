@@ -187,15 +187,7 @@
                         <label class="form-label required">Email Adresse</label>
                         <input type="email" class="form-control" name="email" required />
                     </div>
-                    <div class="mb-5">
-                        <div class="form-check form-check-custom form-check-solid">
-                            <input class="form-check-input" type="checkbox" id="liveChatTermsCheckbox" required />
-                            <label class="form-check-label" for="liveChatTermsCheckbox">
-                                Ich verstehe, dass ich bei Weitergabe des Inhalts an andere mit einer Geldstrafe rechnen muss
-                            </label>
-                        </div>
-                    </div>
-                    <div class="text-start payment-buttons" style="display: none;">
+                    <div class="text-start payment-buttons">
                         <div class="d-flex gap-2">
                             <button type="button" class="btn btn-primary" onclick="showLiveChatStripeForm()">
                                 <i class="ki-duotone ki-credit-cart fs-2 me-2">
@@ -612,20 +604,6 @@
             e.preventDefault();
 
             const email = this.querySelector('[name="email"]').value;
-            const termsAccepted = this.querySelector('#liveChatTermsCheckbox').checked;
-
-            if (!termsAccepted) {
-                Swal.fire({
-                    text: 'Bitte akzeptieren Sie die Bedingungen',
-                    icon: "error",
-                    buttonsStyling: false,
-                    confirmButtonText: "Weiter!",
-                    customClass: {
-                        confirmButton: "btn btn-primary",
-                    }
-                });
-                return;
-            }
 
             // Store guest email in session
             try {
@@ -800,13 +778,5 @@
                 }
             }
         };
-
-        // Add checkbox change event listener
-        document.getElementById('liveChatTermsCheckbox')?.addEventListener('change', function() {
-            const paymentButtons = document.querySelector('#guestLiveChatForm .payment-buttons');
-            if (paymentButtons) {
-                paymentButtons.style.display = this.checked ? 'block' : 'none';
-            }
-        });
     });
 </script>
