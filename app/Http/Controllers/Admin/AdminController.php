@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Course;
 use App\Models\Booking;
 use App\Models\ChatMessage;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -23,11 +24,24 @@ class AdminController extends Controller
         $orderCount = Order::count();
         $bookingCount = Booking::count();
 
+        // Get user statistics
+        $registeredUserCount = User::count();
+        $guestOrderCount = Order::whereNull('user_id')->count();
+        $averageOrderValue = Order::where('status', 'delivered')
+            ->avg('total');
+
         // Calculate total benefits
         $totalBenefits = Order::where('status', 'delivered')->sum('total');
 
         // Get recent orders with user and order items
         $recentOrders = Order::with(['user', 'items'])
+            ->latest()
+            ->take(5)
+            ->get();
+
+        // Get recent guest orders
+        $recentGuestOrders = Order::with('items')
+            ->whereNull('user_id')
             ->latest()
             ->take(5)
             ->get();
@@ -68,8 +82,17 @@ class AdminController extends Controller
             ->get()
             ->pluck('total', 'date');
 
-        // Get product sales
+        // Get product sales (both guest and registered users)
         $productSales = Order::where('status', 'delivered')
+            ->where('created_at', '>=', Carbon::now()->subDays(30))
+            ->selectRaw('DATE(created_at) as date, SUM(total) as total')
+            ->groupBy('date')
+            ->get()
+            ->pluck('total', 'date');
+
+        // Get guest sales
+        $guestSales = Order::whereNull('user_id')
+            ->where('status', 'delivered')
             ->where('created_at', '>=', Carbon::now()->subDays(30))
             ->selectRaw('DATE(created_at) as date, SUM(total) as total')
             ->groupBy('date')
@@ -82,6 +105,7 @@ class AdminController extends Controller
                 'date' => $date,
                 'course' => $courseSales[$date] ?? 0,
                 'product' => $productSales[$date] ?? 0,
+                'guest' => $guestSales[$date] ?? 0,
                 'other' => 0,
                 'total' => ($courseSales[$date] ?? 0) + ($productSales[$date] ?? 0)
             ]);
@@ -94,9 +118,13 @@ class AdminController extends Controller
             'bookingCount',
             'totalBenefits',
             'recentOrders',
+            'recentGuestOrders',
             'recentBookings',
             'salesData',
-            'topProducts'
+            'topProducts',
+            'registeredUserCount',
+            'guestOrderCount',
+            'averageOrderValue'
         ));
     }
 }

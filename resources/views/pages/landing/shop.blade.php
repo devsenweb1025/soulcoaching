@@ -209,11 +209,14 @@
                         body: formData
                     })
                     .then(response => {
-                        if (response.status === 401) {
-                            // Unauthorized - redirect to login
-                            window.location.href = '/login';
-                            return;
-                        }
+                        // if (response.status === 401) {
+                        //     // Store current URL in session storage for redirect after login
+                        //     sessionStorage.setItem('redirect_after_login', window.location.href);
+                        //     // Redirect to login page
+                        //     window.location.href = '/login';
+                        //     return;
+                        // }
+                        console.log(response);
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
                         }
@@ -242,6 +245,7 @@
                                 </div>
                                 <div class="toast-body">
                                     ${data.message}
+                                    ${!data.isAuthenticated ? '<br><small>Sie können als Gast bestellen oder sich während des Bezahlvorgangs registrieren.</small>' : ''}
                                 </div>
                             </div>
                         `;

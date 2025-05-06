@@ -39,23 +39,23 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (Cart::content() as $item)
+                                            @foreach ($cart as $id => $item)
                                                 <tr>
                                                     <td>
                                                         <div class="d-flex align-items-center">
                                                             <div class="symbol symbol-50px me-5">
-                                                                <img src="{{ asset('storage/' . $item->options->image) }}"
+                                                                <img src="{{ asset('storage/' . $item['image']) }}"
                                                                     class="object-fit-contain"
-                                                                    alt="{{ $item->name }}" />
+                                                                    alt="{{ $item['name'] }}" />
                                                             </div>
                                                             <div class="d-flex justify-content-start flex-column">
                                                                 <span
-                                                                    class="text-dark fw-bold text-hover-primary fs-6">{{ $item->name }}</span>
+                                                                    class="text-dark fw-bold text-hover-primary fs-6">{{ $item['name'] }}</span>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>{{ $item->qty }}</td>
-                                                    <td>@chf($item->price)</td>
+                                                    <td>{{ $item['quantity'] }}</td>
+                                                    <td>@chf($item['price'])</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -64,7 +64,7 @@
                                 <div class="separator separator-dashed my-5"></div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Zwischensumme:</span>
-                                    <span class="text-dark fw-bold fs-5">@chf(Cart::subtotal(null, '.', ''))</span>
+                                    <span class="text-dark fw-bold fs-5">@chf($total)</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Versand:</span>
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <span class="fw-bold fs-5">Total:</span>
-                                    <span class="text-dark fw-bold fs-5">@chf((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5))</span>
+                                    <span class="text-dark fw-bold fs-5">@chf($total + session('shipping_cost', 11.5))</span>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,78 @@
                                     </div>
                                 @endif
 
-                                <form id="payment-form" action="{{ route('payment.paypal.create') }}" method="POST">
+                                <!--begin::Authentication Options-->
+                                <div class="mb-10">
+                                    <h4 class="mb-5">Anmelden oder als Gast fortfahren</h4>
+
+                                    @guest
+                                        <div class="row g-5">
+                                            <!--begin::Login-->
+                                            <div class="col-md-4">
+                                                <div class="card card-custom card-borderless">
+                                                    <div class="card-body text-center">
+                                                        <i class="ki-duotone ki-profile-user fs-2hx text-primary mb-5">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                            <span class="path3"></span>
+                                                        </i>
+                                                        <h3 class="card-title">Bereits Kunde?</h3>
+                                                        <p class="text-muted mb-5">Melden Sie sich an, um schneller zu bestellen</p>
+                                                        <a href="{{ route('login') }}" class="btn btn-primary w-100">Anmelden</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Login-->
+
+                                            <!--begin::Register-->
+                                            <div class="col-md-4">
+                                                <div class="card card-custom card-borderless">
+                                                    <div class="card-body text-center">
+                                                        <i class="ki-duotone ki-user-edit fs-2hx text-success mb-5">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <h3 class="card-title">Neukunde?</h3>
+                                                        <p class="text-muted mb-5">Registrieren Sie sich für ein Konto</p>
+                                                        <a href="{{ route('register') }}" class="btn btn-success w-100">Registrieren</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Register-->
+
+                                            <!--begin::Guest-->
+                                            <div class="col-md-4">
+                                                <div class="card card-custom card-borderless">
+                                                    <div class="card-body text-center">
+                                                        <i class="ki-duotone ki-user-tick fs-2hx text-warning mb-5">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <h3 class="card-title">Als Gast bestellen</h3>
+                                                        <p class="text-muted mb-5">Bestellen Sie ohne Registrierung</p>
+                                                        <button type="button" class="btn btn-warning w-100" id="continue-as-guest">Als Gast fortfahren</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Guest-->
+                                        </div>
+                                    @else
+                                        <div class="alert alert-info d-flex align-items-center p-5 mb-10">
+                                            <i class="ki-duotone ki-profile-user fs-2hx text-info me-4">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                            </i>
+                                            <div class="d-flex flex-column">
+                                                <span class="fw-bold">Angemeldet als: {{ auth()->user()->name }}</span>
+                                                <span class="text-muted">Sie können jetzt mit Ihrer Bestellung fortfahren</span>
+                                            </div>
+                                        </div>
+                                    @endguest
+                                </div>
+                                <!--end::Authentication Options-->
+
+                                <form id="payment-form" action="{{ route('payment.paypal.create') }}" method="POST" style="display: none;">
                                     @csrf
                                     <!--begin::Versandinformationen-->
                                     <div class="mb-10">
@@ -499,4 +570,15 @@
             submitButton.querySelector('.indicator-progress').style.display = 'none';
         }
     });
+
+    // Handle guest checkout
+    document.getElementById('continue-as-guest')?.addEventListener('click', function() {
+        document.getElementById('payment-form').style.display = 'block';
+        this.closest('.mb-10').style.display = 'none';
+    });
+
+    // Show payment form if user is logged in
+    @auth
+        document.getElementById('payment-form').style.display = 'block';
+    @endauth
 </script>
