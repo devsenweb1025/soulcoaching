@@ -7,7 +7,7 @@
 <body>
     <h2>Neue Bestellung #{{ $order->id }}</h2>
 
-    <p><strong>Kunde:</strong> {{ $user->name }}</p>
+    <p><strong>Kunde:</strong> {{ $user->first_name . " " . $user->last_name }}</p>
     <p><strong>E-Mail:</strong> {{ $user->email }}</p>
     <p><strong>Bestelldatum:</strong> {{ $order->created_at->format('d.m.Y H:i') }}</p>
 
