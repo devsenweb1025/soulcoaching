@@ -110,26 +110,30 @@
                                             <div class="d-flex gap-2">
                                                 @auth
                                                     <!-- Direct payment options for logged-in users -->
-                                                    <button type="button" class="btn btn-primary" onclick="showStripeForm(1, 1)">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="showStripeForm(1, 1)">
                                                         <i class="ki-duotone ki-credit-cart fs-2 me-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
                                                         Mit Karte bezahlen
                                                     </button>
-                                                    <button type="button" class="btn btn-primary" onclick="initiatePayment('twint', 1)" id="twint-button-1">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="initiatePayment('twint', 1)" id="twint-button-1">
                                                         <i class="ki-duotone ki-wallet fs-2 me-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
                                                         <span class="indicator-label">Mit TWINT bezahlen</span>
                                                         <span class="indicator-progress" style="display: none;">
-                                                            Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                            Bitte warten... <span
+                                                                class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                                         </span>
                                                     </button>
                                                 @else
                                                     <!-- Single buy button for guests -->
-                                                    <button type="button" class="btn btn-primary" onclick="handlePurchase(1)">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="handlePurchase(1)">
                                                         <i class="ki-duotone ki-shopping-cart fs-2 me-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
@@ -138,6 +142,40 @@
                                                     </button>
                                                 @endauth
                                             </div>
+                                            @auth
+                                                <!-- Stripe Form for Course 1 -->
+                                                <div id="stripe-form-1" class="mt-4 w-100" style="display: none;">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
+                                                            <form id="payment-form-1">
+                                                                <div class="mb-3">
+                                                                    <label for="card-element-1" class="form-label">Kredit-
+                                                                        oder Debitkarte</label>
+                                                                    <div id="card-element-1" class="form-control">
+                                                                        <!-- Stripe Card Element will be inserted here -->
+                                                                    </div>
+                                                                    <div id="card-errors-1" class="text-danger mt-2"
+                                                                        role="alert"></div>
+                                                                </div>
+                                                                <div class="d-flex gap-2">
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                        id="submit-button-1">
+                                                                        <span class="indicator-label">Jetzt bezahlen</span>
+                                                                        <span class="indicator-progress"
+                                                                            style="display: none;">
+                                                                            Bitte warten... <span
+                                                                                class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                        </span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-light"
+                                                                        onclick="hideStripeForm(1)">Abbrechen</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endauth
                                         </div>
                                         <!--end::Heading-->
                                     </div>
@@ -221,26 +259,30 @@
                                             <div class="d-flex gap-2">
                                                 @auth
                                                     <!-- Direct payment options for logged-in users -->
-                                                    <button type="button" class="btn btn-primary" onclick="showStripeForm(2, 2)">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="showStripeForm(2, 2)">
                                                         <i class="ki-duotone ki-credit-cart fs-2 me-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
                                                         Mit Karte bezahlen
                                                     </button>
-                                                    <button type="button" class="btn btn-primary" onclick="initiatePayment('twint', 2)" id="twint-button-2">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="initiatePayment('twint', 2)" id="twint-button-2">
                                                         <i class="ki-duotone ki-wallet fs-2 me-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
                                                         <span class="indicator-label">Mit TWINT bezahlen</span>
                                                         <span class="indicator-progress" style="display: none;">
-                                                            Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                            Bitte warten... <span
+                                                                class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                                         </span>
                                                     </button>
                                                 @else
                                                     <!-- Single buy button for guests -->
-                                                    <button type="button" class="btn btn-primary" onclick="handlePurchase(2)">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="handlePurchase(2)">
                                                         <i class="ki-duotone ki-shopping-cart fs-2 me-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
@@ -249,6 +291,43 @@
                                                     </button>
                                                 @endauth
                                             </div>
+                                            <!-- Stripe Forms for Registered Users -->
+                                            @auth
+
+
+                                                <!-- Stripe Form for Course 2 -->
+                                                <div id="stripe-form-2" class="mt-4 w-100" style="display: none;">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
+                                                            <form id="payment-form-2">
+                                                                <div class="mb-3">
+                                                                    <label for="card-element-2" class="form-label">Kredit-
+                                                                        oder Debitkarte</label>
+                                                                    <div id="card-element-2" class="form-control">
+                                                                        <!-- Stripe Card Element will be inserted here -->
+                                                                    </div>
+                                                                    <div id="card-errors-2" class="text-danger mt-2"
+                                                                        role="alert"></div>
+                                                                </div>
+                                                                <div class="d-flex gap-2">
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                        id="submit-button-2">
+                                                                        <span class="indicator-label">Jetzt bezahlen</span>
+                                                                        <span class="indicator-progress"
+                                                                            style="display: none;">
+                                                                            Bitte warten... <span
+                                                                                class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                        </span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-light"
+                                                                        onclick="hideStripeForm(2)">Abbrechen</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endauth
                                         </div>
                                         <!--end::Heading-->
                                     </div>
@@ -440,7 +519,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>Als Gast kaufen</h2>
-                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                        aria-label="Close">
                         <i class="ki-duotone ki-cross fs-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
@@ -457,27 +537,32 @@
                             <div class="form-check form-check-custom form-check-solid">
                                 <input class="form-check-input" type="checkbox" id="termsCheckbox" required />
                                 <label class="form-check-label" for="termsCheckbox">
-                                    Ich verstehe, dass ich bei Weitergabe des Inhalts an andere mit einer Geldstrafe rechnen muss
+                                    Ich verstehe, dass ich bei Weitergabe des Inhalts an andere mit einer Geldstrafe
+                                    rechnen muss
                                 </label>
                             </div>
                         </div>
                         <div class="text-start">
                             <div class="d-flex gap-2">
-                                <button type="button" class="btn btn-primary" onclick="showStripeForm(currentCourseId, currentCourseId)">
+                                <button type="button" class="btn btn-primary"
+                                    onclick="showStripeForm(currentCourseId, currentCourseId)">
                                     <i class="ki-duotone ki-credit-cart fs-2 me-2">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
                                     Mit Karte bezahlen
                                 </button>
-                                <button type="button" class="btn btn-primary" onclick="initiatePayment('twint', currentCourseId)" :id="'twint-button-' + currentCourseId">
+                                <button type="button" class="btn btn-primary"
+                                    onclick="initiatePayment('twint', currentCourseId)"
+                                    :id="'twint-button-' + currentCourseId">
                                     <i class="ki-duotone ki-wallet fs-2 me-2">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
                                     <span class="indicator-label">Mit TWINT bezahlen</span>
                                     <span class="indicator-progress" style="display: none;">
-                                        Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        Bitte warten... <span
+                                            class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                     </span>
                                 </button>
                             </div>
@@ -490,7 +575,8 @@
                                 <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
                                 <form id="payment-form-guest">
                                     <div class="mb-3">
-                                        <label for="card-element-guest" class="form-label">Kredit- oder Debitkarte</label>
+                                        <label for="card-element-guest" class="form-label">Kredit- oder
+                                            Debitkarte</label>
                                         <div id="card-element-guest" class="form-control">
                                             <!-- Stripe Card Element will be inserted here -->
                                         </div>
@@ -500,10 +586,12 @@
                                         <button type="submit" class="btn btn-primary" id="submit-button-guest">
                                             <span class="indicator-label">Jetzt bezahlen</span>
                                             <span class="indicator-progress" style="display: none;">
-                                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                Bitte warten... <span
+                                                    class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                             </span>
                                         </button>
-                                        <button type="button" class="btn btn-light" onclick="hideStripeForm('guest')">Abbrechen</button>
+                                        <button type="button" class="btn btn-light"
+                                            onclick="hideStripeForm('guest')">Abbrechen</button>
                                     </div>
                                 </form>
                             </div>
@@ -514,62 +602,7 @@
         </div>
     </div>
 
-    <!-- Stripe Forms for Registered Users -->
-    @auth
-        <!-- Stripe Form for Course 1 -->
-        <div id="stripe-form-1" class="mt-4 w-100" style="display: none;">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
-                    <form id="payment-form-1">
-                        <div class="mb-3">
-                            <label for="card-element-1" class="form-label">Kredit- oder Debitkarte</label>
-                            <div id="card-element-1" class="form-control">
-                                <!-- Stripe Card Element will be inserted here -->
-                            </div>
-                            <div id="card-errors-1" class="text-danger mt-2" role="alert"></div>
-                        </div>
-                        <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-primary" id="submit-button-1">
-                                <span class="indicator-label">Jetzt bezahlen</span>
-                                <span class="indicator-progress" style="display: none;">
-                                    Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                </span>
-                            </button>
-                            <button type="button" class="btn btn-light" onclick="hideStripeForm(1)">Abbrechen</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
-        <!-- Stripe Form for Course 2 -->
-        <div id="stripe-form-2" class="mt-4 w-100" style="display: none;">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
-                    <form id="payment-form-2">
-                        <div class="mb-3">
-                            <label for="card-element-2" class="form-label">Kredit- oder Debitkarte</label>
-                            <div id="card-element-2" class="form-control">
-                                <!-- Stripe Card Element will be inserted here -->
-                            </div>
-                            <div id="card-errors-2" class="text-danger mt-2" role="alert"></div>
-                        </div>
-                        <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-primary" id="submit-button-2">
-                                <span class="indicator-label">Jetzt bezahlen</span>
-                                <span class="indicator-progress" style="display: none;">
-                                    Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                </span>
-                            </button>
-                            <button type="button" class="btn btn-light" onclick="hideStripeForm(2)">Abbrechen</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    @endauth
 
     <!-- Purchase Options Modal -->
     <div class="modal fade" id="purchaseOptionsModal" tabindex="-1" aria-hidden="true">
@@ -577,7 +610,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>Kurs kaufen</h2>
-                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                        aria-label="Close">
                         <i class="ki-duotone ki-cross fs-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
@@ -596,7 +630,8 @@
                                     </i>
                                     <h3 class="card-title">Als Gast kaufen</h3>
                                     <p class="text-muted mb-5">Kaufen Sie den Kurs ohne Registrierung</p>
-                                    <button type="button" class="btn btn-warning w-100" onclick="showGuestPurchaseForm()">Als Gast fortfahren</button>
+                                    <button type="button" class="btn btn-warning w-100"
+                                        onclick="showGuestPurchaseForm()">Als Gast fortfahren</button>
                                 </div>
                             </div>
                         </div>
@@ -613,7 +648,8 @@
                                     <p class="text-muted mb-5">Melden Sie sich an oder registrieren Sie sich</p>
                                     <div class="d-flex gap-2">
                                         <a href="{{ route('login') }}" class="btn btn-primary w-100">Anmelden</a>
-                                        <a href="{{ route('register') }}" class="btn btn-success w-100">Registrieren</a>
+                                        <a href="{{ route('register') }}"
+                                            class="btn btn-success w-100">Registrieren</a>
                                     </div>
                                 </div>
                             </div>
@@ -632,7 +668,7 @@
         locale: 'de'
     });
     const elements = stripe.elements();
-    let card;
+    let card = null; // Single card element
     let currentCourseId = null;
 
     // Show success/error messages if they exist
@@ -691,17 +727,32 @@
                 hidePostalCode: true
             });
         }
+        return card;
     }
 
     // Show Stripe form
     function showStripeForm(courseId, index) {
+        // First unmount the card if it's mounted
+        if (card) {
+            try {
+                card.unmount();
+            } catch (e) {
+                console.log('Card was not mounted');
+            }
+        }
+
         @if (!auth()->check())
             // For guests, show form in modal
             const form = document.getElementById('stripe-form-guest');
             if (form) {
+                // Hide all other forms first
+                document.querySelectorAll('[id^="stripe-form-"]').forEach(f => {
+                    f.style.display = 'none';
+                });
+
                 form.style.display = 'block';
-                initializeCard();
-                card.mount('#card-element-guest');
+                const cardElement = initializeCard();
+                cardElement.mount('#card-element-guest');
                 currentCourseId = courseId;
                 const paymentForm = document.getElementById('payment-form-guest');
                 if (paymentForm) {
@@ -710,17 +761,20 @@
             }
         @else
             // For registered users, show form below buttons
-            document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
-                if (form) {
-                    form.style.display = 'none';
-                }
-            });
-
             const form = document.getElementById(`stripe-form-${index}`);
             if (form) {
+                // Hide all other forms first
+                document.querySelectorAll('[id^="stripe-form-"]').forEach(f => {
+                    f.style.display = 'none';
+                });
+
+                // Show the selected form
                 form.style.display = 'block';
-                initializeCard();
-                card.mount(`#card-element-${index}`);
+
+                // Initialize and mount card element for this form
+                const cardElement = initializeCard();
+                cardElement.mount(`#card-element-${index}`);
+
                 currentCourseId = courseId;
                 const paymentForm = document.getElementById(`payment-form-${index}`);
                 if (paymentForm) {
@@ -736,18 +790,24 @@
             const form = document.getElementById('stripe-form-guest');
             if (form) {
                 form.style.display = 'none';
-                if (currentCourseId === index) {
-                    card.unmount();
-                    currentCourseId = null;
+                if (card) {
+                    try {
+                        card.unmount();
+                    } catch (e) {
+                        console.log('Card was not mounted');
+                    }
                 }
             }
         @else
             const form = document.getElementById(`stripe-form-${index}`);
             if (form) {
                 form.style.display = 'none';
-                if (currentCourseId === index) {
-                    card.unmount();
-                    currentCourseId = null;
+                if (card) {
+                    try {
+                        card.unmount();
+                    } catch (e) {
+                        console.log('Card was not mounted');
+                    }
                 }
             }
         @endif
@@ -942,7 +1002,9 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({ email })
+                body: JSON.stringify({
+                    email
+                })
             });
 
             if (!response.ok) {

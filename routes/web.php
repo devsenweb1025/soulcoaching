@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\ServiceController as ServiceManagementController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\CartPaymentController;
 use App\Http\Controllers\Admin\PageContentController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -119,6 +120,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('produkte', ProductController::class)->names('products')->parameters([
         'produkte' => 'product'
     ]);
+
+    // User Management Routes
+    Route::resource('benutzer', UserController::class)->names('users')->parameters([
+        'benutzer' => 'user'
+    ]);
+    Route::post('benutzer/{user}/status', [UserController::class, 'toggleStatus'])->name('users.toggle-status');
+    Route::post('benutzer/{user}/verifizierung', [UserController::class, 'toggleVerification'])->name('users.toggle-verification');
+    Route::delete('benutzer/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     // Notification Routes
     Route::get('/benachrichtigungen', [NotificationController::class, 'index'])->name('notifications.index');
