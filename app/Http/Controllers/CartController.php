@@ -9,11 +9,18 @@ use App\Mail\OrderReceiptMail;
 use App\Models\Order;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+
 class CartController extends Controller
 {
     public function index()
     {
-        return view('pages.landing.cart.index');
+        $cart = session('cart', []);
+        $total = $this->calculateTotal($cart);
+
+        return view('pages.landing.cart.index', [
+            'cart' => $cart,
+            'total' => $total
+        ]);
     }
 
     public function add($productId, Request $request)
@@ -33,31 +40,33 @@ class CartController extends Controller
             }
 
             $quantity = $request->input('quantity', 1);
+            $cart = session('cart', []);
 
             // Check if product already exists in cart
-            $existingItem = Cart::search(function ($cartItem) use ($productId) {
-                return $cartItem->id == $productId;
-            })->first();
-
-            if ($existingItem) {
-                // Update quantity if product exists
-                Cart::update($existingItem->rowId, $existingItem->qty + $quantity);
+            if (isset($cart[$productId])) {
+                $cart[$productId]['quantity'] += $quantity;
             } else {
-                // Add new item to cart
-                Cart::add($product->id, $product->name, $quantity, $product->price, [
-                    'slug' => $product->slug,
+                $cart[$productId] = [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'price' => $product->price,
+                    'quantity' => $quantity,
                     'image' => $product->image,
-                    'description' => $product->description
-                ], 0);
+                    'description' => $product->description,
+                    'slug' => $product->slug
+                ];
             }
+
+            // Update session
+            session(['cart' => $cart]);
 
             if ($request->wantsJson()) {
                 return response()->json([
                     'success' => true,
                     'message' => 'Artikel wurde erfolgreich zum Warenkorb hinzugefügt!',
-                    'cartCount' => Cart::count(),
-                    'cartTotal' => Cart::total(),
-                    'itemCount' => $existingItem ? $existingItem->qty + $quantity : $quantity
+                    'cartCount' => count($cart),
+                    'cartTotal' => $this->calculateTotal($cart),
+                    'isAuthenticated' => auth()->check()
                 ]);
             }
 
@@ -77,10 +86,11 @@ class CartController extends Controller
         }
     }
 
-    public function update($rowId, Request $request)
+    public function update($id, Request $request)
     {
         try {
             $quantity = $request->input('quantity');
+            $cart = session('cart', []);
 
             // Validate quantity
             if ($quantity < 1) {
@@ -94,20 +104,20 @@ class CartController extends Controller
                 return redirect()->back()->with('error', 'Die Menge muss mindestens 1 betragen.');
             }
 
-            // Update cart item
-            Cart::update($rowId, $quantity);
-            $item = Cart::get($rowId);
+            if (isset($cart[$id])) {
+                $cart[$id]['quantity'] = $quantity;
+                session(['cart' => $cart]);
 
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Warenkorb wurde aktualisiert!',
-                    'cartCount' => Cart::count(),
-                    'cartTotal' => Cart::total(),
-                    'shippingCost' => session('shipping_cost'),
-                    'itemTotal' => $item->subtotal,
-                    'itemCount' => $item->qty
-                ]);
+                if ($request->wantsJson()) {
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Warenkorb wurde aktualisiert!',
+                        'cartCount' => count($cart),
+                        'cartTotal' => $this->calculateTotal($cart),
+                        'itemTotal' => $cart[$id]['price'] * $quantity,
+                        'shippingCost' => session('shipping_cost', 11.50)
+                    ]);
+                }
             }
 
             return redirect()->route('cart.index')->with('success', 'Warenkorb wurde aktualisiert!');
@@ -126,34 +136,25 @@ class CartController extends Controller
         }
     }
 
-    public function remove($rowId, Request $request)
+    public function remove($id, Request $request)
     {
         try {
-            // Check if item exists in cart
-            $item = Cart::get($rowId);
-            if (!$item) {
+            $cart = session('cart', []);
+
+            if (isset($cart[$id])) {
+                unset($cart[$id]);
+                session(['cart' => $cart]);
+
                 if ($request->wantsJson()) {
                     return response()->json([
-                        'success' => false,
-                        'message' => 'Artikel nicht im Warenkorb gefunden.',
-                        'error' => 'Item not found in cart'
-                    ], 404);
+                        'success' => true,
+                        'message' => 'Artikel wurde aus dem Warenkorb entfernt!',
+                        'cartCount' => count($cart),
+                        'cartTotal' => $this->calculateTotal($cart),
+                        'shippingCost' => session('shipping_cost', 11.50),
+                        'isCartEmpty' => empty($cart)
+                    ]);
                 }
-                return redirect()->back()->with('error', 'Artikel nicht im Warenkorb gefunden.');
-            }
-
-            // Remove item from cart
-            Cart::remove($rowId);
-
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Artikel wurde aus dem Warenkorb entfernt!',
-                    'cartCount' => Cart::count(),
-                    'shippingCost' => session('shipping_cost'),
-                    'cartTotal' => Cart::total(),
-                    'isCartEmpty' => Cart::count() === 0
-                ]);
             }
 
             return redirect()->route('cart.index')->with('success', 'Artikel wurde aus dem Warenkorb entfernt!');
@@ -175,15 +176,14 @@ class CartController extends Controller
     public function clear(Request $request)
     {
         try {
-            Cart::destroy();
+            session()->forget('cart');
 
             if ($request->wantsJson()) {
                 return response()->json([
                     'success' => true,
                     'message' => 'Warenkorb wurde geleert!',
-                    'cartCount' => Cart::count(),
-                    'shippingCost' => session('shipping_cost'),
-                    'cartTotal' => Cart::total()
+                    'cartCount' => 0,
+                    'cartTotal' => 0
                 ]);
             }
 
@@ -203,11 +203,16 @@ class CartController extends Controller
 
     public function checkout()
     {
-        if (Cart::count() === 0) {
+        $cart = session('cart', []);
+
+        if (empty($cart)) {
             return redirect()->route('cart.index')->with('error', 'Dein Warenkorb ist leer.');
         }
 
-        return view('pages.landing.cart.checkout');
+        return view('pages.landing.cart.checkout', [
+            'cart' => $cart,
+            'total' => $this->calculateTotal($cart)
+        ]);
     }
 
     public function processCheckout(Request $request)
@@ -221,23 +226,28 @@ class CartController extends Controller
             'city' => 'required|string|max:255',
             'postal_code' => 'required|string|max:10',
             'country' => 'required|string|max:255',
-            'card_number' => 'required|string|max:19',
-            'expiry_date' => 'required|string|max:5',
-            'cvv' => 'required|string|max:4',
         ]);
 
-        // Simulate payment processing
-        $order = [
-            'id' => uniqid('ORDER-'),
-            'items' => Cart::content(),
-            'subtotal' => Cart::subtotal(),
-            'tax' => Cart::tax(),
-            'total' => Cart::total(),
-            'shipping' => $request->only(['first_name', 'last_name', 'email', 'phone', 'address', 'city', 'postal_code', 'country'])
-        ];
+        $cart = session('cart', []);
+        $total = $this->calculateTotal($cart);
+
+        // Create order
+        $order = Order::create([
+            'user_id' => auth()->id(),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'city' => $request->city,
+            'postal_code' => $request->postal_code,
+            'country' => $request->country,
+            'total' => $total,
+            'status' => 'pending'
+        ]);
 
         // Clear the cart
-        Cart::destroy();
+        session()->forget('cart');
 
         // Store order in session for success page
         session()->flash('order', $order);
@@ -245,17 +255,31 @@ class CartController extends Controller
         return redirect()->route('cart.checkout.success');
     }
 
-    public function checkoutSuccess(Request $request)
+    public function checkoutSuccess()
     {
-        $input = $request->all();
-        $order = Order::find($input['order']);
-        Mail::to(auth()->user()->email)->send(new OrderConfirmation($order));
+        $order = session('order');
 
-        Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, auth()->user()));
+        if (!$order) {
+            return redirect()->route('shop.index');
+        }
+
+        if (auth()->check()) {
+            Mail::to(auth()->user()->email)->send(new OrderConfirmation($order));
+            Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, auth()->user()));
+        }
 
         return view('pages.landing.cart.success', [
-            'order' => compact('order')
+            'order' => $order
         ]);
+    }
+
+    private function calculateTotal($cart)
+    {
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        return $total;
     }
 
     public function storeShippingInfo(Request $request)
@@ -301,12 +325,14 @@ class CartController extends Controller
         session(['shipping_option' => $request->shipping_option]);
         session(['shipping_cost' => $request->shipping_cost]);
 
+        $cart = session('cart', []);
+        $total = $this->calculateTotal($cart);
+
         return response()->json([
             'success' => true,
             'message' => 'Versandoption aktualisiert erfolgreich',
             'shipping_cost' => $request->shipping_cost,
-            'total' => Cart::total()
+            'total' => $total
         ]);
     }
-
 }

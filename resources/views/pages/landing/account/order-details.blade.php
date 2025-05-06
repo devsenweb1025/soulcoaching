@@ -9,7 +9,7 @@
             <div class="container">
 
                 <!--begin::Heading-->
-                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
+                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 z-index-2 container">
                     <!--begin::Title-->
                     <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Order Details
                         <span

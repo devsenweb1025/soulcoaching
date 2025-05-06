@@ -74,13 +74,19 @@
                             <div class="d-flex flex-column mb-5">
                                 <div class="d-flex align-items-center mb-5">
                                     <div class="symbol symbol-50px me-5">
-                                        <span class="symbol-label bg-light-primary">
-                                            <i class="fas fa-user text-primary"></i>
+                                        <span class="symbol-label {{ $order->user_id ? 'bg-light-primary' : 'bg-light-warning' }}">
+                                            <i class="fas {{ $order->user_id ? 'fa-user text-primary' : 'fa-user-circle text-warning' }}"></i>
                                         </span>
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <span class="text-gray-800 mb-1">{{ $order->user->name }}</span>
-                                        <span class="text-muted">{{ $order->user->email }}</span>
+                                        @if($order->user_id)
+                                            <span class="text-gray-800 mb-1">{{ $order->user->name }}</span>
+                                            <span class="text-muted">{{ $order->user->email }}</span>
+                                        @else
+                                            <span class="text-gray-800 mb-1">{{ $order->shipping_first_name }} {{ $order->shipping_last_name }}</span>
+                                            <span class="text-muted">{{ $order->shipping_email }}</span>
+                                            <span class="badge badge-light-warning fs-7 mt-1">Gast</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="separator separator-dashed my-5"></div>
@@ -92,6 +98,17 @@
                                     {{ $order->shipping_country }}<br>
                                     {{ $order->shipping_phone }}
                                 </div>
+                                @if($order->billing_address && $order->billing_address !== $order->shipping_address)
+                                    <div class="separator separator-dashed my-5"></div>
+                                    <h4 class="text-gray-800 mb-3">Rechnungsadresse</h4>
+                                    <div class="text-gray-600">
+                                        {{ $order->billing_first_name }} {{ $order->billing_last_name }}<br>
+                                        {{ $order->billing_address }}<br>
+                                        {{ $order->billing_city }}, {{ $order->billing_postal_code }}<br>
+                                        {{ $order->billing_country }}<br>
+                                        {{ $order->billing_phone }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -291,7 +308,7 @@
             const formData = new FormData(form);
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-            fetch(`/admin/orders/{{ $order->id }}/status`, {
+            fetch(`{{ route('admin.orders.status', $order->id) }}`, {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': csrfToken,
@@ -369,7 +386,7 @@
             const formData = new FormData(form);
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-            fetch(`/admin/orders/{{ $order->id }}/payment-status`, {
+            fetch(`{{ route('admin.orders.payment-status', $order->id) }}`, {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': csrfToken,
@@ -447,7 +464,7 @@
             const formData = new FormData(form);
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-            fetch(`/admin/orders/{{ $order->id }}/tracking`, {
+            fetch(`{{ route('admin.orders.tracking', $order->id) }}`, {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': csrfToken,

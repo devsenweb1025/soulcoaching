@@ -146,42 +146,74 @@
                 <!--begin::Header-->
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold fs-3 mb-1">Letzte Bestellungen</span>
+                        <span class="card-label fw-bold fs-3 mb-1">Kundenstatistik</span>
                     </h3>
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body pt-5">
-                    @foreach ($recentOrders as $order)
-                        <div class="d-flex align-items-center mb-7">
-                            <!--begin::Avatar-->
-                            <div class="symbol symbol-50px me-5">
-                                <span class="symbol-label bg-light-primary">
-                                    <i class="ki-duotone ki-user fs-2x text-primary">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                    </i>
-                                </span>
-                            </div>
-                            <!--end::Avatar-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column">
-                                <a href="{{ route('admin.orders.show', $order->id) }}"
-                                    class="text-dark text-hover-primary fs-6 fw-bold">
-                                    Bestellung #{{ $order->order_number }}
-                                </a>
-                                <span class="text-muted fw-semibold">
-                                    {{ $order->user->name }} - @chf($order->total)
-                                </span>
-                            </div>
-                            <!--end::Text-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center mb-7">
+                        <!--begin::Symbol-->
+                        <div class="symbol symbol-50px me-5">
+                            <span class="symbol-label bg-light-primary">
+                                <i class="ki-duotone ki-user-tick fs-2x text-primary">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
                         </div>
-                    @endforeach
-                    <div class="text-end mt-5">
-                        <a href="{{ route('admin.orders.index') }}" class="btn btn-light-primary">
-                            Alle Bestellungen anzeigen
-                        </a>
+                        <!--end::Symbol-->
+                        <!--begin::Text-->
+                        <div class="d-flex flex-column">
+                            <span class="text-dark fw-bold fs-6">Registrierte Kunden</span>
+                            <span class="text-muted fw-semibold">{{ $registeredUserCount ?? 0 }} Kunden</span>
+                        </div>
+                        <!--end::Text-->
                     </div>
+                    <!--end::Item-->
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center mb-7">
+                        <!--begin::Symbol-->
+                        <div class="symbol symbol-50px me-5">
+                            <span class="symbol-label bg-light-warning">
+                                <i class="ki-duotone ki-user-square fs-2x text-warning">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                        </div>
+                        <!--end::Symbol-->
+                        <!--begin::Text-->
+                        <div class="d-flex flex-column">
+                            <span class="text-dark fw-bold fs-6">Gastbestellungen</span>
+                            <span class="text-muted fw-semibold">{{ $guestOrderCount ?? 0 }} Bestellungen</span>
+                        </div>
+                        <!--end::Text-->
+                    </div>
+                    <!--end::Item-->
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center">
+                        <!--begin::Symbol-->
+                        <div class="symbol symbol-50px me-5">
+                            <span class="symbol-label bg-light-success">
+                                <i class="ki-duotone ki-dollar fs-2x text-success">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                        </div>
+                        <!--end::Symbol-->
+                        <!--begin::Text-->
+                        <div class="d-flex flex-column">
+                            <span class="text-dark fw-bold fs-6">Durchschnittlicher Bestellwert</span>
+                            <span class="text-muted fw-semibold">@chf($averageOrderValue ?? 0)</span>
+                        </div>
+                        <!--end::Text-->
+                    </div>
+                    <!--end::Item-->
                 </div>
                 <!--end::Body-->
             </div>
@@ -196,13 +228,43 @@
                 <!--begin::Header-->
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold fs-3 mb-1">Buchungskalender</span>
+                        <span class="card-label fw-bold fs-3 mb-1">Letzte Gastbestellungen</span>
                     </h3>
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body pt-5">
-                    <div id="dashboardCalendar"></div>
+                    @foreach ($recentGuestOrders as $order)
+                        <div class="d-flex align-items-center mb-7">
+                            <!--begin::Avatar-->
+                            <div class="symbol symbol-50px me-5">
+                                <span class="symbol-label bg-light-warning">
+                                    <i class="ki-duotone ki-user-square fs-2x text-warning">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                            </div>
+                            <!--end::Avatar-->
+                            <!--begin::Text-->
+                            <div class="d-flex flex-column">
+                                <a href="{{ route('admin.orders.show', $order->id) }}"
+                                    class="text-dark text-hover-primary fs-6 fw-bold">
+                                    Bestellung #{{ $order->order_number }}
+                                </a>
+                                <span class="text-muted fw-semibold">
+                                    {{ $order->shipping_first_name }} {{ $order->shipping_last_name }}
+                                    - @chf($order->total)
+                                </span>
+                            </div>
+                            <!--end::Text-->
+                        </div>
+                    @endforeach
+                    <div class="text-end mt-5">
+                        <a href="{{ route('admin.orders.index', ['filter' => 'guest']) }}" class="btn btn-light-warning">
+                            Alle Gastbestellungen anzeigen
+                        </a>
+                    </div>
                 </div>
                 <!--end::Body-->
             </div>

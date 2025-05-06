@@ -23,6 +23,9 @@ class OrderController extends Controller
             $search = $request->search;
             $query->where(function ($q) use ($search) {
                 $q->where('order_number', 'like', "%{$search}%")
+                    ->orWhere('shipping_first_name', 'like', "%{$search}%")
+                    ->orWhere('shipping_last_name', 'like', "%{$search}%")
+                    ->orWhere('shipping_email', 'like', "%{$search}%")
                     ->orWhereHas('user', function ($q) use ($search) {
                         $q->where('name', 'like', "%{$search}%")
                             ->orWhere('email', 'like', "%{$search}%");
@@ -33,6 +36,18 @@ class OrderController extends Controller
         // Filter by status
         if ($request->has('status') && $request->status !== 'all') {
             $query->where('status', $request->status);
+        }
+
+        // Filter by customer type (guest/registered)
+        if ($request->has('customer_type')) {
+            switch ($request->customer_type) {
+                case 'guest':
+                    $query->whereNull('user_id');
+                    break;
+                case 'registered':
+                    $query->whereNotNull('user_id');
+                    break;
+            }
         }
 
         $orders = $query->paginate(10);
@@ -63,8 +78,8 @@ class OrderController extends Controller
             'tracking_number' => $request->tracking_number,
         ]);
 
-        // Send notification when order is shipped
-        if ($request->status === 'shipped') {
+        // Send notification when order is shipped (only for registered users)
+        if ($request->status === 'shipped' && $order->user_id) {
             $order->user->notify(new OrderShipped($order));
         }
 
@@ -177,6 +192,18 @@ class OrderController extends Controller
 
         if ($request->has('end_date')) {
             $query->whereDate('created_at', '<=', $request->end_date);
+        }
+
+        // Filter by customer type
+        if ($request->has('customer_type')) {
+            switch ($request->customer_type) {
+                case 'guest':
+                    $query->whereNull('user_id');
+                    break;
+                case 'registered':
+                    $query->whereNotNull('user_id');
+                    break;
+            }
         }
 
         $orders = $query->get();
