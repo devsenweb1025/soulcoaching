@@ -23,9 +23,9 @@ return array(
             "path" => "admin/armaturenbrett",
         ),
 
-        // Users
-        'users' => array(
-            "breadcrumb-title" => "Benutzer",
+        // Users & Bookings
+        'users-bookings' => array(
+            "breadcrumb-title" => "Benutzer & Buchungen",
             "icon" => '<i class="bi bi-people fs-2x"></i>',
             "classes" => array(
                 "item" => "py-2",
@@ -43,148 +43,30 @@ return array(
                     "data-bs-placement" => "right",
                 ),
             ),
-            "arrow" => false,
+            "arrow" => true,
             "sub" => array(
                 "class" => "menu-sub-dropdown w-225px px-1 py-4",
                 "items" => array(
                     array(
                         'classes' => array('content' => ''),
-                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Benutzer</span>',
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Benutzerverwaltung</span>',
                     ),
-
                     array(
-                        'title' => 'Übersicht',
+                        'title' => 'Benutzerübersicht',
                         'path' => 'admin/benutzer',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                     array(
-                        'title' => 'Neu erstellen',
+                        'title' => 'Benutzer anlegen',
                         'path' => 'admin/benutzer/create',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
-                ),
-            ),
-        ),
-
-        // Page Content
-        'page-content' => array(
-            "breadcrumb-title" => "Seiteninhalte",
-            "icon" => '<i class="bi bi-file-text fs-2x"></i>',
-            "path" => "admin/contents",
-        ),
-
-        // Products
-        'products' => array(
-            "breadcrumb-title" => "Produkte",
-            "icon" => '<i class="bi bi-box fs-2x"></i>',
-            "classes" => array(
-                "item" => "py-2",
-                "link" => "menu-center",
-                "icon" => "me-0",
-            ),
-            "attributes" => array(
-                "item" => array(
-                    "data-kt-menu-trigger" => "click",
-                    "data-kt-menu-placement" => Theme::isRTL() ? "left-start" : "right-start",
-                ),
-                'link' => array(
-                    "data-bs-trigger" => "hover",
-                    "data-bs-dismiss" => "click",
-                    "data-bs-placement" => "right",
-                ),
-            ),
-            "arrow" => false,
-            "sub" => array(
-                "class" => "menu-sub-dropdown w-225px px-1 py-4",
-                "items" => array(
                     array(
                         'classes' => array('content' => ''),
-                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Produkte</span>',
-                    ),
-
-                    array(
-                        'title' => 'Übersicht',
-                        'path' => 'admin/produkte',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Buchungsverwaltung</span>',
                     ),
                     array(
-                        'title' => 'Neu erstellen',
-                        'path' => 'admin/produkte/create',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
-                ),
-            ),
-        ),
-
-        // Orders
-        'orders' => array(
-            "breadcrumb-title" => "Bestellungen",
-            "icon" => '<i class="bi bi-cart fs-2x"></i>',
-            "classes" => array(
-                "item" => "py-2",
-                "link" => "menu-center",
-                "icon" => "me-0",
-            ),
-            "attributes" => array(
-                "item" => array(
-                    "data-kt-menu-trigger" => "click",
-                    "data-kt-menu-placement" => Theme::isRTL() ? "left-start" : "right-start",
-                ),
-                'link' => array(
-                    "data-bs-trigger" => "hover",
-                    "data-bs-dismiss" => "click",
-                    "data-bs-placement" => "right",
-                ),
-            ),
-            "arrow" => false,
-            "sub" => array(
-                "class" => "menu-sub-dropdown w-225px px-1 py-4",
-                "items" => array(
-                    array(
-                        'classes' => array('content' => ''),
-                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Bestellungen</span>',
-                    ),
-
-                    array(
-                        'title' => 'Übersicht',
-                        'path' => 'admin/bestellungen',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
-                ),
-            ),
-        ),
-
-        // Bookings
-        'bookings' => array(
-            "breadcrumb-title" => "Buchungen",
-            "icon" => '<i class="bi bi-calendar-check fs-2x"></i>',
-            "classes" => array(
-                "item" => "py-2",
-                "link" => "menu-center",
-                "icon" => "me-0",
-            ),
-            "attributes" => array(
-                "item" => array(
-                    "data-kt-menu-trigger" => "click",
-                    "data-kt-menu-placement" => Theme::isRTL() ? "left-start" : "right-start",
-                ),
-                'link' => array(
-                    "data-bs-trigger" => "hover",
-                    "data-bs-dismiss" => "click",
-                    "data-bs-placement" => "right",
-                ),
-            ),
-            "arrow" => false,
-            "sub" => array(
-                "class" => "menu-sub-dropdown w-225px px-1 py-4",
-                "items" => array(
-                    array(
-                        'classes' => array('content' => ''),
-                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Buchungen</span>',
-                    ),
-
-                    array(
-                        'title' => 'Kalender',
+                        'title' => 'Buchungskalender',
                         'path' => 'admin/buchungen',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
@@ -192,10 +74,10 @@ return array(
             ),
         ),
 
-        // Services
-        'services' => array(
-            "breadcrumb-title" => "Dienstleistungen",
-            "icon" => '<i class="bi bi-briefcase fs-2x"></i>',
+        // Products & Orders
+        'products-orders' => array(
+            "breadcrumb-title" => "Produkte & Bestellungen",
+            "icon" => '<i class="bi bi-shop fs-2x"></i>',
             "classes" => array(
                 "item" => "py-2",
                 "link" => "menu-center",
@@ -212,22 +94,81 @@ return array(
                     "data-bs-placement" => "right",
                 ),
             ),
-            "arrow" => false,
+            "arrow" => true,
             "sub" => array(
                 "class" => "menu-sub-dropdown w-225px px-1 py-4",
                 "items" => array(
                     array(
                         'classes' => array('content' => ''),
-                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Dienstleistungen</span>',
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Produktverwaltung</span>',
                     ),
-
                     array(
-                        'title' => 'Übersicht',
+                        'title' => 'Produktübersicht',
+                        'path' => 'admin/produkte',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'title' => 'Produkt anlegen',
+                        'path' => 'admin/produkte/create',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'classes' => array('content' => ''),
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Bestellverwaltung</span>',
+                    ),
+                    array(
+                        'title' => 'Bestellübersicht',
+                        'path' => 'admin/bestellungen',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                ),
+            ),
+        ),
+
+        // Content & Services
+        'content-services' => array(
+            "breadcrumb-title" => "Inhalte & Dienstleistungen",
+            "icon" => '<i class="bi bi-file-text fs-2x"></i>',
+            "classes" => array(
+                "item" => "py-2",
+                "link" => "menu-center",
+                "icon" => "me-0",
+            ),
+            "attributes" => array(
+                "item" => array(
+                    "data-kt-menu-trigger" => "click",
+                    "data-kt-menu-placement" => Theme::isRTL() ? "left-start" : "right-start",
+                ),
+                'link' => array(
+                    "data-bs-trigger" => "hover",
+                    "data-bs-dismiss" => "click",
+                    "data-bs-placement" => "right",
+                ),
+            ),
+            "arrow" => true,
+            "sub" => array(
+                "class" => "menu-sub-dropdown w-225px px-1 py-4",
+                "items" => array(
+                    array(
+                        'classes' => array('content' => ''),
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Seiteninhalte</span>',
+                    ),
+                    array(
+                        'title' => 'Inhaltsübersicht',
+                        'path' => 'admin/contents',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'classes' => array('content' => ''),
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Dienstleistungsverwaltung</span>',
+                    ),
+                    array(
+                        'title' => 'Dienstleistungsübersicht',
                         'path' => 'admin/dienstleistungen',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                     array(
-                        'title' => 'Neu erstellen',
+                        'title' => 'Dienstleistung anlegen',
                         'path' => 'admin/dienstleistungen/create',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
