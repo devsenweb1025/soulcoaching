@@ -434,113 +434,6 @@
     </div>
     <!--end::Pricing Section-->
 
-    <!-- Stripe Card Form -->
-    <div id="stripe-form-1" class="mt-4 w-100" style="display: none;">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
-                <form id="payment-form-1">
-                    <div class="mb-3">
-                        <label for="card-element-1" class="form-label">Kredit- oder Debitkarte</label>
-                        <div id="card-element-1" class="form-control">
-                            <!-- Stripe Card Element will be inserted here -->
-                        </div>
-                        <div id="card-errors-1" class="text-danger mt-2" role="alert"></div>
-                    </div>
-                    <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary" id="submit-button-1">
-                            <span class="indicator-label">Jetzt bezahlen</span>
-                            <span class="indicator-progress" style="display: none;">
-                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                            </span>
-                        </button>
-                        <button type="button" class="btn btn-light" onclick="hideStripeForm(1)">Abbrechen</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Stripe Card Form for Course 2 -->
-    <div id="stripe-form-2" class="mt-4 w-100" style="display: none;">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
-                <form id="payment-form-2">
-                    <div class="mb-3">
-                        <label for="card-element-2" class="form-label">Kredit- oder Debitkarte</label>
-                        <div id="card-element-2" class="form-control">
-                            <!-- Stripe Card Element will be inserted here -->
-                        </div>
-                        <div id="card-errors-2" class="text-danger mt-2" role="alert"></div>
-                    </div>
-                    <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary" id="submit-button-2">
-                            <span class="indicator-label">Jetzt bezahlen</span>
-                            <span class="indicator-progress" style="display: none;">
-                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                            </span>
-                        </button>
-                        <button type="button" class="btn btn-light" onclick="hideStripeForm(2)">Abbrechen</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Purchase Options Modal -->
-    <div class="modal fade" id="purchaseOptionsModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered mw-650px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Kurs kaufen</h2>
-                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="ki-duotone ki-cross fs-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="row g-5">
-                        <!-- Guest Purchase -->
-                        <div class="col-md-6">
-                            <div class="card card-custom card-borderless">
-                                <div class="card-body text-center">
-                                    <i class="ki-duotone ki-user-tick fs-2hx text-warning mb-5">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                    </i>
-                                    <h3 class="card-title">Als Gast kaufen</h3>
-                                    <p class="text-muted mb-5">Kaufen Sie den Kurs ohne Registrierung</p>
-                                    <button type="button" class="btn btn-warning w-100" onclick="showGuestPurchaseForm()">Als Gast fortfahren</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Login/Register -->
-                        <div class="col-md-6">
-                            <div class="card card-custom card-borderless">
-                                <div class="card-body text-center">
-                                    <i class="ki-duotone ki-profile-user fs-2hx text-primary mb-5">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                    </i>
-                                    <h3 class="card-title">Mit Konto kaufen</h3>
-                                    <p class="text-muted mb-5">Melden Sie sich an oder registrieren Sie sich</p>
-                                    <div class="d-flex gap-2">
-                                        <a href="{{ route('login') }}" class="btn btn-primary w-100">Anmelden</a>
-                                        <a href="{{ route('register') }}" class="btn btn-success w-100">Registrieren</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Guest Purchase Form Modal -->
     <div class="modal fade" id="guestPurchaseModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -590,6 +483,142 @@
                             </div>
                         </div>
                     </form>
+                    <!-- Stripe Form for Guest -->
+                    <div id="stripe-form-guest" class="mt-4 w-100" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
+                                <form id="payment-form-guest">
+                                    <div class="mb-3">
+                                        <label for="card-element-guest" class="form-label">Kredit- oder Debitkarte</label>
+                                        <div id="card-element-guest" class="form-control">
+                                            <!-- Stripe Card Element will be inserted here -->
+                                        </div>
+                                        <div id="card-errors-guest" class="text-danger mt-2" role="alert"></div>
+                                    </div>
+                                    <div class="d-flex gap-2">
+                                        <button type="submit" class="btn btn-primary" id="submit-button-guest">
+                                            <span class="indicator-label">Jetzt bezahlen</span>
+                                            <span class="indicator-progress" style="display: none;">
+                                                Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                            </span>
+                                        </button>
+                                        <button type="button" class="btn btn-light" onclick="hideStripeForm('guest')">Abbrechen</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stripe Forms for Registered Users -->
+    @auth
+        <!-- Stripe Form for Course 1 -->
+        <div id="stripe-form-1" class="mt-4 w-100" style="display: none;">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
+                    <form id="payment-form-1">
+                        <div class="mb-3">
+                            <label for="card-element-1" class="form-label">Kredit- oder Debitkarte</label>
+                            <div id="card-element-1" class="form-control">
+                                <!-- Stripe Card Element will be inserted here -->
+                            </div>
+                            <div id="card-errors-1" class="text-danger mt-2" role="alert"></div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary" id="submit-button-1">
+                                <span class="indicator-label">Jetzt bezahlen</span>
+                                <span class="indicator-progress" style="display: none;">
+                                    Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-light" onclick="hideStripeForm(1)">Abbrechen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stripe Form for Course 2 -->
+        <div id="stripe-form-2" class="mt-4 w-100" style="display: none;">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Zahlungsdaten angeben</h5>
+                    <form id="payment-form-2">
+                        <div class="mb-3">
+                            <label for="card-element-2" class="form-label">Kredit- oder Debitkarte</label>
+                            <div id="card-element-2" class="form-control">
+                                <!-- Stripe Card Element will be inserted here -->
+                            </div>
+                            <div id="card-errors-2" class="text-danger mt-2" role="alert"></div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary" id="submit-button-2">
+                                <span class="indicator-label">Jetzt bezahlen</span>
+                                <span class="indicator-progress" style="display: none;">
+                                    Bitte warten... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-light" onclick="hideStripeForm(2)">Abbrechen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endauth
+
+    <!-- Purchase Options Modal -->
+    <div class="modal fade" id="purchaseOptionsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Kurs kaufen</h2>
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ki-duotone ki-cross fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-5">
+                        <!-- Guest Purchase -->
+                        <div class="col-md-6">
+                            <div class="card card-custom card-borderless">
+                                <div class="card-body text-center">
+                                    <i class="ki-duotone ki-user-tick fs-2hx text-warning mb-5">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    <h3 class="card-title">Als Gast kaufen</h3>
+                                    <p class="text-muted mb-5">Kaufen Sie den Kurs ohne Registrierung</p>
+                                    <button type="button" class="btn btn-warning w-100" onclick="showGuestPurchaseForm()">Als Gast fortfahren</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Login/Register -->
+                        <div class="col-md-6">
+                            <div class="card card-custom card-borderless">
+                                <div class="card-body text-center">
+                                    <i class="ki-duotone ki-profile-user fs-2hx text-primary mb-5">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                    <h3 class="card-title">Mit Konto kaufen</h3>
+                                    <p class="text-muted mb-5">Melden Sie sich an oder registrieren Sie sich</p>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('login') }}" class="btn btn-primary w-100">Anmelden</a>
+                                        <a href="{{ route('register') }}" class="btn btn-success w-100">Registrieren</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -666,46 +695,62 @@
 
     // Show Stripe form
     function showStripeForm(courseId, index) {
-        // Hide all other forms first
-        document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
+        @if (!auth()->check())
+            // For guests, show form in modal
+            const form = document.getElementById('stripe-form-guest');
             if (form) {
-                form.style.display = 'none';
+                form.style.display = 'block';
+                initializeCard();
+                card.mount('#card-element-guest');
+                currentCourseId = courseId;
+                const paymentForm = document.getElementById('payment-form-guest');
+                if (paymentForm) {
+                    paymentForm.dataset.courseId = courseId;
+                }
             }
-        });
+        @else
+            // For registered users, show form below buttons
+            document.querySelectorAll('[id^="stripe-form-"]').forEach(form => {
+                if (form) {
+                    form.style.display = 'none';
+                }
+            });
 
-        const form = document.getElementById(`stripe-form-${index}`);
-        if (form) {
-            form.style.display = 'block';
-
-            // Initialize card if not already done
-            initializeCard();
-
-            // Unmount from previous container if exists
-            if (currentCourseId !== null) {
-                card.unmount();
+            const form = document.getElementById(`stripe-form-${index}`);
+            if (form) {
+                form.style.display = 'block';
+                initializeCard();
+                card.mount(`#card-element-${index}`);
+                currentCourseId = courseId;
+                const paymentForm = document.getElementById(`payment-form-${index}`);
+                if (paymentForm) {
+                    paymentForm.dataset.courseId = courseId;
+                }
             }
-
-            // Mount to new container
-            card.mount(`#card-element-${index}`);
-            currentCourseId = courseId;
-
-            const paymentForm = document.getElementById(`payment-form-${index}`);
-            if (paymentForm) {
-                paymentForm.dataset.courseId = courseId;
-            }
-        }
+        @endif
     }
 
     // Hide Stripe form
     function hideStripeForm(index) {
-        const form = document.getElementById(`stripe-form-${index}`);
-        if (form) {
-            form.style.display = 'none';
-            if (currentCourseId === index) {
-                card.unmount();
-                currentCourseId = null;
+        @if (!auth()->check())
+            const form = document.getElementById('stripe-form-guest');
+            if (form) {
+                form.style.display = 'none';
+                if (currentCourseId === index) {
+                    card.unmount();
+                    currentCourseId = null;
+                }
             }
-        }
+        @else
+            const form = document.getElementById(`stripe-form-${index}`);
+            if (form) {
+                form.style.display = 'none';
+                if (currentCourseId === index) {
+                    card.unmount();
+                    currentCourseId = null;
+                }
+            }
+        @endif
     }
 
     // Handle form submission
@@ -723,6 +768,17 @@
             submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
 
             try {
+                const requestBody = {
+                    course_id: courseId,
+                    payment_method: 'stripe'
+                };
+
+                // Add email for guest mode
+                @if (!auth()->check())
+                    const email = document.querySelector('#guestPurchaseForm [name="email"]').value;
+                    requestBody.email = email;
+                @endif
+
                 const response = await fetch('{{ route('course.payment.create') }}', {
                     method: 'POST',
                     headers: {
@@ -730,10 +786,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify({
-                        course_id: courseId,
-                        payment_method: 'stripe'
-                    })
+                    body: JSON.stringify(requestBody)
                 });
 
                 const data = await response.json();
@@ -791,6 +844,17 @@
         }
 
         try {
+            const requestBody = {
+                course_id: courseId,
+                payment_method: paymentMethod
+            };
+
+            // Add email for guest mode
+            @if (!auth()->check())
+                const email = document.querySelector('#guestPurchaseForm [name="email"]').value;
+                requestBody.email = email;
+            @endif
+
             const response = await fetch('{{ route('course.payment.create') }}', {
                 method: 'POST',
                 headers: {
@@ -798,10 +862,7 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({
-                    course_id: courseId,
-                    payment_method: paymentMethod
-                })
+                body: JSON.stringify(requestBody)
             });
 
             const data = await response.json();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -17,6 +18,8 @@ use App\Mail\CourseAccessEmail;
 use App\Mail\CoursePurchaseMail;
 use App\Notifications\CoursePurchased;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class CoursePaymentController extends Controller
 {
@@ -35,11 +38,27 @@ class CoursePaymentController extends Controller
         try {
             $request->validate([
                 'course_id' => 'required|exists:courses,id',
-                'payment_method' => 'required|in:stripe,paypal,twint'
+                'payment_method' => 'required|in:stripe,paypal,twint',
+                'email' => 'required_if:is_guest,true|email'
             ]);
 
             $course = Course::findOrFail($request->course_id);
             $amount = $course->price * 100; // Convert to cents
+
+            // Handle guest user
+            $user = auth()->user();
+            if (!$user && $request->has('email')) {
+                // Create or get guest user
+                $user = User::firstOrCreate(
+                    ['email' => $request->email],
+                    [
+                        'first_name' => 'Guest',
+                        'last_name' => 'User',
+                        'password' => Hash::make(Str::random(16)),
+                        'role' => 'guest'
+                    ]
+                );
+            }
 
             if ($request->payment_method === 'stripe') {
                 Stripe::setApiKey(config('services.stripe.secret'));
@@ -49,9 +68,10 @@ class CoursePaymentController extends Controller
                     'currency' => 'chf',
                     'payment_method_types' => ['card'],
                     'metadata' => [
-                        'user_id' => auth()->id(),
+                        'user_id' => $user->id,
                         'course_id' => $course->id,
-                        'course_name' => $course->title
+                        'course_name' => $course->title,
+                        'is_guest' => !auth()->check()
                     ]
                 ]);
 
@@ -68,9 +88,10 @@ class CoursePaymentController extends Controller
                     'currency' => 'chf',
                     'payment_method_types' => ['twint'],
                     'metadata' => [
-                        'user_id' => auth()->id(),
+                        'user_id' => $user->id,
                         'course_id' => $course->id,
-                        'course_name' => $course->title
+                        'course_name' => $course->title,
+                        'is_guest' => !auth()->check()
                     ]
                 ]);
 
@@ -78,8 +99,8 @@ class CoursePaymentController extends Controller
                 $paymentMethod = \Stripe\PaymentMethod::create([
                     'type' => 'twint',
                     'billing_details' => [
-                        'name' => auth()->user()->name,
-                        'email' => auth()->user()->email
+                        'name' => $user->name,
+                        'email' => $user->email
                     ]
                 ]);
 
@@ -110,7 +131,6 @@ class CoursePaymentController extends Controller
                     ]);
                 }
 
-                // If no QR code is available, return an error
                 return response()->json([
                     'error' => 'QR-Code konnte nicht generiert werden. Bitte versuchen Sie es später erneut.',
                     'status' => 'error'
@@ -173,7 +193,7 @@ class CoursePaymentController extends Controller
                         ->with('error', 'Zahlung war nicht erfolgreich');
                 }
 
-                $this->createCourseOrder($courseId, 'stripe', $paymentIntent->id);
+                $this->createCourseOrder($courseId, 'stripe', $paymentIntent->id, $paymentIntent->metadata->is_guest ?? false, $paymentIntent->metadata->user_id ?? null);
             } elseif ($paymentMethod === 'twint') {
                 $paymentIntentId = $request->input('payment_intent');
                 Stripe::setApiKey(config('services.stripe.secret'));
@@ -184,14 +204,14 @@ class CoursePaymentController extends Controller
                         ->with('error', 'TWINT Zahlung war nicht erfolgreich');
                 }
 
-                $this->createCourseOrder($courseId, 'twint', $paymentIntent->id);
+                $this->createCourseOrder($courseId, 'twint', $paymentIntent->id, $paymentIntent->metadata->is_guest ?? false, $paymentIntent->metadata->user_id ?? null);
             } else {
                 // PayPal success handling
                 $provider = $this->paypalProvider;
                 $response = $provider->capturePaymentOrder($request->token);
 
                 if (isset($response['status']) && $response['status'] === 'COMPLETED') {
-                    $this->createCourseOrder($courseId, 'paypal', $response['id']);
+                    $this->createCourseOrder($courseId, 'paypal', $response['id'], $paymentIntent->metadata->is_guest ?? false, $paymentIntent->metadata->user_id ?? null);
                 } else {
                     return redirect()->route('course', ['id' => $courseId])
                         ->with('error', 'Zahlung war nicht erfolgreich');
@@ -213,13 +233,13 @@ class CoursePaymentController extends Controller
             ->with('error', 'Zahlung wurde abgebrochen');
     }
 
-    private function createCourseOrder($courseId, $paymentMethod, $transactionId)
+    private function createCourseOrder($courseId, $paymentMethod, $transactionId, $isGuest = false, $userId = null)
     {
         try {
             DB::beginTransaction();
 
             $course = Course::findOrFail($courseId);
-            $user = auth()->user();
+            $user = User::findOrFail($userId);
 
             // Create order
             $order = Order::create([
@@ -241,7 +261,7 @@ class CoursePaymentController extends Controller
                 'shipping_city' => '',
                 'shipping_state' => '',
                 'shipping_postal_code' => '',
-                'shipping_country' => '',
+                'shipping_country' => ''
             ]);
 
             // Create order item with download link in options
@@ -262,7 +282,7 @@ class CoursePaymentController extends Controller
             try {
                 Mail::to(config('mail.admin_email'))->send(new CoursePurchaseMail(
                     $course,
-                    auth()->user(),
+                    $user,
                     $transactionId,
                     $paymentMethod
                 ));

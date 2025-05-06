@@ -10,7 +10,7 @@
             <div class="container">
 
                 <!--begin::Heading-->
-                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 h-100 z-index-2 container">
+                <div class="d-flex flex-column flex-center text-center py-10 py-lg-20 z-index-2 container">
                     <!--begin::Title-->
                     <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Zahlung erfolgreich
                         <span
@@ -44,8 +44,10 @@
 
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{ route('shop.index') }}" class="btn btn-primary me-3">Weiter shoppen</a>
-                                    <a href="{{ route('account.orders') }}" class="btn btn-light">Bestellungen anzeigen</a>
+                                    <a href="{{ route('shop.index') }}" class="btn btn-primary">Weiter shoppen</a>
+                                    @auth
+                                        <a href="{{ route('account.orders') }}" class="btn btn-light ms-3">Bestellungen anzeigen</a>
+                                    @endauth
                                 </div>
                                 <!--end::Actions-->
                             </div>
