@@ -79,7 +79,7 @@
 
             <div class="order-details">
                 <h2>Bestellnummer #{{ $order['id'] }}</h2>
-                <p><strong>Bestelldatum:</strong> {{ now()->format('F j, Y') }}</p>
+                <p><strong>Bestelldatum:</strong> {{ now()->format('d.m.Y') }}</p>
             </div>
 
             <h3>Bestellpositionen</h3>

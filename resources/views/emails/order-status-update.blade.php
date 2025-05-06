@@ -54,7 +54,7 @@
         </div>
 
         <div class="content">
-            <p>Dear {{ $order->shipping_first_name }} {{ $order->shipping_last_name }},</p>
+            <p>Lieber {{ $order->shipping_first_name }} {{ $order->shipping_last_name }},</p>
 
             <p>Deine Bestellung #{{ $order->id }} wurde aktualisiert:</p>
 
