@@ -7,7 +7,7 @@
                         <h3 class="card-title">Warenkorb</h3>
                     </div>
                     <div class="card-body">
-                        @if (Cart::count() > 0)
+                        @if (count($cart) > 0)
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -20,42 +20,42 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (Cart::content() as $item)
-                                            <tr data-row-id="{{ $item->rowId }}">
+                                        @foreach ($cart as $id => $item)
+                                            <tr data-row-id="{{ $id }}">
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <img src="{{ asset('storage/' . $item->options->image) }}"
-                                                            alt="{{ $item->name }}"
+                                                        <img src="{{ asset('storage/' . $item['image']) }}"
+                                                            alt="{{ $item['name'] }}"
                                                             class="img-thumbnail me-3 object-fit-contain"
                                                             style="width: 60px; height: 60px;">
                                                         <div>
                                                             <h6 class="mb-0">
-                                                                <a href="{{ route('shop.show', $item->options->slug) }}"
+                                                                <a href="{{ route('shop.show', $item['slug']) }}"
                                                                     class="text-decoration-none text-dark">
-                                                                    {{ $item->name }}
+                                                                    {{ $item['name'] }}
                                                                 </a>
                                                             </h6>
                                                             <small class="text-muted text-truncate d-block"
-                                                                style="max-width: 400px;">{{ $item->options->description }}</small>
+                                                                style="max-width: 400px;">{{ $item['description'] }}</small>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>@chf($item->price)</td>
+                                                <td>@chf($item['price'])</td>
                                                 <td>
                                                     <div class="input-group">
                                                         <button class="btn btn-outline-secondary" type="button"
-                                                            onclick="decrementQuantity('{{ $item->rowId }}')">-</button>
+                                                            onclick="decrementQuantity('{{ $id }}')">-</button>
                                                         <input type="text" class="form-control text-center"
-                                                            value="{{ $item->qty }}" style="width: 50px;" readonly
-                                                            data-row-id="{{ $item->rowId }}">
+                                                            value="{{ $item['quantity'] }}" style="width: 50px;" readonly
+                                                            data-row-id="{{ $id }}">
                                                         <button class="btn btn-outline-secondary" type="button"
-                                                            onclick="incrementQuantity('{{ $item->rowId }}')">+</button>
+                                                            onclick="incrementQuantity('{{ $id }}')">+</button>
                                                     </div>
                                                 </td>
-                                                <td>@chf($item->subtotal)</td>
+                                                <td>@chf($item['price'] * $item['quantity'])</td>
                                                 <td>
                                                     <button class="btn btn-danger btn-sm"
-                                                        onclick="removeItem('{{ $item->rowId }}')">
+                                                        onclick="removeItem('{{ $id }}')">
                                                         <i class="ki-duotone ki-trash fs-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
@@ -137,10 +137,10 @@
                                                     <h5 class="mb-0 shipping-cost">Versand: @chf(session('shipping_cost', 11.5))</h5>
                                                 </div>
                                                 <div class="mb-2">
-                                                    <h5 class="mb-0 cart-total">Total: @chf((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5))</h5>
+                                                    <h5 class="mb-0 cart-total">Total: @chf($total + session('shipping_cost', 11.5))</h5>
                                                 </div>
                                                 <a href="{{ route('cart.checkout') }}" class="btn btn-primary">
-                                                    Weiter zur Zahlung
+                                                    Weiter zur Kasse
                                                     <i class="ki-duotone ki-arrow-right fs-2 ms-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -181,8 +181,7 @@
             function updateCartTotal(total, shipping_cost = 0) {
                 const cartTotalElement = document.querySelector('.cart-total');
                 if (cartTotalElement) {
-                    cartTotalElement.textContent =
-                        `Total Price: CHF ${(parseFloat(total) + parseFloat(shipping_cost)).toFixed(2)}`;
+                    cartTotalElement.textContent = `Total: CHF ${(parseFloat(total) + parseFloat(shipping_cost)).toFixed(2)}`;
                 }
             }
 
@@ -221,26 +220,26 @@
                 }
             }
 
-            function incrementQuantity(rowId) {
-                const input = document.querySelector(`input[data-row-id="${rowId}"]`);
+            function incrementQuantity(id) {
+                const input = document.querySelector(`input[data-row-id="${id}"]`);
                 if (input) {
                     const newQuantity = parseInt(input.value) + 1;
-                    updateQuantity(rowId, newQuantity);
+                    updateQuantity(id, newQuantity);
                 }
             }
 
-            function decrementQuantity(rowId) {
-                const input = document.querySelector(`input[data-row-id="${rowId}"]`);
+            function decrementQuantity(id) {
+                const input = document.querySelector(`input[data-row-id="${id}"]`);
                 if (input) {
                     const newQuantity = parseInt(input.value) - 1;
                     if (newQuantity >= 1) {
-                        updateQuantity(rowId, newQuantity);
+                        updateQuantity(id, newQuantity);
                     }
                 }
             }
 
-            function updateQuantity(rowId, quantity) {
-                const input = document.querySelector(`input[data-row-id="${rowId}"]`);
+            function updateQuantity(id, quantity) {
+                const input = document.querySelector(`input[data-row-id="${id}"]`);
                 if (!input) return;
 
                 // Store original value in case we need to revert
@@ -249,7 +248,7 @@
                 // Update input value immediately for better UX
                 input.value = quantity;
 
-                fetch(`/cart/update/${rowId}`, {
+                fetch('{{ route('cart.update', ['rowId' => ':id']) }}'.replace(':id', id), {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -270,20 +269,11 @@
                     .then(data => {
                         if (data.success) {
                             // Update the subtotal in the table row
-                            const row = document.querySelector(`tr[data-row-id="${rowId}"]`);
+                            const row = document.querySelector(`tr[data-row-id="${id}"]`);
                             if (row) {
                                 const subtotalCell = row.querySelector('td:nth-child(4)');
                                 if (subtotalCell) {
                                     subtotalCell.textContent = `CHF ${parseFloat(data.itemTotal).toFixed(2)}`;
-                                }
-                            }
-
-                            // Update the subtotal in the mobile card
-                            const card = document.querySelector(`.card[data-row-id="${rowId}"]`);
-                            if (card) {
-                                const subtotalElement = card.querySelector('.text-end strong');
-                                if (subtotalElement) {
-                                    subtotalElement.textContent = `CHF ${parseFloat(data.itemTotal).toFixed(2)}`;
                                 }
                             }
 
@@ -305,13 +295,13 @@
                     });
             }
 
-            function removeItem(rowId) {
+            function removeItem(id) {
                 if (confirm('Möchten Sie diesen Artikel wirklich entfernen?')) {
                     const button = event.target.closest('button');
                     button.setAttribute('data-original-content', button.innerHTML);
                     setButtonLoading(button, true);
 
-                    fetch(`/cart/remove/${rowId}`, {
+                    fetch('{{ route('cart.remove', ['rowId' => ':id']) }}'.replace(':id', id), {
                             method: 'POST',
                             headers: {
                                 'Accept': 'application/json',
@@ -327,8 +317,7 @@
                         })
                         .then(data => {
                             if (data.success) {
-                                const row = document.querySelector(
-                                    `tr[data-row-id="${rowId}"], .card[data-row-id="${rowId}"]`);
+                                const row = document.querySelector(`tr[data-row-id="${id}"]`);
                                 if (row) {
                                     row.remove();
                                 }
@@ -363,7 +352,7 @@
                         'big': 20.50
                     };
 
-                    fetch('/cart/update-shipping', {
+                    fetch('{{ route('cart.update-shipping') }}', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -380,7 +369,7 @@
                             if (data.success) {
                                 // Update shipping cost display
                                 document.querySelector('.shipping-cost').textContent =
-                                    `Shipping: CHF ${parseFloat(data.shipping_cost).toFixed(2)}`;
+                                    `Versand: CHF ${parseFloat(data.shipping_cost).toFixed(2)}`;
                                 // Update total
                                 document.querySelector('.cart-total').textContent =
                                     `Total: CHF ${(parseFloat(data.total) + parseFloat(data.shipping_cost)).toFixed(2)}`;

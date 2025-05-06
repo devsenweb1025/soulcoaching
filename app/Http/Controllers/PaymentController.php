@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Cart;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -36,10 +35,23 @@ class PaymentController extends Controller
                     ->with('error', 'Versandinformationen wurden nicht gefunden. Bitte die Versandinformationen eingeben');
             }
 
+            // Get cart from session
+            $cart = session('cart', []);
+            if (empty($cart)) {
+                return redirect()->route('cart.checkout')
+                    ->with('error', 'Ihr Warenkorb ist leer.');
+            }
+
+            // Calculate totals
+            $subtotal = 0;
+            foreach ($cart as $item) {
+                $subtotal += $item['price'] * $item['quantity'];
+            }
+            $shippingCost = session('shipping_cost', 11.50);
+            $total = $subtotal + $shippingCost;
+
             // Create PayPal order
             $provider = $this->paypalProvider;
-            $cart = Cart::content();
-            $total = Cart::total();
 
             $order = [
                 "intent" => "CAPTURE",
@@ -48,29 +60,29 @@ class PaymentController extends Controller
                         "invoice_id" => uniqid('ORDER-'),
                         "amount" => [
                             "currency_code" => "CHF",
-                            "value" => number_format($total, 2, '.', '') + number_format(session('shipping_cost', 11.50), 2, '.', ''),
+                            "value" => number_format($total, 2, '.', ''),
                             "breakdown" => [
                                 "item_total" => [
                                     "currency_code" => "CHF",
-                                    "value" => number_format(Cart::subtotal(), 2, '.', '')
+                                    "value" => number_format($subtotal, 2, '.', '')
                                 ],
                                 "shipping" => [
                                     "currency_code" => "CHF",
-                                    "value" => number_format(session('shipping_cost', 11.50), 2, '.', '')
+                                    "value" => number_format($shippingCost, 2, '.', '')
                                 ],
                             ]
                         ],
-                        "items" => array_values($cart->map(function ($item) {
+                        "items" => array_map(function ($item) {
                             return [
-                                "name" => $item->name,
+                                "name" => $item['name'],
                                 "unit_amount" => [
                                     "currency_code" => "CHF",
-                                    "value" => number_format($item->price, 2, '.', '')
+                                    "value" => number_format($item['price'], 2, '.', '')
                                 ],
-                                "quantity" => (string) $item->qty,
-                                "sku" => $item->options->sku ?? null
+                                "quantity" => (string) $item['quantity'],
+                                "sku" => $item['options']['sku'] ?? null
                             ];
-                        })->toArray()),
+                        }, array_values($cart)),
                         "shipping" => [
                             "name" => [
                                 "full_name" => $shippingInfo['first_name'] . ' ' . $shippingInfo['last_name']
@@ -121,41 +133,28 @@ class PaymentController extends Controller
 
     public function handlePayPalSuccess(Request $request)
     {
-        $provider = $this->paypalProvider;
-        $response = $provider->capturePaymentOrder($request->token);
-        if (isset($response['status']) && $response['status'] === 'COMPLETED') {
-            // Create order
-            $order = $this->createOrder('paypal', $response['id'], $response['status']);
-
-            // Clear cart
-            Cart::destroy();
-
-            // Redirect to success page
-            return redirect()->route('cart.checkout.success', ['order' => $order->id])
-                ->with('success', 'Zahlung war erfolgreich');
-        }
         try {
             $provider = $this->paypalProvider;
             $response = $provider->capturePaymentOrder($request->token);
 
             if (isset($response['status']) && $response['status'] === 'COMPLETED') {
                 // Create order
-                $order = $this->createOrder('paypal', $response['id']);
+                $order = $this->createOrder('paypal', $response['id'], $response['status']);
 
-                // Clear cart
-                Cart::destroy();
+                // Clear cart and shipping info
+                session()->forget(['cart', 'shipping_info']);
 
                 // Redirect to success page
-                return redirect()->route('payment.success')
-                    ->with('success', 'Zahlung war erfolgreich')
-                    ->with('order', $order);
+                return redirect()->route('cart.checkout.success', ['order' => $order->id])
+                    ->with('success', 'Zahlung war erfolgreich');
             }
 
             return redirect()->route('cart.checkout')
                 ->with('error', 'Zahlung war nicht erfolgreich.');
         } catch (\Exception $e) {
+            Log::error('PayPal Payment Error: ' . $e->getMessage());
             return redirect()->route('cart.checkout')
-                ->with('error', $e->getMessage());
+                ->with('error', 'Etwas lief schief mit PayPal.');
         }
     }
 
@@ -190,23 +189,33 @@ class PaymentController extends Controller
 
     private function createOrder($paymentMethod, $transactionId, $status = 'pending'): Order
     {
-
         try {
             DB::beginTransaction();
+
             // Get shipping information from session
             $shippingInfo = session()->get('shipping_info');
+
+            // Get cart from session and calculate totals
+            $cart = session('cart', []);
+            $subtotal = 0;
+            foreach ($cart as $item) {
+                $subtotal += $item['price'] * $item['quantity'];
+            }
+            $shippingCost = session('shipping_cost', 11.50);
+            $total = $subtotal + $shippingCost;
+
             // Create order
             $order = Order::create([
-                'user_id' => auth()->id(),
+                'user_id' => auth()->id(), // Will be null for guest orders
                 'order_number' => 'ORD-' . strtoupper(Str::random(10)),
                 'status' => 'pending',
                 'payment_status' => strtolower($status),
                 'payment_method' => $paymentMethod,
                 'payment_id' => $transactionId,
-                'total' => (float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5),
-                'subtotal' => Cart::subtotal(null, '.', ''),
-                'tax' => Cart::tax(null, '.', ''),
-                'shipping_cost' => session('shipping_cost', 11.50),
+                'total' => $total,
+                'subtotal' => $subtotal,
+                'tax' => 0, // Add tax calculation if needed
+                'shipping_cost' => $shippingCost,
                 'shipping_first_name' => $shippingInfo['first_name'],
                 'shipping_last_name' => $shippingInfo['last_name'],
                 'shipping_email' => $shippingInfo['email'],
@@ -219,21 +228,28 @@ class PaymentController extends Controller
             ]);
 
             // Create order items
-            foreach (Cart::content() as $item) {
+            foreach ($cart as $id => $item) {
                 OrderItem::create([
                     'order_id' => $order->id,
-                    'product_id' => $item->id,
-                    'name' => $item->name,
-                    'price' => $item->price,
-                    'quantity' => $item->qty,
-                    'options' => $item->options->toArray(),
+                    'product_id' => $id,
+                    'name' => $item['name'],
+                    'price' => $item['price'],
+                    'quantity' => $item['quantity'],
+                    'options' => json_encode($item['options'] ?? [])
                 ]);
+
+                // Update product quantity
+                $product = Product::find($id);
+                if ($product) {
+                    $product->decrement('quantity', $item['quantity']);
+                }
             }
 
             DB::commit();
             return $order;
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error('Order Creation Error: ' . $e->getMessage());
             throw $e;
         }
     }

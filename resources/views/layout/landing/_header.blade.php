@@ -293,7 +293,7 @@
                             <span class="path2"></span>
                         </i>
                         <span
-                            class="badge bg-primary rounded-pill ms-2 cart-count text-white">{{ Cart::count() }}</span>
+                            class="badge bg-primary rounded-pill ms-2 cart-count text-white">{{ count(session('cart', [])) }}</span>
                     </a>
                     <!--end::Menu link-->
                 </div>

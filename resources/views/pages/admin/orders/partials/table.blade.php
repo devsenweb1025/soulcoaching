@@ -29,13 +29,19 @@
                     <td>
                         <div class="d-flex align-items-center">
                             <div class="symbol symbol-50px me-2">
-                                <span class="symbol-label bg-light-primary">
-                                    <i class="fas fa-user text-primary"></i>
+                                <span class="symbol-label {{ $order->user_id ? 'bg-light-primary' : 'bg-light-warning' }}">
+                                    <i class="fas {{ $order->user_id ? 'fa-user text-primary' : 'fa-user-circle text-warning' }}"></i>
                                 </span>
                             </div>
                             <div class="d-flex flex-column">
-                                <span class="text-gray-800 fw-bold mb-1">{{ $order->user->name }}</span>
-                                <span class="text-gray-400 fw-semibold d-block fs-7">{{ $order->user->email }}</span>
+                                @if($order->user_id)
+                                    <span class="text-gray-800 fw-bold mb-1">{{ $order->user->name }}</span>
+                                    <span class="text-gray-400 fw-semibold d-block fs-7">{{ $order->user->email }}</span>
+                                @else
+                                    <span class="text-gray-800 fw-bold mb-1">{{ $order->shipping_first_name }} {{ $order->shipping_last_name }}</span>
+                                    <span class="text-gray-400 fw-semibold d-block fs-7">{{ $order->shipping_email }}</span>
+                                    <span class="badge badge-light-warning fs-7">Gast</span>
+                                @endif
                             </div>
                         </div>
                     </td>
@@ -53,14 +59,14 @@
                     </td>
                     <td class="text-end">
                         <div class="d-flex justify-content-end">
-                            <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                            <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" title="Anzeigen">
                                 <i class="ki-duotone ki-eye fs-2">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
                                     <span class="path3"></span>
                                 </i>
                             </a>
-                            <button type="button" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm delete-order" data-id="{{ $order->id }}">
+                            <button type="button" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm delete-order" data-id="{{ $order->id }}" title="Löschen">
                                 <i class="ki-duotone ki-trash fs-2">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
@@ -111,7 +117,7 @@
                 cancelButtonText: 'Abbrechen'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`/admin/orders/${orderId}`, {
+                    fetch(`{{ route('admin.orders.destroy', $order->id) }}`, {
                         method: 'DELETE',
                         headers: {
                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
