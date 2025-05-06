@@ -1,4 +1,6 @@
 <x-landing-layout>
+    @section('title', 'Kontakt – Nimm Verbindung auf zur Seelenflüsterin')
+    @section('description', 'Du möchtest dich informieren, einen Termin buchen oder einfach eine Frage stellen? Ich freue mich auf deine Nachricht.')
     @include('pages.landing._partials._background')
     <!--begin::Landing hero-->
     <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">

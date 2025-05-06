@@ -1,4 +1,6 @@
 <x-landing-layout>
+    @section('title', 'Impressum & Datenschutz – Seelenflüsterin')
+    @section('description', 'Hier findest du alle rechtlichen Hinweise sowie Informationen zur Datenverarbeitung auf seelen-fluesterin.ch.')
     @include('pages.landing._partials._background')
     <!--begin::Landing hero-->
     <div class="d-flex flex-column flex-center w-100 min-h-250px min-h-lg-400px px-9">

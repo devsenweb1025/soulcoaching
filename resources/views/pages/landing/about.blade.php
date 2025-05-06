@@ -1,4 +1,6 @@
 <x-landing-layout>
+    @section('title', 'Über mich – Seelenflüsterin mit Herz und Erfahrung')
+    @section('description', 'Lerne mich und meine Arbeitsweise kennen – transparent, achtsam und mit dem Fokus auf individuelle Entwicklung.')
     @include('pages.landing._partials._background')
     <!--begin::Landing hero-->
     <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
