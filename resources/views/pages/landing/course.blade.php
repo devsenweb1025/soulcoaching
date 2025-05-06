@@ -134,7 +134,7 @@
                                                     <!-- Single buy button for guests -->
                                                     <button type="button" class="btn btn-primary"
                                                         onclick="handlePurchase(1)">
-                                                        <i class="ki-duotone ki-shopping-cart fs-2 me-2">
+                                                        <i class="ki-duotone ki-purchase fs-2 me-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
@@ -283,7 +283,7 @@
                                                     <!-- Single buy button for guests -->
                                                     <button type="button" class="btn btn-primary"
                                                         onclick="handlePurchase(2)">
-                                                        <i class="ki-duotone ki-shopping-cart fs-2 me-2">
+                                                        <i class="ki-duotone ki-purchase fs-2 me-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
