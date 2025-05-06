@@ -622,14 +622,16 @@
                     <div class="row g-5">
                         <!-- Guest Purchase -->
                         <div class="col-md-6">
-                            <div class="card card-custom card-borderless">
-                                <div class="card-body text-center">
+                            <div class="card card-custom card-borderless h-100">
+                                <div class="card-body text-center d-flex flex-column justify-content-between align-items-center">
                                     <i class="ki-duotone ki-user-tick fs-2hx text-info mb-5">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
-                                    <h3 class="card-title">Als Gast kaufen</h3>
-                                    <p class="text-muted mb-5">Kaufen Sie den Kurs ohne Registrierung</p>
+                                    <div class="text-box">
+                                        <h3 class="card-title">Als Gast kaufen</h3>
+                                        <p class="text-muted mb-5">Bestelle schnell und unkompliziert – ganz ohne Registrierung.</p>
+                                    </div>
                                     <button type="button" class="btn btn-info w-100"
                                         onclick="showGuestPurchaseForm()">Als Gast fortfahren</button>
                                 </div>
@@ -637,15 +639,17 @@
                         </div>
                         <!-- Login/Register -->
                         <div class="col-md-6">
-                            <div class="card card-custom card-borderless">
-                                <div class="card-body text-center">
+                            <div class="card card-custom card-borderless h-100">
+                                <div class="card-body text-center d-flex flex-column justify-content-between align-items-center">
                                     <i class="ki-duotone ki-profile-user fs-2hx text-primary mb-5">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                         <span class="path3"></span>
                                     </i>
-                                    <h3 class="card-title">Mit Konto kaufen</h3>
-                                    <p class="text-muted mb-5">Melden Sie sich an oder registrieren Sie sich</p>
+                                    <div class="text-box">
+                                        <h3 class="card-title">Mit Konto kaufen</h3>
+                                        <p class="text-muted mb-5">Melde dich an oder registriere dich – und profitiere von exklusiven Rabatten sowie weiteren Vorteilen.</p>
+                                    </div>
                                     <div class="d-flex gap-2">
                                         <a href="{{ route('login') }}" class="btn btn-primary w-100">Anmelden</a>
                                         <a href="{{ route('register') }}"
@@ -855,7 +859,9 @@
                     throw new Error(data.error);
                 }
 
-                const { error } = await stripe.confirmCardPayment(data.clientSecret, {
+                const {
+                    error
+                } = await stripe.confirmCardPayment(data.clientSecret, {
                     payment_method: {
                         card: card,
                         billing_details: {
@@ -869,7 +875,9 @@
                     throw new Error(error.message);
                 }
 
-                window.location.href = '{{ route('course.payment.success') }}?payment_method=stripe&course_id=' + courseId + '&paymentIntentId=' + data.paymentIntentId;
+                window.location.href =
+                    '{{ route('course.payment.success') }}?payment_method=stripe&course_id=' +
+                    courseId + '&paymentIntentId=' + data.paymentIntentId;
             } catch (error) {
                 Swal.fire({
                     text: error.message || 'Ein Fehler ist beim Bezahlvorgang aufgetreten',

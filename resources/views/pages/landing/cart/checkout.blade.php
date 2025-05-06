@@ -103,15 +103,17 @@
                                         <div class="row g-5">
                                             <!--begin::Login-->
                                             <div class="col-md-4">
-                                                <div class="card card-custom card-borderless">
-                                                    <div class="card-body text-center">
+                                                <div class="card card-custom card-borderless h-100">
+                                                    <div class="card-body text-center d-flex flex-column justify-content-between align-items-center">
                                                         <i class="ki-duotone ki-profile-user fs-2hx text-primary mb-5">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                             <span class="path3"></span>
                                                         </i>
-                                                        <h3 class="card-title">Bereits Kunde?</h3>
-                                                        <p class="text-muted mb-5">Melden Sie sich an, um schneller zu bestellen</p>
+                                                        <div class="text-box">
+                                                            <h3 class="card-title">Bereits Kunde?</h3>
+                                                            <p class="text-muted mb-5">Melde dich mit deinem Konto an.</p>
+                                                        </div>
                                                         <a href="{{ route('login') }}" class="btn btn-primary w-100">Anmelden</a>
                                                     </div>
                                                 </div>
@@ -120,14 +122,16 @@
 
                                             <!--begin::Register-->
                                             <div class="col-md-4">
-                                                <div class="card card-custom card-borderless">
-                                                    <div class="card-body text-center">
+                                                <div class="card card-custom card-borderless h-100">
+                                                    <div class="card-body text-center d-flex flex-column justify-content-between align-items-center">
                                                         <i class="ki-duotone ki-user-edit fs-2hx text-success mb-5">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
-                                                        <h3 class="card-title">Neukunde?</h3>
-                                                        <p class="text-muted mb-5">Registrieren Sie sich für ein Konto</p>
+                                                        <div class="text-box">
+                                                            <h3 class="card-title">Neukunde?</h3>
+                                                            <p class="text-muted mb-5">Registriere dich jetzt und profitiere von exklusiven Rabatten und weiteren Vorteilen.</p>
+                                                        </div>
                                                         <a href="{{ route('register') }}" class="btn btn-success w-100">Registrieren</a>
                                                     </div>
                                                 </div>
@@ -136,14 +140,16 @@
 
                                             <!--begin::Guest-->
                                             <div class="col-md-4">
-                                                <div class="card card-custom card-borderless">
-                                                    <div class="card-body text-center">
+                                                <div class="card card-custom card-borderless h-100">
+                                                    <div class="card-body text-center d-flex flex-column justify-content-between align-items-center">
                                                         <i class="ki-duotone ki-user-tick fs-2hx text-info mb-5">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
-                                                        <h3 class="card-title">Als Gast bestellen</h3>
-                                                        <p class="text-muted mb-5">Bestellen Sie ohne Registrierung</p>
+                                                        <div class="text-box">
+                                                            <h3 class="card-title">Als Gast bestellen</h3>
+                                                            <p class="text-muted mb-5">Bestelle schnell und unkompliziert – ganz ohne Registrierung.</p>
+                                                        </div>
                                                         <button type="button" class="btn btn-info w-100" id="continue-as-guest">Als Gast fortfahren</button>
                                                     </div>
                                                 </div>
