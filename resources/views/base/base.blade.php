@@ -16,16 +16,22 @@ License: {{ theme()->getOption('product', 'license') }}
 
 <head>
     <meta charset="utf-8" />
-    <title>{{ ucfirst(theme()->getOption('meta', 'title')) }}</title>
-    <meta name="description" property="org:description"
-        content="{{ ucfirst(theme()->getOption('meta', 'description')) }}" />
+    <title>
+        @hasSection('title')
+            @yield('title')
+        @else
+            {{ ucfirst(theme()->getOption('meta', 'title')) }}
+        @endif
+    </title>
+        <meta name="description" property="org:description"
+            content="@hasSection('description')@yield('description')@else{{ ucfirst(theme()->getOption('meta', 'description')) }}@endif" />
     <meta name="keywords" content="{{ theme()->getOption('meta', 'keywords') }}" />
     <link rel="canonical" href="{{ url()->current() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="{{ getAsset(theme()->getOption('assets', 'favicon')) }}" type="image/x-icon" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="{{ theme()->getOption('meta', 'google-site-verification') }}" />
-    <meta property="org:title" content="{{ ucfirst(theme()->getOption('meta', 'title')) }}" />
+    <meta property="org:title" content="@hasSection('title')@yield('title')@else{{ ucfirst(theme()->getOption('meta', 'title')) }}@endif" />
     {{-- <meta property="org:url" content="https://https://www.seelen-fluesterin.ch/"/> --}}
     {{-- <base href="https://www.seelen-fluesterin.ch/"> --}}
     <script type="text/javascript">     (function(c,l,a,r,i,t,y){         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);     })(window, document, "clarity", "script", "rb6z152s96"); </script>

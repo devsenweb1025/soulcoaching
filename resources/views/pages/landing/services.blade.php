@@ -1,4 +1,6 @@
 <x-landing-layout>
+    @section('title', 'Dienstleistungen – Übersicht & individuelle Angebote')
+    @section('description', 'Individuelle Angebote für energetische, emotionale und körperliche Unterstützung – persönlich, abgestimmt und wirkungsvoll.')
     @include('pages.landing._partials._background')
     <!--begin::Landing hero-->
     <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
