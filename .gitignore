@@ -15,6 +15,7 @@
 /public/demo13
 
 /storage/*.key
+/storage/app/public/
 /vendor
 .env
 .env.backup
