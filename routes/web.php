@@ -127,7 +127,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     ]);
     Route::post('benutzer/{user}/status', [UserController::class, 'toggleStatus'])->name('users.toggle-status');
     Route::post('benutzer/{user}/verifizierung', [UserController::class, 'toggleVerification'])->name('users.toggle-verification');
-    Route::delete('benutzer/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::post('benutzer/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     // Notification Routes
     Route::get('/benachrichtigungen', [NotificationController::class, 'index'])->name('notifications.index');

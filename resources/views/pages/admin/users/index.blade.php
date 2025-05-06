@@ -97,7 +97,7 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             url: `{{ route('admin.users.destroy', ['user' => ':userId']) }}`.replace(':userId', userId),
-                            type: 'DELETE',
+                            type: 'POST',
                             headers: {
                                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
                                 'Accept': 'application/json'
