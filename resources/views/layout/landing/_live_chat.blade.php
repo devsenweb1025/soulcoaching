@@ -111,6 +111,63 @@
     </button>
 </div>
 
+<!-- Purchase Options Modal -->
+<div class="modal fade" id="liveChatPurchaseOptionsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mw-650px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Live Chat kaufen</h2>
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row g-5">
+                    <!-- Guest Purchase -->
+                    <div class="col-md-6">
+                        <div class="card card-custom card-borderless h-100">
+                            <div class="card-body text-center d-flex flex-column justify-content-between align-items-center">
+                                <i class="ki-duotone ki-user-tick fs-2hx text-info mb-5">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <div class="text-box">
+                                    <h3 class="card-title">Als Gast kaufen</h3>
+                                    <p class="text-muted mb-5">Bestelle schnell und unkompliziert – ganz ohne Registrierung.</p>
+                                </div>
+                                <button type="button" class="btn btn-info w-100" onclick="showLiveChatGuestPurchaseForm()">Als Gast fortfahren</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Login/Register -->
+                    <div class="col-md-6">
+                        <div class="card card-custom card-borderless h-100">
+                            <div class="card-body text-center d-flex flex-column justify-content-between align-items-center">
+                                <i class="ki-duotone ki-profile-user fs-2hx text-primary mb-5">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                                <div class="text-box">
+                                    <h3 class="card-title">Mit Konto kaufen</h3>
+                                    <p class="text-muted mb-5">Melde dich an oder registriere dich – und profitiere von exklusiven Rabatten sowie weiteren Vorteilen.</p>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <a href="{{ route('login') }}" class="btn btn-primary w-100">Anmelden</a>
+                                    <a href="{{ route('register') }}" class="btn btn-success w-100">Registrieren</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Guest Purchase Modal -->
 <div class="modal fade" id="guestLiveChatModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -516,8 +573,17 @@
 
         // Guest purchase handling
         window.handleLiveChatPurchase = function() {
-            const modal = new bootstrap.Modal(document.getElementById('guestLiveChatModal'));
+            const modal = new bootstrap.Modal(document.getElementById('liveChatPurchaseOptionsModal'));
             modal.show();
+        };
+
+        // Show guest purchase form
+        window.showLiveChatGuestPurchaseForm = function() {
+            const purchaseOptionsModal = bootstrap.Modal.getInstance(document.getElementById('liveChatPurchaseOptionsModal'));
+            purchaseOptionsModal.hide();
+
+            const guestPurchaseModal = new bootstrap.Modal(document.getElementById('guestLiveChatModal'));
+            guestPurchaseModal.show();
         };
 
         // Show Stripe form for guest
