@@ -138,13 +138,13 @@
                                             <div class="col-md-4">
                                                 <div class="card card-custom card-borderless">
                                                     <div class="card-body text-center">
-                                                        <i class="ki-duotone ki-user-tick fs-2hx text-warning mb-5">
+                                                        <i class="ki-duotone ki-user-tick fs-2hx text-info mb-5">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
                                                         <h3 class="card-title">Als Gast bestellen</h3>
                                                         <p class="text-muted mb-5">Bestellen Sie ohne Registrierung</p>
-                                                        <button type="button" class="btn btn-warning w-100" id="continue-as-guest">Als Gast fortfahren</button>
+                                                        <button type="button" class="btn btn-info w-100" id="continue-as-guest">Als Gast fortfahren</button>
                                                     </div>
                                                 </div>
                                             </div>
