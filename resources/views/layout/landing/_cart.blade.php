@@ -6,7 +6,7 @@
             <!-- Satellite icon (shown when playing) -->
             {!! theme()->getIcon('handcart', 'fs-3tx text-white', 'solid') !!}
             <!-- Muted icon (shown when stopped) -->
-            <span class="badge badge-light-primary badge-circle cart-count">{{ Cart::count() }}</span>
+            <span class="badge badge-light-primary badge-circle cart-count">{{ count(session('cart', [])) }}</span>
         </a>
     </div>
     <!--end::Audio Section-->

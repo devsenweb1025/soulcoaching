@@ -54,38 +54,40 @@ Route::get('/shop/{slug}', [App\Http\Controllers\ShopController::class, 'show'])
 
 Route::get('/kurs', [CoursePaymentController::class, 'index'])->name('course');
 
+// Cart routes
+Route::get('/warenkorb', [CartController::class, 'index'])->name('cart.index');
+Route::post('/warenkorb/hinzufügen/{productId}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/warenkorb/aktualisieren/{rowId}', [CartController::class, 'update'])->name('cart.update');
+Route::post('/warenkorb/entfernen/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/warenkorb/leeren', [CartController::class, 'clear'])->name('cart.clear');
+Route::post('/warenkorb/versandinformationen-speichern', [CartController::class, 'storeShippingInfo'])->name('cart.store-shipping-info');
+Route::post('/warenkorb/versandinformationen-aktualisieren', [CartController::class, 'updateShipping'])->name('cart.update-shipping');
+
+// Checkout routes
+Route::get('/warenkorb/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::post('/warenkorb/checkout/verarbeiten', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
+Route::get('/warenkorb/checkout/erfolg', [CartController::class, 'checkoutSuccess'])->name('cart.checkout.success');
+
+// Payment routes
+Route::prefix('zahlung')->group(function () {
+    // PayPal routes
+    Route::post('/paypal/erstellen', [PaymentController::class, 'createPayPalPayment'])->name('payment.paypal.create');
+    Route::get('/paypal/erfolg', [PaymentController::class, 'handlePayPalSuccess'])->name('payment.paypal.success');
+    Route::get('/paypal/stornieren', [PaymentController::class, 'handlePayPalCancel'])->name('payment.paypal.cancel');
+
+    // Stripe routes
+    Route::post('/stripe/erstellen', [StripeController::class, 'createPaymentIntent'])->name('stripe.create-payment-intent');
+    Route::get('/stripe/erfolg', [StripeController::class, 'handleSuccess'])->name('stripe.success');
+    Route::get('/stripe/stornieren', [StripeController::class, 'handleCancel'])->name('stripe.cancel');
+});
+
 // require auth
 Route::middleware('auth')->group(function () {
     // Profile
     Route::get('profil', [ProfileController::class, 'index'])->name('profile');
     Route::get('profil/bearbeiten', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profil/aktualisieren', [ProfileController::class, 'update'])->name('profile.update');
-    // Cart routes
-    Route::get('/warenkorb', [CartController::class, 'index'])->name('cart.index');
-    Route::post('/warenkorb/hinzufügen/{productId}', [CartController::class, 'add'])->name('cart.add');
-    Route::post('/warenkorb/aktualisieren/{rowId}', [CartController::class, 'update'])->name('cart.update');
-    Route::post('/warenkorb/entfernen/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
-    Route::post('/warenkorb/leeren', [CartController::class, 'clear'])->name('cart.clear');
-    Route::post('/warenkorb/versandinformationen-speichern', [CartController::class, 'storeShippingInfo'])->name('cart.store-shipping-info');
-    Route::post('/warenkorb/versandinformationen-aktualisieren', [CartController::class, 'updateShipping'])->name('cart.update-shipping');
 
-    // Checkout routes
-    Route::get('/warenkorb/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-    Route::post('/warenkorb/checkout/verarbeiten', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
-    Route::get('/warenkorb/checkout/erfolg', [CartController::class, 'checkoutSuccess'])->name('cart.checkout.success');
-
-    // Payment routes
-    Route::prefix('zahlung')->group(function () {
-        // PayPal routes
-        Route::post('/paypal/erstellen', [PaymentController::class, 'createPayPalPayment'])->name('payment.paypal.create');
-        Route::get('/paypal/erfolg', [PaymentController::class, 'handlePayPalSuccess'])->name('payment.paypal.success');
-        Route::get('/paypal/stornieren', [PaymentController::class, 'handlePayPalCancel'])->name('payment.paypal.cancel');
-
-        // Stripe routes
-        Route::post('/stripe/erstellen', [StripeController::class, 'createPaymentIntent'])->name('stripe.create-payment-intent');
-        Route::get('/stripe/erfolg', [StripeController::class, 'handleSuccess'])->name('stripe.success');
-        Route::get('/stripe/stornieren', [StripeController::class, 'handleCancel'])->name('stripe.cancel');
-    });
 
     // Order Routes
     Route::get('/konto/bestellungen', [OrderController::class, 'index'])->name('account.orders');

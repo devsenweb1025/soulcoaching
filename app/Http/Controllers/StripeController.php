@@ -29,13 +29,21 @@ class StripeController extends Controller
 
             Stripe::setApiKey(config('services.stripe.secret'));
 
+            // Calculate total amount from session cart
+            $cart = session('cart', []);
+            $total = 0;
+            foreach ($cart as $item) {
+                $total += $item['price'] * $item['quantity'];
+            }
+            $total += session('shipping_cost', 11.5);
+
             $paymentIntent = PaymentIntent::create([
-                'amount' => ((float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5)) * 100, // Convert to cents
+                'amount' => $total * 100, // Convert to cents
                 'currency' => 'chf',
                 'payment_method_types' => ['card'],
                 'metadata' => [
-                    'user_id' => auth()->id(),
-                    'cart_count' => Cart::count(),
+                    'user_id' => auth()->id() ?? 'guest',
+                    'cart_count' => count($cart),
                     'shipping_name' => $shippingInfo['first_name'] . ' ' . $shippingInfo['last_name'],
                     'shipping_email' => $shippingInfo['email'],
                     'shipping_phone' => $shippingInfo['phone'],
@@ -83,18 +91,27 @@ class StripeController extends Controller
             DB::beginTransaction();
 
             try {
+                // Calculate totals from session cart
+                $cart = session('cart', []);
+                $subtotal = 0;
+                foreach ($cart as $item) {
+                    $subtotal += $item['price'] * $item['quantity'];
+                }
+                $shippingCost = session('shipping_cost', 11.50);
+                $total = $subtotal + $shippingCost;
+
                 // Create order
                 $order = Order::create([
-                    'user_id' => auth()->id(),
+                    'user_id' => auth()->id(), // Will be null for guest orders
                     'order_number' => 'ORD-' . strtoupper(uniqid()),
                     'status' => 'pending',
                     'payment_status' => $paymentIntent->status,
                     'payment_method' => 'stripe',
                     'payment_id' => $paymentIntent->id,
-                    'subtotal' => Cart::subtotal(),
-                    'tax' => Cart::tax(),
-                    'total' => $paymentIntent->amount / 100,
-                    'shipping_cost' => session('shipping_cost', 11.50),
+                    'subtotal' => $subtotal,
+                    'tax' => 0, // Add tax calculation if needed
+                    'total' => $total,
+                    'shipping_cost' => $shippingCost,
                     'shipping_first_name' => $shippingInfo['first_name'],
                     'shipping_last_name' => $shippingInfo['last_name'],
                     'shipping_email' => $shippingInfo['email'],
@@ -107,27 +124,25 @@ class StripeController extends Controller
                 ]);
 
                 // Create order items
-                $cart = Cart::content()->toArray();
-                foreach ($cart as $item) {
+                foreach ($cart as $id => $item) {
                     OrderItem::create([
                         'order_id' => $order->id,
-                        'product_id' => $item['id'],
-                        'quantity' => $item['qty'],
+                        'product_id' => $id,
+                        'quantity' => $item['quantity'],
                         'price' => $item['price'],
                         'name' => $item['name'],
-                        'options' => $item['options'] ?? null
+                        'options' => json_encode($item['options'] ?? [])
                     ]);
 
                     // Update product quantity
-                    $product = Product::find($item['id']);
+                    $product = Product::find($id);
                     if ($product) {
-                        $product->decrement('quantity', $item['qty']);
+                        $product->decrement('quantity', $item['quantity']);
                     }
                 }
 
                 // Clear cart and shipping info
-                Cart::destroy();
-                session()->forget(['shipping_info']);
+                session()->forget(['cart', 'shipping_info']);
 
                 DB::commit();
 
