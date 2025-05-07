@@ -32,8 +32,8 @@ License: {{ theme()->getOption('product', 'license') }}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="{{ theme()->getOption('meta', 'google-site-verification') }}" />
     <meta property="org:title" content="@hasSection('title')@yield('title')@else{{ ucfirst(theme()->getOption('meta', 'title')) }}@endif" />
-    {{-- <meta property="org:url" content="https://https://www.seelen-fluesterin.ch/"/> --}}
-    {{-- <base href="https://www.seelen-fluesterin.ch/"> --}}
+    <meta property="org:url" content="https://www.seelen-fluesterin.ch/"/>
+    <base href="https://www.seelen-fluesterin.ch/">
     <script type="text/javascript">     (function(c,l,a,r,i,t,y){         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);     })(window, document, "clarity", "script", "rb6z152s96"); </script>
     <link rel="alternate" hreflang="de-AT" href="https://www.seelenfluesterin.net/">
 
