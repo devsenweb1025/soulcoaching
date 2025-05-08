@@ -199,6 +199,8 @@ class CoursePaymentController extends Controller
                 Stripe::setApiKey(config('services.stripe.secret'));
                 $paymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
+                dd($paymentIntent);
+
                 if ($paymentIntent->status !== 'succeeded') {
                     return redirect()->route('course', ['id' => $courseId])
                         ->with('error', 'TWINT Zahlung war nicht erfolgreich');
