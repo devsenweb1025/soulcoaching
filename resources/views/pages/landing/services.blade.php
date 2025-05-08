@@ -167,7 +167,7 @@
                                         @endphp
                                         <img src="{{ $imageUrl }}"
                                             alt="Platzhalterbild für künftiges Beraterprofil auf der spirituellen Hotline der Seelenflüsterin"
-                                            class="w-50 d-none d-md-block">
+                                            class="w-50 d-md-none d-block">
                                         <!--end::Image preview wrapper-->
                                         <div
                                             class="text-center d-flex justify-content-center align-items-center mt-10 d-md-none d-block">
