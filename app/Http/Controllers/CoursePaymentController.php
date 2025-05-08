@@ -199,7 +199,6 @@ class CoursePaymentController extends Controller
                 Stripe::setApiKey(config('services.stripe.secret'));
                 $paymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
-                dd($paymentIntent);
 
                 if ($paymentIntent->status !== 'succeeded') {
                     return redirect()->route('course', ['id' => $courseId])
@@ -294,6 +293,7 @@ class CoursePaymentController extends Controller
 
             DB::commit();
         } catch (\Exception $e) {
+            dd($e->getMessage());
             DB::rollBack();
             throw $e;
         }
