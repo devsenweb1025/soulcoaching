@@ -61,7 +61,7 @@
     </div>
 
     <div class="content">
-        <p>Lieber {{ $user->first_name }} {{ $user->last_name }},</p>
+        <p>Lieber {{ $user->first_name . " " . $user->last_name }},</p>
 
         <p>Vielen Dank für Deine Buchung. Deine Buchung wurde bestätigt und erfolgreich verarbeitet.</p>
 

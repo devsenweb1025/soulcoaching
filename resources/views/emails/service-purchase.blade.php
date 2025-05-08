@@ -7,7 +7,7 @@
 <body>
     <h2>Neue Dienstleistung gekauft</h2>
 
-    <p><strong>Kunde:</strong> {{ $user->first_name }} {{ $user->last_name }}</p>
+    <p><strong>Kunde:</strong> {{ $user->first_name . " " . $user->last_name }}</p>
     <p><strong>E-Mail:</strong> {{ $user->email }}</p>
 
     <h3>Dienstleistung Details:</h3>

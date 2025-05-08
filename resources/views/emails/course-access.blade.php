@@ -51,7 +51,7 @@
 
     <div class="content">
         <h2>Kurs: {{ $course->title }}</h2>
-        <p>Lieber {{ $order->user->name }},</p>
+        <p>Lieber {{ $user->first_name . ' ' . $user->last_name }},</p>
         <p>vielen Dank, dass du meinen Kurs gekauft hast. Ich freue mich sehr, dass du mit dabei bist!</p>
 
         <p>Deine Bestelldetails:</p>
