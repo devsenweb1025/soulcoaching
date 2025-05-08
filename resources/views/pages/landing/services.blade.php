@@ -99,13 +99,25 @@
                         <div class="w-100 h-100 py-lg-10 py-md-5 d-flex flex-column justify-content-center align-items-center"
                             data-kt-image-input="true">
                             <!--begin::Image preview wrapper-->
-                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/elisabeth-kartenlegerin-telefonberatung-seelenfluesterin.webp') }}"
+                            @php
+                                $image = \App\Models\PageContent::where('page', 'images')
+                                    ->where('section', 'elisabeth-kartenlegerin-telefonberatung-seelenfluesterin')
+                                    ->first();
+                                $imageUrl = $image ? json_decode($image->content, true)['url'] : asset(theme()->getMediaUrlPath() . 'landing/elisabeth-kartenlegerin-telefonberatung-seelenfluesterin.webp');
+                            @endphp
+                            <img src="{{ $imageUrl }}"
                                 alt="Elisabeth, Kartenlegerin der 4. Generation, sitzt lächelnd vor einem ausgebreiteten Set an Kipper-Karten in einem hellen Raum"
                                 class="w-50 mb-5">
                             <!--end::Image preview wrapper-->
 
                             <!--begin::Image preview wrapper-->
-                            <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/beraterprofil-platzhalter-hotline-seelenfluesterin.webp') }}"
+                            @php
+                                $image = \App\Models\PageContent::where('page', 'images')
+                                    ->where('section', 'beraterprofil-platzhalter-hotline-seelenfluesterin')
+                                    ->first();
+                                $imageUrl = $image ? json_decode($image->content, true)['url'] : asset(theme()->getMediaUrlPath() . 'landing/beraterprofil-platzhalter-hotline-seelenfluesterin.webp');
+                            @endphp
+                            <img src="{{ $imageUrl }}"
                                 alt="Platzhalterbild für künftiges Beraterprofil auf der spirituellen Hotline der Seelenflüsterin"
                                 class="w-50 d-none d-md-block">
                             <!--end::Image preview wrapper-->
