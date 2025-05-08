@@ -155,6 +155,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         Route::get('/', [PageContentController::class, 'index'])->name('index');
         Route::get('/{id}/edit', [PageContentController::class, 'edit'])->name('edit');
         Route::put('/{id}', [PageContentController::class, 'update'])->name('update');
+        Route::post('/upload-image', [PageContentController::class, 'uploadImage'])->name('upload-image');
     });
 
     Route::resource('dienstleistungen', ServiceManagementController::class)->names('services')->parameters([

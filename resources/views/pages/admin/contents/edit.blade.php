@@ -4,7 +4,7 @@
             <h3 class="card-title">{{ $content->page }} => {{ $content->section }} Inhalt bearbeiten</h3>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.contents.update', $content->id) }}" method="POST">
+            <form action="{{ route('admin.contents.update', $content->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -64,18 +64,76 @@
 
 <script src="{{ asset('plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
 <script>
+    class MyUploadAdapter {
+        constructor(loader) {
+            this.loader = loader;
+        }
+
+        upload() {
+            return this.loader.file
+                .then(file => new Promise((resolve, reject) => {
+                    const formData = new FormData();
+                    formData.append('upload', file);
+                    formData.append('page', '{{ $content->page }}');
+                    formData.append('section', '{{ $content->section }}');
+                    console.log('{{ $content->section }}');
+
+                    fetch('{{ route("admin.contents.upload-image") }}', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.error) {
+                            reject(result.error);
+                        } else {
+                            resolve({
+                                default: result.url
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        reject(error);
+                    });
+                }));
+        }
+
+        abort() {
+            // Abort upload process
+        }
+    }
+
+    function MyCustomUploadAdapterPlugin(editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+            return new MyUploadAdapter(loader);
+        };
+    }
+
     var KTFormsCKEditorClassic = function() {
         var exampleClassic = function() {
             ClassicEditor
                 .create(document.querySelector('#kt_docs_ckeditor_classic'), {
+                    extraPlugins: [MyCustomUploadAdapterPlugin],
                     toolbar: {
                         items: [
                             'undo', 'redo',
                             '|', 'bold', 'italic',
-                            '|', 'bulletedList', 'numberedList'
+                            '|', 'bulletedList', 'numberedList',
+                            '|', 'imageUpload', 'blockQuote', 'insertTable'
                         ]
                     },
-                    language: 'de'
+                    language: 'de',
+                    image: {
+                        toolbar: [
+                            'imageTextAlternative',
+                            'imageStyle:inline',
+                            'imageStyle:block',
+                            'imageStyle:side'
+                        ]
+                    }
                 })
                 .then(editor => {
                     console.log(editor);
