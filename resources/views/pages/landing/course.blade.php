@@ -556,7 +556,7 @@
                                 </button>
                                 <button type="button" class="btn btn-primary"
                                     onclick="initiatePayment('twint', currentCourseId)"
-                                    :id="'twint-button-' + currentCourseId">
+                                    id="twint-button-guest">
                                     <i class="ki-duotone ki-wallet fs-2 me-2">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -906,7 +906,12 @@
             return;
         }
 
-        const twintButton = document.getElementById(`twint-button-${courseId}`);
+        @if(auth()->check())
+            const twintButton = document.getElementById(`twint-button-${courseId}`);
+        @else
+            const twintButton = document.getElementById(`twint-button-guest`);
+        @endif
+
         if (twintButton) {
             twintButton.disabled = true;
             twintButton.querySelector('.indicator-label').style.display = 'none';
