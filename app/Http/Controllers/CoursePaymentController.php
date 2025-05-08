@@ -99,7 +99,7 @@ class CoursePaymentController extends Controller
                 $paymentMethod = \Stripe\PaymentMethod::create([
                     'type' => 'twint',
                     'billing_details' => [
-                        'name' => $user->name,
+                        'name' => $user->first_name . ' ' . $user->last_name,
                         'email' => $user->email
                     ]
                 ]);

@@ -75,7 +75,7 @@ class CartPaymentController extends Controller
                 $paymentMethod = \Stripe\PaymentMethod::create([
                     'type' => 'twint',
                     'billing_details' => [
-                        'name' => auth()->user()->name,
+                        'name' => auth()->user()->first_name . ' ' . auth()->user()->last_name,
                         'email' => auth()->user()->email
                     ]
                 ]);
