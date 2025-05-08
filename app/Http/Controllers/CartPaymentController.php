@@ -34,11 +34,18 @@ class CartPaymentController extends Controller
     {
         try {
             $request->validate([
-                'payment_method' => 'required|in:stripe,paypal,twint'
+                'payment_method' => 'required|in:stripe,paypal,twint',
+                'guest_info' => 'required_if:is_guest,true|array',
+                'guest_info.email' => 'required_if:is_guest,true|email',
+                'guest_info.first_name' => 'required_if:is_guest,true|string',
+                'guest_info.last_name' => 'required_if:is_guest,true|string',
             ]);
 
             $total = (float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5);
             $amount = $total * 100; // Convert to cents
+
+            // Get user info based on auth status
+            $userInfo = $this->getUserInfo($request);
 
             if ($request->payment_method === 'stripe') {
                 Stripe::setApiKey(config('services.stripe.secret'));
@@ -48,8 +55,9 @@ class CartPaymentController extends Controller
                     'currency' => 'chf',
                     'payment_method_types' => ['card'],
                     'metadata' => [
-                        'user_id' => auth()->id(),
-                        'order_type' => 'cart'
+                        'user_id' => $userInfo['user_id'],
+                        'order_type' => 'cart',
+                        'is_guest' => $request->is_guest ? 'true' : 'false'
                     ]
                 ]);
 
@@ -66,8 +74,9 @@ class CartPaymentController extends Controller
                     'currency' => 'chf',
                     'payment_method_types' => ['twint'],
                     'metadata' => [
-                        'user_id' => auth()->id(),
-                        'order_type' => 'cart'
+                        'user_id' => $userInfo['user_id'],
+                        'order_type' => 'cart',
+                        'is_guest' => $request->is_guest ? 'true' : 'false'
                     ]
                 ]);
 
@@ -75,8 +84,8 @@ class CartPaymentController extends Controller
                 $paymentMethod = \Stripe\PaymentMethod::create([
                     'type' => 'twint',
                     'billing_details' => [
-                        'name' => auth()->user()->first_name . ' ' . auth()->user()->last_name,
-                        'email' => auth()->user()->email
+                        'name' => $userInfo['name'],
+                        'email' => $userInfo['email']
                     ]
                 ]);
 
@@ -107,7 +116,6 @@ class CartPaymentController extends Controller
                     ]);
                 }
 
-                // If no QR code is available, return an error
                 return response()->json([
                     'error' => 'QR-Code konnte nicht generiert werden. Bitte versuchen Sie es später erneut.',
                     'status' => 'error'
@@ -154,6 +162,24 @@ class CartPaymentController extends Controller
         }
     }
 
+    private function getUserInfo(Request $request)
+    {
+        if (auth()->check()) {
+            return [
+                'user_id' => auth()->id(),
+                'name' => auth()->user()->first_name . ' ' . auth()->user()->last_name,
+                'email' => auth()->user()->email
+            ];
+        }
+
+        // Guest user
+        return [
+            'user_id' => null,
+            'name' => $request->guest_info['first_name'] . ' ' . $request->guest_info['last_name'],
+            'email' => $request->guest_info['email']
+        ];
+    }
+
     public function handleSuccess(Request $request)
     {
         try {
@@ -169,7 +195,7 @@ class CartPaymentController extends Controller
                         ->with('error', 'Zahlung war nicht erfolgreich');
                 }
 
-                $this->createOrder('stripe', $paymentIntent->id);
+                $this->createOrder('stripe', $paymentIntent->id, $paymentIntent->metadata->is_guest === 'true');
             } elseif ($paymentMethod === 'twint') {
                 $paymentIntentId = $request->input('payment_intent');
                 Stripe::setApiKey(config('services.stripe.secret'));
@@ -180,14 +206,14 @@ class CartPaymentController extends Controller
                         ->with('error', 'TWINT Zahlung war nicht erfolgreich');
                 }
 
-                $this->createOrder('twint', $paymentIntent->id);
+                $this->createOrder('twint', $paymentIntent->id, $paymentIntent->metadata->is_guest === 'true');
             } else {
                 // PayPal success handling
                 $provider = $this->paypalProvider;
                 $response = $provider->capturePaymentOrder($request->token);
 
                 if (isset($response['status']) && $response['status'] === 'COMPLETED') {
-                    $this->createOrder('paypal', $response['id']);
+                    $this->createOrder('paypal', $response['id'], false);
                 } else {
                     return redirect()->route('cart.checkout')
                         ->with('error', 'Zahlung war nicht erfolgreich');
@@ -203,7 +229,7 @@ class CartPaymentController extends Controller
         }
     }
 
-    private function createOrder($paymentMethod, $transactionId)
+    private function createOrder($paymentMethod, $transactionId, $isGuest = false)
     {
         try {
             DB::beginTransaction();
@@ -213,7 +239,7 @@ class CartPaymentController extends Controller
 
             // Create order
             $order = Order::create([
-                'user_id' => $user->id,
+                'user_id' => $isGuest ? null : $user->id,
                 'order_number' => 'CART-' . strtoupper(uniqid()),
                 'status' => 'completed',
                 'payment_status' => 'completed',
@@ -247,17 +273,20 @@ class CartPaymentController extends Controller
             }
 
             // Send order confirmation email
-            Mail::to($user->email)->send(new OrderConfirmationEmail($order));
 
-            // Send order received email to admin
-            try {
-                Mail::to(config('mail.admin_email'))->send(new OrderReceivedEmail($order));
-            } catch (\Exception $e) {
-                Log::error('Error sending order received email: ' . $e->getMessage());
-            }
 
-            // Send notification
-            $user->notify(new OrderPlaced($order));
+            // // Send order received email to admin
+            // try {
+            //     Mail::to(session('shipping_info.email'))->send(new OrderConfirmationEmail($order));
+            //     Mail::to(config('mail.admin_email'))->send(new OrderReceivedEmail($order));
+            // } catch (\Exception $e) {
+            //     Log::error('Error sending order received email: ' . $e->getMessage());
+            // }
+
+            // // Send notification only for authenticated users
+            // if (!$isGuest && $user) {
+            //     $user->notify(new OrderPlaced($order));
+            // }
 
             // Clear cart
             Cart::destroy();

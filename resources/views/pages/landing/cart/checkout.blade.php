@@ -532,7 +532,13 @@
                             'Accept': 'application/json'
                         },
                         body: JSON.stringify({
-                            payment_method: 'twint'
+                            payment_method: 'twint',
+                            is_guest: true,
+                            guest_info: {
+                                email: form.querySelector('[name="email"]').value,
+                                first_name: form.querySelector('[name="first_name"]').value,
+                                last_name: form.querySelector('[name="last_name"]').value
+                            }
                         })
                     });
 

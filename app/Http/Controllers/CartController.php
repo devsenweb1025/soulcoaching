@@ -266,12 +266,16 @@ class CartController extends Controller
 
         $order = Order::findOrFail($order_id);
 
-        if (auth()->check()) {
-            Mail::to(auth()->user()->email)->send(new OrderConfirmation($order));
-            Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, auth()->user()));
-        } else {
-            Mail::to($order->shipping_email)->send(new OrderConfirmation($order));
-            Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, new User((['first_name' => 'Guest', 'last_name' => 'User', 'email' => $order->shipping_email]))));
+        try {
+            if (auth()->check()) {
+                Mail::to(auth()->user()->email)->send(new OrderConfirmation($order));
+                Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, auth()->user()));
+            } else {
+                Mail::to($order->shipping_email)->send(new OrderConfirmation($order));
+                Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, new User((['first_name' => 'Guest', 'last_name' => 'User', 'email' => $order->shipping_email]))));
+            }
+        } catch (Exception $e) {
+            Log::error('' . $e->getMessage());
         }
 
         return view('pages.landing.cart.success', [
