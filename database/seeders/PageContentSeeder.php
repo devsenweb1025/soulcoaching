@@ -11,6 +11,26 @@ class PageContentSeeder extends Seeder
     {
         $contents = [
             [
+                'page' => 'services',
+                'section' => 'hero_description',
+                'content' => ''
+            ],
+            [
+                'page' => 'services',
+                'section' => 'hotline_content',
+                'content' => ''
+            ],
+            [
+                'page' => 'services',
+                'section' => 'elisabeth-kartenlegerin-telefonberatung-seelenfluesterin',
+                'content' => ''
+            ],
+            [
+                'page' => 'services',
+                'section' => 'beraterprofil-platzhalter-hotline-seelenfluesterin',
+                'content' => ''
+            ],
+            [
                 'page' => 'ueber-mich',
                 'section' => 'hero',
                 'content' => 'Über mich'
