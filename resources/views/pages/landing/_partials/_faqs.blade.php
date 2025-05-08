@@ -25,7 +25,7 @@
                                         'question' =>
                                             'Was ist der Unterschied von einem Coaching zu einem Transformationscoaching?',
                                         'answer' =>
-                                            'Mein Coaching ist kein herkömmliches, weil ich mich vor dem Coaching mit deinem System verbinde und dadurch Inputs für dich bekomme. Ausserdem werden wir nicht nur auf Mentaler Ebene arbeiten, sondern beziehen deine Seele immer mit ein. So kommst du schneller und mit Herz an dein Ziel. Alle 5 Bewusstseinsebenen werden eingebaut.',
+                                            'Mein Coaching unterscheidet sich von herkömmlichen Ansätzen, da ich ein eigenes Konzept entwickelt habe, das die fünf Bewusstheitsebenen integriert. Vor jeder Sitzung verbinde ich mich zudem mit deinem System und erhalte dabei individuelle Impulse für dich.',
                                         'is_expanded' => true,
                                     ],
                                     [
