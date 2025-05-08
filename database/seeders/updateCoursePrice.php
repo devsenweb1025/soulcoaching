@@ -13,6 +13,6 @@ class updateCoursePrice extends Seeder
      */
     public function run(): void
     {
-        Course::updateOrCreate(['id' => 1], ['price' => 1]);
+        Course::updateOrCreate(['id' => 1], ['price' => 444]);
     }
 }
