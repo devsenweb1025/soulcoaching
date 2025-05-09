@@ -1,15 +1,15 @@
 # Soul Coaching E-Commerce Platform
 
-A modern e-commerce platform built with Laravel and magentix theme, featuring online courses, product sales, and booking management.
+A modern e-commerce platform built with Laravel and Metronic theme, featuring online courses, product sales, and booking management.
 
-## About magentix Theme
+## About Metronic Theme
 
-This project uses the magentix theme for its admin dashboard and frontend design.
+This project uses the Metronic theme for its admin dashboard and frontend design.
 
-- For a quick start please check [Online documentation page](//preview.keenthemes.com/magentix8/laravel/documentation/getting-started/build)
-- All demos assets are included in the package. To switch the demo please check [Switch demo documentation](//https://preview.keenthemes.com/magentix8/laravel/documentation/getting-started/multi-demo/build)
+- For a quick start please check [Online documentation page](//preview.keenthemes.com/metronic8/laravel/documentation/getting-started/build)
+- All demos assets are included in the package. To switch the demo please check [Switch demo documentation](//https://preview.keenthemes.com/metronic8/laravel/documentation/getting-started/multi-demo/build)
 - For any theme related questions please contact our [Theme Support](//keenthemes.com/support/)
-- Using magentix in a new project or for a new client? Purchase a new license https://1.envato.market/EA4JP
+- Using Metronic in a new project or for a new client? Purchase a new license https://1.envato.market/EA4JP
 - Stay tuned for updates via [Twitter](//www.twitter.com/keenthemes) and [Instagram](//www.instagram.com/keenthemes)
 
 ## Project Features
@@ -31,7 +31,7 @@ This project uses the magentix theme for its admin dashboard and frontend design
 - Chat message management
 
 ### Technical Features
-- Responsive design using magentix theme
+- Responsive design using Metronic theme
 - Real-time cart updates
 - Secure payment processing
 - Image upload and management
@@ -123,30 +123,30 @@ npm run dev
 ## API Endpoints
 
 ### Authentication
-- POST `/login` - User login
-- POST `/register` - User registration
-- POST `/logout` - User logout
+- POST `/api/auth/login` - User login
+- POST `/api/auth/register` - User registration
+- POST `/api/auth/logout` - User logout
 
 ### Products
-- GET `/shop` - List all products
-- GET `/shop/{slug}` - Show product details
-- GET `/shop/search` - Search products
-- GET `/shop/category/{category}` - Filter by category
+- GET `/api/shop` - List all products
+- GET `/api/shop/{slug}` - Show product details
+- GET `/api/shop/search` - Search products
+- GET `/api/shop/category/{category}` - Filter by category
 
 ### Cart
-- GET `/cart` - View cart
-- POST `/cart/add` - Add to cart
-- POST `/cart/update` - Update cart item
-- POST `/cart/remove` - Remove from cart
-- GET `/cart/count` - Get cart count
+- GET `/api/cart` - View cart
+- POST `/api/cart/add` - Add to cart
+- POST `/api/cart/update` - Update cart item
+- POST `/api/cart/remove` - Remove from cart
+- GET `/api/cart/count` - Get cart count
 
 ### Orders
-- GET `/account/orders` - List user orders
-- GET `/account/orders/{order}` - Show order details
-- POST `/account/orders/track` - Track order
+- GET `/api/account/orders` - List user orders
+- GET `/api/account/orders/{order}` - Show order details
+- POST `/api/account/orders/track` - Track order
 
 ### Admin
-- GET `/admin` - Admin dashboard
+- GET `/api/admin` - Admin dashboard
 - Resource routes for products, orders, users, etc.
 
 ## Frontend Features
@@ -196,6 +196,7 @@ npm run dev
 - SQL injection prevention
 - Secure password hashing
 - Role-based access control
+- API authentication using Laravel Sanctum
 
 ## Contributing
 
