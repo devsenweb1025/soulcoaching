@@ -69,6 +69,15 @@
             <a href="{{ $downloadLink }}" class="button">Kursmaterialien herunterladen</a>
         </div>
 
+        <p>Da die gesamte Dateigrösse des Kurses sehr gross ist, zeigt Google Drive beim Herunterladen möglicherweise
+            folgenden Hinweis an: „Die Datei konnte nicht auf Viren untersucht werden.“</p>
+
+        <p>Das liegt daran, dass Google Dateien über 100 MB nicht automatisch prüfen kann. Meine Videos sind geprüft und
+            sicher, du kannst also bedenkenlos auf „Trotzdem herunterladen“ klicken, um die Dateien zu speichern.</p>
+
+        <div style="text-align: center;">
+            <a href="{{ $downloadLink }}" class="button">Kursmaterialien herunterladen</a>
+        </div>
         <p>Wenn du Fragen hast oder Hilfe benötigst, zögere bitte nicht, dich bei mir zu melden.</p>
     </div>
 
