@@ -240,7 +240,12 @@ class CoursePaymentController extends Controller
             DB::beginTransaction();
 
             $course = Course::findOrFail($courseId);
-            $user = User::findOrFail($userId);
+            $user = auth()->user();
+
+            if ($isGuest) {
+                // Get the guest user from the payment intent metadata
+                $user = User::find($userId);
+            }
 
             // Create order
             $order = Order::create([
