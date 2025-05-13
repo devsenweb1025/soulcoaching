@@ -15,7 +15,12 @@
                             <div class="mb-2 w-100" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
                                 data-aos-delay="0">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sarah-barone-seelenfluesterin-businessportrait-am-see.webp') }}"
+<<<<<<< HEAD
                                     class="w-100 h-auto rounded" alt="Sarah, die Seelenflüsterin, im Business-Outfit am Seeufer – Porträtaufnahme in natürlicher Umgebung">
+=======
+                                    class="w-100 h-auto rounded"
+                                    alt="Sarah, die Seelenflüsterin, im Business-Outfit am Seeufer – Porträtaufnahme in natürlicher Umgebung">
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
                             </div>
                             <!--end::Testimonial-->
                         </div>
@@ -37,6 +42,7 @@
                                             Deine Reise zu mehr Bewusstsein beginnt hier.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
+<<<<<<< HEAD
                                             Spürst du den Ruf nach innerer Klarheit, Heilung und spiritueller Begleitung?
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
@@ -44,6 +50,22 @@
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
                                             Hier darfst du dich erinnern, wer du wirklich bist – und lernen, deine Selbstheilungskräfte zu aktivieren. Als erstes Geschenk lade ich dich zu einer kleinen geführten Meditation ein – sie öffnet das Tor zu deiner Reise nach innen.
+=======
+                                            Spürst du den Ruf nach innerer Klarheit, Heilung und spiritueller
+                                            Begleitung?
+                                        </div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Deine Seele hat dich nicht zufällig hierher geführt – sondern genau dahin,
+                                            wo Transformation möglich ist. Ich begleite dich mit meinen Medialen
+                                            Fähigkeiten, Intuition und Psychologischen Methodiken in deine
+                                            Transformation – ob du in der Schweiz, in Österreich oder Deutschland bist.
+                                        </div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Hier darfst du dich erinnern, wer du wirklich bist – und lernen, deine
+                                            Selbstheilungskräfte zu aktivieren. Als erstes Geschenk lade ich dich zu
+                                            einer kleinen geführten Meditation ein – sie öffnet das Tor zu deiner Reise
+                                            nach innen.
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
                                         </div>
                                     </div>
 
@@ -83,6 +105,7 @@
                 data-tns-autoplay="true" data-tns-autoplay-timeout="2000" data-tns-autoplay-hover-pause="false"
                 data-tns-controls="false" data-tns-nav="false" data-tns-items="1" data-tns-slide-by="1"
                 data-tns-responsive="{768:{items:3},992:{items:5},1200:{items:5}}">
+<<<<<<< HEAD
                 @for ($i = 1; $i <= 6; $i++)
                     @if ($i !== 3)
                         <!--begin::Item-->
@@ -97,6 +120,20 @@
                         <!--end::Item-->
                     @endif
                 @endfor
+=======
+                @foreach ($partners as $partner)
+                    <!--begin::Item-->
+                    <div class="px-5 py-5">
+                        <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
+                            <a href="{{ $partner->domain }}" target="_blank">
+                                <img src="{{ asset('storage/partners/' . $partner->image) }}" alt="{{ $partner->name }}"
+                                    class="img-fluid" style="max-height: 100px; width: auto;">
+                            </a>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                @endforeach
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
             </div>
             <!--end::Slider-->
         </div>

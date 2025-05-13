@@ -1,5 +1,6 @@
 # Soul Coaching E-Commerce Platform
 
+<<<<<<< HEAD
 A modern e-commerce platform built with Laravel and magentix theme, featuring online courses, product sales, and booking management.
 
 ## About magentix Theme
@@ -10,6 +11,18 @@ This project uses the magentix theme for its admin dashboard and frontend design
 - All demos assets are included in the package. To switch the demo please check [Switch demo documentation](//https://preview.keenthemes.com/magentix8/laravel/documentation/getting-started/multi-demo/build)
 - For any theme related questions please contact our [Theme Support](//keenthemes.com/support/)
 - Using magentix in a new project or for a new client? Purchase a new license https://1.envato.market/EA4JP
+=======
+A modern e-commerce platform built with Laravel and Metronic theme, featuring online courses, product sales, and booking management.
+
+## About Metronic Theme
+
+This project uses the Metronic theme for its admin dashboard and frontend design.
+
+- For a quick start please check [Online documentation page](//preview.keenthemes.com/metronic8/laravel/documentation/getting-started/build)
+- All demos assets are included in the package. To switch the demo please check [Switch demo documentation](//https://preview.keenthemes.com/metronic8/laravel/documentation/getting-started/multi-demo/build)
+- For any theme related questions please contact our [Theme Support](//keenthemes.com/support/)
+- Using Metronic in a new project or for a new client? Purchase a new license https://1.envato.market/EA4JP
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
 - Stay tuned for updates via [Twitter](//www.twitter.com/keenthemes) and [Instagram](//www.instagram.com/keenthemes)
 
 ## Project Features
@@ -31,7 +44,11 @@ This project uses the magentix theme for its admin dashboard and frontend design
 - Chat message management
 
 ### Technical Features
+<<<<<<< HEAD
 - Responsive design using magentix theme
+=======
+- Responsive design using Metronic theme
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
 - Real-time cart updates
 - Secure payment processing
 - Image upload and management
@@ -123,6 +140,7 @@ npm run dev
 ## API Endpoints
 
 ### Authentication
+<<<<<<< HEAD
 - POST `/login` - User login
 - POST `/register` - User registration
 - POST `/logout` - User logout
@@ -147,6 +165,32 @@ npm run dev
 
 ### Admin
 - GET `/admin` - Admin dashboard
+=======
+- POST `/api/auth/login` - User login
+- POST `/api/auth/register` - User registration
+- POST `/api/auth/logout` - User logout
+
+### Products
+- GET `/api/shop` - List all products
+- GET `/api/shop/{slug}` - Show product details
+- GET `/api/shop/search` - Search products
+- GET `/api/shop/category/{category}` - Filter by category
+
+### Cart
+- GET `/api/cart` - View cart
+- POST `/api/cart/add` - Add to cart
+- POST `/api/cart/update` - Update cart item
+- POST `/api/cart/remove` - Remove from cart
+- GET `/api/cart/count` - Get cart count
+
+### Orders
+- GET `/api/account/orders` - List user orders
+- GET `/api/account/orders/{order}` - Show order details
+- POST `/api/account/orders/track` - Track order
+
+### Admin
+- GET `/api/admin` - Admin dashboard
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
 - Resource routes for products, orders, users, etc.
 
 ## Frontend Features
@@ -196,6 +240,10 @@ npm run dev
 - SQL injection prevention
 - Secure password hashing
 - Role-based access control
+<<<<<<< HEAD
+=======
+- API authentication using Laravel Sanctum
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
 
 ## Contributing
 

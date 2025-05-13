@@ -160,6 +160,23 @@ return array(
                     ),
                     array(
                         'classes' => array('content' => ''),
+<<<<<<< HEAD
+=======
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Partnerverwaltung</span>',
+                    ),
+                    array(
+                        'title' => 'Partnerübersicht',
+                        'path' => 'admin/partners',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'title' => 'Partner anlegen',
+                        'path' => 'admin/partners/create',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'classes' => array('content' => ''),
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
                         'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Dienstleistungsverwaltung</span>',
                     ),
                     array(

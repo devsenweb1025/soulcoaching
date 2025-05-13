@@ -167,6 +167,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // Admin Profile Routes
     Route::get('/profil', [AdminProfileController::class, 'index'])->name('profile.index');
     Route::put('/profil', [AdminProfileController::class, 'update'])->name('profile.update');
+<<<<<<< HEAD
+=======
+
+    // Partner Management Routes
+    Route::resource('partners', \App\Http\Controllers\Admin\PartnerController::class);
+    Route::post('partners/update-order', [\App\Http\Controllers\Admin\PartnerController::class, 'updateOrder'])->name('partners.update-order');
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
 });
 
 // Service Routes

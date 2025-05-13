@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use App\Models\Partner;
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
 use Illuminate\Http\Request;
 use App\Models\Service;
 use Illuminate\Support\Facades\Mail;
@@ -14,7 +18,12 @@ class LandingController extends Controller
     public function index()
     {
         $services = Service::where('is_active', true)->where('is_live_chat', false)->orderBy('sort_order', 'asc')->get();
+<<<<<<< HEAD
         return view("pages.landing.index", compact("services"));
+=======
+        $partners = Partner::where('is_active', true)->orderBy('sort_order')->get();
+        return view("pages.landing.index", compact("services", "partners"));
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
     }
 
     public function about()
@@ -72,7 +81,12 @@ class LandingController extends Controller
 
     public function medien()
     {
+<<<<<<< HEAD
         return view("pages.landing.media");
+=======
+        $partners = Partner::where('is_active', true)->orderBy('sort_order')->get();
+        return view("pages.landing.media", compact("partners"));
+>>>>>>> dd9dec9869714250fe608c1291649c23b380b8c4
     }
 
     public function booking()
