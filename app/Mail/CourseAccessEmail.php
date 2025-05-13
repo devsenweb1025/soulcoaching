@@ -16,15 +16,17 @@ class CourseAccessEmail extends Mailable
 
     public $course;
     public $order;
+    public $user;
     public $downloadLink;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($course, $order, $downloadLink)
+    public function __construct($course, $order, $user, $downloadLink)
     {
         $this->course = $course;
         $this->order = $order;
+        $this->user = $user;
         $this->downloadLink = $downloadLink;
     }
 
@@ -48,6 +50,7 @@ class CourseAccessEmail extends Mailable
             with: [
                 'course' => $this->course,
                 'order' => $this->order,
+                'user' => $this->user,
                 'downloadLink' => $this->downloadLink
             ],
         );
