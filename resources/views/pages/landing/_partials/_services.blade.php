@@ -34,12 +34,12 @@
                                 data-aos-delay="0">
                                 <div class="card card-shadow card-borderless mb-5 bg-gray-300">
                                     <div class="card-header">
-                                        <h2 class="card-title fs-1.5rem fw-bold">
+                                        <h2 class="card-title fw-bold fs-md-7 fs-2">
                                             {{ $service['title'] }}
                                         </h2>
                                     </div>
                                     <div class="card-body">
-                                        <div class="text-gray-600 fw-semibold fs-1rem description-text">
+                                        <div class="text-gray-600 fw-semibold description-text">
                                             @php
                                                 $text = $service['description'];
                                                 $shortText =
@@ -99,22 +99,37 @@
         showMoreLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const card = this.closest('.card');
+                const currentCard = this.closest('.card');
                 const descriptionText = this.previousElementSibling;
                 const shortText = descriptionText.querySelector('.short-text');
                 const fullText = descriptionText.querySelector('.full-text');
                 const isExpanded = fullText.style.display !== 'none';
 
+                // Collapse all other cards first
+                showMoreLinks.forEach(otherLink => {
+                    if (otherLink !== this) {
+                        const otherCard = otherLink.closest('.card');
+                        const otherDescriptionText = otherLink.previousElementSibling;
+                        const otherShortText = otherDescriptionText.querySelector('.short-text');
+                        const otherFullText = otherDescriptionText.querySelector('.full-text');
+
+                        otherFullText.style.display = 'none';
+                        otherShortText.style.display = 'inline';
+                        otherLink.textContent = 'Mehr anzeigen';
+                        otherCard.style.height = `${maxHeight}px`;
+                    }
+                });
+
                 if (isExpanded) {
                     fullText.style.display = 'none';
                     shortText.style.display = 'inline';
                     this.textContent = 'Mehr anzeigen';
-                    card.style.height = `${maxHeight}px`; // Reset to fixed height
+                    currentCard.style.height = `${maxHeight}px`;
                 } else {
                     fullText.style.display = 'inline';
                     shortText.style.display = 'none';
                     this.textContent = 'Weniger anzeigen';
-                    card.style.height = 'auto'; // Allow card to expand
+                    currentCard.style.height = 'auto';
                 }
             });
         });
