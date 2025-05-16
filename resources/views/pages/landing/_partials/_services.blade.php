@@ -30,9 +30,9 @@
                     <!--begin::Pricing-->
                     <div class="row g-5">
                         @foreach ($services as $service)
-                            <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                            <div class="col-lg-3" id="card-container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                                 data-aos-delay="0">
-                                <div class="card card-shadow card-borderless mb-5 bg-gray-300 h-100">
+                                <div class="card card-shadow card-borderless mb-5 bg-gray-300">
                                     <div class="card-header">
                                         <h2 class="card-title fs-1.5rem fw-bold">
                                             {{ $service['title'] }}
@@ -52,7 +52,8 @@
                                     </div>
                                     <div class="card-footer">
                                         <div class="card-toolbar text-center">
-                                            <a href="{{ route('prices', ['service' => $service['title']]) }}" class="btn btn-primary">
+                                            <a href="{{ route('prices', ['service' => $service['title']]) }}"
+                                                class="btn btn-primary">
                                                 zu den Preisen
                                             </a>
                                         </div>
@@ -83,10 +84,22 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const showMoreLinks = document.querySelectorAll('.show-more-link');
+        const cards = document.querySelectorAll('#card-container .card');
+        let maxHeight = 0;
+
+        // Set initial equal heights
+        cards.forEach(card => {
+            maxHeight = Math.max(maxHeight, card.offsetHeight);
+        });
+
+        cards.forEach(card => {
+            card.style.height = `${maxHeight}px`;
+        });
 
         showMoreLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
+                const card = this.closest('.card');
                 const descriptionText = this.previousElementSibling;
                 const shortText = descriptionText.querySelector('.short-text');
                 const fullText = descriptionText.querySelector('.full-text');
@@ -96,10 +109,12 @@
                     fullText.style.display = 'none';
                     shortText.style.display = 'inline';
                     this.textContent = 'Mehr anzeigen';
+                    card.style.height = `${maxHeight}px`; // Reset to fixed height
                 } else {
                     fullText.style.display = 'inline';
                     shortText.style.display = 'none';
                     this.textContent = 'Weniger anzeigen';
+                    card.style.height = 'auto'; // Allow card to expand
                 }
             });
         });
