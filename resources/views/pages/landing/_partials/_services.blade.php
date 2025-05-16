@@ -32,14 +32,14 @@
                         @foreach ($services as $service)
                             <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                                 data-aos-delay="0">
-                                <div class="card card-shadow card-borderless mb-5 bg-gray-300">
+                                <div class="card card-shadow card-borderless mb-5 bg-gray-300 h-100">
                                     <div class="card-header">
-                                        <h2 class="card-title fs-2 fw-bold">
+                                        <h2 class="card-title fs-1.5rem fw-bold">
                                             {{ $service['title'] }}
                                         </h2>
                                     </div>
                                     <div class="card-body">
-                                        <div class="text-gray-600 fw-semibold fs-5 description-text">
+                                        <div class="text-gray-600 fw-semibold fs-1rem description-text">
                                             @php
                                                 $text = $service['description'];
                                                 $shortText =
