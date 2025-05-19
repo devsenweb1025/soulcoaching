@@ -55,3 +55,13 @@
     </tbody>
 </table>
 <!--end::Table-->
+
+<!--begin::Pagination-->
+<div class="d-flex flex-stack flex-wrap pt-10">
+    <div class="fs-6 fw-semibold text-gray-700">
+        Zeige {{ $users->firstItem() ?? 0 }} bis {{ $users->lastItem() ?? 0 }} von {{ $users->total() }}
+        Einträgen
+    </div>
+    {{ $users->links('vendor.pagination.index') }}
+</div>
+<!--end::Pagination-->
