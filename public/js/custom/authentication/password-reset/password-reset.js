@@ -55,7 +55,7 @@ var KTPasswordResetGeneral = function () {
                         .then(function (response) {
                             // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                             Swal.fire({
-                                text: "Please check your email to proceed with the password reset.",
+                                text: "Der Link zum Zurücksetzen des Passworts wurde dir per Mail geschickt.",
                                 icon: "success",
                                 buttonsStyling: false,
                                 confirmButtonText: "Weiter!",

@@ -34,7 +34,7 @@
                                 data-aos-delay="0">
                                 <div class="card card-shadow card-borderless mb-5 bg-gray-300">
                                     <div class="card-header">
-                                        <h2 class="card-title fw-bold fs-md-7 fs-2">
+                                        <h2 class="card-title fw-bold fs-md-7 fs-4">
                                             {{ $service['title'] }}
                                         </h2>
                                     </div>
