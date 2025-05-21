@@ -63,7 +63,7 @@
     <!--end::Label-->
     <!--begin::Input-->
     <div class="form-check form-switch form-check-custom form-check-solid">
-        <input class="form-check-input" type="checkbox" name="is_active" value="1" {{ old('is_active', $user->is_active ?? true) ? 'checked' : '' }} />
+        <input class="form-check-input" type="checkbox" name="email_verified" value="1" {{ old('email_verified', $user->email_verified_at ?? true) ? 'checked' : '' }} />
         <label class="form-check-label">Aktiv</label>
     </div>
     <!--end::Input-->
