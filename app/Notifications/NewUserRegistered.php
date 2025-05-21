@@ -33,7 +33,7 @@ class NewUserRegistered extends Notification implements ShouldQueue
             ->line('Name: ' . $this->user->first_name . ' ' . $this->user->last_name)
             ->line('E-Mail: ' . $this->user->email)
             ->line('Registriert am: ' . $this->user->created_at->format('d.m.Y H:i'))
-            ->action('Benutzer anzeigen', url('/admin/benutzer/' . $this->user->id));
+            ->action('Benutzer anzeigen', url('/admin/benutzer/' . $this->user->id . '/edit'));
     }
 
     public function toArray($notifiable)
