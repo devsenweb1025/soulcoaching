@@ -75,6 +75,7 @@ License: {{ theme()->getOption('product', 'license') }}
     @endif
 
     @yield('styles')
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/023af728638dde10ccacc1461/819f4767b84230c4d6ee91ca6.js");</script>
 </head>
 {{-- end::Head --}}
 
