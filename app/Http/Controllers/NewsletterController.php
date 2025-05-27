@@ -16,8 +16,8 @@ class NewsletterController extends Controller
     public function __construct()
     {
         $this->mailchimpApiKey = config('newsletter.drivers.mailchimp.apiKey');
-        $this->mailchimpListId = config('newsletter.drivers.mailchimp.serverPrefix');
-        $this->mailchimpServer = config('newsletter.drivers.mailchimp.listId');
+        $this->mailchimpListId = config('newsletter.drivers.mailchimp.listId');
+        $this->mailchimpServer = config('newsletter.drivers.mailchimp.serverPrefix');
 
         if (empty($this->mailchimpApiKey) || empty($this->mailchimpListId) || empty($this->mailchimpServer)) {
             Log::error('Mailchimp configuration is missing. Please check your .env file.');
