@@ -179,7 +179,7 @@
             </p>
         </div>
 
-        <button class="dismiss" onclick="closeNewsletterPopup()">Fenster schließen</button>
+        <button class="dismiss" onclick="closeNewsletterPopup()">Fenster schliessen</button>
     </div>
 </div>
 
