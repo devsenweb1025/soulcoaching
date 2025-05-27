@@ -44,6 +44,14 @@
         margin-bottom: 16px;
     }
 
+    .popup-box .field-title {
+        font-size: 14px;
+        font-weight: normal;
+        text-align: left;
+        margin: 10px 0 5px;
+        font-family: 'Archivo', sans-serif;
+    }
+
     .popup-box input[type="email"],
     .popup-box input[type="text"] {
         width: 100%;
