@@ -9,4 +9,5 @@
     @include('pages.landing._partials._whyme')
     @include('pages.landing._partials._reviews')
     @include('pages.landing._partials._faqs')
+    @include('pages.landing._partials._newsletter')
 </x-landing-layout>
