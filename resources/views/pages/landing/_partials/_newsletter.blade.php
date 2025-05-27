@@ -149,9 +149,11 @@
         <p id="popup-text">Melde dich an und profitiere von<br>Rabatten und weiteren Aktionen!</p>
 
         <form id="newsletter-form" onsubmit="submitNewsletterForm(event)">
+            <div class="field-title">Mailadresse *</div>
             <input type="email" name="email" placeholder="Deine Mailadresse" required />
             <div class="error-message" id="email-error"></div>
 
+            <div class="field-title">Geburtsdatum *</div>
             <div class="datefield">
                 <input class="birthday" type="text" pattern="[0-9]*" placeholder="MM" size="2" maxlength="2"
                     name="birthday_month" required />
