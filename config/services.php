@@ -69,10 +69,4 @@ return [
         'site_key' => env('RECAPTCHA_SITE_KEY'),
         'secret_key' => env('RECAPTCHA_SECRET_KEY'),
     ],
-
-    'mailchimp' => [
-        'key' => env('MAILCHIMP_KEY'),
-        'list_id' => env('MAILCHIMP_LIST_ID'),
-        'server' => env('MAILCHIMP_SERVER'),
-    ],
 ];
