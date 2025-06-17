@@ -1,10 +1,17 @@
 <!--begin::Input group-->
 <div class="fv-row mb-7">
     <!--begin::Label-->
-    <label class="required fw-semibold fs-6 mb-2">Name</label>
+    <label class="required fw-semibold fs-6 mb-2">First Name</label>
     <!--end::Label-->
     <!--begin::Input-->
-    <input type="text" name="name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Name eingeben" value="{{ old('name', $user->name ?? '') }}" required />
+    <input type="text" name="first_name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="First Name eingeben" value="{{ old('first_name', $user->first_name ?? '') }}" required />
+    <!--end::Input-->
+
+    <!--begin::Label-->
+    <label class="required fw-semibold fs-6 mb-2">Last Name</label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <input type="text" name="last_name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Last Name eingeben" value="{{ old('last_name', $user->last_name ?? '') }}" required />
     <!--end::Input-->
 </div>
 <!--end::Input group-->
@@ -63,8 +70,7 @@
     <!--end::Label-->
     <!--begin::Input-->
     <div class="form-check form-switch form-check-custom form-check-solid">
-        <input class="form-check-input" type="checkbox" name="is_active" value="1" {{ old('is_active', $user->is_active ?? true) ? 'checked' : '' }} />
-        <label class="form-check-label">Aktiv</label>
+        <input class="form-check-input" name="email_verified" type="checkbox" {{ isset($user) && $user->email_verified_at ? 'checked' : '' }} />
     </div>
     <!--end::Input-->
 </div>

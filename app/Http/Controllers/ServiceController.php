@@ -91,6 +91,7 @@ class ServiceController extends Controller
                         'first_name' => 'Guest',
                         'last_name' => 'User',
                         'password' => Hash::make(Str::random(24)),
+                        'role' => 'guest',
                     ]
                 );
             }

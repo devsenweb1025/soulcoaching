@@ -16,7 +16,6 @@ use App\Mail\OrderConfirmationEmail;
 use App\Mail\OrderReceivedEmail;
 use App\Notifications\OrderPlaced;
 use Illuminate\Support\Facades\Auth;
-use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartPaymentController extends Controller
 {
@@ -30,6 +29,16 @@ class CartPaymentController extends Controller
         $this->paypalProvider->getAccessToken();
     }
 
+    private function calculateCartTotal()
+    {
+        $cart = session('cart', []);
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        return $total;
+    }
+
     public function createPaymentIntent(Request $request)
     {
         try {
@@ -41,7 +50,17 @@ class CartPaymentController extends Controller
                 'guest_info.last_name' => 'required_if:is_guest,true|string',
             ]);
 
-            $total = (float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5);
+            $cartTotal = $this->calculateCartTotal();
+            $shippingCost = (float) session('shipping_cost', 11.5);
+            $total = $cartTotal + $shippingCost;
+
+            // Log the values for debugging
+            Log::info('Cart Payment Calculation', [
+                'cart_total' => $cartTotal,
+                'shipping_cost' => $shippingCost,
+                'total' => $total
+            ]);
+
             $amount = $total * 100; // Convert to cents
 
             // Get user info based on auth status
@@ -235,7 +254,9 @@ class CartPaymentController extends Controller
             DB::beginTransaction();
 
             $user = auth()->user();
-            $total = (float) Cart::total(null, '.', '') + (float) session('shipping_cost', 11.5);
+            $cartTotal = $this->calculateCartTotal();
+            $shippingCost = (float) session('shipping_cost', 11.5);
+            $total = $cartTotal + $shippingCost;
 
             // Create order
             $order = Order::create([
@@ -246,9 +267,9 @@ class CartPaymentController extends Controller
                 'payment_method' => $paymentMethod,
                 'payment_id' => $transactionId,
                 'total' => $total,
-                'subtotal' => Cart::subtotal(null, '.', ''),
-                'tax' => Cart::tax(null, '.', ''),
-                'shipping_cost' => session('shipping_cost', 11.5),
+                'subtotal' => $cartTotal,
+                'tax' => 0, // Since tax is included in item prices
+                'shipping_cost' => $shippingCost,
                 'shipping_first_name' => session('shipping_info.first_name'),
                 'shipping_last_name' => session('shipping_info.last_name'),
                 'shipping_email' => session('shipping_info.email'),
@@ -260,37 +281,21 @@ class CartPaymentController extends Controller
             ]);
 
             // Create order items
-            foreach (Cart::content() as $item) {
+            $cart = session('cart', []);
+            foreach ($cart as $item) {
                 OrderItem::create([
                     'order_id' => $order->id,
-                    'product_id' => $item->id,
-                    'product_type' => $item->options->type ?? 'product',
-                    'quantity' => $item->qty,
-                    'price' => $item->price,
-                    'name' => $item->name,
-                    'options' => $item->options->toArray()
+                    'product_id' => $item['id'],
+                    'product_type' => 'product',
+                    'quantity' => $item['quantity'],
+                    'price' => $item['price'],
+                    'name' => $item['name'],
+                    'options' => []
                 ]);
             }
 
-            // Send order confirmation email
-
-
-            // // Send order received email to admin
-            // try {
-            //     Mail::to(session('shipping_info.email'))->send(new OrderConfirmationEmail($order));
-            //     Mail::to(config('mail.admin_email'))->send(new OrderReceivedEmail($order));
-            // } catch (\Exception $e) {
-            //     Log::error('Error sending order received email: ' . $e->getMessage());
-            // }
-
-            // // Send notification only for authenticated users
-            // if (!$isGuest && $user) {
-            //     $user->notify(new OrderPlaced($order));
-            // }
-
-            // Clear cart
-            Cart::destroy();
-            session()->forget('shipping_info');
+            // Clear cart and shipping info
+            session()->forget(['cart', 'shipping_info']);
 
             DB::commit();
         } catch (\Exception $e) {

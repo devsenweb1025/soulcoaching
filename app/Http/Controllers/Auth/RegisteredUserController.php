@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
 use App\Notifications\UserRegistered;
+use App\Notifications\NewUserRegistered;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Config;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -49,7 +53,12 @@ class RegisteredUserController extends Controller
             'role' => 'user',
         ]);
 
+        // Send notification to the user
         $user->notify(new UserRegistered($user));
+
+        // Send notification to admin
+        Notification::route('mail', Config::get('mail.admin_email'))
+            ->notify(new NewUserRegistered($user));
 
         // Auth::login($user);
 
