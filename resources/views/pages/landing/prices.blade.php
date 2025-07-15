@@ -23,7 +23,7 @@
             </h1>
             <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
                 Du möchtest mehr über die Preise für mein Transformationscoaching erfahren?<br /><br />
-                Hier findest du eine klare Übersicht meiner Pakete – transparent, liebevoll gestaltet und auf deine individuelle Transformation ausgerichtet.
+                Hier findest du die verschiedenen Pakete zum Transformationscoaching - wähle was sich für dich gut anfühlt. Du bist dir nicht sicher? Buche ein Kennenlern gespräch bei mir.
             </p>
             <!--end::Title-->
         </div>
