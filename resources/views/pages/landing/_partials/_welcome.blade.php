@@ -16,7 +16,7 @@
                                 data-aos-delay="0">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sarah-barone-seelenfluesterin-businessportrait-am-see.webp') }}"
                                     class="w-100 h-auto rounded"
-                                    alt="Sarah, die Seelenflüsterin, im Business-Outfit am Seeufer – Porträtaufnahme in natürlicher Umgebung">
+                                    alt="Sarah, die Seelenfluesterin, im Business-Outfit am Seeufer – Porträtaufnahme in natürlicher Umgebung">
                             </div>
                             <!--end::Testimonial-->
                         </div>
@@ -41,7 +41,7 @@
                                             Deine Seele hat dich hierher geführt, um den besonderen Weg zur ganzheitlichen Heilung zu entdecken.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
-                                            Das Seelenflüsterin Transformationskonzept <br/>(© 2025 Seelenflüsterin) löst Blockaden auf allen 5 Bewusstseinsebenen und macht deine Heilung schnell wirksam und nachhaltig.
+                                            Das Seelenfluesterin Transformationskonzept <br/>(© 2025 Seelenfluesterin) löst Blockaden auf allen 5 Bewusstseinsebenen und macht deine Heilung schnell wirksam und nachhaltig.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
                                             Als ersten Schritt lade ich dich zu einer geführten Meditation ein. Lausche entspannt meiner Stimme.
