@@ -22,9 +22,8 @@
                 </span>
             </h1>
             <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
-                Du möchtest mehr über die Preise für Transformationscoaching, energetisches Heilen, Tierkommunikation
-                oder meine Hotline erfahren?<br /><br />
-                Hier findest du transparente Preise für alle meine Dienstleistungen.
+                Du möchtest mehr über die Preise für mein Transformationscoaching erfahren?<br /><br />
+                Hier findest du eine klare Übersicht meiner Pakete – transparent, liebevoll gestaltet und auf deine individuelle Transformation ausgerichtet.
             </p>
             <!--end::Title-->
         </div>

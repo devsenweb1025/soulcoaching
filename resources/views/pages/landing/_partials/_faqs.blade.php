@@ -43,7 +43,7 @@
                                     [
                                         'question' => 'Was sind die 5 Bewusstseinsebenen?',
                                         'answer' =>
-                                            'Wenn der Mensch heilt, darf er zuerst auf der spirituellen Ebene beginnen – also im Geiste. Was bedeutet das, was mir geschieht, aus einer übergeordneten Perspektive?<br/><br/>Danach folgt die mentale Ebene – hier erkunden wir, wie wir unser Denken positiv umprogrammieren können.<br/><br/>Als Drittes widmen wir uns der emotionalen Ebene – welche Gefühle sind da, was wird gebraucht?<br/><br/>Die energetische Ebene heilen wir durch energetische Heilmethoden,<br/>und die letzte Ebene ist die körperliche.',
+                                            'Wenn der Mensch heilt, darf er zuerst auf der spirituellen Ebene beginnen – also im Geiste. <br/><br/>Danach folgt die mentale Ebene – hier erkunden wir, wie wir unser Denken positiv umprogrammieren können.<br/><br/>Als Drittes widmen wir uns der emotionalen Ebene – welche Gefühle sind da, was wird gebraucht?<br/><br/>Die energetische Ebene heilen wir durch energetische Heilmethoden,<br/>und die letzte Ebene ist die körperliche.',
                                         'is_expanded' => false,
                                     ],
                                 ];
