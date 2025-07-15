@@ -35,7 +35,13 @@
                                     <div data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
                                         data-aos-delay="0">
                                         <div class="text-gray-600 fs-4 mb-5">
-                                            Spürst du den inneren Ruf nach Heilung, um deine Energie fliessen zu lassen? Deine Seele hat dich hierher geführt, um den besonderen Weg zur ganzheitlichen Heilung zu entdecken. Das Seelenflüsterin Transformationskonzept löst Blockaden auf allen 5 Bewusstseinsebenen und macht deine Heilung effizient und nachhaltig.
+                                            Spürst du den inneren Ruf nach Heilung, um in den Fluss des Lebens zu kommen? Um ein leichtes Leben zu manifestieren und in deine Energie zu gelangen?
+                                        </div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Deine Seele hat dich hierher geführt, um den besonderen Weg zur ganzheitlichen Heilung zu entdecken.
+                                        </div>
+                                        <div class="text-gray-600 fs-4 mb-5">
+                                            Das Seelenflüsterin Transformationskonzept (© 2025 Seelenflüsterin) löst Blockaden auf allen 5 Bewusstseinsebenen und macht deine Heilung schnell wirksam und nachhaltig.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
                                             Als ersten Schritt lade ich dich zu einer geführten Meditation ein. Lausche entspannt meiner Stimme.
@@ -79,16 +85,16 @@
                 data-tns-controls="false" data-tns-nav="false" data-tns-items="1" data-tns-slide-by="1"
                 data-tns-responsive="{768:{items:3},992:{items:5},1200:{items:5}}">
                 @foreach ($partners as $partner)
-                    <!--begin::Item-->
-                    <div class="px-5 py-5">
-                        <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
-                            <a href="{{ $partner->domain }}" target="_blank">
-                                <img src="{{ asset('storage/partners/' . $partner->image) }}" alt="{{ $partner->name }}"
-                                    class="img-fluid" style="max-height: 100px; width: auto;">
-                            </a>
-                        </div>
+                <!--begin::Item-->
+                <div class="px-5 py-5">
+                    <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
+                        <a href="{{ $partner->domain }}" target="_blank">
+                            <img src="{{ asset('storage/partners/' . $partner->image) }}" alt="{{ $partner->name }}"
+                                class="img-fluid" style="max-height: 100px; width: auto;">
+                        </a>
                     </div>
-                    <!--end::Item-->
+                </div>
+                <!--end::Item-->
                 @endforeach
             </div>
             <!--end::Slider-->
