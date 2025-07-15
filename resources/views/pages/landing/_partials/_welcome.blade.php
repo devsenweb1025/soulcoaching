@@ -41,7 +41,7 @@
                                             Deine Seele hat dich hierher geführt, um den besonderen Weg zur ganzheitlichen Heilung zu entdecken.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
-                                            Das Seelenflüsterin Transformationskonzept (© 2025 Seelenflüsterin) löst Blockaden auf allen 5 Bewusstseinsebenen und macht deine Heilung schnell wirksam und nachhaltig.
+                                            Das Seelenflüsterin Transformationskonzept <br/>(© 2025 Seelenflüsterin) löst Blockaden auf allen 5 Bewusstseinsebenen und macht deine Heilung schnell wirksam und nachhaltig.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
                                             Als ersten Schritt lade ich dich zu einer geführten Meditation ein. Lausche entspannt meiner Stimme.
