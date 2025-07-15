@@ -61,7 +61,7 @@ class ServiceController extends Controller
             'hotline_active' => 'boolean',
             'image_direction' => 'required|in:left,right',
             'service_option' => 'required|in:payment,booking,hotline',
-            'benefit_option' => 'required|in:month,per call,hour,min',
+            'benefit_option' => 'required|in:month,per call,hour,min,one time',
             'features' => 'nullable|array',
             'features.*' => 'string|max:255'
         ]);
@@ -111,7 +111,7 @@ class ServiceController extends Controller
             'hotline_active' => 'boolean',
             'image_direction' => 'required|in:left,right',
             'service_option' => 'required|in:payment,booking,hotline',
-            'benefit_option' => 'required|in:month,per call,hour,min',
+            'benefit_option' => 'required|in:month,per call,hour,min,one time',
             'features' => 'nullable|array',
             'features.*' => 'string|max:255'
         ]);

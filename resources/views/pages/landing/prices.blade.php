@@ -79,6 +79,8 @@
                                                                 / Minute
                                                             @elseif($service->benefit_option === 'per call')
                                                                 / pro Gespräch
+                                                            @elseif($service->benefit_option === 'one time')
+                                                                
                                                             @endif
                                                         </span>
                                                     </div>
@@ -167,6 +169,8 @@
                                                                 / Minute
                                                             @elseif($service->benefit_option === 'per call')
                                                                 / pro Gespräch
+                                                            @elseif($service->benefit_option === 'one time')
+                                                                
                                                             @endif
                                                         </span>
                                                     </div>

@@ -147,6 +147,9 @@
                                 <option value="per call"
                                     {{ old('benefit_option', $service->benefit_option ?? '') === 'per call' ? 'selected' : '' }}>
                                     Per call</option>
+                                <option value="one time"
+                                    {{ old('benefit_option', $service->benefit_option ?? '') === 'one time' ? 'selected' : '' }}>
+                                    One Time</option>
                             </select>
                             @error('benefit_option')
                                 <div class="invalid-feedback">{{ $message }}</div>
