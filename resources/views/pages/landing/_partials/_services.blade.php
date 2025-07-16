@@ -32,11 +32,14 @@
                         @foreach ($services as $service)
                             <div class="col-lg-3" id="card-container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                                 data-aos-delay="0">
-                                <div class="card card-shadow card-borderless mb-5 bg-gray-300">
-                                    <div class="card-header">
-                                        <h2 class="card-title fw-bold fs-md-7 fs-4">
+                                <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
+                                    <div class="card-header ribbon ribbon-top ribbon-inner">
+                                        <h2 class="card-title pt-5 fw-bold fs-md-7 fs-4">
                                             {{ $service['title'] }}
                                         </h2>
+                                        @if (!empty($service['is_featured']))
+                                            <div class="ribbon-label bg-danger">Meist gebucht</div>
+                                        @endif
                                     </div>
                                     <div class="card-body pt-1">
                                         @if (!empty($service['features']))
