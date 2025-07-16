@@ -57,72 +57,57 @@
                                     <!--begin::Col-->
                                     <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="0">
-                                        <div class="d-flex h-100 align-items-center">
-                                            <!--begin::Option-->
-                                            <div
-                                                class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
-                                                <!--begin::Heading-->
-                                                <div class="mb-7 text-start">
-                                                    <!--begin::Title-->
-                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service->title }}</h1>
-                                                    <!--end::Title-->
-                                                    <!--begin::Price-->
-                                                    <div class="text-start">
-                                                        <span class="fs-2x fw-bold text-primary">
-                                                            @chf($service->price).-
-                                                            @if ($service->benefit_option === 'month')
-                                                                / Monat
-                                                            @elseif($service->benefit_option === 'hour')
-                                                                / Stunde
-                                                            @elseif($service->benefit_option === 'min')
-                                                                / Minute
-                                                            @elseif($service->benefit_option === 'per call')
-                                                                / pro Gespräch
-                                                            @elseif($service->benefit_option === 'one time')
-                                                                
-                                                            @endif
-                                                        </span>
-                                                    </div>
-                                                    <div class="text-start">
-                                                        <span class="fs-2x fw-bold text-primary">
-                                                            Vorteile:
-                                                        </span>
-                                                    </div>
-                                                    <!--end::Price-->
+                                        <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
+                                            <div class="card-header ribbon ribbon-top ribbon-inner">
+                                                <h1 class="text-gray-900 mb-5 fw-boldest pt-10" id="pricing">{{ $service->title }}</h1>
+                                                @if (!empty($service->is_featured))
+                                                    <div class="ribbon-label bg-danger">Meist gebucht</div>
+                                                @endif
+                                            </div>
+                                            <div class="card-body pt-1">
+                                                <div class="mb-4">
+                                                    <span class="fs-2x fw-bold text-primary">
+                                                        @chf($service->price).-
+                                                        @if ($service->benefit_option === 'month')
+                                                            / Monat
+                                                        @elseif($service->benefit_option === 'hour')
+                                                            / Stunde
+                                                        @elseif($service->benefit_option === 'min')
+                                                            / Minute
+                                                        @elseif($service->benefit_option === 'per call')
+                                                            / pro Gespräch
+                                                        @elseif($service->benefit_option === 'one time')
+                                                            <!-- nothing -->
+                                                        @endif
+                                                    </span>
                                                 </div>
-                                                <!--end::Heading-->
-                                                <!--begin::Features-->
-                                                <div class="w-100 mb-10">
-                                                    @if ($service->features)
-                                                        @foreach ($service->features as $feature)
-                                                            <!--begin::Item-->
-                                                            <div class="d-flex flex-stack mb-5">
-                                                                <span
-                                                                    class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
-                                                                <i class="ki-duotone ki-check-circle fs-1 text-success">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                </i>
-                                                            </div>
-                                                            <!--end::Item-->
-                                                        @endforeach
-                                                    @endif
-                                                </div>
-                                                <!--end::Features-->
-                                                <!--begin::Select-->
+                                                @if (!empty($service->features))
+                                                    <div>
+                                                        <span class="fs-2x fw-bold text-primary">Vorteile:</span>
+                                                        <div class="mt-4">
+                                                            @foreach ($service->features as $feature)
+                                                                <div class="d-flex flex-stack mb-2">
+                                                                    <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                    <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                        <span class="path1"></span>
+                                                                        <span class="path2"></span>
+                                                                    </i>
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                @endif
                                                 @if ($service->hotline_active)
                                                     <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
-                                                        class="btn btn-primary">Hotline anrufen</a>
+                                                        class="btn btn-primary mt-4">Hotline anrufen</a>
                                                 @else
                                                     <a href="https://calendly.com/seelen-fluesterin-info"
                                                        target="_blank"
-                                                       class="btn btn-primary">
+                                                       class="btn btn-primary mt-4">
                                                         Termin buchen
                                                     </a>
                                                 @endif
-                                                <!--end::Select-->
                                             </div>
-                                            <!--end::Option-->
                                         </div>
                                     </div>
                                     <!--end::Col-->
@@ -146,74 +131,57 @@
                                     <!--begin::Col-->
                                     <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="0">
-                                        <div class="d-flex h-100 align-items-center">
-                                            <!--begin::Option-->
-                                            <div
-                                                class="w-100 d-flex flex-column flex-start rounded-3 bg-body py-15 px-10">
-                                                <!--begin::Heading-->
-                                                <div class="mb-7 text-start">
-                                                    <!--begin::Title-->
-                                                    <h1 class="text-gray-900 mb-5 fw-boldest">{{ $service->title }}
-                                                    </h1>
-                                                    <!--end::Title-->
-                                                    <!--begin::Price-->
-                                                    <div class="text-start">
-                                                        <span class="fs-2x fw-bold text-primary">
-                                                            @chf($service->price).-
-                                                            @if ($service->benefit_option === 'month')
-                                                                / Monat
-                                                            @elseif($service->benefit_option === 'hour')
-                                                                / Stunde
-                                                            @elseif($service->benefit_option === 'min')
-                                                                / Minute
-                                                            @elseif($service->benefit_option === 'per call')
-                                                                / pro Gespräch
-                                                            @elseif($service->benefit_option === 'one time')
-                                                                
-                                                            @endif
-                                                        </span>
-                                                    </div>
-                                                    <div class="text-start">
-                                                        <span class="fs-2x fw-bold text-primary">
-                                                            Vorteile:
-                                                        </span>
-                                                    </div>
-                                                    <!--end::Price-->
+                                        <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
+                                            <div class="card-header ribbon ribbon-top ribbon-inner">
+                                                <h1 class="text-gray-900 pt-10 mb-5 fw-boldest">{{ $service->title }}</h1>
+                                                @if (!empty($service->is_featured))
+                                                    <div class="ribbon-label bg-danger">Meist gebucht</div>
+                                                @endif
+                                            </div>
+                                            <div class="card-body pt-1">
+                                                <div class="mb-4">
+                                                    <span class="fs-2x fw-bold text-primary">
+                                                        @chf($service->price).-
+                                                        @if ($service->benefit_option === 'month')
+                                                            / Monat
+                                                        @elseif($service->benefit_option === 'hour')
+                                                            / Stunde
+                                                        @elseif($service->benefit_option === 'min')
+                                                            / Minute
+                                                        @elseif($service->benefit_option === 'per call')
+                                                            / pro Gespräch
+                                                        @elseif($service->benefit_option === 'one time')
+                                                            <!-- nothing -->
+                                                        @endif
+                                                    </span>
                                                 </div>
-                                                <!--end::Heading-->
-                                                <!--begin::Features-->
-                                                <div class="w-100 mb-10">
-                                                    @if ($service->features)
-                                                        @foreach ($service->features as $feature)
-                                                            <!--begin::Item-->
-                                                            <div class="d-flex flex-stack mb-5">
-                                                                <span
-                                                                    class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
-                                                                <i
-                                                                    class="ki-duotone ki-check-circle fs-1 text-success">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                </i>
-                                                            </div>
-                                                            <!--end::Item-->
-                                                        @endforeach
-                                                    @endif
-                                                </div>
-                                                <!--end::Features-->
-                                                <!--begin::Select-->
+                                                @if (!empty($service->features))
+                                                    <div>
+                                                        <span class="fs-2x fw-bold text-primary">Vorteile:</span>
+                                                        <div class="mt-4">
+                                                            @foreach ($service->features as $feature)
+                                                                <div class="d-flex flex-stack mb-2">
+                                                                    <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                    <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                        <span class="path1"></span>
+                                                                        <span class="path2"></span>
+                                                                    </i>
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                @endif
                                                 @if ($service->hotline_active)
                                                     <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
-                                                        class="btn btn-primary">Hotline anrufen</a>
+                                                        class="btn btn-primary mt-4">Hotline anrufen</a>
                                                 @else
                                                     <a href="https://calendly.com/seelen-fluesterin-info"
                                                        target="_blank"
-                                                       class="btn btn-primary">
+                                                       class="btn btn-primary mt-4">
                                                         Termin buchen
                                                     </a>
                                                 @endif
-                                                <!--end::Select-->
                                             </div>
-                                            <!--end::Option-->
                                         </div>
                                     </div>
                                     <!--end::Col-->
