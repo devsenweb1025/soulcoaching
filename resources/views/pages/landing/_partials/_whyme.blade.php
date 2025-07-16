@@ -24,7 +24,7 @@
                                     'icon' => 'lovely',
                                     'title' => 'Hohe Empathie',
                                     'description' =>
-                                        'Ich begegne dir mit Offenheit, Mitgefühl und ehrlicher Präsenz – weil dein Wohl mir am Herzen liegt.',
+                                        'Dank meiner Hochsensibilität und meiner Familiengeschichte nehme ich Emotionen intuitiv wahr. Dies ermöglicht mir, deine Herausforderungen tiefgehend zu verstehen und dir gezielt zu helfen, Blockaden zu lösen. Gemeinsam schaffen wir eine vertrauensvolle Atmosphäre für deine persönliche Transformation. Lass uns gemeinsam dein erfülltes Leben gestalten!',
                                     'delay' => '500',
                                 ],
                                 [
@@ -38,28 +38,28 @@
                                     'icon' => 'setting-2',
                                     'title' => 'Persönlichkeitsentwicklung',
                                     'description' =>
-                                        'Acht Jahre eigene Erfahrung in der Persönlichkeitsentwicklung sowie mit Coaches von Greators zusammen gearbeitet. 160 Bücher gelesen und die Methodiken ins Leben integriert.',
+                                        'Mit über 10 Jahren Erfahrung in der Persönlichkeitsentwicklung unterstütze ich dich, Blockaden zu überwinden und dein Potenzial zu leben. Du sparst dir Zeit, weil du konkrete Methodiken und Expertenwissen zur Transformation erhältst.',
                                     'delay' => '700',
                                 ],
                                 [
                                     'icon' => 'pulse',
                                     'title' => 'Ganzheitliche Betrachtungsweise',
                                     'description' =>
-                                        'Ich sehe dich als ein individuelles und vollkommenes Wesen. Somit spielen alle fünf Bewusstseinsebenen eine Rolle für deine Heilung.',
+                                        'Mit meiner ganzheitlichen Betrachtungsweise die die fünf Bewusstseinsebenen – Körper, Geist, Emotionen, Energie und Seele – integriert, erhältst du einen umfassenden Zugang zu deinen inneren Blockaden. Dadurch kannst du nicht nur gezielte Lösungen finden, sondern auch dein volles Potenzial entfalten und ein harmonisches Leben führen. Erlebe, wie sich dein Leben auf allen Ebenen positiv verändert!',
                                     'delay' => '500',
                                 ],
                                 [
                                     'icon' => 'parcel',
                                     'title' => 'Viel Lebenserfahrung',
                                     'description' =>
-                                        'Beruflich und Privat durfte ich vielen verschiedenen Herausforderungen begegnen. Dafür bin ich dankbar, denn das hat mich weiterentwickeln lassen.',
+                                        'Jede Herausforderung, die ich gemeistert habe, hat mich geprägt und mir tiefgehende Einsichten in das Leben und seine Höhen und Tiefen gegeben. Ich kenne die Momente des Fallens und das kraftvolle Gefühl des Wiederaufstehens. Diese Erfahrungen ermöglichen es mir, einfühlsam auf deine Bedürfnisse einzugehen und dich im Prozess der Blockadenlösung zu unterstützen.',
                                     'delay' => '600',
                                 ],
                                 [
                                     'icon' => 'medal-star',
                                     'title' => 'Medialität',
                                     'description' =>
-                                        '2 Jahre Erfahrung und konstantes Training mit diversen Medialitätsschulen und Vereinen.',
+                                        'Als mediale Beraterin nehme ich feinstoffliche Energien und Informationen wahr, die dir helfen, Klarheit und Orientierung in deinem Leben zu finden. Diese Fähigkeit ermöglicht es mir, gezielte Impulse zu geben, die deine unbewussten Blockaden wirksam und rasch lösen. Profitiere von meiner Medialität.',
                                     'delay' => '700',
                                 ],
                             ];
