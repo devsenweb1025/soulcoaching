@@ -41,7 +41,7 @@
                                             Deine Seele hat dich hierher geführt, um den besonderen Weg zur ganzheitlichen Heilung zu entdecken.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
-                                            Das Seelenfluesterin Transformationskonzept <br/>(© 2025 Seelenfluesterin) löst Blockaden auf allen 5 Bewusstseinsebenen und macht deine Heilung schnell wirksam und nachhaltig.
+                                            Das Seelenfluesterin Transformationskonzept <br/>(© 2025 Seelenfluesterin) löst Blockaden auf allen <span id="scroll-to-faq" style="background: lightblue;">5&nbsp;Bewusstseinsebenen</span> und macht deine Heilung schnell wirksam und nachhaltig.
                                         </div>
                                         <div class="text-gray-600 fs-4 mb-5">
                                             Als ersten Schritt lade ich dich zu einer geführten Meditation ein. Lausche entspannt meiner Stimme.
@@ -103,3 +103,31 @@
     </div>
     <!--end::Testimonials Section-->
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var faqLink = document.getElementById('scroll-to-faq');
+        if (faqLink) {
+            faqLink.style.cursor = 'pointer';
+            faqLink.addEventListener('click', function() {
+                // Scroll to the FAQ section and open the last question
+                var faqItem = document.getElementById('kt_accordion_3_item_4');
+                if (faqItem) {
+                    faqItem.classList.add('show');
+                    faqItem.classList.remove('collapse');
+                    // Optionally collapse others
+                    var allFaqs = document.querySelectorAll('[id^="kt_accordion_3_item_"]');
+                    allFaqs.forEach(function(item, idx) {
+                        if (item !== faqItem) {
+                            item.classList.remove('show');
+                            item.classList.add('collapse');
+                        }
+                    });
+                    // Scroll into view
+                    setTimeout(function() {
+                        faqItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 100);
+                }
+            });
+        }
+    });
+</script>
