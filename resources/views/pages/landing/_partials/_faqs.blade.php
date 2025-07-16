@@ -35,12 +35,6 @@
                                         'is_expanded' => false,
                                     ],
                                     [
-                                        'question' => 'Wie funktioniert Tierkommunikation?',
-                                        'answer' =>
-                                            'Bevor ich mich mit deinem Herzenstier verbinde mache ich diverse Vorbereitungen, dass alles positiv ist und alles zum Besten wohl passieren kann. Danach nehme ich Geistig Kontakt auf und stelle deine Fragen an dein Herzenstier.',
-                                        'is_expanded' => false,
-                                    ],
-                                    [
                                         'question' => 'Was sind die 5 Bewusstseinsebenen?',
                                         'answer' =>
                                             'Wenn der Mensch heilt, darf er zuerst auf der spirituellen Ebene beginnen – also im Geiste. <br/><br/>Danach folgt die mentale Ebene – hier erkunden wir, wie wir unser Denken positiv umprogrammieren können.<br/><br/>Als Drittes widmen wir uns der emotionalen Ebene – welche Gefühle sind da, was wird gebraucht?<br/><br/>Die energetische Ebene heilen wir durch energetische Heilmethoden,<br/>und die letzte Ebene ist die körperliche.',

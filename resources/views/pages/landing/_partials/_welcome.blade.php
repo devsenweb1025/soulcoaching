@@ -110,7 +110,7 @@
             faqLink.style.cursor = 'pointer';
             faqLink.addEventListener('click', function() {
                 // Scroll to the FAQ section and open the last question
-                var faqItem = document.getElementById('kt_accordion_3_item_4');
+                var faqItem = document.getElementById('kt_accordion_3_item_3');
                 if (faqItem) {
                     faqItem.classList.add('show');
                     faqItem.classList.remove('collapse');
