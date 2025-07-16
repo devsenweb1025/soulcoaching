@@ -197,7 +197,7 @@
     function showNewsletterPopup() {
         const popup = document.getElementById('newsletter-popup');
         popup.style.display = 'flex';
-        setTimeout(() => popup.classList.add('show'), 10);
+        setTimeout(() => popup.classList.add('show'), 60000);
     }
 
     function closeNewsletterPopup() {
