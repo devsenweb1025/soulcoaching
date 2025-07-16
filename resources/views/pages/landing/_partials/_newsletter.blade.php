@@ -153,7 +153,7 @@
         <button class="close-btn" onclick="closeNewsletterPopup()">×</button>
         <img src="{{ asset('media/logos/landing.png') }}" alt="Logo" class="logo" />
 
-        <h2 id="popup-title">Newsletter</h2>
+        <h2 id="popup-title">Seelenimpulse</h2>
         <p id="popup-text">Melde dich an und profitiere von<br>Rabatten und weiteren Aktionen!</p>
 
         <form id="newsletter-form" onsubmit="submitNewsletterForm(event)">
