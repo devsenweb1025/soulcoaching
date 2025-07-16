@@ -48,15 +48,38 @@
                                     </h2>
                                 </div>
                                 <div class="card-body fs-4">
-                                    <div class="text-gray-600 fw-semibold fs-5 description-text">
-                                        @php
-                                            $text = $service['description'];
-                                            $shortText = strlen($text) > 174 ? substr($text, 0, 174) . '...' : $text;
-                                        @endphp
-                                        <span class="short-text">{{ $shortText }}</span>
-                                        <span class="full-text" style="display: none;">{{ $text }}</span>
+                                    <div>
+                                        <span class="fs-4 fw-bold text-primary">
+                                            @chf($service['price']).-
+                                            @if ($service['benefit_option'] === 'month')
+                                                / Monat
+                                            @elseif($service['benefit_option'] === 'hour')
+                                                / Stunde
+                                            @elseif($service['benefit_option'] === 'min')
+                                                / Minute
+                                            @elseif($service['benefit_option'] === 'per call')
+                                                / pro Gespräch
+                                            @elseif($service['benefit_option'] === 'one time')
+                                                <!-- nothing -->
+                                            @endif
+                                        </span>
                                     </div>
-                                    <a href="#" class="text-primary show-more-link">Mehr anzeigen</a>
+                                    @if (!empty($service['features']))
+                                        <div>
+                                            <span class="fs-4 fw-bold text-primary">Vorteile:</span>
+                                            <div class="mt-4">
+                                                @foreach ($service['features'] as $feature)
+                                                    <div class="d-flex flex-stack mb-2">
+                                                        <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                        <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="card-footer">
                                     <div class="card-toolbar text-center">
@@ -78,28 +101,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const showMoreLinks = document.querySelectorAll('.show-more-link');
-
-            showMoreLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const descriptionText = this.previousElementSibling;
-                    const shortText = descriptionText.querySelector('.short-text');
-                    const fullText = descriptionText.querySelector('.full-text');
-                    const isExpanded = fullText.style.display !== 'none';
-
-                    if (isExpanded) {
-                        fullText.style.display = 'none';
-                        shortText.style.display = 'inline';
-                        this.textContent = 'Mehr anzeigen';
-                    } else {
-                        fullText.style.display = 'inline';
-                        shortText.style.display = 'none';
-                        this.textContent = 'Weniger anzeigen';
-                    }
-                });
-            });
-
             // Auto-scroll to hotline section when hotline parameter is provided
             const urlParams = new URLSearchParams(window.location.search);
             const scrollToParam = urlParams.get('scroll_to');

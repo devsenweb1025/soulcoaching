@@ -38,17 +38,39 @@
                                             {{ $service['title'] }}
                                         </h2>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="text-gray-600 fw-semibold description-text">
-                                            @php
-                                                $text = $service['description'];
-                                                $shortText =
-                                                    strlen($text) > 135 ? substr($text, 0, 135) . '...' : $text;
-                                            @endphp
-                                            <span class="short-text">{{ $shortText }}</span>
-                                            <span class="full-text" style="display: none;">{{ $text }}</span>
+                                    <div class="card-body pt-1">
+                                        <div>
+                                            <span class="fs-4 fw-bold text-primary">
+                                                @chf($service['price']).-
+                                                @if ($service['benefit_option'] === 'month')
+                                                    / Monat
+                                                @elseif($service['benefit_option'] === 'hour')
+                                                    / Stunde
+                                                @elseif($service['benefit_option'] === 'min')
+                                                    / Minute
+                                                @elseif($service['benefit_option'] === 'per call')
+                                                    / pro Gespräch
+                                                @elseif($service['benefit_option'] === 'one time')
+                                                    <!-- nothing -->
+                                                @endif
+                                            </span>
                                         </div>
-                                        <a href="#" class="text-primary show-more-link">Mehr anzeigen</a>
+                                        @if (!empty($service['features']))
+                                            <div>
+                                                <span class="fs-4 fw-bold text-primary">Vorteile:</span>
+                                                <div class="mt-4">
+                                                    @foreach ($service['features'] as $feature)
+                                                        <div class="d-flex flex-stack mb-2">
+                                                            <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                            <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="card-footer">
                                         <div class="card-toolbar text-center">
@@ -83,7 +105,6 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const showMoreLinks = document.querySelectorAll('.show-more-link');
         const cards = document.querySelectorAll('#card-container .card');
         let maxHeight = 0;
 
@@ -96,42 +117,5 @@
             card.style.height = `${maxHeight}px`;
         });
 
-        showMoreLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const currentCard = this.closest('.card');
-                const descriptionText = this.previousElementSibling;
-                const shortText = descriptionText.querySelector('.short-text');
-                const fullText = descriptionText.querySelector('.full-text');
-                const isExpanded = fullText.style.display !== 'none';
-
-                // Collapse all other cards first
-                showMoreLinks.forEach(otherLink => {
-                    if (otherLink !== this) {
-                        const otherCard = otherLink.closest('.card');
-                        const otherDescriptionText = otherLink.previousElementSibling;
-                        const otherShortText = otherDescriptionText.querySelector('.short-text');
-                        const otherFullText = otherDescriptionText.querySelector('.full-text');
-
-                        otherFullText.style.display = 'none';
-                        otherShortText.style.display = 'inline';
-                        otherLink.textContent = 'Mehr anzeigen';
-                        otherCard.style.height = `${maxHeight}px`;
-                    }
-                });
-
-                if (isExpanded) {
-                    fullText.style.display = 'none';
-                    shortText.style.display = 'inline';
-                    this.textContent = 'Mehr anzeigen';
-                    currentCard.style.height = `${maxHeight}px`;
-                } else {
-                    fullText.style.display = 'inline';
-                    shortText.style.display = 'none';
-                    this.textContent = 'Weniger anzeigen';
-                    currentCard.style.height = 'auto';
-                }
-            });
-        });
     });
 </script>
