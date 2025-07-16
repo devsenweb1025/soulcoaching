@@ -34,14 +34,16 @@
                                         <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                                             data-aos-delay="0">
                                             <div class="text-gray-600 fs-4 mb-5">
-                                                "Wer seine Schattenseiten nicht erfahren hat, wird sein Licht nicht erkennen." Seelenfluesterin Sarah.<br /><br/>
-                                                Mein Name ist Sarah – ich bin mediale Lebensbegleiterin, spiritueller Coach und fühle mich berufen, Menschen und Tiere auf ihrem Weg zu Heilung, Klarheit und innerem Wachstum zu unterstützen.
+                                                Ich bin Sarah, mediale Lebensbegleiterin und spiritueller Coach. 
                                             </div>
                                             <div class="text-gray-600 fs-4 mb-5">
-                                                Meine Fähigkeit zur Medialität durfte ich auf meinem eigenen Lebensweg neu entdecken – heute setze ich sie ein für: spirituelles Coaching, energetisches Heilen (für Mensch & Tier), Tierkommunikation, Kartenlegen & mediale Beratung am Telefon.
+                                                Seit 2019 coache ich Menschen in verschiedensten Lebenslagen.
+                                            </div>
+                                            <div class="text-gray-600 fs-4 mb-5">
+                                                Im Jahr 2023 habe ich den Zugang zur Medialität gefunden, wodurch ich mein Coaching weiterentwickeln konnte.
                                             </div>
                                             <div class="text-gray-600 fs-4 mb-10">
-                                                Ich begleite Menschen in der Schweiz, Österreich & Deutschland, persönlich oder online – intuitiv, liebevoll und lösungsorientiert.
+                                                Aus dieser Entwicklung ist mein neues Konzept für Transformationscoaching auf fünf Bewusstseinsebenen entstanden.
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center align-items-center mb-5">
