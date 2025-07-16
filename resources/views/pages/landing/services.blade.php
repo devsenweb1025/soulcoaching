@@ -43,11 +43,11 @@
                             data-aos-delay="0">
                             <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
                                 <div class="card-header">
-                                    <h2 class="card-title fs-2 fw-bold">
+                                    <h2 class="card-title fw-bold fs-md-7 fs-4">
                                         {{ $service['title'] }}
                                     </h2>
                                 </div>
-                                <div class="card-body fs-4">
+                                <div class="card-body pt-1">
                                     @if (!empty($service['features']))
                                         <div>
                                             <span class="fs-4 fw-bold text-primary">Vorteile:</span>
