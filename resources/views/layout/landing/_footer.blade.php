@@ -87,6 +87,13 @@
                             </a>
                             <!--end::Link-->
                             <!--begin::Link-->
+                            <a href="https://www.linkedin.com/in/seelenfluesterin-sarah-5a0755238/" class="mb-6">
+                                <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/linkedin-2.svg') }}"
+                                    class="h-20px me-2 bg-white rounded-1" alt="" />
+                                <span class="text-gray-600 text-hover-white fs-5 mb-6">Linkedin</span>
+                            </a>
+                            <!--end::Link-->
+                            <!--begin::Link-->
                             <a href="https://facebook.com/sarah.barone.12" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/facebook-4.svg') }}"
                                     class="h-20px me-2" alt="" />
