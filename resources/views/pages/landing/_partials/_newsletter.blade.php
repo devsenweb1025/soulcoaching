@@ -196,14 +196,18 @@
 <script>
     function showNewsletterPopup() {
         const popup = document.getElementById('newsletter-popup');
-        popup.style.display = 'flex';
-        setTimeout(() => popup.classList.add('show'), 60000);
+        setTimeout(() => {
+            popup.style.display = 'flex';
+            popup.classList.add('show');
+        }, 60000);
     }
 
     function closeNewsletterPopup() {
         const popup = document.getElementById('newsletter-popup');
-        popup.classList.remove('show');
-        setTimeout(() => popup.style.display = 'none', 300);
+        setTimeout(() => {
+            popup.classList.remove('show');
+            popup.style.display = 'none';
+        }, 300);
     }
 
     async function submitNewsletterForm(event) {
