@@ -104,7 +104,12 @@
                                                     <a href="https://calendly.com/seelen-fluesterin-info"
                                                        target="_blank"
                                                        class="btn btn-primary mt-4">
-                                                        Termin buchen
+                                                       Ja zur Transformation
+                                                    </a>
+                                                    <a href="https://calendly.com/seelen-fluesterin-info"
+                                                       target="_blank"
+                                                       class="btn btn-primary mt-4">
+                                                       Ja, erst kennenlernen
                                                     </a>
                                                 @endif
                                             </div>
@@ -178,7 +183,12 @@
                                                     <a href="https://calendly.com/seelen-fluesterin-info"
                                                        target="_blank"
                                                        class="btn btn-primary mt-4">
-                                                        Termin buchen
+                                                       Ja zur Transformation
+                                                    </a>
+                                                    <a href="https://calendly.com/seelen-fluesterin-info"
+                                                       target="_blank"
+                                                       class="btn btn-primary mt-4">
+                                                       Ja, erst kennenlernen
                                                     </a>
                                                 @endif
                                             </div>
