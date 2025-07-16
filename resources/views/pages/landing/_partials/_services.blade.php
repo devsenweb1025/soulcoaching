@@ -39,22 +39,6 @@
                                         </h2>
                                     </div>
                                     <div class="card-body pt-1">
-                                        <div>
-                                            <span class="fs-4 fw-bold text-primary">
-                                                @chf($service['price']).-
-                                                @if ($service['benefit_option'] === 'month')
-                                                    / Monat
-                                                @elseif($service['benefit_option'] === 'hour')
-                                                    / Stunde
-                                                @elseif($service['benefit_option'] === 'min')
-                                                    / Minute
-                                                @elseif($service['benefit_option'] === 'per call')
-                                                    / pro Gespräch
-                                                @elseif($service['benefit_option'] === 'one time')
-                                                    <!-- nothing -->
-                                                @endif
-                                            </span>
-                                        </div>
                                         @if (!empty($service['features']))
                                             <div>
                                                 <span class="fs-4 fw-bold text-primary">Vorteile:</span>

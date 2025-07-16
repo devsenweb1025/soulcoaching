@@ -39,7 +39,7 @@
                 <!--begin::Pricing-->
                 <div class="row g-5 z-index-2">
                     @foreach ($services as $service)
-                        <div class="col-lg-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
+                        <div class="col-lg-3" id="card-container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                             data-aos-delay="0">
                             <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
                                 <div class="card-header">
@@ -48,22 +48,6 @@
                                     </h2>
                                 </div>
                                 <div class="card-body fs-4">
-                                    <div>
-                                        <span class="fs-4 fw-bold text-primary">
-                                            @chf($service['price']).-
-                                            @if ($service['benefit_option'] === 'month')
-                                                / Monat
-                                            @elseif($service['benefit_option'] === 'hour')
-                                                / Stunde
-                                            @elseif($service['benefit_option'] === 'min')
-                                                / Minute
-                                            @elseif($service['benefit_option'] === 'per call')
-                                                / pro Gespräch
-                                            @elseif($service['benefit_option'] === 'one time')
-                                                <!-- nothing -->
-                                            @endif
-                                        </span>
-                                    </div>
                                     @if (!empty($service['features']))
                                         <div>
                                             <span class="fs-4 fw-bold text-primary">Vorteile:</span>
@@ -101,6 +85,17 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('#card-container .card');
+            let maxHeight = 0;
+
+            // Set initial equal heights
+            cards.forEach(card => {
+                maxHeight = Math.max(maxHeight, card.offsetHeight);
+            });
+
+            cards.forEach(card => {
+                card.style.height = `${maxHeight}px`;
+            });
             // Auto-scroll to hotline section when hotline parameter is provided
             const urlParams = new URLSearchParams(window.location.search);
             const scrollToParam = urlParams.get('scroll_to');
