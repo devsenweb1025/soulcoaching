@@ -11,10 +11,6 @@
                     <div class="card-title d-flex flex-column align-items-center text-center mt-20 mb-10"
                         data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="0">
                         <div class="header-title fs-4x font-cinzel">Warum mit mir arbeiten</div>
-                        <div class="header-sub fs-2 text-gray-700">
-                            Meine Werte, meine Medialität und mein Herzensweg machen meine Arbeit als spiritueller Coach
-                            und energetische Heilerin einzigartig.
-                        </div>
                     </div>
                     <!--begin::Row-->
                     <div class="row">
@@ -26,13 +22,6 @@
                                     'description' =>
                                         'Dank meiner Hochsensibilität und meiner Familiengeschichte nehme ich Emotionen intuitiv wahr. Dies ermöglicht mir, deine Herausforderungen tiefgehend zu verstehen und dir gezielt zu helfen, Blockaden zu lösen. Gemeinsam schaffen wir eine vertrauensvolle Atmosphäre für deine persönliche Transformation. Lass uns gemeinsam dein erfülltes Leben gestalten!',
                                     'delay' => '500',
-                                ],
-                                [
-                                    'icon' => 'twitter',
-                                    'title' => 'Friedvoll',
-                                    'description' =>
-                                        'Ich kreiere für dich einen Raum der Ruhe, in dem du dich verstanden, sicher und getragen fühlen darfst – sei es im spirituellen Coaching oder in einer energetischen Heilsitzung.',
-                                    'delay' => '600',
                                 ],
                                 [
                                     'icon' => 'setting-2',
