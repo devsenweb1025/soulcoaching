@@ -1,7 +1,18 @@
 <!--begin::Audio Section-->
 <div class="position-fixed bottom-0 start-0 z-index-3" style="left: 14px; bottom: 14px;">
-    <div style="position: relative; display: flex; align-items: center;">
-        <button id="audioToggle" class="btn btn-icon position-relative bg-primary rounded-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Seelenklang starten">
+    <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
+        <svg width="90" height="50" viewBox="0 0 90 50" style="position: absolute; top: -30px; left: 75%; transform: translateX(-50%); pointer-events: none; z-index: 2;">
+          <defs>
+            <path id="circlePath"
+              d="M 15,40 A 30,30 0 0,1 75,40" />
+          </defs>
+          <text font-size="10" fill="#222" font-family="inherit" text-anchor="middle">
+            <textPath xlink:href="#circlePath" startOffset="50%">
+              Seelenklang starten
+            </textPath>
+          </text>
+        </svg>
+        <button id="audioToggle" class="btn btn-icon position-relative bg-primary rounded-circle">
             <!-- Satellite icon (shown when playing) -->
             {!! theme()->getIcon('notification-on', 'fs-3tx text-white audio-playing-icon d-none', 'solid') !!}
             <!-- Muted icon (shown when stopped) -->
