@@ -4,14 +4,6 @@
     background-repeat: no-repeat;
     mix-blend-mode: normal;
     background-size: cover;">
-    <div class="cloud">
-        <div style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0"
-            data-framer-background-image-wrapper="true">
-            <img decoding="async" loading="lazy" src="https://framerusercontent.com/images/dDB4JCGfoX5DJBUD3qohcdOK9U.png"
-                alt=""
-                style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover">
-        </div>
-    </div>
     <!--begin::Heading-->
     <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2">
         <!--begin::Title-->

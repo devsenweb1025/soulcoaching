@@ -10,7 +10,7 @@
 
                     <div class="card-title d-flex flex-column align-items-center text-center mt-20 mb-10"
                         data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500" data-aos-delay="0">
-                        <div class="header-title fs-4x font-cinzel">Warum mit mir arbeiten</div>
+                        <div class="header-title fs-4x font-cinzel">Resonierst du mit meiner Art, wie ich arbeite?</div>
                     </div>
                     <!--begin::Row-->
                     <div class="row">
