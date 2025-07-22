@@ -13,7 +13,7 @@
 <style>
     #cartToggle {
         left: 14px;
-        bottom: 74px;
+        bottom: 85px;
         width: 54px;
         height: 54px;
     }
