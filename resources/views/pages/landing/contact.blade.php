@@ -49,25 +49,6 @@
                                     <div class="mb-15 mb-md-10 mb-sm-5 fs-2x d-flex align-items-center">
                                         <span
                                             class="btn btn-icon btn-light btn-color-primary pulse pulse-primary shadow p-5">
-                                            {!! theme()->getIcon('sms', 'fs-2tx text-primary') !!}
-                                        </span>
-                                        <span class="ml-5">Maile mir</span>
-                                    </div>
-                                    <div class="text-gray-800 fs-2 mb-5">
-                                        Fragen zu den Angeboten oder sonstiges anliegen? Du kannst mir gerne per Mail
-                                        schreiben.
-                                    </div>
-                                    <span class="fw-normal fs-4">
-                                        <a href="mailto:info@seelen-fluesterin.ch"
-                                            class="text-hover-primary">info@seelen-fluesterin.ch</a></span>
-                                </div>
-                            </div>
-
-                            <div class="card shadow mb-15 p-10">
-                                <div class="card-body">
-                                    <div class="mb-15 mb-md-10 mb-sm-5 fs-2x d-flex align-items-center">
-                                        <span
-                                            class="btn btn-icon btn-light btn-color-primary pulse pulse-primary shadow p-5">
                                             {!! theme()->getIcon('user', 'fs-2tx text-primary') !!}
                                         </span>
                                         <span class="ml-5">Zoom Meeting</span>

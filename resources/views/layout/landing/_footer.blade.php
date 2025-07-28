@@ -66,35 +66,35 @@
                             <h4 class="fw-bold text-gray-500 mb-6">Folge mir gerne auf</h4>
                             <!--end::Subtitle-->
                             <!--begin::Link-->
-                            <a href="https://tiktok.com/@seelenfluesterin6" class="mb-6">
+                            <a href="https://tiktok.com/@seelenfluesterin6" target="_blank" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/tiktok-dark.svg') }}"
                                     class="h-20px me-2" alt="" />
                                 <span class="text-gray-600 text-hover-white fs-5 mb-6">TikTok</span>
                             </a>
                             <!--end::Link-->
                             <!--begin::Link-->
-                            <a href="https://instagram.com/seelenfluesterin6" class="mb-6">
+                            <a href="https://instagram.com/seelenfluesterin6" target="_blank" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/instagram-2-1.svg') }}"
                                     class="h-20px me-2" alt="" />
                                 <span class="text-gray-600 text-hover-white fs-5 mb-6">Instagram</span>
                             </a>
                             <!--end::Link-->
                             <!--begin::Link-->
-                            <a href="https://api.whatsapp.com/send?phone=41798227602" class="mb-6">
+                            <a href="https://api.whatsapp.com/send?phone=41798227602" target="_blank" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/whatsapp.svg') }}"
                                     class="h-20px me-2 bg-white rounded-1" alt="" />
                                 <span class="text-gray-600 text-hover-white fs-5 mb-6">Whatsapp</span>
                             </a>
                             <!--end::Link-->
                             <!--begin::Link-->
-                            <a href="https://www.linkedin.com/in/seelenfluesterin-sarah-5a0755238/" class="mb-6">
+                            <a href="https://www.linkedin.com/in/seelenfluesterin-sarah-5a0755238/" target="_blank" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/linkedin-2.svg') }}"
                                     class="h-20px me-2 bg-white rounded-1" alt="" />
                                 <span class="text-gray-600 text-hover-white fs-5 mb-6">Linkedin</span>
                             </a>
                             <!--end::Link-->
                             <!--begin::Link-->
-                            <a href="https://facebook.com/sarah.barone.12" class="mb-6">
+                            <a href="https://facebook.com/sarah.barone.12" target="_blank" class="mb-6">
                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/facebook-4.svg') }}"
                                     class="h-20px me-2" alt="" />
                                 <span class="text-gray-600 text-hover-white fs-5 mb-6">Facebook</span>

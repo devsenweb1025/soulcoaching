@@ -6,7 +6,7 @@
     <!--begin::Heading-->
         <div class="text-center mb-11">
             <!--begin::Title-->
-            <h1 class="text-dark fw-bolder mb-3">Regsitriere dich</h1>
+            <h1 class="text-dark fw-bolder mb-3">Registriere dich</h1>
             <!--end::Title-->
             <!--begin::Subtitle-->
             <div class="text-gray-500 fw-semibold fs-6">Registriere dich mit deinen Zugangsdaten</div>
