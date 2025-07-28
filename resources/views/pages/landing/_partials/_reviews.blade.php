@@ -219,15 +219,15 @@
                                     [
                                         'text' => '„Ich wurde sehr unterstützt, darum habe ich gleich ein Package gebucht. Ich empfehle sie von Herzen."',
                                         'name' => 'Sabrina',
-                                        'location' => 'Luzern',
+                                        'location' => 'Zentralschweiz',
                                         'audio' => [
                                             'mp3' => asset(theme()->getMediaUrlPath() . 'audio/Sabrina.mp3'),
                                         ]
                                     ],
                                     [
-                                        'text' => '„Es war unglaublich, welchen Draht die Seelenfluesterin zum Universum hat. Die Kartenlegung war super. Ich bin begeistert."',
+                                        'text' => '„Ich erhielt eine energetische Heilung von der Seelenfluesterin – und was soll ich sagen: Es war der Wahnsinn, ich bin begeistert! Ich spürte eine angenehme Wärme, und seitdem geht es mir richtig gut. Absolut weiterzuempfehlen!"',
                                         'name' => 'Philippe',
-                                        'location' => 'Bern',
+                                        'location' => 'Mitelland',
                                         'audio' => [
                                             'mp3' => asset(theme()->getMediaUrlPath() . 'audio/Philippe.mp3'),
                                         ]
@@ -235,7 +235,7 @@
                                     [
                                         'text' => '„Danke für die Energetische Heilung. Es war eindrücklich zu spüren, dass etwas im Körper gegangen ist. Ich fühle mich leichter und fühle mich besser."',
                                         'name' => 'Marion',
-                                        'location' => 'St.Gallen',
+                                        'location' => 'Ostschweiz',
                                         'audio' => [
                                             'mp3' => asset(theme()->getMediaUrlPath() . 'audio/Marion.mp3'),
 

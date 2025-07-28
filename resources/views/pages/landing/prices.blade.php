@@ -1,5 +1,5 @@
 <x-landing-layout>
-    @section('title', 'Preise – Faire & klare Preise für alle Angebote')
+    @section('title', 'Transformationscoaching – Faire & klare Preise für alle Angebote')
     @section('description', 'Hier findest du eine transparente Übersicht aller Preise – klar strukturiert, fair gestaltet und auf deine Bedürfnisse abgestimmt.')
     @include('pages.landing._partials._background')
     <!--begin::Landing hero-->
@@ -15,7 +15,7 @@
         <!--begin::Heading-->
         <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2">
             <!--begin::Title-->
-            <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Preise
+            <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel">Transformationscoaching
                 <span
                     style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                     {{-- <span id="kt_landing_hero_text"></span> --}}
@@ -101,12 +101,12 @@
                                                     <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
                                                         class="btn btn-primary mt-4">Hotline anrufen</a>
                                                 @else
-                                                    <a href="https://calendly.com/seelen-fluesterin-info"
+                                                    <a href="{{$service->location}}"
                                                        target="_blank"
                                                        class="btn btn-primary mt-4">
-                                                       Ja zur Transformation
+                                                       Ja, zur Transformation
                                                     </a>
-                                                    <a href="https://calendly.com/seelen-fluesterin-info"
+                                                    <a href="https://calendly.com/seelen-fluesterin-info/transformationscoaching-clone-2"
                                                        target="_blank"
                                                        class="btn btn-primary mt-4">
                                                        Ja, erst kennenlernen
@@ -180,12 +180,12 @@
                                                     <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
                                                         class="btn btn-primary mt-4">Hotline anrufen</a>
                                                 @else
-                                                    <a href="https://calendly.com/seelen-fluesterin-info"
+                                                    <a href="{{$service->location}}"
                                                        target="_blank"
                                                        class="btn btn-primary mt-4">
-                                                       Ja zur Transformation
+                                                       Ja, zur Transformation
                                                     </a>
-                                                    <a href="https://calendly.com/seelen-fluesterin-info"
+                                                    <a href="https://calendly.com/seelen-fluesterin-info/transformationscoaching-clone-2"
                                                        target="_blank"
                                                        class="btn btn-primary mt-4">
                                                        Ja, erst kennenlernen

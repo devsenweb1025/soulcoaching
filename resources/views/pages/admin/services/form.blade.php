@@ -36,6 +36,16 @@
                         </div>
 
                         <div class="mb-5">
+                            <label for="location" class="required form-label">Standort</label>
+                            <input type="text"
+                                class="form-control form-control-solid @error('location') is-invalid @enderror"
+                                id="location" name="location" value="{{ old('location', $service->location ?? '') }}" required>
+                            @error('location')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-5">
                             <label for="features" class="form-label">Features</label>
                             <div id="features-container">
                                 @php
