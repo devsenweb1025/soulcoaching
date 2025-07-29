@@ -40,6 +40,13 @@
                                             'Wenn der Mensch heilt, darf er zuerst auf der spirituellen Ebene beginnen – also im Geiste. <br/><br/>Danach folgt die mentale Ebene – hier erkunden wir, wie wir unser Denken positiv umprogrammieren können.<br/><br/>Als Drittes widmen wir uns der emotionalen Ebene – welche Gefühle sind da, was wird gebraucht?<br/><br/>Die energetische Ebene heilen wir durch energetische Heilmethoden,<br/>und die letzte Ebene ist die körperliche.',
                                         'is_expanded' => false,
                                     ],
+                                    [
+                                        'question' =>
+                                            'Wie funktioniert die energetische Heilung und wobei kann sie mir helfen?',
+                                        'answer' =>
+                                            'In der energetischen Heilung arbeite ich mit der universellen Lebensenergie, um Blockaden zu lösen und das Gleichgewicht in Körper, Geist und Seele wiederherzustellen. Diese sanfte Methode unterstützt dich dabei, Stress abzubauen, emotionale Wunden zu heilen und dein Wohlbefinden zu steigern. Lass die Energie fließen und finde zu dir selbst!',
+                                        'is_expanded' => false,
+                                    ],
                                 ];
                             @endphp
 
