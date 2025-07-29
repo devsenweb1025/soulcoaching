@@ -174,22 +174,6 @@
                                 <div class="card-body h-100 d-flex flex-column">
                                     <h1 class="mb-15 mb-md-10 mb-sm-5 mt-10 fs-2x">
                                         Medialität
-                                        <span tabindex="0" class="ms-2 align-middle" data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom" data-bs-html="true"
-                                            data-bs-custom-class="custom-tooltip-style"
-                                            data-bs-title='
-                                                <div class="tooltip-content">
-                                                    <strong class="tooltip-title">Entdecke die Kraft der Heilsteine!</strong>
-                                                    <div class="tooltip-result">Als Heilstein-Therapeutin nutze ich die energetischen Eigenschaften von Steinen, um Körper, Geist und Seele zu harmonisieren. Jeder Stein hat seine eigene Wirkung – von Stressabbau bis zu emotionaler Unterstützung. Lass dich von der natürlichen Energie der Heilsteine begleiten und finde dein inneres Gleichgewicht!</div>
-                                                </div>'
-                                            id="mediumship-tooltip">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="12" cy="12" r="12" fill="black" />
-                                                <text x="12" y="18" text-anchor="middle" font-size="16"
-                                                    font-family="icomoon" fill="white" font-weight="bold">i</text>
-                                            </svg>
-                                        </span>
                                     </h1>
                                     @php
                                         $trainings = json_decode(
