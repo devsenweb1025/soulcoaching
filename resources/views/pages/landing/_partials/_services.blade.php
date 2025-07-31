@@ -21,9 +21,9 @@
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
-                            data-kt-scroll-offset="{default: 100, lg: 150}">Dienstleistungen</h1>
+                            data-kt-scroll-offset="{default: 100, lg: 150}">Transformationscoaching</h1>
                         <div class="text-gray-600 fw-semibold fs-5">
-                            Entdecke meine Dienstleistungen.
+                            Entdecke meine Transformationscoaching.
                         </div>
                     </div>
                     <!--end::Heading-->
