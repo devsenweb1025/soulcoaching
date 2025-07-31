@@ -36,6 +36,9 @@
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
     
+    # Strict-Transport-Security (HSTS)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
     # Cookie Security Headers
     Header always set Set-Cookie "HttpOnly; Secure; SameSite=Lax"
 </IfModule>
