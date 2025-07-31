@@ -83,7 +83,7 @@
                                                         @endphp
 
                                                         @foreach ($chakraItems as $item)
-                                                            <li class="d-flex align-items-center py-2">
+                                                            <li class="d-flex align-items-center py-2 fs-5 text-gray-600">
                                                                 <span class="bullet me-5 fs-3"></span> {{ $item }}
                                                             </li>
                                                         @endforeach
@@ -100,7 +100,7 @@
                                                     <!--end::Title-->
                                                     <!--begin::Price-->
                                                     <div class="d-flex flex-column">
-                                                        <li class="d-flex align-items-center py-2">
+                                                        <li class="d-flex align-items-center py-2 fs-5 text-gray-600">
                                                             <span class="bullet me-5 fs-3"></span> Schmerzen & Chakra Kurs:
                                                             CHF
                                                             444.-
@@ -238,7 +238,7 @@
                                                 <!--begin::Heading-->
                                                 <div class="text-start mb-5">
                                                     <!--begin::Title-->
-                                                    <div class="text-gray-900 mb-5 fw-boldest">
+                                                    <div class="mb-5 fw-boldest fs-5 text-gray-600">
                                                         Energetisches Heilen ist mehr als Handauflegen – es ist eine innere
                                                         Haltung, ein Weg zur Aktivierung der Selbstheilungskräfte. In diesem
                                                         Kurs lernst du die Grundlagen der Energiearbeit, erfährst, wie du
@@ -257,7 +257,7 @@
                                                     <h1 class="text-gray-900 mb-5 fw-boldest fs-2">Energieaustausch:
                                                     </h1>
 
-                                                    <div class="text-gray-900 fw-boldest">
+                                                    <div class="fw-boldest fs-5 text-gray-600">
                                                         Kompletter Energetischer Heilkurs CHF 999.-
                                                     </div>
                                                 </div>
@@ -407,7 +407,7 @@
                                                         @endphp
 
                                                         @foreach ($theorieItems as $item)
-                                                            <li class="d-flex align-items-center py-2">
+                                                            <li class="d-flex align-items-center py-2 fs-5 text-gray-600">
                                                                 <span class="bullet me-5 fs-3"></span> {{ $item }}
                                                             </li>
                                                         @endforeach
@@ -496,7 +496,7 @@
                                                         @endphp
 
                                                         @foreach ($praxisItems as $item)
-                                                            <li class="d-flex align-items-center py-2">
+                                                            <li class="d-flex align-items-center py-2 fs-5 text-gray-600">
                                                                 <span class="bullet me-5 fs-3"></span> {{ $item }}
                                                             </li>
                                                         @endforeach
