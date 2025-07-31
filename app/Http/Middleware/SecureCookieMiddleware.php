@@ -17,17 +17,24 @@ class SecureCookieMiddleware
     {
         $response = $next($request);
 
-        // Only enforce secure cookies when actually using HTTPS
+        // Detect HTTPS more reliably for production servers
         $isHttps = $request->isSecure() || 
                   $request->header('X-Forwarded-Proto') === 'https' ||
                   $request->header('X-Forwarded-SSL') === 'on' ||
-                  $request->header('X-Forwarded-Port') === '443';
+                  $request->header('X-Forwarded-Port') === '443' ||
+                  $request->header('X-Forwarded-Host') && str_contains($request->header('X-Forwarded-Host'), 'https') ||
+                  (app()->environment('production') && $request->header('Host') && !str_contains($request->header('Host'), 'localhost'));
 
-        // Always set HttpOnly and SameSite for security
+        // In production, always assume HTTPS unless explicitly detected as HTTP
+        if (app()->environment('production')) {
+            $isHttps = $isHttps || !$request->header('X-Forwarded-Proto') || $request->header('X-Forwarded-Proto') !== 'http';
+        }
+
+        // Set session cookie parameters
         ini_set('session.cookie_httponly', 1);
         ini_set('session.cookie_samesite', 'Lax');
         
-        // Only set secure flag when actually using HTTPS
+        // Set secure flag based on HTTPS detection
         if ($isHttps) {
             ini_set('session.cookie_secure', 1);
             config(['session.secure' => true]);
