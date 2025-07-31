@@ -77,7 +77,7 @@
                             data-aos-duration="500" data-aos-delay="0">
                             <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
                                 <div class="card-body p-0w-100 h-400px object-fit-cover rounded"
-                                        style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image: url('{{ asset(theme()->getMediaUrlPath() . 'landing/transformationsraum/office-4.webp') }}')">
+                                        style="background-repeat: no-repeat;background-size: contain;background-position:center;background-image: url('{{ asset(theme()->getMediaUrlPath() . 'landing/transformationsraum/office-4.webp') }}')">
                                 </div>
                             </div>
                         </div>

@@ -22,29 +22,29 @@ class ContentSecurityPolicy
             // Default source - only allow same origin
             "default-src 'self'",
             
-            // Script sources - allow same origin, inline scripts (for Metronic), and common CDNs
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://unpkg.com https://framerusercontent.com",
+            // Script sources - only allow specific trusted domains (no unsafe-inline/eval)
+            "script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://unpkg.com https://framerusercontent.com https://www.googletagmanager.com",
             
-            // Style sources - allow same origin, inline styles, and common CDNs
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com",
+            // Style sources - allow same origin and specific CDNs only (no unsafe-inline)
+            "style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com",
             
-            // Image sources - allow same origin, data URIs, and common image sources
-            "img-src 'self' data: https: http: https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+            // Image sources - allow same origin and specific image sources (no data: or broad https:)
+            "img-src 'self' https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google-analytics.com",
             
-            // Font sources - allow same origin and Google Fonts
+            // Font sources - allow same origin and Google Fonts only
             "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
             
-            // Connect sources - for AJAX requests
-            "connect-src 'self' https://api.calendly.com https://framerusercontent.com",
+            // Connect sources - for AJAX requests to specific APIs only
+            "connect-src 'self' https://api.calendly.com https://framerusercontent.com https://www.google-analytics.com",
             
-            // Frame sources - allow same origin and Calendly
+            // Frame sources - allow same origin and specific embeds only
             "frame-src 'self' https://calendly.com https://www.google.com",
             
-            // Object sources - restrict to same origin
+            // Object sources - completely blocked for security
             "object-src 'none'",
             
-            // Media sources - allow same origin and common media sources
-            "media-src 'self' https:",
+            // Media sources - allow same origin only
+            "media-src 'self'",
             
             // Manifest sources - allow same origin
             "manifest-src 'self'",
