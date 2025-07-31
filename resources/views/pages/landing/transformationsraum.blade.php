@@ -233,7 +233,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <h4 class="text-gray-900 mb-2 fw-bold">Adresse is:</h4>
+                                                <h4 class="text-gray-900 mb-2 fw-bold">Adresse:</h4>
                                                 <p class="fs-6 text-gray-600 mb-0">
                                                     Bucherstrasse 2<br>
                                                     9322 Egnach (TG)
@@ -274,7 +274,7 @@
                                             <div class="flex-grow-1">
                                                 <h4 class="text-gray-900 mb-2 fw-bold">Öffentliche Verkehrsmittel</h4>
                                                 <p class="fs-6 text-gray-600 mb-0">
-                                                    Die Praxis ist 2 Minuten vom Bahnhof entfernt und zu fuss gut erreichbar.
+                                                    Die Praxis ist 2 Minuten vom Bahnhof entfernt und zu Fuss gut erreichbar.
                                                 </p>
                                             </div>
                                         </div>
