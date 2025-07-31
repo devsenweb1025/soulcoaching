@@ -29,7 +29,7 @@ class ContentSecurityPolicy
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com",
             
             // Image sources - allow same origin, data URIs, and common image sources
-            "img-src 'self' data: https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google-analytics.com https://*.cloudflare.com https://*.jsdelivr.net https://*.unpkg.com https://*.googleusercontent.com https://*.google.com",
+            "img-src 'self' data: https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google-analytics.com https://*.cloudflare.com https://*.jsdelivr.net https://*.unpkg.com https://*.googleusercontent.com https://*.google.com https://www.googletagmanager.com",
             
             // Font sources - allow same origin and Google Fonts only
             "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",

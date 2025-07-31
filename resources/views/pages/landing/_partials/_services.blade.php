@@ -32,7 +32,16 @@
                         @foreach ($services as $service)
                             <div class="col-lg-3" id="card-container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500"
                                 data-aos-delay="0">
-                                <div class="card card-shadow shadow card-borderless mb-5 bg-gray-300">
+                                <div class="card card-shadow shadow card-borderless mb-5 bg-white">
+                                    <!--begin::Service Image-->
+                                    @if (!empty($service['image']))
+                                        <div class="card-body p-0">
+                                            <div class="w-100 h-200px object-fit-cover rounded-top"
+                                                style="background-image: url('{{ asset('storage/' . $service['image']) }}'); background-size: cover; background-position: center;">
+                                            </div>
+                                        </div>
+                                    @endif
+                                    <!--end::Service Image-->
                                     <div class="card-header ribbon ribbon-top ribbon-inner">
                                         <h2 class="card-title pt-5 fw-bold fs-md-7 fs-4">
                                             {{ $service['title'] }}
