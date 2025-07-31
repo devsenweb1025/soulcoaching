@@ -29,7 +29,7 @@ class ContentSecurityPolicy
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com",
             
             // Image sources - allow same origin, data URIs, and common image sources
-            "img-src 'self' data: https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google-analytics.com https://*.cloudflare.com https://*.jsdelivr.net https://*.unpkg.com",
+            "img-src 'self' data: https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google-analytics.com https://*.cloudflare.com https://*.jsdelivr.net https://*.unpkg.com https://*.googleusercontent.com https://*.google.com",
             
             // Font sources - allow same origin and Google Fonts only
             "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
@@ -38,7 +38,7 @@ class ContentSecurityPolicy
             "connect-src 'self' https://api.calendly.com https://framerusercontent.com https://www.google-analytics.com https://www.clarity.ms https://l.clarity.ms",
             
             // Frame sources - allow same origin and specific embeds only
-            "frame-src 'self' https://calendly.com https://www.google.com",
+            "frame-src 'self' https://calendly.com https://www.google.com https://js.stripe.com",
             
             // Object sources - completely blocked for security
             "object-src 'none'",
