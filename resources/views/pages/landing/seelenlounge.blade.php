@@ -154,7 +154,7 @@
                                                     <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
                                                 </div>
                                             </div>
-                                            <a href="https://us06web.zoom.us/j/86307815475?pwd=aruWGI47STJzJ9tbCRvapbDmaPKfwG.1"
+                                            <a href="https://us05web.zoom.us/j/82853488675?pwd=xnzs0DvSuI5aXOCbs0CdCBondIZerl.1"
                                                 target="_blank" class="btn btn-primary w-100">
                                                 Seelenraum betreten (Zoom)
                                             </a>
