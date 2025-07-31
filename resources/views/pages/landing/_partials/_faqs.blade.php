@@ -1,5 +1,4 @@
 <div class="position-relative">
-    <div class="clouds-2"></div>
     <!--begin::Testimonials Section-->
     <div class="mt-20 mb-20 position-relative z-index-2">
         <!--begin::Container-->

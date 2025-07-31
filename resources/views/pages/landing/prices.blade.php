@@ -20,8 +20,7 @@
                 <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel d-inline-block align-middle">
                     Transformationscoaching
                     <span tabindex="0" class="ms-2 align-middle" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                        data-bs-html="true"
-                        data-bs-custom-class="custom-tooltip-style"
+                        data-bs-html="true" data-bs-custom-class="custom-tooltip-style"
                         data-bs-title='
                         <div class="tooltip-content">
                             <strong class="tooltip-title">Fühlst du dich oft niedergeschlagen?</strong>
@@ -39,8 +38,8 @@
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <circle cx="18" cy="18" r="18" fill="black" />
-                            <text x="18" y="30" text-anchor="middle" font-size="36"
-                                font-family="icomoon" fill="white" font-weight="bold">i</text>
+                            <text x="18" y="30" text-anchor="middle" font-size="36" font-family="icomoon" fill="white"
+                                font-weight="bold">i</text>
                         </svg>
                     </span>
                 </h1>
@@ -55,6 +54,7 @@
                         padding: 0;
                         max-width: 340px;
                     }
+
                     .custom-tooltip-style .tooltip-inner {
                         background: #fff;
                         color: #222;
@@ -62,11 +62,13 @@
                         padding: 0;
                         max-width: 340px;
                     }
+
                     .custom-tooltip-style .tooltip-content {
                         padding: 16px 18px 14px 18px;
                         font-size: 1.05rem;
                         line-height: 1.6;
                     }
+
                     .custom-tooltip-style .tooltip-title {
                         color: var(--bs-primary);
                         font-size: 1.1rem;
@@ -74,21 +76,25 @@
                         margin-bottom: 6px;
                         display: block;
                     }
+
                     .custom-tooltip-style .tooltip-subtitle {
                         color: var(--bs-primary);
                         font-weight: 600;
                         margin-bottom: 8px;
                         font-size: 1rem;
                     }
+
                     .custom-tooltip-style .tooltip-list {
                         text-align: left !important;
                         margin: 0 0 10px 0;
                         padding-left: 1.2em;
                         font-size: 0.98rem;
                     }
+
                     .custom-tooltip-style .tooltip-list li {
                         margin-bottom: 3px;
                     }
+
                     .custom-tooltip-style .tooltip-result {
                         margin-top: 10px;
                         color: var(--bs-primary);
@@ -106,195 +112,197 @@
             <!--end::Heading-->
         </div>
 
-
-        @foreach ($services as $index => $service)
-            <!--begin::Pricing Section-->
-            <div class="mt-sm-n20 position-relative mt-20 mb-20">
-                <div class="clouds-{{ ($index % 4) + 1 }}"></div>
-                <!--begin::Wrapper-->
-                <div class="landing-light-bg position-relative z-index-2">
-                    <!--begin::Container-->
-                    <div class="container">
-                        <!--begin::Plans-->
-                        <div class="d-flex flex-column pt-lg-20">
-                            <!--begin::Heading-->
-                            <div class="mb-13 {{ $service->image_direction === 'right' ? 'text-start' : 'text-end' }}">
-                                <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
-                                    data-kt-scroll-offset="{default: 100, lg: 150}">{{ $service->title }}</h1>
-                                <div class="text-gray-600 fw-semibold fs-5">{{ $service->description }}</div>
-                            </div>
-                            <!--end::Heading-->
-                            <!--begin::Pricing-->
-                            <div class="text-start" id="kt_pricing">
-                                <!--begin::Row-->
-                                <div
-                                    class="row g-10 {{ $service->image_direction === 'right' ? 'flex-column-reverse flex-md-row' : 'flex-column flex-md-row' }}">
-                                    @if ($service->image_direction === 'right')
-                                        <!--begin::Col-->
-                                        <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear"
-                                            data-aos-duration="500" data-aos-delay="0">
-                                            <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
-                                                <div class="card-header ribbon ribbon-top ribbon-inner">
-                                                    <h1 class="text-gray-900 mb-5 fw-boldest pt-10" id="pricing">
-                                                        {{ $service->title }}</h1>
-                                                    @if (!empty($service->is_featured))
-                                                        <div class="ribbon-label bg-danger">Meist gebucht</div>
-                                                    @endif
-                                                </div>
-                                                <div class="card-body pt-1">
-                                                    <div class="mb-4">
-                                                        <span class="fs-2x fw-bold text-primary">
-                                                            @chf($service->price).-
-                                                            @if ($service->benefit_option === 'month')
-                                                                / Monat
-                                                            @elseif($service->benefit_option === 'hour')
-                                                                / Stunde
-                                                            @elseif($service->benefit_option === 'min')
-                                                                / Minute
-                                                            @elseif($service->benefit_option === 'per call')
-                                                                / pro Gespräch
-                                                            @elseif($service->benefit_option === 'one time')
-                                                                <!-- nothing -->
-                                                            @endif
-                                                        </span>
-                                                    </div>
-                                                    @if (!empty($service->features))
-                                                        <div>
-                                                            <span class="fs-2x fw-bold text-primary">Vorteile:</span>
-                                                            <div class="mt-4">
-                                                                @foreach ($service->features as $feature)
-                                                                    <div class="d-flex flex-stack mb-2">
-                                                                        <span
-                                                                            class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
-                                                                        <i
-                                                                            class="ki-duotone ki-check-circle fs-1 text-success">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </div>
-                                                                @endforeach
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                    @if ($service->hotline_active)
-                                                        <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
-                                                            class="btn btn-primary mt-4">Hotline anrufen</a>
-                                                    @else
-                                                        <a href="{{ $service->location }}" target="_blank"
-                                                            class="btn btn-primary mt-4">
-                                                            @if ($service->slug == 'exklusiv-bei-seelenfluesterin')
-                                                                Ja, zur Kartenlegung
-                                                            @else
-                                                                Ja, zur Transformation
-                                                            @endif
-                                                        </a>
-                                                        <a href="https://calendly.com/seelen-fluesterin-info/transformationscoaching-clone-2"
-                                                            target="_blank" class="btn btn-primary mt-4">
-                                                            Ja, erst kennenlernen
-                                                        </a>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear"
-                                            data-aos-duration="500" data-aos-delay="0">
-                                            <div class="w-100 h-300px h-md-100 object-fit-cover"
-                                                style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'landing/prices/default.jpg') }})">
-                                            </div>
-                                        </div>
-                                        <!--end::Col-->
-                                    @else
-                                        <!--begin::Col-->
-                                        <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear"
-                                            data-aos-duration="500" data-aos-delay="0">
-                                            <div class="w-100 h-300px h-md-100 object-fit-cover"
-                                                style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'landing/prices/default.jpg') }})">
-                                            </div>
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear"
-                                            data-aos-duration="500" data-aos-delay="0">
-                                            <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
-                                                <div class="card-header ribbon ribbon-top ribbon-inner">
-                                                    <h1 class="text-gray-900 pt-10 mb-5 fw-boldest">{{ $service->title }}
-                                                    </h1>
-                                                    @if (!empty($service->is_featured))
-                                                        <div class="ribbon-label bg-danger">Meist gebucht</div>
-                                                    @endif
-                                                </div>
-                                                <div class="card-body pt-1">
-                                                    <div class="mb-4">
-                                                        <span class="fs-2x fw-bold text-primary">
-                                                            @chf($service->price).-
-                                                            @if ($service->benefit_option === 'month')
-                                                                / Monat
-                                                            @elseif($service->benefit_option === 'hour')
-                                                                / Stunde
-                                                            @elseif($service->benefit_option === 'min')
-                                                                / Minute
-                                                            @elseif($service->benefit_option === 'per call')
-                                                                / pro Gespräch
-                                                            @elseif($service->benefit_option === 'one time')
-                                                                <!-- nothing -->
-                                                            @endif
-                                                        </span>
-                                                    </div>
-                                                    @if (!empty($service->features))
-                                                        <div>
-                                                            <span class="fs-2x fw-bold text-primary">Vorteile:</span>
-                                                            <div class="mt-4">
-                                                                @foreach ($service->features as $feature)
-                                                                    <div class="d-flex flex-stack mb-2">
-                                                                        <span
-                                                                            class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
-                                                                        <i
-                                                                            class="ki-duotone ki-check-circle fs-1 text-success">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </div>
-                                                                @endforeach
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                    @if ($service->hotline_active)
-                                                        <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
-                                                            class="btn btn-primary mt-4">Hotline anrufen</a>
-                                                    @else
-                                                        <a href="{{ $service->location }}" target="_blank"
-                                                            class="btn btn-primary mt-4">
-                                                            @if ($service->slug == 'exklusiv-bei-seelenfluesterin')
-                                                                Ja, zur Kartenlegung
-                                                            @else
-                                                                Ja, zur Transformation
-                                                            @endif
-                                                        </a>
-                                                        <a href="https://calendly.com/seelen-fluesterin-info/transformationscoaching-clone-2"
-                                                            target="_blank" class="btn btn-primary mt-4">
-                                                            Ja, erst kennenlernen
-                                                        </a>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Col-->
-                                    @endif
+        <div class="position-relative pb-20">
+            <div class="clouds-1"></div>
+            @foreach ($services as $index => $service)
+                <!--begin::Pricing Section-->
+                <div class="mt-sm-n20 position-relative mt-20 pb-20">
+                    <!--begin::Wrapper-->
+                    <div class="landing-light-bg position-relative z-index-2">
+                        <!--begin::Container-->
+                        <div class="container">
+                            <!--begin::Plans-->
+                            <div class="d-flex flex-column pt-lg-20">
+                                <!--begin::Heading-->
+                                <div class="mb-13 {{ $service->image_direction === 'right' ? 'text-start' : 'text-end' }}">
+                                    <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
+                                        data-kt-scroll-offset="{default: 100, lg: 150}">{{ $service->title }}</h1>
+                                    <div class="text-gray-600 fw-semibold fs-5">{{ $service->description }}</div>
                                 </div>
-                                <!--end::Row-->
+                                <!--end::Heading-->
+                                <!--begin::Pricing-->
+                                <div class="text-start" id="kt_pricing">
+                                    <!--begin::Row-->
+                                    <div
+                                        class="row g-10 {{ $service->image_direction === 'right' ? 'flex-column-reverse flex-md-row' : 'flex-column flex-md-row' }}">
+                                        @if ($service->image_direction === 'right')
+                                            <!--begin::Col-->
+                                            <div class="col-xl-4 col-md-6" data-aos="fade-right" data-aos-easing="linear"
+                                                data-aos-duration="500" data-aos-delay="0">
+                                                <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
+                                                    <div class="card-header ribbon ribbon-top ribbon-inner">
+                                                        <h1 class="text-gray-900 mb-5 fw-boldest pt-10" id="pricing">
+                                                            {{ $service->title }}</h1>
+                                                        @if (!empty($service->is_featured))
+                                                            <div class="ribbon-label bg-danger">Meist gebucht</div>
+                                                        @endif
+                                                    </div>
+                                                    <div class="card-body pt-1">
+                                                        <div class="mb-4">
+                                                            <span class="fs-2x fw-bold text-primary">
+                                                                @chf($service->price).-
+                                                                @if ($service->benefit_option === 'month')
+                                                                    / Monat
+                                                                @elseif($service->benefit_option === 'hour')
+                                                                    / Stunde
+                                                                @elseif($service->benefit_option === 'min')
+                                                                    / Minute
+                                                                @elseif($service->benefit_option === 'per call')
+                                                                    / pro Gespräch
+                                                                @elseif($service->benefit_option === 'one time')
+                                                                    <!-- nothing -->
+                                                                @endif
+                                                            </span>
+                                                        </div>
+                                                        @if (!empty($service->features))
+                                                            <div>
+                                                                <span class="fs-2x fw-bold text-primary">Vorteile:</span>
+                                                                <div class="mt-4">
+                                                                    @foreach ($service->features as $feature)
+                                                                        <div class="d-flex flex-stack mb-2">
+                                                                            <span
+                                                                                class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                            <i
+                                                                                class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                                <span class="path1"></span>
+                                                                                <span class="path2"></span>
+                                                                            </i>
+                                                                        </div>
+                                                                    @endforeach
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                        @if ($service->hotline_active)
+                                                            <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
+                                                                class="btn btn-primary mt-4">Hotline anrufen</a>
+                                                        @else
+                                                            <a href="{{ $service->location }}" target="_blank"
+                                                                class="btn btn-primary mt-4">
+                                                                @if ($service->slug == 'exklusiv-bei-seelenfluesterin')
+                                                                    Ja, zur Kartenlegung
+                                                                @else
+                                                                    Ja, zur Transformation
+                                                                @endif
+                                                            </a>
+                                                            <a href="https://calendly.com/seelen-fluesterin-info/transformationscoaching-clone-2"
+                                                                target="_blank" class="btn btn-primary mt-4">
+                                                                Ja, erst kennenlernen
+                                                            </a>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-xl-8 col-md-6" data-aos="fade-left" data-aos-easing="linear"
+                                                data-aos-duration="500" data-aos-delay="0">
+                                                <div class="w-100 h-300px h-md-100 object-fit-cover"
+                                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'landing/prices/default.jpg') }})">
+                                                </div>
+                                            </div>
+                                            <!--end::Col-->
+                                        @else
+                                            <!--begin::Col-->
+                                            <div class="col-xl-8 col-md-6" data-aos="fade-right" data-aos-easing="linear"
+                                                data-aos-duration="500" data-aos-delay="0">
+                                                <div class="w-100 h-300px h-md-100 object-fit-cover"
+                                                    style="background-repeat: no-repeat;background-size: 100% 100%;background-position:center;background-image: url({{ $service->image ? asset('storage/' . $service->image) : asset(theme()->getMediaUrlPath() . 'landing/prices/default.jpg') }})">
+                                                </div>
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-xl-4 col-md-6" data-aos="fade-left" data-aos-easing="linear"
+                                                data-aos-duration="500" data-aos-delay="0">
+                                                <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
+                                                    <div class="card-header ribbon ribbon-top ribbon-inner">
+                                                        <h1 class="text-gray-900 pt-10 mb-5 fw-boldest">
+                                                            {{ $service->title }}
+                                                        </h1>
+                                                        @if (!empty($service->is_featured))
+                                                            <div class="ribbon-label bg-danger">Meist gebucht</div>
+                                                        @endif
+                                                    </div>
+                                                    <div class="card-body pt-1">
+                                                        <div class="mb-4">
+                                                            <span class="fs-2x fw-bold text-primary">
+                                                                @chf($service->price).-
+                                                                @if ($service->benefit_option === 'month')
+                                                                    / Monat
+                                                                @elseif($service->benefit_option === 'hour')
+                                                                    / Stunde
+                                                                @elseif($service->benefit_option === 'min')
+                                                                    / Minute
+                                                                @elseif($service->benefit_option === 'per call')
+                                                                    / pro Gespräch
+                                                                @elseif($service->benefit_option === 'one time')
+                                                                    <!-- nothing -->
+                                                                @endif
+                                                            </span>
+                                                        </div>
+                                                        @if (!empty($service->features))
+                                                            <div>
+                                                                <span class="fs-2x fw-bold text-primary">Vorteile:</span>
+                                                                <div class="mt-4">
+                                                                    @foreach ($service->features as $feature)
+                                                                        <div class="d-flex flex-stack mb-2">
+                                                                            <span
+                                                                                class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                            <i
+                                                                                class="ki-duotone ki-check-circle fs-1 text-success">
+                                                                                <span class="path1"></span>
+                                                                                <span class="path2"></span>
+                                                                            </i>
+                                                                        </div>
+                                                                    @endforeach
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                        @if ($service->hotline_active)
+                                                            <a href="{{ route('services', ['scroll_to' => 'hotline']) }}"
+                                                                class="btn btn-primary mt-4">Hotline anrufen</a>
+                                                        @else
+                                                            <a href="{{ $service->location }}" target="_blank"
+                                                                class="btn btn-primary mt-4">
+                                                                @if ($service->slug == 'exklusiv-bei-seelenfluesterin')
+                                                                    Ja, zur Kartenlegung
+                                                                @else
+                                                                    Ja, zur Transformation
+                                                                @endif
+                                                            </a>
+                                                            <a href="https://calendly.com/seelen-fluesterin-info/transformationscoaching-clone-2"
+                                                                target="_blank" class="btn btn-primary mt-4">
+                                                                Ja, erst kennenlernen
+                                                            </a>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Col-->
+                                        @endif
+                                    </div>
+                                    <!--end::Row-->
+                                </div>
+                                <!--end::Pricing-->
                             </div>
-                            <!--end::Pricing-->
+                            <!--end::Plans-->
                         </div>
-                        <!--end::Plans-->
+                        <!--end::Container-->
                     </div>
-                    <!--end::Container-->
+                    <!--end::Wrapper-->
                 </div>
-                <!--end::Wrapper-->
-            </div>
-            <!--end::Pricing Section-->
-        @endforeach
+                <!--end::Pricing Section-->
+            @endforeach
+        </div>
 
 
     </x-landing-layout>

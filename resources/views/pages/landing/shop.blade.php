@@ -33,10 +33,10 @@
     <!--end::Landing hero-->
 
     <!--begin::Pricing Section-->
-    <div class="position-relative mt-20 mb-20">
+    <div class="position-relative mt-20 pb-20 landing-light-bg ">
         <div class="clouds-4"></div>
         <!--begin::Wrapper-->
-        <div class="landing-light-bg position-relative z-index-2">
+        <div class="position-relative z-index-2">
             <!--begin::Container-->
             <div class="container">
                 <!--begin::Plans-->
