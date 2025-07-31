@@ -1,6 +1,7 @@
 <x-landing-layout>
     @section('title', 'Seelenlounge - Kostenloses Online-Treffen für spirituelle Themen')
-    @section('description', 'Kostenlose Zoom-Meetings zu spirituellen und transformierenden Themen. Melde dich an,
+    @section('description',
+        'Kostenlose Zoom-Meetings zu spirituellen und transformierenden Themen. Melde dich an,
         tausche dich mit Gleichgesinnten aus und finde Inspiration und neuen Halt.')
 
         @include('pages.landing._partials._background')
@@ -22,7 +23,8 @@
                     Seelenlounge
                 </h1>
                 <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
-                    Kostenlose Zoom-Meetings zu diversen Themen. Melde dich an, tausche dich mit Gleichgesinnten aus und finde Inspiration und neuen Halt – besonders in Zeiten von Krisen oder Umbrüchen.
+                    Kostenlose Zoom-Meetings zu diversen Themen. Melde dich an, tausche dich mit Gleichgesinnten aus und
+                    finde Inspiration und neuen Halt – besonders in Zeiten von Krisen oder Umbrüchen.
                 </p>
                 <!--end::Title-->
             </div>
@@ -75,9 +77,10 @@
                                                     <div class="d-flex flex-column">
                                                         <h5 class="mb-1 fw-bold text-warning">WICHTIG</h5>
                                                         <span class="fs-6 text-gray-800">
-                                                            Bitte beachte, dass nur die ersten fünf Teilnehmer, die sich
-                                                            anmelden, an dem Call teilnehmen können. Sei also schnell und
-                                                            sichere dir deinen Platz!
+                                                            Da ich eine hochsensitive Person bin und die Energien gerne
+                                                            positiv halten möchte, ist der Raum auf 5 Personen beschränkt.
+                                                            Sei also schnell und sichere dir deinen Platz – die ersten 5,
+                                                            die im Raum sind, erhalten den Platz.
                                                         </span>
                                                     </div>
                                                 </div>
@@ -185,7 +188,8 @@
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00
+                                                        Uhr</span>
                                                 </div>
                                             </div>
                                             <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
@@ -220,7 +224,8 @@
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00
+                                                        Uhr</span>
                                                 </div>
                                             </div>
                                             <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
@@ -255,7 +260,8 @@
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00
+                                                        Uhr</span>
                                                 </div>
                                             </div>
                                             <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
