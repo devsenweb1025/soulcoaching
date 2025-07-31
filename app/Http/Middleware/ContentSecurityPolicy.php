@@ -22,23 +22,23 @@ class ContentSecurityPolicy
             // Default source - only allow same origin
             "default-src 'self'",
             
-            // Script sources - only allow specific trusted domains (no unsafe-inline/eval)
-            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://unpkg.com https://framerusercontent.com https://www.googletagmanager.com",
+            // Script sources - allow specific trusted domains and unsafe-eval for frameworks
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://unpkg.com https://framerusercontent.com https://www.googletagmanager.com https://www.clarity.ms",
             
             // Style sources - allow same origin, specific CDNs, and inline styles for background images
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com",
             
-            // Image sources - allow same origin and specific image sources (no data: or broad https:)
-            "img-src 'self' 'unsafe-inline' https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google-analytics.com",
+            // Image sources - allow same origin and specific image sources
+            "img-src 'self' https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google-analytics.com",
             
             // Font sources - allow same origin and Google Fonts only
-            "font-src 'self' 'unsafe-inline' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+            "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
             
             // Connect sources - for AJAX requests to specific APIs only
-            "connect-src 'self' 'unsafe-inline' https://api.calendly.com https://framerusercontent.com https://www.google-analytics.com",
+            "connect-src 'self' https://api.calendly.com https://framerusercontent.com https://www.google-analytics.com https://www.clarity.ms",
             
             // Frame sources - allow same origin and specific embeds only
-            "frame-src 'self' 'unsafe-inline' https://calendly.com https://www.google.com",
+            "frame-src 'self' https://calendly.com https://www.google.com",
             
             // Object sources - completely blocked for security
             "object-src 'none'",
