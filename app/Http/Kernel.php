@@ -24,6 +24,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\ContentSecurityPolicy::class,
         \App\Http\Middleware\SecureCookieMiddleware::class,
         \App\Http\Middleware\ForceHttpsMiddleware::class,
+        \App\Http\Middleware\ProductionCsrfMiddleware::class,
     ];
 
     /**
