@@ -46,8 +46,8 @@
                                     </div>
                                     <div class="card-body pt-1">
                                         @if (!empty($service['image']))
-                                            <div class="w-100 h-200px object-fit-cover rounded-top"
-                                                style="background-image: url('{{ asset('storage/' . $service['image']) }}'); background-size: contain; background-position: center;">
+                                            <div class="w-100 h-200px object-fit-cover rounded mb-5"
+                                                style="background-image: url('{{ asset('storage/' . $service['image']) }}'); background-repeat: no-repeat; background-size: contain; background-position: center;">
                                             </div>
                                         @endif
                                         @if (!empty($service['features']))
