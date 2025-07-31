@@ -21,11 +21,7 @@
                 Transformationsraum
             </h1>
             <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
-                Dein Raum für persönliche Entwicklung und Spiritualität
-            </p>
-            <p class="fs-5 fs-md-6 fs-lg-7 font-archivo container text-gray-600">
-                Willkommen in unserem heiligen Raum, wo Transformation, Heilung und spirituelles Wachstum stattfinden. 
-                Hier findest du die perfekte Atmosphäre für deine persönliche Reise zur Selbsterkenntnis.
+                Ein magischer Ort der Heilung, an dem du dich geborgen fühlen kannst. Hier darfst du loslassen, zur Ruhe kommen und neue Kraft für deine persönliche Transformation schöpfen
             </p>
             <!--end::Title-->
         </div>

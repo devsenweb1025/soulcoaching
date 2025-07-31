@@ -1,0 +1,83 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class ContentSecurityPolicy
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        $response = $next($request);
+
+        // Define CSP directives
+        $cspDirectives = [
+            // Default source - only allow same origin
+            "default-src 'self'",
+            
+            // Script sources - allow same origin, inline scripts (for Metronic), and common CDNs
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://unpkg.com https://framerusercontent.com",
+            
+            // Style sources - allow same origin, inline styles, and common CDNs
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com",
+            
+            // Image sources - allow same origin, data URIs, and common image sources
+            "img-src 'self' data: https: http: https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+            
+            // Font sources - allow same origin and Google Fonts
+            "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+            
+            // Connect sources - for AJAX requests
+            "connect-src 'self' https://api.calendly.com https://framerusercontent.com",
+            
+            // Frame sources - allow same origin and Calendly
+            "frame-src 'self' https://calendly.com https://www.google.com",
+            
+            // Object sources - restrict to same origin
+            "object-src 'none'",
+            
+            // Media sources - allow same origin and common media sources
+            "media-src 'self' https:",
+            
+            // Manifest sources - allow same origin
+            "manifest-src 'self'",
+            
+            // Worker sources - allow same origin
+            "worker-src 'self'",
+            
+            // Form action - allow same origin
+            "form-action 'self'",
+            
+            // Base URI - restrict to same origin
+            "base-uri 'self'",
+            
+            // Upgrade insecure requests - upgrade HTTP to HTTPS
+            "upgrade-insecure-requests",
+            
+            // Block mixed content
+            "block-all-mixed-content"
+        ];
+
+        // Join all directives
+        $cspHeader = implode('; ', $cspDirectives);
+
+        // Add CSP header
+        $response->headers->set('Content-Security-Policy', $cspHeader);
+
+        // Add additional security headers
+        $response->headers->set('X-Content-Type-Options', 'nosniff');
+        $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
+        $response->headers->set('X-XSS-Protection', '1; mode=block');
+        $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
+        $response->headers->set('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+
+        return $response;
+    }
+}

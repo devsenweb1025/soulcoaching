@@ -19,15 +19,10 @@
             <div class="d-flex flex-column flex-center text-center mb-lg-10 py-10 py-lg-20 h-100 z-index-2">
                 <!--begin::Title-->
                 <h1 class="text-dark lh-base fs-2x fs-md-3x fs-lg-4x font-cinzel d-inline-block align-middle">
-                    Seelenlounge -
+                    Seelenlounge
                 </h1>
                 <p class="fs-1 fs-md-1x fs-lg-2x font-archivo container">
-                    Kostenloses Online-Treffen für spirituelle Themen
-                </p>
-                <p class="fs-5 fs-md-6 fs-lg-7 font-archivo container text-gray-600">
-                    Kostenlose Zoom-Meetings zu spirituellen und transformierenden Themen. Melde dich an, tausche dich mit
-                    Gleichgesinnten aus und finde Inspiration und neuen Halt - besonders in Zeiten von Krisen oder
-                    Umbrüchen.
+                    Kostenlose Zoom-Meetings zu diversen Themen. Melde dich an, tausche dich mit Gleichgesinnten aus und finde Inspiration und neuen Halt – besonders in Zeiten von Krisen oder Umbrüchen.
                 </p>
                 <!--end::Title-->
             </div>
