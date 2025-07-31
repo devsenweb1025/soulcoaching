@@ -66,11 +66,11 @@
                                             <!--begin::Price-->
                                             <div class="text-start">
                                                 <span class="fs-2 fw-bold text-primary">
-                                                    @chf($product->price)
+                                                    @chf($product->price).-
                                                 </span>
                                                 @if ($product->compare_price)
                                                     <span class="text-muted text-decoration-line-through ms-2">
-                                                        @chf($product->compare_price)
+                                                        @chf($product->compare_price).-
                                                     </span>
                                                 @endif
                                             </div>
