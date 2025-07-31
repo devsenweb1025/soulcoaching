@@ -23,21 +23,22 @@ class SecureCookieMiddleware
                   $request->header('X-Forwarded-SSL') === 'on' ||
                   $request->header('X-Forwarded-Port') === '443';
 
-        if ($isHttps || app()->environment('production')) {
-            // Set secure cookie parameters only when using HTTPS
-            if ($isHttps) {
-                ini_set('session.cookie_secure', 1);
-            }
-            ini_set('session.cookie_httponly', 1);
-            ini_set('session.cookie_samesite', 'Lax');
-            
-            // Force HTTPS for cookies in production
-            if (app()->environment('production')) {
-                config(['session.secure' => $isHttps]);
-                config(['session.http_only' => true]);
-                config(['session.same_site' => 'lax']);
-            }
+        // Always set HttpOnly and SameSite for security
+        ini_set('session.cookie_httponly', 1);
+        ini_set('session.cookie_samesite', 'Lax');
+        
+        // Only set secure flag when actually using HTTPS
+        if ($isHttps) {
+            ini_set('session.cookie_secure', 1);
+            config(['session.secure' => true]);
+        } else {
+            ini_set('session.cookie_secure', 0);
+            config(['session.secure' => false]);
         }
+        
+        // Always set these for consistency
+        config(['session.http_only' => true]);
+        config(['session.same_site' => 'lax']);
 
         return $response;
     }
