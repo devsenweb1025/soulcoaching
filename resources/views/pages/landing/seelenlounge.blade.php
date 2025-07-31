@@ -151,8 +151,7 @@
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">20:00 Uhr - 22:00
-                                                        Uhr</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
                                                 </div>
                                             </div>
                                             <a href="https://us06web.zoom.us/j/86307815475?pwd=aruWGI47STJzJ9tbCRvapbDmaPKfwG.1"
@@ -186,8 +185,7 @@
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">20:00 Uhr - 22:00
-                                                        Uhr</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
                                                 </div>
                                             </div>
                                             <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
@@ -222,8 +220,7 @@
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">20:00 Uhr - 22:00
-                                                        Uhr</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
                                                 </div>
                                             </div>
                                             <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
@@ -258,8 +255,7 @@
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">20:00 Uhr - 22:00
-                                                        Uhr</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
                                                 </div>
                                             </div>
                                             <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
