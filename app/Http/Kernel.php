@@ -24,7 +24,6 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\ContentSecurityPolicy::class,
         \App\Http\Middleware\SecureCookieMiddleware::class,
         \App\Http\Middleware\ForceHttpsMiddleware::class,
-        \App\Http\Middleware\ProductionCsrfMiddleware::class,
     ];
 
     /**
@@ -41,6 +40,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\ProductionCsrfMiddleware::class,
         ],
 
         'api' => [

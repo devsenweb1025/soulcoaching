@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Session;
 
 class ProductionCsrfMiddleware
 {
@@ -16,17 +15,7 @@ class ProductionCsrfMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Ensure session is started
-        if (!Session::isStarted()) {
-            Session::start();
-        }
-
-        // Regenerate session ID if needed for security
-        if (app()->environment('production') && !$request->session()->has('_token')) {
-            $request->session()->regenerate();
-        }
-
-        // Ensure CSRF token exists
+        // Ensure CSRF token exists (session is already started by StartSession middleware)
         if (!$request->session()->has('_token')) {
             $request->session()->put('_token', csrf_token());
         }
