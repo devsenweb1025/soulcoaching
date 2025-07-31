@@ -32,7 +32,7 @@
                         @foreach ($services as $service)
                             <div class="col-lg-3" id="card-container" data-aos="fade-up" data-aos-easing="linear"
                                 data-aos-duration="500" data-aos-delay="0">
-                                <div class="card card-shadow shadow card-borderless mb-5 bg-white">
+                                <div class="card card-shadow shadow card-borderless mb-5 bg-white text-center">
                                     <!--begin::Service Image-->
 
                                     <!--end::Service Image-->
@@ -57,7 +57,7 @@
                                                     @foreach ($service['features'] as $feature)
                                                         <div class="d-flex flex-stack mb-2">
                                                             <span
-                                                                class="fw-semibold fs-6 text-gray-800 text-start pe-3">{{ $feature }}</span>
+                                                                class="fw-semibold fs-6 text-gray-800 text-center pe-3">{{ $feature }}</span>
                                                             <i class="ki-duotone ki-check-circle fs-1 text-success">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
