@@ -41,7 +41,8 @@ Route::get('medien', [LandingController::class, 'medien'])->name('medien');
 Route::get('impressum', [LandingController::class, 'impressum'])->name('impressum');
 Route::get('datenschutz', [LandingController::class, 'datenschutz'])->name('datenschutz');
 Route::get('agb', [LandingController::class, 'agb'])->name('agb');
-
+Route::get('seelenlounge', [LandingController::class, 'seelenlounge'])->name('seelenlounge');
+Route::get('transformationsraum', [LandingController::class, 'transformationsraum'])->name('transformationsraum');
 // Booking
 Route::get('buchung', [LandingController::class, 'booking'])->name('booking');
 Route::get('zahlung', [LandingController::class, 'payment'])->name('payment');

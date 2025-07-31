@@ -103,6 +103,16 @@ class LandingController extends Controller
         return view('pages.landing.agb');
     }
 
+    public function seelenlounge()
+    {
+        return view('pages.landing.seelenlounge');
+    }
+
+    public function transformationsraum()
+    {
+        return view('pages.landing.transformationsraum');
+    }
+
     public function payments()
     {
         $services = Service::where('is_active', true)->where('is_live_chat', false)->orderBy('sort_order', 'asc')->get();

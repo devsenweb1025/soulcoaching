@@ -152,38 +152,53 @@
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('services') ? 'active' : '' }}"
-                                href="{{ route('services') }}" data-kt-scroll-toggle="true"
-                                data-kt-drawer-dismiss="true">Dienstleistungen</a>
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 dropdown-toggle {{ url()->current() == route('prices') || url()->current() == route('course') || url()->current() == route('shop.index') ? 'active' : '' }}"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Angebote
+                            </a>
+                            <!--end::Menu link-->
+                            <!--begin::Menu sub-->
+                            <ul class="dropdown-menu">
+                                <!--begin::Menu item-->
+                                <li>
+                                    <a href="{{ route('prices') }}" class="dropdown-item btn btn-active-light-primary py-3 px-4  {{ url()->current() == route('prices') ? 'active' : '' }}">
+                                        <span>Transformationscoaching</span>
+                                    </a>
+                                </li>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <li>
+                                    <a href="{{ route('course') }}" class="dropdown-item btn btn-active-light-primary py-3 px-4  {{ url()->current() == route('course') ? 'active' : '' }}">
+                                        <span>Online Kurse</span>
+                                    </a>
+                                </li>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <li>
+                                    <a href="{{ route('shop.index') }}" class="dropdown-item btn btn-active-light-primary py-3 px-4  {{ url()->current() == route('shop.index') ? 'active' : '' }}">
+                                        <span>Online Shop</span>
+                                    </a>
+                                </li>
+                                <!--end::Menu item-->
+                            </ul>
+                            <!--end::Menu sub-->
+                        </div>
+                        <!--end::Menu item-->
+                        <!--begin::Menu item-->
+                        <div class="menu-item mx-2">
+                            <!--begin::Menu link-->
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('seelenlounge') ? 'active' : '' }}"
+                                href="{{ route('seelenlounge') }}" data-kt-scroll-toggle="true"
+                                data-kt-drawer-dismiss="true">Seelenlounge</a>
                             <!--end::Menu link-->
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item mx-2">
                             <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('prices') ? 'active' : '' }}"
-                                href="{{ route('prices') }}" data-kt-scroll-toggle="true"
-                                data-kt-drawer-dismiss="true">Preise</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item mx-2">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('course') ? 'active' : '' }}"
-                                href="{{ route('course') }}" data-kt-scroll-toggle="true"
-                                data-kt-drawer-dismiss="true">Online
-                                Kurse</a>
-                            <!--end::Menu link-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item mx-2">
-                            <!--begin::Menu link-->
-                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('shop.index') ? 'active' : '' }}"
-                                href="{{ route('shop.index') }}" data-kt-scroll-toggle="true"
-                                data-kt-drawer-dismiss="true">Online
-                                Shop</a>
+                            <a class="menu-link nav-link btn btn-active-light-primary py-3 px-4 {{ url()->current() == route('transformationsraum') ? 'active' : '' }}"
+                                href="{{ route('transformationsraum') }}" data-kt-scroll-toggle="true"
+                                data-kt-drawer-dismiss="true">Transformationsraum</a>
                             <!--end::Menu link-->
                         </div>
                         <!--end::Menu item-->
