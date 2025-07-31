@@ -160,9 +160,9 @@
                                                         Uhr</span>
                                                 </div>
                                             </div>
-                                            <a href="https://calendly.com/seelen-fluesterin-info/seelenlounge-kartenlegung"
+                                            <a href="https://us05web.zoom.us/j/82853488675?pwd=xnzs0DvSuI5aXOCbs0CdCBondIZerl.1"
                                                 target="_blank" class="btn btn-primary w-100">
-                                                Termin buchen
+                                                Seelenraum betreten (Zoom)
                                             </a>
                                         </div>
                                     </div>
@@ -195,9 +195,9 @@
                                                         Uhr</span>
                                                 </div>
                                             </div>
-                                            <a href="https://calendly.com/seelen-fluesterin-info/seelenlounge-meditation"
+                                            <a href="https://us05web.zoom.us/j/82853488675?pwd=xnzs0DvSuI5aXOCbs0CdCBondIZerl.1"
                                                 target="_blank" class="btn btn-primary w-100">
-                                                Termin buchen
+                                                Seelenraum betreten (Zoom)
                                             </a>
                                         </div>
                                     </div>
@@ -231,9 +231,9 @@
                                                         Uhr</span>
                                                 </div>
                                             </div>
-                                            <a href="https://calendly.com/seelen-fluesterin-info/seelenlounge-gefuehle"
+                                            <a href="https://us05web.zoom.us/j/82853488675?pwd=xnzs0DvSuI5aXOCbs0CdCBondIZerl.1"
                                                 target="_blank" class="btn btn-primary w-100">
-                                                Termin buchen
+                                                Seelenraum betreten (Zoom)
                                             </a>
                                         </div>
                                     </div>
@@ -267,9 +267,9 @@
                                                         Uhr</span>
                                                 </div>
                                             </div>
-                                            <a href="https://calendly.com/seelen-fluesterin-info/seelenlounge-transformation"
+                                            <a href="https://us05web.zoom.us/j/82853488675?pwd=xnzs0DvSuI5aXOCbs0CdCBondIZerl.1"
                                                 target="_blank" class="btn btn-primary w-100">
-                                                Termin buchen
+                                                Seelenraum betreten (Zoom)
                                             </a>
                                         </div>
                                     </div>
