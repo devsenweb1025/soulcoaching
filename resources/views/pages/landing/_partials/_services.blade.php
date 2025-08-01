@@ -22,7 +22,7 @@
                     <div class="mb-13 text-center">
                         <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
                             data-kt-scroll-offset="{default: 100, lg: 150}">Transformationscoaching</h1>
-                        <div class="text-gray-600 fw-semibold fs-5">
+                        <div class="text-gray-600 fw-semibold fs-2">
                             Entdecke meine Transformationscoaching.
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                                     <!--begin::Service Image-->
 
                                     <!--end::Service Image-->
-                                    <div class="card-header ribbon ribbon-top ribbon-inner">
+                                    <div class="card-header ribbon ribbon-top ribbon-inner justify-content-center">
                                         <h2 class="card-title pt-5 fw-bold fs-md-7 fs-4">
                                             {{ $service['title'] }}
                                         </h2>

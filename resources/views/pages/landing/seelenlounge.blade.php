@@ -49,7 +49,7 @@
                                     <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
                                         <div class="card-body pt-10">
                                             <h2 class="text-gray-900 mb-8 fw-boldest font-cinzel">Herzlich willkommen zu
-                                                unseren wöchentlichen Donnerstags-Calls!</h2>
+                                                unseren wöchentlichen Donnerstag-Calls!</h2>
 
                                             <div class="mb-6">
                                                 <p class="fs-6 text-gray-800 mb-4">

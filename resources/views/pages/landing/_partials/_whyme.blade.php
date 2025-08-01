@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <!--begin::Row-->
-                    <div class="row">
+                    <div class="row justify-content-center">
                         @php
                             $cards = [
                                 [
