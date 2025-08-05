@@ -57,7 +57,7 @@
                                         Hast Du ein grösseres Anliegen und möchtest ein Gespräch mit mir? Melde dich
                                         über das Kontaktformular und wir vereinbaren gemeinsam einen Termin.
                                     </div>
-                                    <a href="{{ route('booking') }}" class="btn btn-primary">
+                                    <a href="https://calendly.com/seelen-fluesterin-info/transformationscoaching-clone-2" target="_blank" class="btn btn-primary">
                                         Termin buchen
                                     </a>
                                 </div>

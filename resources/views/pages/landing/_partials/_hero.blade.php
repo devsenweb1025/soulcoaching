@@ -25,8 +25,8 @@
         <!--end::Title-->
         <!--begin::Action-->
         <div class="d-flex justify-content-center">
-            <a href="{{ route('services') }}" class="btn btn-primary mx-5">
-                Dienstleistungen
+            <a href="{{ route('prices') }}" class="btn btn-primary mx-5">
+                Transformationscoaching
                 {!! theme()->getIcon('black-right', 'fs-1 text-white') !!}
             </a>
             <a href="{{ route('about') }}" class="btn btn-gradient-dark mx-5">Über mich</a>
