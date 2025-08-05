@@ -41,7 +41,7 @@ class GenerateSitemap extends Command
 
         // Services Routes
         $sitemap->add(Url::create('/dienstleistungen')->setPriority(0.9))
-                ->add(Url::create('/preise')->setPriority(0.8))
+                ->add(Url::create('/transformationscoaching')->setPriority(0.8))
                 ->add(Url::create('/dienstleistungen/live-chat')->setPriority(0.8));
 
         // Course Routes

@@ -176,7 +176,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
 // Service Routes
 Route::get('/dienstleistungen', [ServiceController::class, 'index'])->name('services');
-Route::get('/preise', [ServiceController::class, 'prices'])->name('prices');
+Route::get('/transformationscoaching', [ServiceController::class, 'prices'])->name('prices');
 Route::get('/dienstleistungen/live-chat', [ServiceController::class, 'getLiveChatService'])->name('services.live-chat');
 Route::get('/dienstleistungen/{id}', [ServiceController::class, 'show'])->name('service.show');
 
