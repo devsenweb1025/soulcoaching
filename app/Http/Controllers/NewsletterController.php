@@ -66,6 +66,13 @@ class NewsletterController extends Controller
                     ], 409);
                 }
                 
+                // Check if email is not found in the list
+                if (isset($errorData['title']) && $errorData['title'] === 'Forgotten Email Not Subscribed') {
+                    return response()->json([
+                        'message' => 'Diese E-Mail wurde dauerhaft gelöscht und kann nicht erneut importiert werden. Der Kontakt muss sich erneut anmelden, um wieder in die Liste aufgenommen zu werden.'
+                    ], 404);
+                }
+                
                 throw new \Exception('Ein Fehler ist bei der Anmeldung aufgetreten.');
             }
 
