@@ -67,7 +67,8 @@ class NewsletterController extends Controller
         } catch (\Exception $e) {
             Log::error('Newsletter subscription error: ' . $e->getMessage());
             return response()->json([
-                'message' => 'Ein Fehler ist bei der Anmeldung aufgetreten.'
+                'message' => 'Ein Fehler ist bei der Anmeldung aufgetreten.',
+                'error' => $e->getMessage()
             ], 500);
         }
     }
