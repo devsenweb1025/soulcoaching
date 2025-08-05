@@ -35,7 +35,7 @@ class ContentSecurityPolicy
             "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
             
             // Connect sources - for AJAX requests to specific APIs only
-            "connect-src 'self' https://api.calendly.com https://framerusercontent.com https://www.google-analytics.com https://www.clarity.ms https://l.clarity.ms",
+            "connect-src 'self' https://api.calendly.com https://framerusercontent.com https://www.google-analytics.com https://www.clarity.ms https://l.clarity.ms https://*.api.mailchimp.com",
             
             // Frame sources - allow same origin and specific embeds only
             "frame-src 'self' https://calendly.com https://www.google.com https://js.stripe.com",
