@@ -57,6 +57,15 @@ class NewsletterController extends Controller
 
             if ($response->failed()) {
                 Log::error('Mailchimp API error: ' . $response->body());
+                
+                // Check if user is already subscribed
+                $errorData = $response->json();
+                if (isset($errorData['title']) && $errorData['title'] === 'Member Exists') {
+                    return response()->json([
+                        'message' => 'Sie sind bereits für unseren Newsletter angemeldet!'
+                    ], 409);
+                }
+                
                 throw new \Exception('Ein Fehler ist bei der Anmeldung aufgetreten.');
             }
 
@@ -68,7 +77,6 @@ class NewsletterController extends Controller
             Log::error('Newsletter subscription error: ' . $e->getMessage());
             return response()->json([
                 'message' => 'Ein Fehler ist bei der Anmeldung aufgetreten.',
-                'error' => $e->getMessage()
             ], 500);
         }
     }
