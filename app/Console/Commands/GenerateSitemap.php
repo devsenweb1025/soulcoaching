@@ -18,7 +18,7 @@ class GenerateSitemap extends Command
     {
         $sitemap = Sitemap::create();
 
-        // Static Pages
+        // Static Pages - Landing
         $sitemap->add(Url::create('/')->setPriority(1.0))
                 ->add(Url::create('/ueber-mich')->setPriority(0.8))
                 ->add(Url::create('/kontakt')->setPriority(0.8))
@@ -26,11 +26,14 @@ class GenerateSitemap extends Command
                 ->add(Url::create('/impressum')->setPriority(0.5))
                 ->add(Url::create('/datenschutz')->setPriority(0.5))
                 ->add(Url::create('/agb')->setPriority(0.5))
+                ->add(Url::create('/seelenlounge')->setPriority(0.8))
+                ->add(Url::create('/transformationsraum')->setPriority(0.8))
                 ->add(Url::create('/buchung')->setPriority(0.8))
                 ->add(Url::create('/zahlung')->setPriority(0.8));
 
         // Shop Routes
-        $sitemap->add(Url::create('/shop')->setPriority(0.9));
+        $sitemap->add(Url::create('/shop')->setPriority(0.9))
+                ->add(Url::create('/shop/suchen')->setPriority(0.7));
 
         // Add all products
         Product::where('is_active', true)->get()->each(function ($product) use ($sitemap) {
@@ -39,13 +42,32 @@ class GenerateSitemap extends Command
                 ->setLastModificationDate($product->updated_at));
         });
 
-        // Services Routes
+        // Course Routes
+        $sitemap->add(Url::create('/kurs')->setPriority(0.9));
+
+        // Add all courses
+        Course::where('is_active', true)->get()->each(function ($course) use ($sitemap) {
+            $sitemap->add(Url::create("/kurs/{$course->id}")
+                ->setPriority(0.8)
+                ->setLastModificationDate($course->updated_at));
+        });
+
+        // Cart Routes (public pages only)
+        $sitemap->add(Url::create('/warenkorb')->setPriority(0.7))
+                ->add(Url::create('/warenkorb/checkout')->setPriority(0.6))
+                ->add(Url::create('/warenkorb/checkout/erfolg')->setPriority(0.5));
+
+        // Service Routes
         $sitemap->add(Url::create('/dienstleistungen')->setPriority(0.9))
                 ->add(Url::create('/transformationscoaching')->setPriority(0.8))
                 ->add(Url::create('/dienstleistungen/live-chat')->setPriority(0.8));
 
-        // Course Routes
-        $sitemap->add(Url::create('/kurs')->setPriority(0.9));
+        // Add all active services
+        Service::where('is_active', true)->get()->each(function ($service) use ($sitemap) {
+            $sitemap->add(Url::create("/dienstleistungen/{$service->id}")
+                ->setPriority(0.8)
+                ->setLastModificationDate($service->updated_at));
+        });
 
         // Write the sitemap to file
         $sitemap->writeToFile(public_path('sitemap.xml'));
