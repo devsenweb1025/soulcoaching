@@ -9,11 +9,11 @@
                     <!--begin::Row-->
                     <div class="row">
                         <!--begin::Col-->
-                        <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
+                        <div class="col-lg-3 col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
                             <!--begin::Testimonial-->
                             <div class="mb-2 w-100" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
                                 data-aos-delay="0">
-                                <video class="w-100 h-auto rounded" controls preload="metadata" poster="{{ asset(theme()->getMediaUrlPath() . 'landing/sarah-barone-seelenfluesterin-businessportrait-am-see.webp') }}">
+                                <video class="w-100 h-auto rounded" controls preload="metadata">
                                     <source src="{{ asset(theme()->getMediaUrlPath() . 'videos/welcome-video.mp4') }}" type="video/mp4">
                                     <source src="{{ asset(theme()->getMediaUrlPath() . 'videos/welcome-video.webm') }}" type="video/webm">
                                     <source src="{{ asset(theme()->getMediaUrlPath() . 'videos/welcome-video.ogg') }}" type="video/ogg">
@@ -26,7 +26,7 @@
                         </div>
                         <!--end::Col-->
                         <!--begin::Col-->
-                        <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center">
+                        <div class="col-lg-9 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
                             <!--begin::Testimonial-->
                             <div class="p-lg-10 p-md-5">
                                 <!--begin::Wrapper-->
