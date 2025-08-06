@@ -1,15 +1,15 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Redirect to www if not already www
-    RewriteCond %{HTTP_HOST} ^seelenfluesterin\.ch$ [NC]
-    RewriteRule ^(.*)$ https://www.seelenfluesterin.ch/$1 [L,R=301]
+    # Redirect non-www to www (for seelen-fluesterin.ch)
+    RewriteCond %{HTTP_HOST} ^seelen-fluesterin\.ch$ [NC]
+    RewriteRule ^(.*)$ https://www.seelen-fluesterin.ch/$1 [L,R=301]
 
     # Force HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # Redirect all requests to the Seelenfluesterin public folder (except if already inside it)
+    # Redirect all requests to the public folder (except if already inside it)
     RewriteCond %{REQUEST_URI} !^/public/
     RewriteRule ^(.*)$ /public/$1 [L]
 
