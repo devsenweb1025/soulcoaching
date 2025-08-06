@@ -6,8 +6,8 @@
     RewriteEngine On
 
     # Redirect non-www to www
-    RewriteCond %{HTTP_HOST} ^example\.com [NC]
-    RewriteRule ^(.*)$ https://www.example.com/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^seelenfluesterin\.ch$ [NC]
+    RewriteRule ^(.*)$ https://www.seelenfluesterin.ch/$1 [L,R=301]
 
     # Force HTTPS redirect
     RewriteCond %{HTTPS} off
