@@ -13,7 +13,8 @@
                             <!--begin::Testimonial-->
                             <div class="mb-2 w-100" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500"
                                 data-aos-delay="0">
-                                <video class="w-100 h-auto rounded" controls preload="metadata">
+                                <video class="w-100 h-auto rounded" controls preload="metadata"
+                                    poster="{{ asset(theme()->getMediaUrlPath() . 'landing/sarah-barone-seelenfluesterin-businessportrait-am-see.png') }}">
                                     <source src="{{ asset(theme()->getMediaUrlPath() . 'videos/welcome-video.mp4') }}" type="video/mp4">
                                     <source src="{{ asset(theme()->getMediaUrlPath() . 'videos/welcome-video.webm') }}" type="video/webm">
                                     <source src="{{ asset(theme()->getMediaUrlPath() . 'videos/welcome-video.ogg') }}" type="video/ogg">
