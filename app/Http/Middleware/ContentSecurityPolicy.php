@@ -23,7 +23,7 @@ class ContentSecurityPolicy
             "default-src 'self'",
             
             // Script sources - allow specific trusted domains and unsafe-eval for frameworks
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://unpkg.com https://framerusercontent.com https://www.googletagmanager.com https://www.clarity.ms https://js.stripe.com",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://unpkg.com https://framerusercontent.com https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms https://js.stripe.com",
             
             // Style sources - allow same origin, specific CDNs, and inline styles for background images
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com",
