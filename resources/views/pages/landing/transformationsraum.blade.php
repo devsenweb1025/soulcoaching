@@ -1,6 +1,6 @@
 <x-landing-layout>
-    @section('title', 'Transformationsraum - Dein Raum für persönliche Entwicklung und Spiritualität')
-    @section('description', 'Entdecke unseren Transformationsraum - ein Ort der Ruhe, Heilung und persönlichen Entwicklung. Hier findest du den perfekten Raum für deine spirituelle Reise.')
+    @section('title', 'Praxis für Transformation in Egnach – Seelenfluesterin')
+    @section('description', 'Ein geschützter Raum in Egnach für deine Transformation. Individuelle Begleitung in persönlicher Atmosphäre mit Herz, Klarheit & Struktur.')
     
     @include('pages.landing._partials._background')
     

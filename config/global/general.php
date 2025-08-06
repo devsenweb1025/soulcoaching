@@ -5,8 +5,8 @@ return array(
 
     // Meta
     'meta' => array(
-        'title' => 'Transformation auf 5 | Bewusstseinsebenen',
-        'description' => 'Heile auf spiritueller, mentaler, emotionaler, energetischer & körperlicher Ebene. Finde ganzheitliche Begleitung mit Seelenflüsterin Sarah.',
+        'title' => 'Transformationscoaching in Egnach – Seelenfluesterin',
+        'description' => 'Ganzheitliches Transformationscoaching zur Lösung innerer Blockaden – finde Klarheit, Verbindung und Balance auf allen Bewusstseinsebenen.',
         'keywords' => 'Seelenfluesterin, Energetisches Heilen, Startseite',
         // 'canonical' => 'https://soulcoaching.solipos.ch/',
         'google-site-verification' => 'ozaS8erUyrGWoguBbd-ZObH5Yd9d4bUP0hpqnc0JQc0',

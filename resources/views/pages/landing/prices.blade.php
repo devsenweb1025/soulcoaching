@@ -1,8 +1,7 @@
 <x-landing-layout>
-    @section('title', 'Transformationscoaching – Faire & klare Preise für alle Angebote')
+    @section('title', 'Transformationscoaching Preise & Pakete – Seelenfluesterin')
     @section('description',
-        'Hier findest du eine transparente Übersicht aller Preise – klar strukturiert, fair
-        gestaltet und auf deine Bedürfnisse abgestimmt.')
+        'Finde dein passendes Coaching-Paket: Basic, Standard oder Premium. Tiefe Transformation durch Energiearbeit & ganzheitliche Begleitung.')
         @include('pages.landing._partials._background')
         <!--begin::Landing hero-->
         <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">

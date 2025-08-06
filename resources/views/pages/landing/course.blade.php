@@ -1,7 +1,6 @@
 <x-landing-layout>
-    @section('title', 'Online-Kurse – Chakren, Energetisches Heilen & Schmerzverarbeitung')
-    @section('description', '• Vertiefe dein Wissen mit Online-Kursen zu Chakren, Schmerzverarbeitung und energetischen
-        Methoden – flexibel von zu Hause aus, in deinem Tempo.')
+    @section('title', 'Online-Kurse für energetisches Heilen & Selbstentwicklung – Seelenfluesterin')
+    @section('description', 'Vertiefe dein Wissen mit Kursen zu Chakren, Heilung & Selbstentwicklung – online & flexibel in deinem Tempo verfügbar.')
         @include('pages.landing._partials._background')
         <!--begin::Landing hero-->
         <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">

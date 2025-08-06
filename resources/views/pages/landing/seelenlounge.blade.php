@@ -1,8 +1,6 @@
 <x-landing-layout>
-    @section('title', 'Seelenlounge - Kostenloses Online-Treffen für spirituelle Themen')
-    @section('description',
-        'Kostenlose Zoom-Meetings zu spirituellen und transformierenden Themen. Melde dich an,
-        tausche dich mit Gleichgesinnten aus und finde Inspiration und neuen Halt.')
+    @section('title', 'Seelenlounge für spirituellen Austausch & Coaching – Seelenfluesterin')
+    @section('description', 'Kostenlose Zoom-Meetings für Austausch, Inspiration & persönliche Entwicklung. Spirituelle Themen und Coaching in kleiner Runde – jetzt Platz sichern.')
 
         @include('pages.landing._partials._background')
 

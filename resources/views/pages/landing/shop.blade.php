@@ -1,6 +1,6 @@
 <x-landing-layout>
-    @section('title', 'Online-Shop – Produkte zur persönlichen Unterstützung & Inspiration')
-    @section('description', 'Entdecke ausgewählte Begleiter für deinen Alltag – zur Förderung von Klarheit, innerem Gleichgewicht und persönlicher Entwicklung.')
+    @section('title', 'Online-Shop für spirituelle Produkte & Begleiter – Seelenfluesterin')
+    @section('description', 'Entdecke ausgewählte spirituelle Begleiter für deinen Alltag – zur Förderung von Klarheit, innerem Gleichgewicht & Entwicklung.')
     @include('pages.landing._partials._background')
     <!--begin::Landing hero-->
     <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">

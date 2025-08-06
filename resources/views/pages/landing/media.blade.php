@@ -1,7 +1,6 @@
 <x-landing-layout>
-    @section('title', 'Medien & Partner – Veröffentlichungen und Zusammenarbeit')
-    @section('description', 'Einblicke in Beiträge, Interviews und Partnerschaften – erfahre mehr über die Aussenwirkung
-        und das Netzwerk der Seelenflüsterin.')
+    @section('title', 'Medien und Partnerschaften – Seelenfluesterin')
+    @section('description', 'Einblicke in Beiträge, Interviews und Kooperationen – erfahre mehr über die Wirkung der Seelenfluesterin & ihr Netzwerk.')
         @include('pages.landing._partials._background')
         <!--begin::Landing hero-->
         <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
