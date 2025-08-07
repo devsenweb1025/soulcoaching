@@ -39,7 +39,21 @@ class UserRegistered extends Notification implements ShouldQueue
         );
 
         // Determine gender-specific greeting
-        $title = $notifiable->gender === 'male' ? 'Lieber' : 'Liebe';
+        $title = '';
+        switch ($notifiable->gender) {
+            case 'male':
+                $title = 'Lieber';
+                break;
+            case 'female':
+                $title = 'Liebe';
+                break;
+            case 'other':
+                $title = 'Hallo';
+                break;
+            default:
+                $title = 'Hallo';
+                break;
+        }
         $greeting = $title . ' ' . $notifiable->first_name;
 
         return (new MailMessage)
