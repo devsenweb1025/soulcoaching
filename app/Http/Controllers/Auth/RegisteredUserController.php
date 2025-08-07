@@ -43,6 +43,7 @@ class RegisteredUserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'gender' => 'nullable|in:male,female,other',
         ]);
 
         $user = User::create([
@@ -50,6 +51,7 @@ class RegisteredUserController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'gender' => $request->gender,
             'role' => 'user',
         ]);
 
@@ -82,6 +84,7 @@ class RegisteredUserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'gender' => 'nullable|in:male,female,other',
         ]);
 
         $token = Str::random(60);
@@ -90,6 +93,7 @@ class RegisteredUserController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'gender' => $request->gender,
             'api_token' => hash('sha256', $token),
         ]);
 

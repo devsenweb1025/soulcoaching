@@ -24,6 +24,7 @@ class ProfileController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+            'gender' => ['nullable', 'in:male,female,other'],
             'current_password' => ['required', 'string'],
             'password' => ['nullable', 'confirmed', Password::defaults()],
             'avatar' => ['nullable', 'image', 'max:2048'],
@@ -38,6 +39,7 @@ class ProfileController extends Controller
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
+        $user->gender = $request->gender;
 
         // Update password if provided
         if ($request->password) {

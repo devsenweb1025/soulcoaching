@@ -64,6 +64,43 @@
 
                     <!--begin::Input group-->
                     <div class="row mb-7">
+                        <div class="col-md-12">
+                            <label class="fw-semibold fs-6 mb-2">Geschlecht</label>
+                            <div class="d-flex gap-4">
+                                <div class="form-check form-check-custom form-check-solid">
+                                    <input class="form-check-input @error('gender') is-invalid @enderror" 
+                                           type="radio" name="gender" id="gender_male" value="male"
+                                           {{ old('gender', $user->gender) == 'male' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="gender_male">
+                                        Männlich
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-custom form-check-solid">
+                                    <input class="form-check-input @error('gender') is-invalid @enderror" 
+                                           type="radio" name="gender" id="gender_female" value="female"
+                                           {{ old('gender', $user->gender) == 'female' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="gender_female">
+                                        Weiblich
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-custom form-check-solid">
+                                    <input class="form-check-input @error('gender') is-invalid @enderror" 
+                                           type="radio" name="gender" id="gender_other" value="other"
+                                           {{ old('gender', $user->gender) == 'other' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="gender_other">
+                                        Andere
+                                    </label>
+                                </div>
+                            </div>
+                            @error('gender')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="row mb-7">
                         <div class="col-md-6">
                             <label class="required fw-semibold fs-6 mb-2">E-Mail</label>
                             <input type="email" name="email" class="form-control form-control-solid mb-3 mb-lg-0"

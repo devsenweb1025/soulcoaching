@@ -43,6 +43,7 @@ class UserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'gender' => 'nullable|in:male,female,other',
             'role' => ['required', Rule::in(['user', 'admin'])],
         ]);
 
@@ -68,6 +69,7 @@ class UserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'password' => 'nullable|string|min:8|confirmed',
+            'gender' => 'nullable|in:male,female,other',
             'role' => ['required', Rule::in(['user', 'admin'])],
         ]);
 

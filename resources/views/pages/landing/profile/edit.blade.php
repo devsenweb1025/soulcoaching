@@ -39,6 +39,39 @@
                             </div>
 
                             <div class="mb-3">
+                                <label class="form-label">Geschlecht</label>
+                                <div class="d-flex gap-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input @error('gender') is-invalid @enderror" 
+                                               type="radio" name="gender" id="gender_male" value="male"
+                                               {{ old('gender', auth()->user()->gender) == 'male' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="gender_male">
+                                            Männlich
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input @error('gender') is-invalid @enderror" 
+                                               type="radio" name="gender" id="gender_female" value="female"
+                                               {{ old('gender', auth()->user()->gender) == 'female' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="gender_female">
+                                            Weiblich
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input @error('gender') is-invalid @enderror" 
+                                               type="radio" name="gender" id="gender_other" value="other"
+                                               {{ old('gender', auth()->user()->gender) == 'other' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="gender_other">
+                                            Andere
+                                        </label>
+                                    </div>
+                                </div>
+                                @error('gender')
+                                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="email" class="form-label">E-Mail</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror"
                                     id="email" name="email" value="{{ old('email', auth()->user()->email) }}"

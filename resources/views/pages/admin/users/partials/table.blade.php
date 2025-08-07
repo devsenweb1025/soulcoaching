@@ -4,6 +4,7 @@
         <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
             <th class="min-w-125px">Name</th>
             <th class="min-w-125px">E-Mail</th>
+            <th class="min-w-125px">Geschlecht</th>
             <th class="min-w-125px">Rolle</th>
             <th class="min-w-125px">Verifiziert</th>
             <th class="min-w-125px">Registriert am</th>
@@ -15,6 +16,27 @@
             <tr>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+                <td>
+                    @if($user->gender)
+                        <span class="badge badge-light-info">
+                            @switch($user->gender)
+                                @case('male')
+                                    Männlich
+                                    @break
+                                @case('female')
+                                    Weiblich
+                                    @break
+                                @case('other')
+                                    Andere
+                                    @break
+                                @default
+                                    -
+                            @endswitch
+                        </span>
+                    @else
+                        <span class="text-muted">-</span>
+                    @endif
+                </td>
                 <td>
                     <span class="badge badge-light-{{ $user->role === 'admin' ? 'danger' : 'primary' }}">
                         {{ $user->role === 'admin' ? 'Administrator' : 'Benutzer' }}

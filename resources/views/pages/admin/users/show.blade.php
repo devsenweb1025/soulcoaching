@@ -55,6 +55,36 @@
             <!--begin::Row-->
             <div class="row mb-7">
                 <!--begin::Label-->
+                <label class="col-lg-4 fw-semibold text-muted">Geschlecht</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    @if($user->gender)
+                        <span class="badge badge-light-info">
+                            @switch($user->gender)
+                                @case('male')
+                                    Männlich
+                                    @break
+                                @case('female')
+                                    Weiblich
+                                    @break
+                                @case('other')
+                                    Andere
+                                    @break
+                                @default
+                                    -
+                            @endswitch
+                        </span>
+                    @else
+                        <span class="text-muted">Nicht angegeben</span>
+                    @endif
+                </div>
+                <!--end::Col-->
+            </div>
+            <!--end::Row-->
+            <!--begin::Row-->
+            <div class="row mb-7">
+                <!--begin::Label-->
                 <label class="col-lg-4 fw-semibold text-muted">Rolle</label>
                 <!--end::Label-->
                 <!--begin::Col-->

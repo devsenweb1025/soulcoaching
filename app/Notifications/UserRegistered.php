@@ -2,12 +2,14 @@
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\URL;
-use App\Models\User;
 
 class UserRegistered extends Notification implements ShouldQueue
 {
@@ -22,37 +24,44 @@ class UserRegistered extends Notification implements ShouldQueue
 
     public function via($notifiable)
     {
-        return ['database', 'mail'];
+        return ['mail'];
     }
 
     public function toMail($notifiable)
     {
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
-            now()->addMinutes(60),
+            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
             [
                 'id' => $notifiable->getKey(),
                 'hash' => sha1($notifiable->getEmailForVerification()),
             ]
         );
 
+        // Determine gender-specific greeting
+        $title = $notifiable->gender === 'male' ? 'Lieber' : 'Liebe';
+        $greeting = $title . ' ' . $notifiable->first_name;
+
         return (new MailMessage)
-            ->subject('Willkommen bei unserem Service - E-Mail-Verifizierung erforderlich')
-            ->greeting('Hallo ' . $notifiable->first_name . '!')
-            ->line('Vielen Dank für Ihre Registrierung bei unserem Service.')
-            ->line('Bitte klicke auf den folgenden Button, um deine E-Mail-Adresse zu bestätigen.')
+            ->subject('Willkommen bei Seelenfluesterin - Verifizierung erforderlich')
+            ->greeting($greeting)
+            ->line('Willkommen in unserer Seelenfluesterin Gemeinschaft!')
+            ->line('Deine Registrierung für ein Kundenkonto war erfolgreich und öffnet dir die Tür zu einer Welt voller Inspiration, Wachstum und Magie!')
+            ->line('Wenn du dich transformierst und in deiner Energie shiftest, ziehst du Positives an und bereitest den Weg für neue Möglichkeiten.')
+            ->line('Ich freue mich, dich auf deinem spirituellen Weg zu begleiten und dir Zugang zu exklusiven Inhalten und Angeboten zu bieten.')
+            ->line('Klicke auf den untenstehenden Button um deine Mail Adresse zu bestätigen und lass uns gemeinsam auf diese aufregende Reise gehen!')
             ->action('E-Mail-Adresse bestätigen', $verificationUrl)
-            ->line('Wenn du kein Konto erstellt hast, ist keine weitere Aktion erforderlich.')
-            ->line('Bei Fragen stehen wir Ihnen gerne zur Verfügung.');
+            ->line('Falls du fragen hast, kannst du dich gerne unter info@seelen-fluesterin.ch melden.')
+            ->salutation('Herzliche Grüsse, Seelenfluesterin');
     }
 
     public function toArray($notifiable)
     {
         return [
-            'title' => 'Willkommen!',
-            'message' => 'Vielen Dank für Ihre Registrierung.',
-            'type' => 'registration_confirmation',
-            'icon' => 'fas fa-user-plus',
+            'title' => 'Willkommen bei Seelenfluesterin',
+            'message' => 'Deine Registrierung war erfolgreich. Bitte bestätige deine E-Mail-Adresse.',
+            'type' => 'welcome',
+            'icon' => 'fas fa-heart',
         ];
     }
 }

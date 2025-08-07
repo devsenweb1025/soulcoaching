@@ -22,6 +22,7 @@ class ProfileController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+            'gender' => ['nullable', 'in:male,female,other'],
             'current_password' => ['nullable', 'required_with:password', 'current_password'],
             'password' => ['nullable', 'confirmed', Password::defaults()],
         ]);
@@ -30,6 +31,7 @@ class ProfileController extends Controller
             'first_name' => $validated['first_name'],
             'last_name' => $validated['last_name'],
             'email' => $validated['email'],
+            'gender' => $validated['gender'],
         ]);
 
         if (isset($validated['password'])) {

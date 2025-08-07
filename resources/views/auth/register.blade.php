@@ -30,6 +30,25 @@
         </div>
         <!--end::Input group-->
 
+        <!--begin::Gender Selection-->
+        <div class="fv-row mb-8">
+            <label class="form-label fw-semibold fs-6 text-gray-700 mb-3">Geschlecht</label>
+            <div class="d-flex gap-5">
+                <label class="form-check form-check-custom form-check-solid">
+                    <input class="form-check-input" type="radio" name="gender" value="male" {{ old('gender') == 'male' ? 'checked' : '' }}>
+                    <span class="form-check-label fw-semibold text-gray-700">Männlich</span>
+                </label>
+                <label class="form-check form-check-custom form-check-solid">
+                    <input class="form-check-input" type="radio" name="gender" value="female" {{ old('gender') == 'female' ? 'checked' : '' }}>
+                    <span class="form-check-label fw-semibold text-gray-700">Weiblich</span>
+                </label>
+                <label class="form-check form-check-custom form-check-solid">
+                    <input class="form-check-input" type="radio" name="gender" value="other" {{ old('gender') == 'other' ? 'checked' : '' }}>
+                    <span class="form-check-label fw-semibold text-gray-700">Andere</span>
+                </label>
+            </div>
+        </div>
+        <!--end::Gender Selection-->
 
         <!--begin::Input group=-->
         <div class="fv-row mb-8 fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
