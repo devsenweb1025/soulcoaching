@@ -65,9 +65,7 @@ class UserRegistered extends Notification implements ShouldQueue
             ->line('Ich freue mich, dich auf deinem spirituellen Weg zu begleiten und dir Zugang zu exklusiven Inhalten und Angeboten zu bieten.')
             ->line('Klicke auf den untenstehenden Button um deine Mail Adresse zu bestätigen und lass uns gemeinsam auf diese aufregende Reise gehen!')
             ->action('E-Mail-Adresse bestätigen', $verificationUrl)
-            ->line('Falls du fragen hast, kannst du dich gerne unter info@seelen-fluesterin.ch melden.')
-            ->line('Herzliche Grüsse,')
-            ->line('Seelenfluesterin');
+            ->line('Falls du fragen hast, kannst du dich gerne unter info@seelen-fluesterin.ch melden.');
     }
 
     public function toArray($notifiable)
