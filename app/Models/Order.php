@@ -55,29 +55,29 @@ class Order extends Model
     public function getStatusBadgeAttribute(): string
     {
         return match($this->status) {
-            'pending' => '<span class="badge badge-light-warning">Pending</span>',
-            'processing' => '<span class="badge badge-light-primary">Processing</span>',
-            'shipped' => '<span class="badge badge-light-info">Shipped</span>',
-            'delivered' => '<span class="badge badge-light-success">Delivered</span>',
-            'completed' => '<span class="badge badge-light-success">Completed</span>',
-            'cancelled' => '<span class="badge badge-light-danger">Cancelled</span>',
-            'refunded' => '<span class="badge badge-light-info">Refunded</span>',
-            default => '<span class="badge badge-light-dark">Unknown</span>',
+            'pending' => '<span class="badge badge-light-warning">Ausstehend</span>',
+            'processing' => '<span class="badge badge-light-primary">In Bearbeitung</span>',
+            'shipped' => '<span class="badge badge-light-info">Versendet</span>',
+            'delivered' => '<span class="badge badge-light-success">Zugestellt</span>',
+            'completed' => '<span class="badge badge-light-success">Abgeschlossen</span>',
+            'cancelled' => '<span class="badge badge-light-danger">Storniert</span>',
+            'refunded' => '<span class="badge badge-light-info">Rückerstattet</span>',
+            default => '<span class="badge badge-light-dark">Unbekannt</span>',
         };
     }
 
     public function getPaymentStatusBadgeAttribute(): string
     {
         return match($this->payment_status) {
-            'pending' => '<span class="badge badge-light-warning">Pending</span>',
-            'completed' => '<span class="badge badge-light-success">Completed</span>',
-            'succeeded' => '<span class="badge badge-light-success">Succeeded</span>',
-            'processing' => '<span class="badge badge-light-primary">Processing</span>',
-            'declined' => '<span class="badge badge-light-danger">Declined</span>',
-            'failed' => '<span class="badge badge-light-danger">Failed</span>',
-            'refunded' => '<span class="badge badge-light-info">Refunded</span>',
-            'partially_refunded' => '<span class="badge badge-light-info">Partially Refunded</span>',
-            default => '<span class="badge badge-light-dark">Unknown</span>',
+            'pending' => '<span class="badge badge-light-warning">Ausstehend</span>',
+            'completed' => '<span class="badge badge-light-success">Abgeschlossen</span>',
+            'succeeded' => '<span class="badge badge-light-success">Erfolgreich</span>',
+            'processing' => '<span class="badge badge-light-primary">In Bearbeitung</span>',
+            'declined' => '<span class="badge badge-light-danger">Abgelehnt</span>',
+            'failed' => '<span class="badge badge-light-danger">Fehlgeschlagen</span>',
+            'refunded' => '<span class="badge badge-light-info">Rückerstattet</span>',
+            'partially_refunded' => '<span class="badge badge-light-info">Teilweise Rückerstattet</span>',
+            default => '<span class="badge badge-light-dark">Unbekannt</span>',
         };
     }
 

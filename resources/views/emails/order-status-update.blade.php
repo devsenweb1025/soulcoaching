@@ -70,6 +70,34 @@
                         $title = 'Hallo';
                         break;
                 }
+
+                // Helper functions to translate status values
+                function translateOrderStatus($status) {
+                    return match($status) {
+                        'pending' => 'Ausstehend',
+                        'processing' => 'In Bearbeitung',
+                        'shipped' => 'Versendet',
+                        'delivered' => 'Zugestellt',
+                        'completed' => 'Abgeschlossen',
+                        'cancelled' => 'Storniert',
+                        'refunded' => 'Rückerstattet',
+                        default => 'Unbekannt',
+                    };
+                }
+
+                function translatePaymentStatus($status) {
+                    return match($status) {
+                        'pending' => 'Ausstehend',
+                        'completed' => 'Abgeschlossen',
+                        'succeeded' => 'Erfolgreich',
+                        'processing' => 'In Bearbeitung',
+                        'declined' => 'Abgelehnt',
+                        'failed' => 'Fehlgeschlagen',
+                        'refunded' => 'Rückerstattet',
+                        'partially_refunded' => 'Teilweise Rückerstattet',
+                        default => 'Unbekannt',
+                    };
+                }
             @endphp
             <p>{{ $title }} {{ $order->shipping_first_name }},</p>
 
@@ -77,9 +105,9 @@
 
             <div class="update-details">
                 @if ($updateType === 'status')
-                    <p>Bestellstatus wurde von <strong>{{ $oldValue ?? 'pending' }}</strong> auf <strong>{{ $newValue }}</strong> geändert</p>
+                    <p>Bestellstatus wurde von <strong>{{ translateOrderStatus($oldValue ?? 'pending') }}</strong> auf <strong>{{ translateOrderStatus($newValue) }}</strong> geändert</p>
                 @elseif($updateType === 'payment')
-                    <p>Zahlungsstatus wurde von <strong>{{ $oldValue ?? 'pending' }}</strong> auf <strong>{{ $newValue }}</strong> geändert</p>
+                    <p>Zahlungsstatus wurde von <strong>{{ translatePaymentStatus($oldValue ?? 'pending') }}</strong> auf <strong>{{ translatePaymentStatus($newValue) }}</strong> geändert</p>
                 @elseif($updateType === 'tracking')
                     <p>Deine Sendungsnummer lautet: <strong>{{ $newValue['tracking_number'] }}</strong></p>
                     @if ($newValue['tracking_url'])
