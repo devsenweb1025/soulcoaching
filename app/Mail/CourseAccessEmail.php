@@ -36,7 +36,7 @@ class CourseAccessEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Zugangsdaten zu Deinem Kurs - ' . $this->course->title,
+            subject: 'Bestellbestätigung für den Onlinekurs - Seelenfluesterin',
         );
     }
 
