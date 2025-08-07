@@ -54,6 +54,13 @@
             background: #f5f5f5;
         }
 
+        .shipping-details {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
         .footer {
             text-align: center;
             padding: 20px 0;
@@ -68,7 +75,6 @@
     <div class="container">
         <div class="header">
             <h1>Bestellbestätigung</h1>
-            <p>Vielen Dank für Deine Bestellung!</p>
         </div>
 
         <div class="content">
@@ -89,18 +95,19 @@
                         break;
                 }
             @endphp
+            <p>{{ $title }} {{ $order['shipping_first_name'] }},</p>
 
-            <p>{{ $title }}  {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }},</p>
+            <p>Vielen Dank für deine Bestellung.</p>
 
-            <p>Vielen Dank für Deine Bestellung. Diese ist bei mir eingegangen und wird von mir demnächst bearbeitet.
-                Hier sind die Bestelldetails:</p>
+            <p>Sie ist bei mir eingegangen und wird demnächst bearbeitet.</p>
 
             <div class="order-details">
-                <h2>Bestellnummer #{{ $order['id'] }}</h2>
+                <h2>Bestelldetails:</h2>
+                <p><strong>Bestellnummer:</strong> {{ $order['id'] }}</p>
                 <p><strong>Bestelldatum:</strong> {{ now()->format('d.m.Y') }}</p>
             </div>
 
-            <h3>Bestellpositionen</h3>
+            <h3>Bestellte Produkte:</h3>
             <table class="order-items">
                 <thead>
                     <tr>
@@ -134,20 +141,23 @@
                 </tfoot>
             </table>
 
-            <h3>Versanddetails</h3>
-            <p>
-                {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }}<br>
-                {{ $order['shipping_address'] }}<br>
-                {{ $order['shipping_postal_code'] }} {{ $order['shipping_city'] }}<br>
-                {{ $order['shipping_country'] }}<br>
-                {{ $order['shipping_email'] }}<br>
-                {{ $order['shipping_phone'] }}
-            </p>
+            <div class="shipping-details">
+                <h3>Versanddetails:</h3>
+                <p>
+                    {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }}<br>
+                    {{ $order['shipping_address'] }}<br>
+                    {{ $order['shipping_postal_code'] }} {{ $order['shipping_city'] }}<br>
+                    {{ $order['shipping_country'] }}<br>
+                    {{ $order['shipping_email'] }}<br>
+                    {{ $order['shipping_phone'] }}
+                </p>
+            </div>
 
-            <p>Wenn du Fragen zu Deiner Bestellung hast kontaktiere mich nicht direkt per diese Mail, da dies eine
-                automatisch generierte Nachricht ist.</p>
+            <p>Wenn du Fragen zu deiner Bestellung hast, kontaktiere mich bitte nicht über diese E-Mail, da sie automatisch generiert wurde.</p>
 
-            <p>Liebe Grüsse,<br>
+            <p>Gerne kannst du mich über info@seelen-fluesterin.ch erreichen.</p>
+
+            <p>Herzliche Grüsse,<br>
                 Seelenfluesterin</p>
         </div>
 

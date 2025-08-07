@@ -24,7 +24,7 @@ class OrderConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Bestellbestätigung für den Onlinekurs - Seelenfluesterin',
+            subject: 'Bestellbestätigung - Seelenfluesterin',
         );
     }
 
