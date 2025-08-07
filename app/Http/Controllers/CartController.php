@@ -268,10 +268,10 @@ class CartController extends Controller
 
         try {
             if (auth()->check()) {
-                Mail::to(auth()->user()->email)->send(new OrderConfirmation($order));
+                Mail::to(auth()->user()->email)->send(new OrderConfirmation($order, auth()->user()->gender));
                 Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, auth()->user()));
             } else {
-                Mail::to($order->shipping_email)->send(new OrderConfirmation($order));
+                Mail::to($order->shipping_email)->send(new OrderConfirmation($order, 'other'));
                 Mail::to(config('mail.admin_email'))->send(new OrderReceiptMail($order, new User((['first_name' => 'Guest', 'last_name' => 'User', 'email' => $order->shipping_email]))));
             }
         } catch (Exception $e) {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestellbestätigung</title>
+    <title>Bestellbestätigung für den Onlinekurs</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,75 +61,78 @@
             font-size: 12px;
             color: #666;
         }
+
+        .cta-button {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <h1>Bestellbestätigung</h1>
-            <p>Vielen Dank für Deine Bestellung!</p>
+            <h1>Bestellbestätigung für den Onlinekurs</h1>
         </div>
 
         <div class="content">
-            <p>Lieber {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }},</p>
+            @php
+                $title = '';
+                switch ($gender) {
+                    case 'male':
+                        $title = 'Lieber';
+                        break;
+                    case 'female':
+                        $title = 'Liebe';
+                        break;
+                    case 'other':
+                        $title = 'Hallo';
+                        break;
+                    default:
+                        $title = 'Hallo';
+                        break;
+                }
+            @endphp
+            <p>{{ $title }} {{ $order['shipping_first_name'] }},</p>
 
-            <p>Vielen Dank für Deine Bestellung. Diese ist bei mir eingegangen und wird von mir demnächst bearbeitet.
-                Hier sind die Bestelldetails:</p>
+            <p>Herzlichen Glückwunsch zu deiner Entscheidung, dem Online Kurs bei Seelenfluesterin beizutreten!</p>
+
+            <p>Dein Online-Kurs wurde erfolgreich verarbeitet, und ich freue mich, dich auf dieser transformierenden Reise begleiten zu dürfen.</p>
 
             <div class="order-details">
-                <h2>Bestellnummer #{{ $order['id'] }}</h2>
-                <p><strong>Bestelldatum:</strong> {{ now()->format('d.m.Y') }}</p>
+                <h2>Bestelldetails:</h2>
+                <p><strong>Bestellnummer:</strong> {{ $order['id'] }}</p>
+                @foreach ($order['items'] as $item)
+                    <p><strong>Kurs:</strong> {{ $item->name }}</p>
+                @endforeach
+                <p><strong>Bezahlt:</strong> CHF {{ $order['total'] }}</p>
+                <p><strong>Zahlungsmethode:</strong> {{ $order['payment_method'] ?? 'Online-Zahlung' }}</p>
             </div>
 
-            <h3>Bestellpositionen</h3>
-            <table class="order-items">
-                <thead>
-                    <tr>
-                        <th>Produkt</th>
-                        <th>Menge</th>
-                        <th>Preis</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($order['items'] as $item)
-                        <tr>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->qty }}</td>
-                            <td>CHF {{ $item->price }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2" style="text-align: right;"><strong>Zwischensumme:</strong></td>
-                        <td><strong>CHF {{ $order['subtotal'] }}</strong></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: right;"><strong>Versandkosten:</strong></td>
-                        <td><strong>CHF {{ $order['shipping_cost'] }}</strong></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: right;"><strong>Gesamt:</strong></td>
-                        <td><strong>CHF {{ $order['total'] }}</strong></td>
-                    </tr>
-                </tfoot>
-            </table>
+            <p>Wenn du dich transformierst und in deiner Energie shiftest, ziehst du Positives in dein Leben.</p>
 
-            <h3>Versanddetails</h3>
-            <p>
-                {{ $order['shipping_first_name'] }} {{ $order['shipping_last_name'] }}<br>
-                {{ $order['shipping_address'] }}<br>
-                {{ $order['shipping_postal_code'] }} {{ $order['shipping_city'] }}<br>
-                {{ $order['shipping_country'] }}<br>
-                {{ $order['shipping_email'] }}<br>
-                {{ $order['shipping_phone'] }}
-            </p>
+            <p>Möge jeder Schritt dir neue Einsichten und inneren Frieden bringen.</p>
 
-            <p>Wenn du Fragen zu Deiner Bestellung hast kontaktiere mich nicht direkt per diese Mail, da dies eine
-                automatisch generierte Nachricht ist.</p>
+            <p>Du kannst deine Kursunterlagen herunterladen, indem du auf den folgenden Button klickst oder dich in deinem Kundenkonto einloggst und unter „Meine Bestellungen" nachschaust.</p>
 
-            <p>Liebe Grüsse,<br>
+            <div style="text-align: center;">
+                <a href="{{ route('customer.orders.show', $order['id']) }}" class="cta-button">Kursunterlagen herunterladen</a>
+            </div>
+
+            <p><strong>Hinweis:</strong> Bei grossen Dateien zeigt Google Drive evtl. eine Meldung an, dass die Datei nicht auf Viren untersucht werden konnte. Das ist normal und du kannst die Dateien bedenkenlos herunterladen.</p>
+
+            <p>Dein Zugang zu den Kursinhalten ist nun aktiv.</p>
+
+            <p><em>Erkennen Wissen | Transformieren mit Magie - lass mit dem Zauber beginnen!</em></p>
+
+            <p>Falls du fragen hast, kannst du dich gerne unter info@seelen-fluesterin.ch melden.</p>
+
+            <p>Herzliche Grüsse,<br>
                 Seelenfluesterin</p>
         </div>
 
