@@ -86,6 +86,7 @@ class OrderController extends Controller
         try {
             Mail::to($order->shipping_email)->send(new OrderStatusUpdateMail(
                 $order,
+                $order->user->gender,
                 'status',
                 $request->status,
                 $oldStatus
@@ -116,6 +117,7 @@ class OrderController extends Controller
         try {
             Mail::to($order->shipping_email)->send(new OrderStatusUpdateMail(
                 $order,
+                $order->user->gender,
                 'payment',
                 $request->payment_status,
                 $oldPaymentStatus
@@ -151,6 +153,7 @@ class OrderController extends Controller
         try {
             Mail::to($order->shipping_email)->send(new OrderStatusUpdateMail(
                 $order,
+                $order->user->gender,
                 'tracking',
                 [
                     'tracking_number' => $request->tracking_number,

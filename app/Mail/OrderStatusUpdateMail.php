@@ -13,13 +13,15 @@ class OrderStatusUpdateMail extends Mailable
     use Queueable, SerializesModels;
 
     public $order;
+    public $gender;
     public $updateType;
     public $newValue;
     public $oldValue;
 
-    public function __construct($order, $updateType, $newValue, $oldValue = null)
+    public function __construct($order, $gender, $updateType, $newValue, $oldValue = null)
     {
         $this->order = $order;
+        $this->gender = $gender;
         $this->updateType = $updateType;
         $this->newValue = $newValue;
         $this->oldValue = $oldValue;
@@ -28,14 +30,14 @@ class OrderStatusUpdateMail extends Mailable
     public function envelope(): Envelope
     {
         $subject = match($this->updateType) {
-            'status' => 'Bestellstatus Update',
-            'payment' => 'Zahlungsstatus Update',
-            'tracking' => 'Sendungsnummer Update',
-            default => 'Bestellstatus Update'
+            'status' => 'Update zu deiner Bestellung - Bestellstatus',
+            'payment' => 'Update zu deiner Bestellung - Zahlungsstatus',
+            'tracking' => 'Update zu deiner Bestellung - Sendungsnummer',
+            default => 'Update zu deiner Bestellung'
         };
 
         return new Envelope(
-            subject: $subject . ' - Bestellung #' . $this->order->id,
+            subject: $subject . ' - Seelenfluesterin',
         );
     }
 

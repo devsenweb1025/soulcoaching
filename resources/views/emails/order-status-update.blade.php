@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestellstatus Update</title>
+    <title>Update zu deiner Bestellung</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,39 +50,50 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Bestellstatus Update</h1>
+            <h1>Update zu deiner Bestellung</h1>
         </div>
 
         <div class="content">
-            <p>Lieber {{ $order->shipping_first_name }} {{ $order->shipping_last_name }},</p>
+            @php
+                $title = '';
+                switch ($gender) {
+                    case 'male':
+                        $title = 'Lieber';
+                        break;
+                    case 'female':
+                        $title = 'Liebe';
+                        break;
+                    case 'other':
+                        $title = 'Hallo';
+                        break;
+                    default:
+                        $title = 'Hallo';
+                        break;
+                }
+            @endphp
+            <p>{{ $title }} {{ $order->shipping_first_name }},</p>
 
-            <p>Deine Bestellung #{{ $order->id }} wurde aktualisiert:</p>
+            <p>Deine Bestellung #{{ $order->id }} wurde aktualisiert.</p>
 
             <div class="update-details">
                 @if ($updateType === 'status')
-                    <h2>Bestellstatus Update</h2>
-                    <p>Deine Bestellung wurde von <strong>{{ $oldValue ?? 'pending' }}</strong> zu
-                        <strong>{{ $newValue }}</strong> aktualisiert.</p>
+                    <p>Bestellstatus wurde von <strong>{{ $oldValue ?? 'pending' }}</strong> auf <strong>{{ $newValue }}</strong> geändert</p>
                 @elseif($updateType === 'payment')
-                    <h2>Zahlungsstatus Update</h2>
-                    <p>Deine Zahlung wurde von <strong>{{ $oldValue ?? 'pending' }}</strong> zu
-                        <strong>{{ $newValue }}</strong> aktualisiert.</p>
+                    <p>Zahlungsstatus wurde von <strong>{{ $oldValue ?? 'pending' }}</strong> auf <strong>{{ $newValue }}</strong> geändert</p>
                 @elseif($updateType === 'tracking')
-                    <h2>Sendungsnummer Update</h2>
-                    <p>Deine Bestellung wurde mit folgender Sendungsnummer versendet:</p>
-                    <p><strong>Sendungsnummer:</strong> {{ $newValue['tracking_number'] }}</p>
+                    <p>Deine Sendungsnummer lautet: <strong>{{ $newValue['tracking_number'] }}</strong></p>
                     @if ($newValue['tracking_url'])
-                        <p><strong>Tracking URL:</strong> <a href="{{ $newValue['tracking_url'] }}">Hier klicken um deine
-                                Bestellung zu verfolgen</a></p>
+                        <p><strong>Tracking URL:</strong> <a href="{{ $newValue['tracking_url'] }}">Hier klicken um deine Bestellung zu verfolgen</a></p>
                     @endif
                 @endif
             </div>
 
-            <p>Du kannst deine Bestellungdetails ansehen, indem du dich in deinem Kundenkonto einloggst.</p>
+            <p>Du kannst die Bestelldetails jederzeit in deinem Kundenkonto einsehen.</p>
 
-            <p>Wenn du Fragen zu deiner Bestellung hast, bitte kontaktiere uns.</p>
+            <p>Falls du fragen hast, kannst du dich gerne unter info@seelen-fluesterin.ch melden.</p>
 
-            <p>Mit freundlichen Grüssen,<br>Dein Seelenfluesterin Team</p>
+            <p>Herzliche Grüsse,<br>
+                Seelenfluesterin</p>
         </div>
 
         <div class="footer">
