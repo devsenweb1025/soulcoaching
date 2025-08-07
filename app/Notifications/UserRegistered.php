@@ -66,7 +66,8 @@ class UserRegistered extends Notification implements ShouldQueue
             ->line('Klicke auf den untenstehenden Button um deine Mail Adresse zu bestätigen und lass uns gemeinsam auf diese aufregende Reise gehen!')
             ->action('E-Mail-Adresse bestätigen', $verificationUrl)
             ->line('Falls du fragen hast, kannst du dich gerne unter info@seelen-fluesterin.ch melden.')
-            ->salutation('Herzliche Grüsse, Seelenfluesterin');
+            ->line('Herzliche Grüsse,')
+            ->line('Seelenfluesterin');
     }
 
     public function toArray($notifiable)
