@@ -1,7 +1,6 @@
 <x-landing-layout>
-    @section('title', 'Transformation auf 5 Bewusstseinsebenen – Seelenfluesterin')
-    @section('description', 'Ganzheitliche Begleitung für Mensch und Tier – entdecke deinen Weg zu mehr Klarheit,
-        Verbindung und innerer Balance.')
+    @section('title', 'Transformationscoaching in Egnach – Seelenfluesterin')
+    @section('description', 'Ganzheitliches Coaching auf 5 Bewusstseinsebenen – finde Klarheit & Balance durch spirituelle Begleitung und Energiearbeit.')
         @include('pages.landing._partials._background')
         @include('pages.landing._partials._hero')
         <div class="position-relative">
