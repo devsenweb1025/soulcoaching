@@ -32,7 +32,7 @@ class ContentSecurityPolicy
             "img-src 'self' data: https://framerusercontent.com https://images.unsplash.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google-analytics.com https://*.cloudflare.com https://*.jsdelivr.net https://*.unpkg.com https://*.googleusercontent.com https://*.google.com https://www.googletagmanager.com https://*.clarity.ms",
             
             // Font sources - allow same origin and Google Fonts only
-            "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+            "font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
             
             // Connect sources - for AJAX requests to specific APIs only
             "connect-src 'self' https://api.calendly.com https://framerusercontent.com https://www.google-analytics.com https://www.clarity.ms https://l.clarity.ms https://*.api.mailchimp.com",
