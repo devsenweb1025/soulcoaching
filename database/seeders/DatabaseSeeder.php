@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             BookingSeeder::class,
             ChatMessageSeeder::class,
             PageContentSeeder::class,
+            EventSeeder::class,
         ]);
     }
 }

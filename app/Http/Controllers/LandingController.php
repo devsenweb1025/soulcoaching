@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Partner;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use Illuminate\Support\Facades\Mail;
@@ -105,7 +106,8 @@ class LandingController extends Controller
 
     public function seelenlounge()
     {
-        return view('pages.landing.seelenlounge');
+        $events = Event::orderBy('event_date', 'desc')->limit(4)->get();
+        return view('pages.landing.seelenlounge', compact('events'));
     }
 
     public function transformationsraum()

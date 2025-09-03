@@ -129,14 +129,13 @@
 
                             <!--begin::Events Grid-->
                             <div class="row g-10 justify-content-center">
-                                <!--begin::Event 1-->
+                                @forelse($events as $index => $event)
                                 <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-easing="linear"
-                                    data-aos-duration="500" data-aos-delay="0">
+                                    data-aos-duration="500" data-aos-delay="{{ $index * 100 }}">
                                     <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
                                         <div class="card-header ribbon ribbon-top ribbon-inner h-100">
-                                            <h3 class="text-gray-900 mb-5 fw-boldest pt-10">Kartenlegung in Verbindung zur
-                                                Seele</h3>
-                                            <div class="ribbon-label bg-primary">Kartenlegung</div>
+                                            <h3 class="text-gray-900 mb-5 fw-boldest pt-10">{{ $event->title }}</h3>
+                                            <div class="ribbon-label {{ $event->category_color }}">{{ $event->category }}</div>
                                         </div>
                                         <div class="card-body pt-1 d-flex flex-column justify-content-between">
                                             <div class="mb-4">
@@ -145,131 +144,35 @@
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">7. August 2025</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">{{ $event->formatted_date }}</span>
                                                 </div>
                                                 <div class="d-flex align-items-center mb-4">
                                                     <i class="ki-duotone ki-clock fs-2 text-primary me-3">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00 Uhr</span>
+                                                    <span class="fs-6 fw-semibold text-gray-800">{{ $event->formatted_time }}</span>
                                                 </div>
                                             </div>
-                                            <a href="https://us05web.zoom.us/j/82853488675?pwd=xnzs0DvSuI5aXOCbs0CdCBondIZerl.1"
-                                                target="_blank" class="btn btn-primary w-100">
+                                            <a href="{{ $event->zoom_link }}" target="_blank" class="btn btn-primary w-100">
                                                 Seelenraum betreten (Zoom)
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <!--end::Event 1-->
-
-                                <!--begin::Event 2-->
-                                <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-easing="linear"
-                                    data-aos-duration="500" data-aos-delay="100">
-                                    <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
-                                        <div class="card-header ribbon ribbon-top ribbon-inner h-100">
-                                            <h3 class="text-gray-900 mb-5 fw-boldest pt-10">Meditation zum Herzplaneten</h3>
-                                            <div class="ribbon-label bg-success">Meditation</div>
-                                        </div>
-                                        <div class="card-body pt-1 d-flex flex-column justify-content-between">
-                                            <div class="mb-4">
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <i class="ki-duotone ki-calendar fs-2 text-primary me-3">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">14. August 2025</span>
-                                                </div>
-                                                <div class="d-flex align-items-center mb-4">
-                                                    <i class="ki-duotone ki-clock fs-2 text-primary me-3">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00
-                                                        Uhr</span>
-                                                </div>
-                                            </div>
-                                            <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
-                                                target="_blank" class="btn btn-primary w-100">
-                                                Seelenraum betreten (Zoom)
-                                            </a>
-                                        </div>
+                                @empty
+                                <div class="col-12 text-center">
+                                    <div class="alert alert-info">
+                                        <i class="ki-duotone ki-calendar fs-2x text-info me-3">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        <span class="fs-6 fw-semibold">Derzeit sind keine Events geplant</span>
+                                        <br>
+                                        <span class="fs-7 text-muted">Schauen Sie später wieder vorbei oder kontaktieren Sie uns für weitere Informationen.</span>
                                     </div>
                                 </div>
-                                <!--end::Event 2-->
-
-                                <!--begin::Event 3-->
-                                <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-easing="linear"
-                                    data-aos-duration="500" data-aos-delay="200">
-                                    <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
-                                        <div class="card-header ribbon ribbon-top ribbon-inner h-100">
-                                            <h3 class="text-gray-900 mb-5 fw-boldest pt-10">Gefühle und ihre Wichtigkeit
-                                            </h3>
-                                            <div class="ribbon-label bg-info">Emotionen</div>
-                                        </div>
-                                        <div class="card-body pt-1 d-flex flex-column justify-content-between">
-                                            <div class="mb-4">
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <i class="ki-duotone ki-calendar fs-2 text-primary me-3">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">24. August 2025</span>
-                                                </div>
-                                                <div class="d-flex align-items-center mb-4">
-                                                    <i class="ki-duotone ki-clock fs-2 text-primary me-3">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00
-                                                        Uhr</span>
-                                                </div>
-                                            </div>
-                                            <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
-                                                target="_blank" class="btn btn-primary w-100">
-                                                Seelenraum betreten (Zoom)
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end::Event 3-->
-
-                                <!--begin::Event 4-->
-                                <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-easing="linear"
-                                    data-aos-duration="500" data-aos-delay="300">
-                                    <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
-                                        <div class="card-header ribbon ribbon-top ribbon-inner h-100">
-                                            <h3 class="text-gray-900 mb-5 fw-boldest pt-10">Transformation auf Energieebene
-                                            </h3>
-                                            <div class="ribbon-label bg-warning">Energie</div>
-                                        </div>
-                                        <div class="card-body pt-1 d-flex flex-column justify-content-between">
-                                            <div class="mb-4">
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <i class="ki-duotone ki-calendar fs-2 text-primary me-3">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">28. August 2025</span>
-                                                </div>
-                                                <div class="d-flex align-items-center mb-4">
-                                                    <i class="ki-duotone ki-clock fs-2 text-primary me-3">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">19:00 Uhr -21:00
-                                                        Uhr</span>
-                                                </div>
-                                            </div>
-                                            <a href="https://us06web.zoom.us/j/2592102293?pwd=5VEWvnucpVpXaDjAwM1vgdWbmNKzBx.1"
-                                                target="_blank" class="btn btn-primary w-100">
-                                                Seelenraum betreten (Zoom)
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end::Event 4-->
+                                @endforelse
                             </div>
                             <!--end::Events Grid-->
                         </div>

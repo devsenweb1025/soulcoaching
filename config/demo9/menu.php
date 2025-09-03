@@ -70,6 +70,15 @@ return array(
                         'path' => 'admin/buchungen',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
+                    array(
+                        'classes' => array('content' => ''),
+                        'content' => '<span class="menu-section fs-5 fw-bolder ps-1 py-1">Eventsverwaltung</span>',
+                    ),
+                    array(
+                        'title' => 'Eventsübersicht',
+                        'path' => 'admin/events',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
                 ),
             ),
         ),

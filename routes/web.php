@@ -172,6 +172,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // Partner Management Routes
     Route::resource('partners', \App\Http\Controllers\Admin\PartnerController::class);
     Route::post('partners/update-order', [\App\Http\Controllers\Admin\PartnerController::class, 'updateOrder'])->name('partners.update-order');
+
+    // Event Management Routes
+    Route::resource('events', \App\Http\Controllers\Admin\EventController::class)->names('events')->parameters([
+        'events' => 'event'
+    ]);
+    Route::post('events/{event}/aktivieren', [\App\Http\Controllers\Admin\EventController::class, 'toggleActive'])->name('events.toggle-active');
 });
 
 // Service Routes
