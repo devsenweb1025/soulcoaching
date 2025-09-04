@@ -158,7 +158,7 @@
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrationModal" data-event-id="{{ $event->id }}" data-event-title="{{ $event->title }}">
                                                     Anmelden
                                                 </button>
-                                                <a href="{{ $event->zoom_link }}" target="_blank" class="btn btn-outline-primary">
+                                                <a href="{{ $event->zoom_link }}" target="_blank" class="btn btn-primary">
                                                     <i class="ki-duotone ki-video fs-4 me-2">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -208,10 +208,12 @@
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-Mail-Adresse *</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="invalid-feedback" id="email-error"></div>
                             </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name (optional)</label>
                                 <input type="text" class="form-control" id="name" name="name">
+                                <div class="invalid-feedback" id="name-error"></div>
                             </div>
                             <div class="alert alert-info">
                                 <i class="ki-duotone ki-information-5 fs-2 text-info me-3">
@@ -244,7 +246,7 @@
                             <span class="path1"></span>
                             <span class="path2"></span>
                         </i>
-                        <p class="fs-6">Vielen Dank für Ihre Anmeldung! Sie können den Zoom-Link auf der Website finden.</p>
+                        <p class="fs-6">Vielen Dank für deine Anmeldung. Den Zoom Link findest du auf der Website bei den Seelenlounge Terminen.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
@@ -270,15 +272,29 @@
                         eventIdInput.value = eventId;
                         document.getElementById('registrationModalLabel').textContent = `Für "${eventTitle}" anmelden`;
                         
-                        // Clear form
+                        // Clear form and errors
                         registrationForm.reset();
                         eventIdInput.value = eventId;
+                        clearErrors();
                     });
                 });
+
+                // Function to clear all error states
+                function clearErrors() {
+                    document.querySelectorAll('.form-control').forEach(input => {
+                        input.classList.remove('is-invalid');
+                    });
+                    document.querySelectorAll('.invalid-feedback').forEach(errorDiv => {
+                        errorDiv.textContent = '';
+                    });
+                }
 
                 // Handle form submission
                 submitBtn.addEventListener('click', function() {
                     const formData = new FormData(registrationForm);
+                    
+                    // Clear previous errors
+                    clearErrors();
                     
                     // Disable submit button
                     submitBtn.disabled = true;
@@ -302,12 +318,34 @@
                             const successModalInstance = new bootstrap.Modal(successModal);
                             successModalInstance.show();
                         } else {
-                            toastr.error(data.message || 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+                            // Handle validation errors
+                            if (data.errors) {
+                                // Display validation errors below inputs
+                                Object.keys(data.errors).forEach(field => {
+                                    const input = document.getElementById(field);
+                                    const errorDiv = document.getElementById(field + '-error');
+                                    
+                                    if (input && errorDiv) {
+                                        input.classList.add('is-invalid');
+                                        errorDiv.textContent = data.errors[field][0]; // Show first error
+                                    }
+                                });
+                            } else {
+                                // Show general error below email field
+                                const emailInput = document.getElementById('email');
+                                const emailError = document.getElementById('email-error');
+                                emailInput.classList.add('is-invalid');
+                                emailError.textContent = data.message || 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.';
+                            }
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        toastr.error('Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+                        // Show general error below email field
+                        const emailInput = document.getElementById('email');
+                        const emailError = document.getElementById('email-error');
+                        emailInput.classList.add('is-invalid');
+                        emailError.textContent = 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.';
                     })
                     .finally(() => {
                         // Re-enable submit button
