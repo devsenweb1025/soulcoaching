@@ -154,9 +154,18 @@
                                                     <span class="fs-6 fw-semibold text-gray-800">{{ $event->formatted_time }}</span>
                                                 </div>
                                             </div>
-                                            <a href="{{ $event->zoom_link }}" target="_blank" class="btn btn-primary w-100">
-                                                Seelenraum betreten (Zoom)
-                                            </a>
+                                            <div class="d-grid gap-2">
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrationModal" data-event-id="{{ $event->id }}" data-event-title="{{ $event->title }}">
+                                                    Anmelden
+                                                </button>
+                                                <a href="{{ $event->zoom_link }}" target="_blank" class="btn btn-outline-primary">
+                                                    <i class="ki-duotone ki-video fs-4 me-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                    Seelenraum betreten (Zoom)
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -167,9 +176,9 @@
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                         </i>
-                                        <span class="fs-6 fw-semibold">Derzeit sind keine Events geplant</span>
+                                        <span class="fs-6 fw-semibold">Derzeit sind keine Seelenlounge Termine geplant.</span>
                                         <br>
-                                        <span class="fs-7 text-muted">Schauen Sie später wieder vorbei oder kontaktieren Sie uns für weitere Informationen.</span>
+                                        <span class="fs-7 text-muted">Schaue gerne später wieder vorbei oder kontaktiere mich für weitere Informationen.</span>
                                     </div>
                                 </div>
                                 @endforelse
@@ -184,5 +193,129 @@
             </div>
             <!--end::Events Section-->
         </div>
+
+        <!-- Registration Modal -->
+        <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registrationModalLabel">Für Event anmelden</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registrationForm">
+                            <input type="hidden" id="eventId" name="event_id">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-Mail-Adresse *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name (optional)</label>
+                                <input type="text" class="form-control" id="name" name="name">
+                            </div>
+                            <div class="alert alert-info">
+                                <i class="ki-duotone ki-information-5 fs-2 text-info me-3">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                                <span class="fs-7">Den Zoom Link findest du auf der Website bei den Seelenlounge Terminen.</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                        <button type="button" class="btn btn-primary" id="submitRegistration">Anmelden</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Anmeldung erfolgreich!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <i class="ki-duotone ki-check-circle fs-3x text-success mb-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                        <p class="fs-6">Vielen Dank für Ihre Anmeldung! Sie können den Zoom-Link auf der Website finden.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const registrationModal = document.getElementById('registrationModal');
+                const successModal = document.getElementById('successModal');
+                const registrationForm = document.getElementById('registrationForm');
+                const submitBtn = document.getElementById('submitRegistration');
+                const eventIdInput = document.getElementById('eventId');
+
+                // Handle registration button clicks
+                document.querySelectorAll('[data-bs-target="#registrationModal"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const eventId = this.getAttribute('data-event-id');
+                        const eventTitle = this.getAttribute('data-event-title');
+                        
+                        eventIdInput.value = eventId;
+                        document.getElementById('registrationModalLabel').textContent = `Für "${eventTitle}" anmelden`;
+                        
+                        // Clear form
+                        registrationForm.reset();
+                        eventIdInput.value = eventId;
+                    });
+                });
+
+                // Handle form submission
+                submitBtn.addEventListener('click', function() {
+                    const formData = new FormData(registrationForm);
+                    
+                    // Disable submit button
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Wird verarbeitet...';
+
+                    fetch('{{ route("event.register") }}', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Close registration modal
+                            const modal = bootstrap.Modal.getInstance(registrationModal);
+                            modal.hide();
+                            
+                            // Show success modal
+                            const successModalInstance = new bootstrap.Modal(successModal);
+                            successModalInstance.show();
+                        } else {
+                            toastr.error(data.message || 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        toastr.error('Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+                    })
+                    .finally(() => {
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Anmelden';
+                    });
+                });
+            });
+        </script>
 
     </x-landing-layout>

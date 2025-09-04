@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\CartPaymentController;
 use App\Http\Controllers\Admin\PageContentController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\EventRegistrationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,9 @@ Route::get('datenschutz', [LandingController::class, 'datenschutz'])->name('date
 Route::get('agb', [LandingController::class, 'agb'])->name('agb');
 Route::get('seelenlounge', [LandingController::class, 'seelenlounge'])->name('seelenlounge');
 Route::get('transformationsraum', [LandingController::class, 'transformationsraum'])->name('transformationsraum');
+
+// Event Registration Routes
+Route::post('event/register', [EventRegistrationController::class, 'register'])->name('event.register');
 // Booking
 Route::get('buchung', [LandingController::class, 'booking'])->name('booking');
 Route::get('zahlung', [LandingController::class, 'payment'])->name('payment');

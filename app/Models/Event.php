@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Event extends Model
 {
@@ -59,5 +60,15 @@ class Event extends Model
         }
         
         return $start ? $start . ' Uhr' : '';
+    }
+
+    public function registrations(): HasMany
+    {
+        return $this->hasMany(EventRegistration::class);
+    }
+
+    public function getRegistrationCountAttribute()
+    {
+        return $this->registrations()->count();
     }
 }
