@@ -1,6 +1,7 @@
 <x-landing-layout>
     @section('title', 'Seelenlounge für spirituellen Austausch & Coaching – Seelenfluesterin')
-    @section('description', 'Kostenlose Zoom-Meetings für Austausch, Inspiration & persönliche Entwicklung. Spirituelle Themen und Coaching in kleiner Runde – jetzt Platz sichern.')
+    @section('description', 'Kostenlose Zoom-Meetings für Austausch, Inspiration & persönliche Entwicklung. Spirituelle
+        Themen und Coaching in kleiner Runde – jetzt Platz sichern.')
 
         @include('pages.landing._partials._background')
 
@@ -130,57 +131,66 @@
                             <!--begin::Events Grid-->
                             <div class="row g-10 justify-content-center">
                                 @forelse($events as $index => $event)
-                                <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-easing="linear"
-                                    data-aos-duration="500" data-aos-delay="{{ $index * 100 }}">
-                                    <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
-                                        <div class="card-header ribbon ribbon-top ribbon-inner h-100">
-                                            <h3 class="text-gray-900 mb-5 fw-boldest pt-10">{{ $event->title }}</h3>
-                                            <div class="ribbon-label {{ $event->category_color }}">{{ $event->category }}</div>
-                                        </div>
-                                        <div class="card-body pt-1 d-flex flex-column justify-content-between">
-                                            <div class="mb-4">
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <i class="ki-duotone ki-calendar fs-2 text-primary me-3">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">{{ $event->formatted_date }}</span>
-                                                </div>
-                                                <div class="d-flex align-items-center mb-4">
-                                                    <i class="ki-duotone ki-clock fs-2 text-primary me-3">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <span class="fs-6 fw-semibold text-gray-800">{{ $event->formatted_time }}</span>
-                                                </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-easing="linear"
+                                        data-aos-duration="500" data-aos-delay="{{ $index * 100 }}">
+                                        <div class="card card-shadow shadow card-borderless mb-5 h-100 bg-white">
+                                            <div class="card-header ribbon ribbon-top ribbon-inner h-100">
+                                                <h3 class="text-gray-900 mb-5 fw-boldest pt-10">{{ $event->title }}</h3>
+                                                <div class="ribbon-label {{ $event->category_color }}">
+                                                    {{ $event->category }}</div>
                                             </div>
-                                            <div class="d-grid gap-2">
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrationModal" data-event-id="{{ $event->id }}" data-event-title="{{ $event->title }}">
-                                                    Anmelden
-                                                </button>
-                                                <a href="{{ $event->zoom_link }}" target="_blank" class="btn btn-primary">
-                                                    <i class="ki-duotone ki-video fs-4 me-2">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    Seelenraum betreten (Zoom)
-                                                </a>
+                                            <div class="card-body pt-1 d-flex flex-column justify-content-between">
+                                                <div class="mb-4">
+                                                    <div class="d-flex align-items-center mb-3">
+                                                        <i class="ki-duotone ki-calendar fs-2 text-primary me-3">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <span
+                                                            class="fs-6 fw-semibold text-gray-800">{{ $event->formatted_date }}</span>
+                                                    </div>
+                                                    <div class="d-flex align-items-center mb-4">
+                                                        <i class="ki-duotone ki-clock fs-2 text-primary me-3">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <span
+                                                            class="fs-6 fw-semibold text-gray-800">{{ $event->formatted_time }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-grid gap-2">
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#registrationModal"
+                                                        data-event-id="{{ $event->id }}"
+                                                        data-event-title="{{ $event->title }}">
+                                                        Anmelden
+                                                    </button>
+                                                    <a href="{{ $event->zoom_link }}" target="_blank"
+                                                        class="btn btn-primary">
+                                                        <i class="ki-duotone ki-video fs-4 me-2">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        Seelenraum betreten (Zoom)
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 @empty
-                                <div class="col-12 text-center">
-                                    <div class="alert alert-info">
-                                        <i class="ki-duotone ki-calendar fs-2x text-info me-3">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                        <span class="fs-6 fw-semibold">Derzeit sind keine Seelenlounge Termine geplant.</span>
-                                        <br>
-                                        <span class="fs-7 text-muted">Schaue gerne später wieder vorbei oder kontaktiere mich für weitere Informationen.</span>
+                                    <div class="col-12 text-center">
+                                        <div class="alert alert-info">
+                                            <i class="ki-duotone ki-calendar fs-2x text-info me-3">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <span class="fs-6 fw-semibold">Derzeit sind keine Seelenlounge Termine
+                                                geplant.</span>
+                                            <br>
+                                            <span class="fs-7 text-muted">Schaue gerne später wieder vorbei oder kontaktiere
+                                                mich für weitere Informationen.</span>
+                                        </div>
                                     </div>
-                                </div>
                                 @endforelse
                             </div>
                             <!--end::Events Grid-->
@@ -195,7 +205,8 @@
         </div>
 
         <!-- Registration Modal -->
-        <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+        <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -221,7 +232,8 @@
                                     <span class="path2"></span>
                                     <span class="path3"></span>
                                 </i>
-                                <span class="fs-7">Den Zoom Link findest du auf der Website bei den Seelenlounge Terminen.</span>
+                                <span class="fs-7">Den Zoom Link findest du auf der Website bei den Seelenlounge
+                                    Terminen.</span>
                             </div>
                         </form>
                     </div>
@@ -234,7 +246,8 @@
         </div>
 
         <!-- Success Modal -->
-        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -246,7 +259,13 @@
                             <span class="path1"></span>
                             <span class="path2"></span>
                         </i>
-                        <p class="fs-6">Vielen Dank für deine Anmeldung. Den Zoom Link findest du auf der Website bei den Seelenlounge Terminen.</p>
+                        <p class="fs-6">
+                            Schön, dass du dich für unseren kostenlosen Seelenlounge-Abend angemeldet hast. <br/><br/>
+
+                            Ich freue mich, gemeinsam mit dir einen herzlichen und bereichernden Abend zu verbringen. <br/><br/>
+
+                            Den Zoom-Link findest du auf der Website unter den Seelenlounge-Terminen.
+                        </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
@@ -268,10 +287,11 @@
                     button.addEventListener('click', function() {
                         const eventId = this.getAttribute('data-event-id');
                         const eventTitle = this.getAttribute('data-event-title');
-                        
+
                         eventIdInput.value = eventId;
-                        document.getElementById('registrationModalLabel').textContent = `Für "${eventTitle}" anmelden`;
-                        
+                        document.getElementById('registrationModalLabel').textContent =
+                            `Für "${eventTitle}" anmelden`;
+
                         // Clear form and errors
                         registrationForm.reset();
                         eventIdInput.value = eventId;
@@ -292,66 +312,70 @@
                 // Handle form submission
                 submitBtn.addEventListener('click', function() {
                     const formData = new FormData(registrationForm);
-                    
+
                     // Clear previous errors
                     clearErrors();
-                    
+
                     // Disable submit button
                     submitBtn.disabled = true;
                     submitBtn.textContent = 'Wird verarbeitet...';
 
-                    fetch('{{ route("event.register") }}', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            // Close registration modal
-                            const modal = bootstrap.Modal.getInstance(registrationModal);
-                            modal.hide();
-                            
-                            // Show success modal
-                            const successModalInstance = new bootstrap.Modal(successModal);
-                            successModalInstance.show();
-                        } else {
-                            // Handle validation errors
-                            if (data.errors) {
-                                // Display validation errors below inputs
-                                Object.keys(data.errors).forEach(field => {
-                                    const input = document.getElementById(field);
-                                    const errorDiv = document.getElementById(field + '-error');
-                                    
-                                    if (input && errorDiv) {
-                                        input.classList.add('is-invalid');
-                                        errorDiv.textContent = data.errors[field][0]; // Show first error
-                                    }
-                                });
-                            } else {
-                                // Show general error below email field
-                                const emailInput = document.getElementById('email');
-                                const emailError = document.getElementById('email-error');
-                                emailInput.classList.add('is-invalid');
-                                emailError.textContent = data.message || 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.';
+                    fetch('{{ route('event.register') }}', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                    .getAttribute('content')
                             }
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        // Show general error below email field
-                        const emailInput = document.getElementById('email');
-                        const emailError = document.getElementById('email-error');
-                        emailInput.classList.add('is-invalid');
-                        emailError.textContent = 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.';
-                    })
-                    .finally(() => {
-                        // Re-enable submit button
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Anmelden';
-                    });
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                // Close registration modal
+                                const modal = bootstrap.Modal.getInstance(registrationModal);
+                                modal.hide();
+
+                                // Show success modal
+                                const successModalInstance = new bootstrap.Modal(successModal);
+                                successModalInstance.show();
+                            } else {
+                                // Handle validation errors
+                                if (data.errors) {
+                                    // Display validation errors below inputs
+                                    Object.keys(data.errors).forEach(field => {
+                                        const input = document.getElementById(field);
+                                        const errorDiv = document.getElementById(field + '-error');
+
+                                        if (input && errorDiv) {
+                                            input.classList.add('is-invalid');
+                                            errorDiv.textContent = data.errors[field][
+                                            0]; // Show first error
+                                        }
+                                    });
+                                } else {
+                                    // Show general error below email field
+                                    const emailInput = document.getElementById('email');
+                                    const emailError = document.getElementById('email-error');
+                                    emailInput.classList.add('is-invalid');
+                                    emailError.textContent = data.message ||
+                                        'Ein Fehler ist aufgetreten. Bitte versuche es erneut.';
+                                }
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            // Show general error below email field
+                            const emailInput = document.getElementById('email');
+                            const emailError = document.getElementById('email-error');
+                            emailInput.classList.add('is-invalid');
+                            emailError.textContent =
+                            'Ein Fehler ist aufgetreten. Bitte versuche es erneut.';
+                        })
+                        .finally(() => {
+                            // Re-enable submit button
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Anmelden';
+                        });
                 });
             });
         </script>
