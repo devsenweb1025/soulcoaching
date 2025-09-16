@@ -47,18 +47,19 @@ class Event extends Model
 
     public function getFormattedDateAttribute()
     {
-        return $this->event_date->format('j. F Y');
+        \Carbon\Carbon::setLocale('de');
+        return $this->event_date->translatedFormat('j. F Y');
     }
 
     public function getFormattedTimeAttribute()
     {
         $start = $this->start_time ? substr($this->start_time, 0, 5) : '';
         $end = $this->end_time ? substr($this->end_time, 0, 5) : '';
-        
+
         if ($start && $end) {
             return $start . ' Uhr - ' . $end . ' Uhr';
         }
-        
+
         return $start ? $start . ' Uhr' : '';
     }
 
