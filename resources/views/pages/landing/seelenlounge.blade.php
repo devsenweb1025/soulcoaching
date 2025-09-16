@@ -129,7 +129,7 @@
                             <!--end::Heading-->
 
                             <!--begin::Events Grid-->
-                            <div class="row g-10 justify-content-center">
+                            <div class="row g-10 justify-content-center flex-row-reverse">
                                 @forelse($events as $index => $event)
                                     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-easing="linear"
                                         data-aos-duration="500" data-aos-delay="{{ $index * 100 }}">
