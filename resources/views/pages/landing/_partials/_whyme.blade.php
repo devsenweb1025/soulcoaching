@@ -20,14 +20,14 @@
                                     'icon' => 'lovely',
                                     'title' => 'Hohe Empathie',
                                     'description' =>
-                                        'Dank meiner Hochsensibilität und meiner Familiengeschichte nehme ich Emotionen intuitiv wahr. Dies ermöglicht mir, deine Herausforderungen tiefgehend zu verstehen und dir gezielt zu helfen, Blockaden zu lösen. Gemeinsam schaffen wir eine vertrauensvolle Atmosphäre für deine persönliche Transformation. Lass uns gemeinsam dein erfülltes Leben gestalten!',
+                                        'Durch meine Hochsensibilität und die Herausforderungen, die mir das Leben selbst geschenkt hat, spüre ich feinfühlig, was zwischen den Zeilen liegt – unausgesprochene Gefühle, tiefe Sehnsüchte, innere Blockaden. Ich begegne dir mit echtem Verständnis, Achtsamkeit und einem offenen Herzen, das dich wirklich sieht. Gemeinsam schaffen wir einen Raum der Heilung und tiefen Transformation, in dem du dich sicher und gehalten fühlen darfst. Lass uns deine inneren Schätze freilegen und Schritt für Schritt das Leben gestalten, das deiner Seele entspricht.',
                                     'delay' => '500',
                                 ],
                                 [
                                     'icon' => 'setting-2',
                                     'title' => 'Persönlichkeitsentwicklung',
                                     'description' =>
-                                        'Mit über 10 Jahren Erfahrung in der Persönlichkeitsentwicklung unterstütze ich dich, Blockaden zu überwinden und dein Potenzial zu leben. Du sparst dir Zeit, weil du konkrete Methodiken und Expertenwissen zur Transformation erhältst.',
+                                        'Mit über 10 Jahren Erfahrung in der Persönlichkeitsentwicklung unterstütze ich dich, Blockaden zu überwinden und dein Potenzial zu entfalten. Du sparst Zeit, weil du konkrete Methoden und Expertenwissen für deine Transformation erhältst.',
                                     'delay' => '700',
                                 ],
                                 [
@@ -48,7 +48,7 @@
                                     'icon' => 'medal-star',
                                     'title' => 'Medialität',
                                     'description' =>
-                                        'Als mediale Beraterin nehme ich feinstoffliche Energien und Informationen wahr, die dir helfen, Klarheit und Orientierung in deinem Leben zu finden. Diese Fähigkeit ermöglicht es mir, gezielte Impulse zu geben, die deine unbewussten Blockaden wirksam und rasch lösen. Profitiere von meiner Medialität.',
+                                        'Als mediale Beraterin empfange ich feinstoffliche Energien und Botschaften, die dir Klarheit und neue Orientierung in deinem Leben schenken. Meine Gabe erlaubt es mir, genau die Impulse zu setzen, die deine unbewussten Blockaden sanft lösen und eine tiefgreifende Transformation ermöglichen – damit du wieder frei und mit Leichtigkeit deinen Weg gehen kannst.Vertraue meiner Medialität und erlebe, wie sich dein Leben in eine kraftvolle Transformation wandeln darf.',
                                     'delay' => '700',
                                 ],
                             ];
