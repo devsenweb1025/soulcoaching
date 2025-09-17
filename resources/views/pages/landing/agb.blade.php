@@ -38,7 +38,10 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Diese Allgemeinen Geschaeftsbedingungen gelten fuer alle Dienstleistungen und Angebote von Seelenfluesterin, abrufbar unter www.seelen-fluesterin.ch. Mit der Nutzung der Leistungen erklaert sich die Kundin bzw. der Kunde mit diesen Bedingungen einverstanden.
+                                        Diese Allgemeinen Geschaeftsbedingungen gelten fuer alle Dienstleistungen und
+                                        Angebote von Seelenfluesterin, abrufbar unter www.seelen-fluesterin.ch. Mit der
+                                        Nutzung der Leistungen erklaert sich die Kundin bzw. der Kunde mit diesen
+                                        Bedingungen einverstanden.
                                     </div>
                                     <!--end::Text-->
 
@@ -47,7 +50,11 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Seelenfluesterin bietet spirituelle Begleitung, Energiearbeit, mediale Beratungen, Tierkommunikation, Kartenlegung per Hotline, Onlinekurse sowie digitale Produkte an. Die Leistungen erfolgen nach bestem Wissen und Gewissen, ersetzen jedoch keine aerztliche, psychologische oder psychotherapeutische Behandlung oder Diagnose.
+                                        Seelenfluesterin bietet spirituelle Begleitung, Energiearbeit, mediale
+                                        Beratungen, Tierkommunikation, Kartenlegung per Hotline, Onlinekurse sowie
+                                        digitale Produkte an. Die Leistungen erfolgen nach bestem Wissen und Gewissen,
+                                        ersetzen jedoch keine aerztliche, psychologische oder psychotherapeutische
+                                        Behandlung oder Diagnose.
                                     </div>
                                     <!--end::Text-->
 
@@ -56,7 +63,10 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Fuer bestimmte Angebote wie Onlinekurse, Workshops oder Beratungen ist eine vorherige Anmeldung oder Registrierung erforderlich. Die Kundin bzw. der Kunde verpflichtet sich, bei der Anmeldung vollstaendige und wahrheitsgemaesse Angaben zu machen. Zugangsdaten sind persoenlich und vertraulich zu behandeln.
+                                        Fuer bestimmte Angebote wie Onlinekurse, Workshops oder Beratungen ist eine
+                                        vorherige Anmeldung oder Registrierung erforderlich. Die Kundin bzw. der Kunde
+                                        verpflichtet sich, bei der Anmeldung vollstaendige und wahrheitsgemaesse Angaben
+                                        zu machen. Zugangsdaten sind persoenlich und vertraulich zu behandeln.
                                     </div>
                                     <!--end::Text-->
 
@@ -65,7 +75,9 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Alle Preise verstehen sich in Schweizer Franken (CHF). Die Zahlung erfolgt im Voraus oder direkt im Anschluss an ein Gespraech via Zoom. Akzeptierte Zahlungsmethoden sind Mastercard, Visa (Kreditkarten), PayPal und Twint.
+                                        Alle Preise verstehen sich in Schweizer Franken (CHF). Die Zahlung erfolgt im
+                                        Voraus oder direkt im Anschluss an ein Gespraech via Zoom. Akzeptierte
+                                        Zahlungsmethoden sind Mastercard, Visa (Kreditkarten), PayPal und Twint.
                                     </div>
                                     <!--end::Text-->
 
@@ -74,7 +86,25 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Mit Bereitstellung des Download- oder Zugangslinks zu einem digitalen Produkt erlischt das Widerrufsrecht. Der Zugriff ist ausschliesslich fuer die registrierte Person bestimmt und nicht uebertragbar. Eine Weitergabe, Veroeffentlichung oder Vervielfaeltigung der Inhalte ist ausdruecklich untersagt. Bei Verstoss wird eine Konventionalstrafe von CHF 40’000.– faellig.
+                                        Mit Bereitstellung des Download- oder Zugangslinks zu einem digitalen Produkt
+                                        erlischt das Widerrufsrecht. Der Zugriff ist ausschliesslich fuer die
+                                        registrierte Person bestimmt und nicht uebertragbar. Eine Weitergabe,
+                                        Veroeffentlichung oder Vervielfaeltigung der Inhalte ist ausdruecklich
+                                        untersagt. Bei Verstoss wird eine Konventionalstrafe von CHF 40’000.– faellig.
+                                    </div>
+                                    <!--end::Text-->
+
+                                    <!--begin::Title-->
+                                    <h1 class="text-gray-900 fw-boldest fs-2x">Online Shop:</h1>
+                                    <!--end::Title-->
+                                    <!--begin::Text-->
+                                    <div class="fs-2 py-2">
+                                        Die Seelenfluesterin übernimmt keine Haftung für Schäden, Verluste oder
+                                        Verzögerungen, die während des Transports der Produkte entstehen. Das Risiko
+                                        geht mit der Übergabe an den Versanddienstleister auf die Kundin bzw. den Kunden
+                                        über. <br />
+                                        Für im Online-Shop bestellte Produkte besteht kein Rückgaberecht. Eine Rücknahme
+                                        oder Rückerstattung, unabhängig vom Zustand der Ware, ist ausgeschlossen.
                                     </div>
                                     <!--end::Text-->
 
@@ -83,7 +113,10 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Termine muessen mindestens 48 Stunden im Voraus abgesagt oder verschoben werden. Bei kurzfristigeren Absagen oder Nichterscheinen wird der volle Betrag in Rechnung gestellt, es sei denn, es liegt ein triftiger und nachweisbarer Grund vor.
+                                        Termine muessen mindestens 48 Stunden im Voraus abgesagt oder verschoben werden.
+                                        Bei kurzfristigeren Absagen oder Nichterscheinen wird der volle Betrag in
+                                        Rechnung gestellt, es sei denn, es liegt ein triftiger und nachweisbarer Grund
+                                        vor.
                                     </div>
                                     <!--end::Text-->
 
@@ -92,7 +125,10 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Die Inanspruchnahme der Leistungen erfolgt auf eigene Verantwortung. Es wird keine Haftung fuer Entscheidungen oder Handlungen uebernommen, die auf Grundlage der erhaltenen Informationen getroffen werden. Die Angebote dienen der persoenlichen Weiterentwicklung und ersetzen keine medizinische Beratung.
+                                        Die Inanspruchnahme der Leistungen erfolgt auf eigene Verantwortung. Es wird
+                                        keine Haftung fuer Entscheidungen oder Handlungen uebernommen, die auf Grundlage
+                                        der erhaltenen Informationen getroffen werden. Die Angebote dienen der
+                                        persoenlichen Weiterentwicklung und ersetzen keine medizinische Beratung.
                                     </div>
                                     <!--end::Text-->
 
@@ -101,7 +137,10 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Fuer die Durchfuehrung der Leistungen koennen Drittanbieter wie z. B. Zoom, Calendly, Mailchimp oder Zahlungsdienste genutzt werden. Deren Datenschutz- und Nutzungsbedingungen gelten zusaetzlich zu den Bestimmungen der Datenschutzerklaerung von Seelenfluesterin.
+                                        Fuer die Durchfuehrung der Leistungen koennen Drittanbieter wie z. B. Zoom,
+                                        Calendly, Mailchimp oder Zahlungsdienste genutzt werden. Deren Datenschutz- und
+                                        Nutzungsbedingungen gelten zusaetzlich zu den Bestimmungen der
+                                        Datenschutzerklaerung von Seelenfluesterin.
                                     </div>
                                     <!--end::Text-->
 
@@ -110,7 +149,10 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Saemtliche Inhalte dieser Website sowie alle digitalen Produkte (Texte, Videos, Bilder etc.) sind urheberrechtlich geschuetzt. Jegliche Weiterverwendung bedarf der ausdruecklichen, schriftlichen Genehmigung durch Seelenfluesterin. Unrechtmaessige Nutzung wird rechtlich verfolgt.
+                                        Saemtliche Inhalte dieser Website sowie alle digitalen Produkte (Texte, Videos,
+                                        Bilder etc.) sind urheberrechtlich geschuetzt. Jegliche Weiterverwendung bedarf
+                                        der ausdruecklichen, schriftlichen Genehmigung durch Seelenfluesterin.
+                                        Unrechtmaessige Nutzung wird rechtlich verfolgt.
                                     </div>
                                     <!--end::Text-->
 
@@ -119,7 +161,10 @@
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fs-2 py-2">
-                                        Es gilt ausschliesslich Schweizer Recht. Gerichtsstand ist, soweit gesetzlich zulaessig, der Sitz von Seelenfluesterin in Egnach, Schweiz. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Gueltigkeit der uebrigen unberuehrt.
+                                        Es gilt ausschliesslich Schweizer Recht. Gerichtsstand ist, soweit gesetzlich
+                                        zulaessig, der Sitz von Seelenfluesterin in Egnach, Schweiz. Sollten einzelne
+                                        Bestimmungen dieser AGB unwirksam sein, bleibt die Gueltigkeit der uebrigen
+                                        unberuehrt.
                                     </div>
                                     <!--end::Text-->
                                 </div>

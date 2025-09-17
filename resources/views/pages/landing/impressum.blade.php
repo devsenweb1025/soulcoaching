@@ -47,6 +47,7 @@
                             9322 Egnach<br />
                             Schweiz<br />
                             E-Mail: info@seelen-fluesterin.ch<br />
+                            UID: CHE-227.711.069<br />
                             Website: <a href="https://www.seelen-fluesterin.ch"
                                 target="_blank">www.seelen-fluesterin.ch</a>
                         </div>
