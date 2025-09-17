@@ -47,15 +47,16 @@
                                 <div class="card-body p-0">
                                     <div class="row g-0">
                                         <!-- Owner Image -->
-                                        <div class="col-lg-4">
+                                        <div class="col-12 col-lg-4">
                                             <div class="position-relative h-100 min-h-400px contact-owner-image">
                                                 <img src="{{ asset(theme()->getMediaUrlPath() . 'landing/sarah-barone-seelenfluesterin-businessportrait.webp') }}"
                                                     class="w-100 h-100 object-fit-cover"
-                                                    alt="Sarah Barone - Seelenflüsterin, Transformationscoach">
+                                                    alt="Sarah Barone - Seelenflüsterin, Transformationscoach"
+                                                    style="object-position: center top;">
                                             </div>
                                         </div>
                                         <!-- Owner Info -->
-                                        <div class="col-lg-8">
+                                        <div class="col-12 col-lg-8">
                                             <div
                                                 class="p-15 p-lg-20 h-100 d-flex flex-column justify-content-center contact-info-card">
                                                 <div class="mb-10">
@@ -331,6 +332,73 @@
             z-index: 500;
             bottom: 50vh !important;
             transform: translateY(50%);
+        }
+
+        /* Mobile responsive fixes for owner image */
+        @media (max-width: 991.98px) {
+            .contact-owner-image {
+                border-radius: 12px 12px 0 0;
+                min-height: 300px !important;
+                height: 300px !important;
+            }
+            
+            .contact-info-card {
+                border-radius: 0 0 12px 12px;
+            }
+            
+            .contact-owner-image img {
+                object-position: center center !important;
+                min-height: 300px;
+                height: 300px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .contact-owner-image {
+                min-height: 250px !important;
+                height: 250px !important;
+            }
+            
+            .contact-owner-image img {
+                min-height: 250px;
+                height: 250px;
+                object-position: center center !important;
+                width: 100%;
+            }
+        }
+
+        /* iPhone specific fixes */
+        @media only screen 
+        and (device-width: 375px) 
+        and (device-height: 667px) 
+        and (-webkit-device-pixel-ratio: 2) {
+            .contact-owner-image {
+                min-height: 280px !important;
+                height: 280px !important;
+            }
+            
+            .contact-owner-image img {
+                min-height: 280px;
+                height: 280px;
+                object-position: center center !important;
+            }
+        }
+
+        @media only screen 
+        and (device-width: 414px) 
+        and (device-height: 896px) 
+        and (-webkit-device-pixel-ratio: 2) {
+            .contact-owner-image {
+                min-height: 300px !important;
+                height: 300px !important;
+            }
+            
+            .contact-owner-image img {
+                min-height: 300px;
+                height: 300px;
+                object-position: center center !important;
+            }
         }
     </style>
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
