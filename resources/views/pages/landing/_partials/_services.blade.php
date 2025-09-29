@@ -23,7 +23,7 @@
                         <h1 class="fs-2hx fw-bold mb-5 font-cinzel" id="pricing"
                             data-kt-scroll-offset="{default: 100, lg: 150}">Transformationscoaching</h1>
                         <div class="text-gray-600 fw-semibold fs-2">
-                            Entdecke meine Transformationscoaching.
+                            Entdecke meine Transformationscoachings.
                         </div>
                     </div>
                     <!--end::Heading-->
