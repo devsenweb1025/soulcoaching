@@ -39,12 +39,8 @@
                                 class="text-gray-600 text-hover-white fs-5 mb-6">Medien & Partner</a>
                             <!--end::Link-->
                             <!--begin::Link-->
-                            <a href="{{ route('services') }}"
-                                class="text-gray-600 text-hover-white fs-5 mb-6">Dienstleistungen</a>
-                            <!--end::Link-->
-                            <!--begin::Link-->
                             <a href="{{ route('prices') }}"
-                                class="text-gray-600 text-hover-white fs-5 mb-6">Preise</a>
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Transformationscoaching</a>
                             <!--end::Link-->
                             <!--begin::Link-->
                             <a href="{{ route('course') }}"
@@ -55,12 +51,20 @@
                                 class="text-gray-600 text-hover-white fs-5 mb-6">Online Shop</a>
                             <!--end::Link-->
                             <!--begin::Link-->
+                            <a href="{{ route('seelenlounge') }}"
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Seelenlounge</a>
+                            <!--end::Link-->
+                            <!--begin::Link-->
+                            <a href="{{ route('transformationsraum') }}"
+                                class="text-gray-600 text-hover-white fs-5 mb-6">Transformationsraum</a>
+                            <!--end::Link-->
+                            <!--begin::Link-->
                             <a href="{{ route('contact') }}"
                                 class="text-gray-600 text-hover-white fs-5">Kontakt</a>
                             <!--end::Link-->
                         </div>
                         <!--end::Links-->
-                        <!--begin::Links-->
+                        {{-- <!--begin::Links-->
                         <div class="d-flex fw-semibold flex-column ms-lg-20">
                             <!--begin::Subtitle-->
                             <h4 class="fw-bold text-gray-500 mb-6">Folge mir gerne auf</h4>
@@ -101,7 +105,7 @@
                             </a>
                             <!--end::Link-->
                         </div>
-                        <!--end::Links-->
+                        <!--end::Links--> --}}
                     </div>
                     <!--end::Navs-->
                 </div>
