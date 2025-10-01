@@ -107,6 +107,7 @@ class LandingController extends Controller
     public function seelenlounge()
     {
         $events = Event::orderBy('event_date', 'desc')->limit(4)->get();
+        $events = $events->reverse();
         return view('pages.landing.seelenlounge', compact('events'));
     }
 
